@@ -1,0 +1,1 @@
+{'32556868': {'pageid': 32556868, 'ns': 0, 'title': "The B-52's", 'revisions': [{'contentformat': 'text/x-wiki', 'contentmodel': 'wikitext', '*': '#REDIRECT [[The B-52s]]\n\n{{R from alternative punctuation}}\n{{R from move}}\n{{R up}}'}]}}
