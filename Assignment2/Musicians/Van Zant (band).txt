@@ -1,0 +1,1 @@
+{'75492089': {'pageid': 75492089, 'ns': 0, 'title': 'Van Zant (band)', 'revisions': [{'contentformat': 'text/x-wiki', 'contentmodel': 'wikitext', '*': '#REDIRECT [[Van Zant (duo)]]\n\n{{Redirect category shell|\n{{R from move}}\n}}'}]}}

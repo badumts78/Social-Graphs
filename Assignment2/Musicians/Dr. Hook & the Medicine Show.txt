@@ -1,0 +1,1 @@
+{'79362852': {'pageid': 79362852, 'ns': 0, 'title': 'Dr. Hook & the Medicine Show', 'revisions': [{'contentformat': 'text/x-wiki', 'contentmodel': 'wikitext', '*': '#REDIRECT [[Dr. Hook]]\n\n{{Redirect category shell|\n{{R from move}}\n}}'}]}}
