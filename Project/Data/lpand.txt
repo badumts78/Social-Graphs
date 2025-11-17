@@ -1,0 +1,18 @@
+issue
+New gml reader and writer#TITLE_END#This idea is born from issue #972 and the discussion followed suit. This push aims to replace the old GML file format parser and generator with one stricter, faster and less buggy. - it doesn't have external dependencies - supports attribute lists – unlike what the `write_gml` documentation says, GML supports list attributes as long as they have at least two elements. - ensures node ids are integers, if not sets the label as the old id value and assigns an increasing number as id. - it's more tested.  I'm naturally opened to discussion and modifications.  Luca :) 
+issue
+fix related to #972 – improve gml generator and parser to handle list attributes#TITLE_END#Currently, write_gml and read_gml don't handle correctly list attributes – see issue #972. This push aims to fix that.  While looking at the code and the reference[1] of the GML format i discovered a few bugs like ids that from integer become strings... The parser and generator should be rewritten for the most part imho.  Cheers, Luca  [1] http://www.fim.uni-passau.de/fileadmin/files/lehrstuhl/brandenburg/projekte/gml/gml-technical-report.pdf 
+comment
+Hi, i've the same problem and created a gist with data and code to reproduce it: https://gist.github.com/lpand/bb12b58801e14ebdeb87  Shall we reopen this issue?  Edit: The problem seems to be related with node and edge attributes: removing node attributes causes the same problem on the line of the first edge; removing edge attributes too eliminates the problem.  Edit1: Specifically, the problem is how attributes of type `list` are translated to string.  Luca 
+comment
+It looks to me that the GML format doesn't support empty list attributes or with only one element. What do you think? 
+comment
+Yeah, the technical report document is the one i used as reference.  Since a record is translated into a `dict` and a line like `foo bar` into an entry of the `dict`, neither the case of empty list nor the one with only one element seem to be included :( 
+comment
+Hi,  as a person that has spent some time implementing an alternative solution to the problems affecting the current gml reader and writer, my opinion is a little biased probably.   I think that the general idea of providing a way to customize how to parse and write attributes, along with a default implementation, for the user  is a good idea, although i can't think of any other example of such a parser for a non-markup, not extensible language that has a standard specification.  As a user of NetworkX i chose the gml format to transfer a few of my networks to other applications because it's quite compact and can be compressed further. I don't care of customization, i want the gml format as specified in the reference being parsable by other applications that support it. Moreover i believe that if gml doesn't completely suits the needs of a user (supports only lists with more than one element, doesn't has the concept of tuple, set etc.), that user will select one of the many other formats supported by NetworkX – e.g. gpickle if she doesn't need to transfer the network to other apps, or graphml.  Cheers, Luca 
+comment
+I don't think `repr` alone is enough:  ``` python >>> repr((1,2)) '(1, 2)' ```  This violates the definition of string in GML. 
+comment
+I've been thinking about converting any iterable into a GML list in #1261: tuples, sets etc. since the assumption that only python lists must be converted to GML lists is wrong. I'll hold on though that you decide which alternative to approve.   
+comment
+@chebee7i sorry for the late answer. I've been very busy with my job, i'll see what i can do.  @ysitu yes, that's what the GML reference imposes. 

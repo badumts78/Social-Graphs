@@ -1,0 +1,2 @@
+comment
+Hi I am Himanshu. I wish to take this up.  From what i understand: 1) Add a parameter for colour in edges 2) Add a function for taking coloured edges in graph class  [Later can be added to other classes] 3) Find shortest path using dijktra with edge colour same in path.   Can some mentor guide on how should i go about this ?  

@@ -1,0 +1,2 @@
+issue
+Generalized degree#TITLE_END#Added the functionality to compute the [generalized degree](https://arxiv.org/abs/1101.2435) which returns the number of edges a node has that participate in a given number of triangles.  P.S. Is there a way to test the documentation generated from docstrings before merging to see if the maths markdown has rendered correctly? 

@@ -1,0 +1,2 @@
+comment
++1 for this.  This would simplify the Rural and Chinese Postman solver I'm working on.  From the user perspective, it seems natural that`shortest_path` would return the corresponding key on MultiGraph since presumably this information is considered in the computation. 

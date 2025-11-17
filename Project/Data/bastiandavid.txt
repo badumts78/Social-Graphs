@@ -1,0 +1,4 @@
+issue
+Fixed nx.Digraph to nx.DiGraph - Issue #3867#TITLE_END#My first, tiny contribution to networkx.
+comment
+Fixed the typos and created a PR: #3909 

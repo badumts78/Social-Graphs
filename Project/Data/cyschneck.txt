@@ -1,0 +1,6 @@
+issue
+Fix reading edgelist when delimiter is whitespace, e.g. tab #TITLE_END#<!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> ## PR Summary Replace strip with rstrip to remove whitespace  > This line.strip without an argument, means a white-space delimited file (e.g. tab, which is quite common) with empty edge attribute(s) in the last column(s) results in a crash with error Edge data [...] and data_keys [...] are not the same length.  ## Issue Closes #7462 
+comment
+This is a spam/virus link. Do not click on it. I reported the user/comment
+comment
+> Hello, I can't get your result :( could you make a short explanatory video? >    You can close this issue, this user is just fishing for spam/virus

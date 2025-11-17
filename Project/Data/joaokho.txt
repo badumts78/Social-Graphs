@@ -1,0 +1,2 @@
+issue
+Could networkx draw imported shape files like OSMnx?#TITLE_END#Could networkx import simple shape files, then drawing using matplotlib or other that can view like OSMnx graph like this?  ![az-simplify-strict](https://cloud.githubusercontent.com/assets/943439/23544748/c2bafaba-002a-11e7-9d04-af4981e08675.png) 

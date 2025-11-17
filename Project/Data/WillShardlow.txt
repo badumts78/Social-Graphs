@@ -1,0 +1,2 @@
+issue
+Fix typo smallworld.omega#TITLE_END#Fixed typo in description of smallworld.omega algorithm.  small-work --> small-world  (This is my first contribution to any project on GitHub. I've followed the contribution guidelines and hope I have done everything correctly!)

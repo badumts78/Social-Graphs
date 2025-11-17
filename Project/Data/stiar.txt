@@ -1,0 +1,2 @@
+issue
+Linear time algorithm for Eulerian circuit#TITLE_END#I implemented a linear time algorithm for Eulerian circuit construction. I am new to github and don't know the rules, should I write some more tests, show some benchmarks or provide any proof about correctness or complexity of this algorithm? Although this algorithm is simple, I couldn't find any reference for it. 

@@ -1,0 +1,38 @@
+issue
+Katz centrality scipy#TITLE_END#Added scipy version of the katz centrality algorithm. Followed lead of other implementations already present, including not checking if $\alpha \leq \frac{1}{\lambda}$ where $\lambda$  is the largest eigenvalue of the adjacency matrix of G. It should be noted that the closed form sum all of the implementations use is not valid if this condition is not met, but no error or warning is raised if it isn't. Should I add this to the existing implementations and my own? Also @jarrodmillman suggested in #6627 to make the new scipy version the default. I am not sure how to accomplish this. Open to suggestions on this. LMK what you guys think.  
+issue
+Added tests for lazy imports#TITLE_END#Added two test and updated another.  First tests importing a module lazily from its spec, pip was the first module I thought of. Second I checked that the sub-modules were correctly attempting to be imported. The error message ensures that the correct error is being caught.  Lastly I tested an import when submodules and submod_attrs are allowed to default to None. Also the error generation when calling __getattr__ with a submodule that shouldn't be added.
+issue
+Added tests to test_directed.py.#TITLE_END#Completes coverage of the generators/directed file
+issue
+Added two tests for convert_numpy#TITLE_END#Added test for when the node list includes a node that is not in the graph. Added test for when the incoming array is 3 dimensional.
+issue
+Improve coverage for core.py#TITLE_END#Increased Test coverage in test_core.py  Pursuant to issue #6115 
+issue
+Testing increase in generators/line#TITLE_END#Missing many branches in line.py.  See link: https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/generators/line.py ### Expected Behavior More tests are needed.  ### Steps to Reproduce Look at the coverage.     
+issue
+Improve swap.py test coverage#TITLE_END#Added tests in test_swap, hitting edge cases when self loops or small cycles are hit, or when no edges are available to be swapped. 
+issue
+Minor updates in matching.py #TITLE_END#Condensed some nested ifs, removed code that did not have any effect, and the comment explaining the code that had no effect.  
+issue
+Testing improvement and minor bug fix in Algorithms/Bipartite#TITLE_END#Completes testing coverage in Algorithms/Bipartite. Only one branch is unchecked, but I believe it is unreachable. Two changes to non testing code. First in generators, a random star graph was returned with no edges, now it should work as intended. Second in matching, I removed an outdated comment and changed two nested if statements to one if statement. Otherwise, test-coverage should be complete. 
+issue
+Line.py tests #TITLE_END#Adds coverage to Line.py. Slight issue with coverage, tests are not consistent, I believe it is due to the use of the arbitrary element. Only changes to non testing code are 1. adding error catching, 2. removed a branch that is redundant. #6191 
+issue
+Testing coverage increase in generators/community.py #TITLE_END#### Current Behavior Many branches not tested in community.py. Most are simple errors and need easy test cases to be written, I should have a PR up today.  See coverage here : https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/generators/community.py ### Expected Behavior 100% coverage should be possible with a few extra tests.  ### Steps to Reproduce View coverage   
+issue
+Completed Testing in community.py resolves issue #6184#TITLE_END#Adds testing coverage in community.py. Only branch not tested is the return statement of a nested function, which I do not know how to test. Couple of best practice questions.  1. When testing internal functions, is it OK to simply call them directly, or should they be covered exclusively by forcing another function to call them?  2. When forcing an ImportError, what is the best practice, I used sys.modules, but am unsure of other (better) ways. Let me know of any other issues #6184  
+issue
+Improve testing coverage in Algorithms/Bipartite#TITLE_END#  ### Current Behavior  Test coverage can be improved. See https://app.codecov.io/gh/networkx/networkx/tree/main/networkx/algorithms  
+issue
+Increased test coverage algorithms/matching.py#TITLE_END#Black ran. Added some tests in test_matching.py to hit some untested conditionals. Should get coverage up to around 97 from 94.
+issue
+Increase covering coverage#TITLE_END#Increases coverage to reach final conditional
+issue
+Increase test coverage in core.py#TITLE_END#Some untested conditionals in https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/core.py and I'd like to add them.   The tests will be added in https://github.com/networkx/networkx/blob/main/networkx/algorithms/tests/test_core.py  Current Behavior:  Not testing exceptions that are raised  Expected Behavior, test all conditions  Steps to reproduce, Look at coverage link above.
+issue
+Testing Imporovement for covering.py#TITLE_END#Testing completed for covering.py
+issue
+Increase covering coverage#TITLE_END#Tested the last unchecked line in covering.py
+comment
+Yep definitely looks a lot more put together than mine. I closed mine and also took a second to add matches to all of the exceptions on this one. IDK about the best way to solve the self loop issue either but I made a quick fix warning based on @Aufinal 's suggestion. What would be the best way to make those changes, can I do it on this PR or should I make a new one?  

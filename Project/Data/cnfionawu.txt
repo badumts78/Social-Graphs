@@ -1,0 +1,4 @@
+issue
+Docstring improvement for nx_pylab.py#TITLE_END#Added docstring for font_color and edgecolors. 
+issue
+Added docstring examples for nx_pylab.py#TITLE_END#Added doc examples for draw_circular, draw_kamada_kawai, draw_random, draw_spectral, draw_spring, draw_shell, and draw_planar functions. 

@@ -1,0 +1,2 @@
+issue
+floyd_warshall bad distances dist[u][u] for undirected graphs#TITLE_END#Example: import networkx as nx G=nx.Graph([(1,2),(1,3)]) P,D=nx.floyd_warshall_predecessor_and_distance(G)  now D[1][1]=0, but D[2][2]=D[3][3]=2.0  We propose to add one line in the source of floyd_warshall_predecessor_and_distance function as shown below:  ```         ...         if undirected:             dist[v][u] = min(e_weight, dist[v][u])             dist[v][v] = 0   <-----------------  this is the new line             pred[v][u] = v         ... ``` 

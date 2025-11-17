@@ -1,0 +1,4 @@
+comment
+@elplatt Sir, I met the same problem as @lhassan1 , is greedy_modularity_communities support directed graph now?  If not, Does networkx support any methods for reliable community detection and modularity calculation on directed graphs?
+comment
+@elplatt Thanks. Good luck to your PDH work.

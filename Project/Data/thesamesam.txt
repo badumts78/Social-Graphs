@@ -1,0 +1,4 @@
+comment
+I think we might be hitting this in Gentoo on x86 (https://bugs.gentoo.org/921958).   If i run that script above, I get: ``` $ python /tmp/foo.py [3, 2, 1, 0, 5, 4, 3] [3, 2, 1, 0, 5, 4, 3] [3, 2, 1, 0, 5, 4, 3] [3, 2, 1, 0, 5, 4, 3] [3, 2, 1, 0, 5, 4, 3] [3, 2, 1, 0, 5, 4, 3] [3, 2, 1, 0, 5, 4, 3] [3, 2, 1, 0, 5, 4, 3] [3, 2, 1, 0, 5, 4, 3] [3, 2, 1, 0, 5, 4, 3] [3, 2, 1, 0, 5, 4, 3] [3, 2, 1, 0, 5, 4, 3] [3, 2, 1, 0, 5, 4, 3] [3, 2, 1, 0, 5, 4, 3] [3, 2, 1, 0, 5, 4, 3] ```  But for me, I seem to always get the failure (and the same output from the script).
+comment
+> What version of networkx and python are you using?  networkx-3.2.1 w/ python-3.11.8

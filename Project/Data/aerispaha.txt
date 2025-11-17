@@ -1,0 +1,4 @@
+issue
+unpacked dict to provide kwargs when creating nodes from shapefiles#TITLE_END#this unpacks the `attributes` dictionary in `read_shp()` so that `net.add_node()` works. `attributes` is unpacked into keyword arguments.
+issue
+Reading shapefiles fails because  add_node() expects a kwargs#TITLE_END#It seems that in v2.x, `G.add_node()` no longer accepts a dictionary to add attributes to the node and instead accepts kwargs. This breaks `nx.read_shp()` because the dictionary, `attributes`, (created for each feature in the shapefile), is passed into `add_node()`.   I think this can be fixed by simply unpacking the `attributes` dictionary.

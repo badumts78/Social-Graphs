@@ -1,0 +1,2 @@
+issue
+Geometric graph export to GEXF#TITLE_END#Hello,  I was trying to export a random_geometric_graph created with the graph generator. There is a issue with tuples created for node positions, trying to export raise a KeyError in that tuples.  I 'solved' with changing the tuple with separate x and y attributtes.   for node,(x,y) in pos.items():     G.node[node]['x'] = float(x)     G.node[node]['y'] = float(y)     del(G.node[node]['pos'])    Is there any other solutions? 

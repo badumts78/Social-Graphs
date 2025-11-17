@@ -1,0 +1,2 @@
+issue
+Fix Graph() docstring to reflect input flexibility#TITLE_END#The existing documentation on the Graph() constructor function says that it can only take "an edge list or a NetworkX graph object" as well as a few third-party formats. This isn't true, since the data is just passed to the to_networkx_graph() function, which can actually accept a wider variety of input formats - including dict of dicts and dict of lists. 

@@ -1,0 +1,2 @@
+issue
+Creating a graph using "nx.from_pandas_adjacency()"#TITLE_END#When using:  `nx.from_pandas_adjacency(df, create_using=nx.DiGraph) ` the created instance is of class Graph regardless of the value of the `create_using` parameter.

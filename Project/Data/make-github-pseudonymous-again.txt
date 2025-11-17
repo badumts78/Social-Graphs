@@ -1,0 +1,6 @@
+issue
+maximal_matching and self loops#TITLE_END#`maximal_matching` does allow self-loops  ``` py >>> G = nx.Graph([[1,1]]) >>> nx.matching.maximal_matching(G) {(1, 1)} ```  whereas `max_weight_matching` does not  ``` py >>> nx.matching.max_weight_matching(G) {} ```  Is this expected behaviour? If not, a simple `u != v` check should fix it. 
+issue
+constant factor improvement for maximal_matching#TITLE_END#keep a set of used vertices instead of used edges 
+issue
+weight parameter for max_weight_matching#TITLE_END#add weight attribute parameter in `max_weight_matching` 

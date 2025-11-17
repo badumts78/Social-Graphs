@@ -1,0 +1,2 @@
+issue
+Breadth-first search with depth limit#TITLE_END#I have added depth limit to BFS algorithm using constant space complexity. Would be pleased for every comment. I know you can use combination of DFS and BFS, but this is more convenient way I guess. 

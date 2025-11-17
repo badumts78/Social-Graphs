@@ -1,0 +1,2 @@
+issue
+Documentation of networkx.traversal module#TITLE_END#The functions in <code>networkx.traversal</code> in 1.8 have some counter intuitive behavior, e.g. no return value of <code>dfs_edges</code>, and inconsistent use of terms, e.g. "return" and "produce" (What means "produce"? Is the return value backup up by the graph's node/edge list?) could be used to distungish between functions with return values and those without, at least there shouldn't be a mix. 

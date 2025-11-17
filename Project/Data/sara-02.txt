@@ -1,0 +1,6 @@
+issue
+[Docs][Sampson]Missing datafile for viszulation example#TITLE_END#How does one obtain the `sampson_data.zip` and `samplike*.txt` files mentioned in the visualization example here: https://networkx.github.io/documentation/stable/auto_examples/drawing/plot_sampson.html Running the `.py` or the `.ipynb` raises  ``` FileNotFoundError: [Errno 2] No such file or directory: 'sampson_data.zip' ``` Networkx: 2.4 installed via pip running python3
+issue
+[Typo][Doctring][graph.py][get_edge_data()]#TITLE_END#The doc string of the `get_edge_details` fucntion of `graphy.py` seems to have a minor typo. ```     def get_edge_data(self, u, v, default=None):         """Returns the attribute dictionary associated with edge (u, v).         This is identical to `G[u][v]` except the default is returned         instead of an exception is the edge doesn't exist. ```  **is** `the edge doesn't exist.` should be **if** `the edge doesn't exist.` Line: https://github.com/networkx/networkx/blob/master/networkx/classes/graph.py#L1331
+issue
+Deprication Warning while running nx.draw_networkx#TITLE_END#`nx.draw_networkx(g)` ``` python3.6/site-packages/networkx/drawing/nx_pylab.py:579: MatplotlibDeprecationWarning:  The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.   if not cb.iterable(width): ``` Hoping this is being tracked :)

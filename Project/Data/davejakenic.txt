@@ -1,0 +1,2 @@
+issue
+deterministic pos#TITLE_END#The following code shall --whenever called with identical data ```V,E```-- create the exact same image.  The documentation does not permit a clue on whether or where any randomness might be involved. I am aware that the optional argument "pos" may be created by an nx.layout function such as the kamada_kawai_layout. Notice however, that all this misses what the question is.  ``` G=networkx.DiGraph() G.add_nodes_from(V) G.add_edges_from(E) networkx.draw_networkx(G,nodelist=[i for i in range(len(V))],labels=V) matplotlib.pyplot.show() ```

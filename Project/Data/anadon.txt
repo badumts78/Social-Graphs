@@ -1,0 +1,4 @@
+issue
+Would you like to coordinate with Boost Graph Library?#TITLE_END#Hello,  I'm helping maintain BGL, and I was looking through some of the older tickets yesterday.  It seems that we lacked functionality you guys needed.  Given the BGL should be able to run things faster and should be somewhat compatible with NetworkX, I'd like to know if someone would be interesting in pointing out where some functionality is wrong or needs to be added, then to merge some functionality?  I think this would be excellent for users.
+issue
+Broken links in documentation#TITLE_END#Looks like the pages to the GraphML specification are broken.  https://networkx.github.io/documentation/networkx-1.11/reference/readwrite.gml.html

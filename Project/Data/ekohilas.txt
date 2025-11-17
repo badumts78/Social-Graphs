@@ -1,0 +1,6 @@
+issue
+updated documentation instances of neighbour to neighbor for consistency#TITLE_END#I noticed that there were inconsistencies with the spelling of "neighbor" as "neighbour" when recently using your library, and I wanted to contribute back given it's hackoctoberfest and make some quick updates to the spelling for consistency, correcting the instances to the american versions (which is what I assume is the preffered in this repository)  These were all the instances of "neighbour" in the documentation according to my recursive grep search.
+issue
+refactored code instances of neighbour to neighbor for consistency#TITLE_END#I noticed that there were inconsistencies with the spelling of "neighbor" as "neighbour" when recently using your library, and I wanted to contribute back given it's hackoctoberfest and make some quick updates to the spelling for consistency, correcting the instances to the american versions (which is what I assume is the preffered in this repository)  These were all the instances of "neighbour" in the code according to my recursive grep search.
+issue
+Converting a 2D list to a Graph#TITLE_END#Hi,  Is there existing functionality to convert a 2D grid (list of lists) of nodes into a networkx graph?  Cheers!

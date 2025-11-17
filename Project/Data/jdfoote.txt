@@ -1,0 +1,2 @@
+issue
+Fixing typo in effective_size documentation#TITLE_END#Fixing very small typo in the explanation of `effective_size`

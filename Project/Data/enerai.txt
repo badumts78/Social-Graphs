@@ -1,0 +1,2 @@
+issue
+Would it be possible to tell whether there is any plan using Fibonacci heap to speed up Dijkstra Algorithm?#TITLE_END#Dear developers,   Would it be possible to tell whether there is any plan using Fibonacci heap to speed up Dijkstra Algorithm? Or is it possible to provide a way to replace the current heap with Fibonacci heap?

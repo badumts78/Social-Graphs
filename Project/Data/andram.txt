@@ -1,0 +1,2 @@
+issue
+Fixed a wrong check in watts_strogatz_graph#TITLE_END#Dear networkx developers,   there was a wrong check in watts_strogatz_graph which made the following valid code break:  import networkx as nx nx.watts_strogatz_graph(10,6,0.0)  This would give the following error:  networkx.exception.NetworkXError: k>=n/2, choose smaller k or larger n  However, it should yield a ring network, with every node attached to 6 neighbours. This patch fixes it.  Could you please merge?  Best regards, Andreas Amann 

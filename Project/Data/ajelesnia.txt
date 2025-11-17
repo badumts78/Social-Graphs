@@ -1,0 +1,2 @@
+comment
+Had the same issue here using python 3.4 and using networkx version 1.9.1, that version was last release d in Sept. 2014 and the fix was merged in November 2014.  Might have to checkout the repo to get the latest update 

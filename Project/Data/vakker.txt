@@ -1,0 +1,2 @@
+issue
+Length check added to simple_cycles#TITLE_END#Adding a `max_len` parameter to `simple_cycles` according to #4797  Johnson's algorithm needs to be checked to see if this interferes with it. 

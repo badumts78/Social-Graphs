@@ -1,0 +1,2 @@
+issue
+Projection functions not defined for multigraphs#TITLE_END#Why are the projection functions for bipartite algorithms not defined for multigraphs? Is there a way to project a multigraph bipartite network in this module?

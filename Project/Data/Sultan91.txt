@@ -1,0 +1,2 @@
+issue
+get_edge_data() returns not all edges in MultiDiGraph#TITLE_END#Having `f.get_edge_data(0, 1):` returns: `{0: {'weight': 3}, 1: {'weight': 2}, 2: {'weight': 1}} ` In case in `adj {0: {'weight': 3}, 1: {'weight': 2}, 2: {'weight': 1}}`. However when a graph has `adj {0: {'weight': 3}, 2: {'weight': 1}, 1: {'weight': 2}}` not in order. `get_edge_data()` returns: only one edge: `0: {'weight': 3}`

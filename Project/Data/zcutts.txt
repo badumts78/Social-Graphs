@@ -1,0 +1,2 @@
+issue
+G.selfloop_edges()#TITLE_END#When running my code I'm getting 'Graph' object has no attribute 'selfloop_edges'  sorry if this is the wrong place to report this, can't really figure out if this is something on my end.  Is anyone else having this same issue?

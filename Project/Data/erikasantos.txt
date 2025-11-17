@@ -1,0 +1,10 @@
+issue
+Simple Cycles speed up#TITLE_END#Speeding up simple_cycles (issue 604 / trac 613) 
+comment
+Hi, I believe I have fixed this. For acyclic graphs I achieve the same performance as the code posted here. So, I sent an email to hagberg with the code, even though I have no idea as to what is the correct procedure. If anyone's interested on this, feel free to contact me.  Érika 
+comment
+Ok, thanks. I've just done that. 
+comment
+Hi, I'm curious: why did you choose to use Floyd-Warshall? I began using this implementation here, then found it would be simpler (and faster) to use Bellman-Ford to find the negative cost cycle (because it stops at the first one it finds). Therefore, I adapted the original Bellman-Ford code so that instead of raising an error it just gives me "pred" and "dist". From there it actually seemed pretty easy (unless there's some error I didn't catch) to find the negative cost cycle itself. The rest of the main code here would be the same for the cycle cancelling.  Anyway, I had some error using this code here, but I was working with huge graphs and wouldn't be easy to tell what went wrong. I'm pretty sure it had to do with the test "col==short" on negative_cost_cycle(). Even if the distance from-to the same node is negative, there might be another negative cycle within this cycle. So, you should close a cycle the first time you re-visit a node and it's distance is negative, not when you find the original node ("short").  érika 
+comment
+Nice one! This is exactly what I expected this function to become. I'll run some speed tests on my simulations and tell you the results as soon as I can.  Thanks, Érika 

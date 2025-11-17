@@ -1,0 +1,2 @@
+comment
+This PR may be helpful in constructing a solution to shortest paths in `MultiDiGraphs`. https://github.com/networkx/networkx/issues/1120

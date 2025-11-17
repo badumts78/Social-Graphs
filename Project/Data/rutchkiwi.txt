@@ -1,0 +1,2 @@
+issue
+Added support for reading the labels of curved yEd edges#TITLE_END#I had some problems with graphml.read_graphml function discarding labels of curved edges, so i took the liberty of fixing it! :)  This commit makes it so that labels of curved edges, which were previously discarded, are added to the graph just like straight ones. 

@@ -1,0 +1,2 @@
+issue
+connected_component_subgraphs generator slow in v2.0#TITLE_END#hi  iteration over connected_component_subgraphs result generator is slow for attached graph comparably with 1.11 version (tested on Anaconda2/3 Win64/Linux64 1.11v take few seconds, v2.0 takes few hours)  thank you  [test.zip](https://github.com/networkx/networkx/files/1503157/test.zip) 

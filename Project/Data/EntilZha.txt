@@ -1,0 +1,2 @@
+issue
+Documentation Links Broken on Google#TITLE_END#It looks like recently the documentation was migrated to readthedocs instead of github.io. This seems to be causing widespread link breakage on google results. Could there be any changes made to put a permanent redirect or have google pickup those changes? 

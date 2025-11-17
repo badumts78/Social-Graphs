@@ -1,0 +1,2 @@
+issue
+Added new random graph generators geared for online social network, Ticket #703#TITLE_END#Can be found in /networkx/networkx/generators  Ticket #703: https://networkx.lanl.gov/trac/ticket/703 

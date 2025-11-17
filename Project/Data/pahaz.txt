@@ -1,0 +1,2 @@
+issue
+DiGraph drawing with matplotlib problem.#TITLE_END#Hi, I have problem with drawind DiGraph: ![image](https://cloud.githubusercontent.com/assets/1394025/6854397/e0cd7e9c-d412-11e4-9837-6b25a487377a.png)  As you can see, problem with drawing arrows.  ``` matplotlib==1.4.3 networkx==1.9.1 ```  Code:  ``` g = nx.DiGraph() g.add_edge(1, 2) ... nx.draw_circular(g)  # or nx.draw(g) or ... plt.show() ``` 

@@ -1,0 +1,2 @@
+issue
+Correct error in minimum_spanning_arborescence#TITLE_END#The error message appears to have been copied from `maximum_spanning_arborescence` to `minimum_spanning_arborescence` as the latter incorrectly reports "No maximum spanning arborescence in G". Fixed. 

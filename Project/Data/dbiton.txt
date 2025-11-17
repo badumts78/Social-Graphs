@@ -1,0 +1,2 @@
+issue
+graph_clique_number missing in 3.4.2 from clique.py file#TITLE_END#graph_clique_number shows up in clique.pyi, but can not be imported since the code seems to be missing from clique.py, node_clique_number seems to be there. An IDE would recognize:  from networkx.algorithms.clique import graph_clique_number  but actually running the code throws an:  ImportError: cannot import name 'graph_clique_number' from 'networkx.algorithms.clique' (...\Python312\Lib\site-packages\networkx\algorithms\clique.py). Did you mean: 'node_clique_number'?  Python 3.12.5, Windows, pip 24.3.1

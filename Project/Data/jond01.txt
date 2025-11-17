@@ -1,0 +1,2 @@
+issue
+Python 2 links in docs#TITLE_END#Here is one example, but it is general: https://networkx.github.io/documentation/latest/reference/generated/networkx.drawing.layout.bipartite_layout.html?highlight=dict Pressing *dict* link in the `Return type` leads to: https://docs.python.org/2/library/stdtypes.html#dict it would be best to change it to https://docs.python.org/3/library/stdtypes.html#dict Or even: https://docs.python.org/library/stdtypes.html#dict

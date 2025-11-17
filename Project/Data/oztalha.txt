@@ -1,0 +1,2 @@
+issue
+Depending on fiona instead of gdal for reading shapefiles#TITLE_END#Big spatial packages now read shapefiles using different libraries, e.g. @sgillies stated that  > Fiona and Rasterio pretty much replace osgeo.ogr and osgeo.gdal  NetworkX conflicts with Shapely, better come to a common term: https://github.com/Toblerity/Shapely/issues/262#issuecomment-285791048

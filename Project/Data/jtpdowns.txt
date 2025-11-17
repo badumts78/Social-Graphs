@@ -1,0 +1,2 @@
+issue
+`from_pandas_edgelist` creates empty graph if there are no attributes#TITLE_END#Using `from_pandas_edgelist` with `edge_attr=True` results in an empty graph if there are no attribute columns. If a user passes in a dataframe which _may_ contain attribute columns, it will yield an empty graph if there are no non-source/target columns.

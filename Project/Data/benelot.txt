@@ -1,0 +1,6 @@
+comment
+@hagberg Would something like this be a valid contribution towards this issue: https://github.com/briandconnelly/seeds/blob/master/seeds/plugins/topology/CartesianTopology.py ? I just tested it and it generates graphs that look very much like the graphs we all know from the centrality wikipedia article: https://upload.wikimedia.org/wikipedia/commons/1/11/6_centrality_measures.png (original graph by Claudio Rocchini)
+comment
+I could certainly turn the code into a generator, given it is very close to one and also provide some example for it plotting different centralities for the generated graph.
+comment
+You are right. I was planning to propose a functionality that generates planar graphs, but reviewing my own graphs that it generates they are not planar. Sorry for generating noise.

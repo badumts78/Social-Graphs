@@ -1,0 +1,4 @@
+issue
+fix issue #4173: cytoscape_graph(input_data) did modify the original data#TITLE_END#I added a test that failed before this change.  Fixes #4173.
+issue
+readwrite.cytoscape_graph(data) removes "source" and "target" fields from edges#TITLE_END#Hi,  I realized the function to get a graph from cytoscape data modifies the data that is received as argument. Is there any reason for that? I couldn't find that in the documentation, and I found it when browsing the code.  Thank you in advance! 

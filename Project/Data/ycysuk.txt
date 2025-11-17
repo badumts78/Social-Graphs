@@ -1,0 +1,4 @@
+issue
+add class method GEXFWriter.alter_graph_mode_timeformat#TITLE_END#extract graph mode and timeformat manipulations to a class method 'GEXFWriter.alter_graph_mode_timeformat', and fix some bugs found in the previous version 
+issue
+add dynamic Graph surport to gexf (1.2draft)#TITLE_END#1. can save dynamic Graph as gexf (1.2draft) format 2. add timeformat(date/double/integer) attribute to graph 3. add 'start' and 'end' attribute to edge 

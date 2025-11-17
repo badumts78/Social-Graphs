@@ -1,0 +1,4 @@
+issue
+Prevent `to_agraph` from modifying graph argument#TITLE_END#Fixes #7608.   
+issue
+`to_agraph` function modifies attributes of source graph#TITLE_END#### Discussed in https://github.com/networkx/networkx/discussions/7608  <div type='discussions-op-text'>  <sup>Originally posted by **ashwin-nayak** August 20, 2024</sup> Consider a simple graph,   ```python import networkx as nx G = nx.Graph() G.add_node(1, pos=(0, 0)) G.add_node(2, pos=(1, 0)) G.add_edge(1, 2) ``` And say, one wants to convert to PyGraphViz AGraph Class using `to_agraph` interface,  ```python H = nx.nx_agraph.to_agraph(G) ```  This routine formats the attribute `pos` for each node to conform to the GraphViz type. However, the formatting is done *in-place*.   ```python print(H.get_node(1).attr['pos'], G.nodes[1]['pos']) # prints ('0,0!', '0,0!') ```  For now, I address this by `H = nx.nx_agraph.to_agraph(G.copy())`, but is this behavior intended?</div>

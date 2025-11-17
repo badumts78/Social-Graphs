@@ -1,0 +1,2 @@
+issue
+kosaraju_strongly_connected_components is n^2#TITLE_END#In https://networkx.github.io/documentation/stable/_modules/networkx/algorithms/components/strongly_connected.html#kosaraju_strongly_connected_components.  The implementation of kosaraju algorithm is O(n(n+m)). It run DFS for each SCC, but not use the same visited_list. It run DFS to get all the reachability and then compare the results to the seen list. This makes quadratic complexity.  ```python c = nx.dfs_preorder_nodes(G, r) new = {v for v in c if v not in seen} yield new  ```

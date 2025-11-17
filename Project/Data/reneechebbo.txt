@@ -1,0 +1,4 @@
+issue
+Adding a test to verify that a NetworkXError is raised when calling n…#TITLE_END#fixes #6028   <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Fix bug vf2pp is isomorphic issue 6257#TITLE_END#fixes #6257  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

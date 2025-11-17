@@ -1,0 +1,2 @@
+issue
+Fixing Bug in Transitive Reduction, resulting in loss of node/edge attributes#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

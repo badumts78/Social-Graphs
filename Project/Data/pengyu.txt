@@ -1,0 +1,4 @@
+issue
+Add the algorithm to compress path#TITLE_END#Given  ```    1    |    V A->B->C->D->E->F             ^             |             2 ```  convert it to  ```    1    |    V A->B->C,D->E->F            ^            |            2 ```  Given  ```    1    |    V A->B->C->D->E->F->G                ^                |                2 ```  convert it to  ```    1    |    V A->B->C,D,E->F->G              ^              |              2 ``` 
+issue
+Adding `in_out_degree_iter()` to `DiGraph`#TITLE_END#There are `in_degree_iter()` and `out_degree_iter()` for `DiGraph`.  `in_out_degree_iter()` can be also useful. Could anybody adding it? Thanks! 

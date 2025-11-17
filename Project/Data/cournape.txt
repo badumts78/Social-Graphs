@@ -1,0 +1,2 @@
+issue
+BUG: fix test_read_LEDA on windows.#TITLE_END#This is a fix for https://networkx.lanl.gov/trac/ticket/410, which is windows specific and is caused by the buggy re-open in text mode  on top of a created by mkstemp (which is binary).  I've fixed the bug by using the better NamedTemporaryFile available since python 2.6, and it simplifies the logic on every platform. I have included this patch in our networkx package in EPD/Canopy @ Enthought, and the test suite passes on all our supported platforms (RHEL5, OS X and Windows). 

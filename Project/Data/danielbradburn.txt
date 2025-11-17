@@ -1,0 +1,2 @@
+issue
+Fixed problem parsing graphml with nodes in groups#TITLE_END#Fixed a problem when reading graphml files where nodes that were part of groups would only be parsed if they were connected to non-grouped nodes via edges. This meant that unconnected nodes were not parsed, but also data any custom properties were not parsed for connected nodes, for example:  ![image](https://user-images.githubusercontent.com/29945176/29813253-e345b89a-8ca9-11e7-8c06-6e9d17d3184e.png)

@@ -1,0 +1,2 @@
+issue
+update PULL_REQUEST_TEMPLATE.md#TITLE_END#I was searching for issues to solve but found most of them already having a existing PR but the issue itself was not referenced in the PR. This PR could help solve this minor confusion among new people 

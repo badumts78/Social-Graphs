@@ -1,0 +1,10 @@
+issue
+Make is_minimal_d_separator check both d_separator and minimal#TITLE_END#Basically, what I did is that to check for non-separating set also so that it does not return true for such cases.  Fixes #6216 
+issue
+new-funtion-all-lca#TITLE_END#I have implemented function that returns list of all lowest common ancestors of the given nodes. Reference from https://www.baeldung.com/cs/lowest-common-ancestor-acyclic-graph as suggested by @dschult issue #6233     
+comment
+Hi everyone.  Is there anyone working on this issue, or I can start working on this issue? Btw I am new here and would love to be part of this community. 
+comment
+sure, I will get on it. 
+comment
+Yes, I made a PR for the same.  Apologies for the delay. I was thinking of various approaches to fix this issue and understanding how it is working. I basically checked for d-separation. 

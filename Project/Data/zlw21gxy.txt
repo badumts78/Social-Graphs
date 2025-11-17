@@ -1,0 +1,2 @@
+issue
+BUG in nx.utils.UnionFind#TITLE_END#![image](https://user-images.githubusercontent.com/46110602/75568645-9fbc6000-5a8e-11ea-9adc-fdcabf15a3ad.png) I am using union-find for Kruskal's MST algorithm, but I find out a weird outcome. After I check if some point belongs to the same set. The head name of some points changed, and it only occurs with "1", e.g. union[1] != union[2] this expression will change the union itself 

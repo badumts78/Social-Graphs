@@ -1,0 +1,2 @@
+issue
+Bug in networkx/algorithms/shortest_paths/unweighted.py#TITLE_END#Line 415/416 of **networkc/algorithms/shortest_paths/unweighted.py** reads  `    if target not in G:         raise nx.NodeNotFound("Target {} not in G".format(source))`  should read   `    if target not in G:         raise nx.NodeNotFound("Target {} not in G".format(target))` 

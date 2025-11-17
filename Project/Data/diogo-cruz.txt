@@ -1,0 +1,2 @@
+issue
+Implemented subgraph monomorphism#TITLE_END#It is now possible to search for subgraph monomorphisms by using `subgraph_is_monomorphic()` and `subgraph_monomorphisms_iter()` in the same way that `subgraph_is_isomorphic()` and `subgraph_isomorphisms_iter()` is used, respectively.

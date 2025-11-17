@@ -1,0 +1,4 @@
+issue
+Add flake8 style check to travis#TITLE_END#Wondering whether you would like to add the flake8 check to travis. I could probably make a pull request for it if you are welcoming the addition.  When browsing the code in a text editor that performs flake8 checks, some style-related errors pop out here and there and these errors could easily be caught on travis, so that is why I wonder if you wish to add the check to travis.
+issue
+Update overview.rst#TITLE_END#Seems that 'of' is needed ... or another way could be: "tools to study ..." 

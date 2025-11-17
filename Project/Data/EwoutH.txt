@@ -1,0 +1,10 @@
+issue
+CI: Include Python 3.13 in nightly wheel tests#TITLE_END#Add Python 3.13 to the nightly wheel test matrix, to get an overview of the state of the ecosystem and find any remaining missing dependencies.  Python 3.13 is now in release candidate phase and is ABI stable. 
+comment
+Now that Python 3.13 is in release candidate phase and ABI stable, should Python 3.13 be tested in more of the [`test.yml`](https://github.com/networkx/networkx/blob/main/.github/workflows/test.yml) job matrices?  Maybe the `default`, `extra` and `prerelease` jobs?
+comment
+Is the correct way to replace this function using `isinstance(obj, str)`?
+comment
+Hi! I just encountered the `edge_load_centrality` algorithm in the documentation. Is this warning still applicable and is this function still developed? > WARNING: This concept of edge load has not been analysed or discussed outside of NetworkX that we know of. It is based loosely on load_centrality in the sense that it counts the number of shortest paths which cross each edge. This function is for demonstration and testing purposes.  To me it sounds a lot like `edge_betweenness_centrality` but just not normalized for the number of shortest paths. How does it differ? 
+comment
+Just wanted to say thanks for this PR!

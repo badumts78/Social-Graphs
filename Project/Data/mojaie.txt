@@ -1,0 +1,2 @@
+issue
+k-regular graph produces a RuntimeWarning on degree_assortativity_coefficient#TITLE_END#Environment: Python 3.6.0, NetworkX Version: 1.11  k-regular graph produces a RuntimeWarning on degree_assortativity_coefficient because of no variance in degree distribution.  Input ``` import networkx as nx  G = nx.random_regular_graph(5, 10) nx.degree_assortativity_coefficient(G) ```  Output ``` RuntimeWarning: invalid value encountered in double_scalars return (xy*(M-ab)).sum()/numpy.sqrt(vara*varb) nan ``` 

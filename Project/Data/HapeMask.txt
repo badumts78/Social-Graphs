@@ -1,0 +1,2 @@
+issue
+Copy/Paste Typo in Maximum Spanning Tree Docstring#TITLE_END#Fixes small typos in the max. spanning tree docstring.

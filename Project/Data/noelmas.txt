@@ -1,0 +1,2 @@
+issue
+Can't install development version#TITLE_END#Keen to use 2.0 functionality and want to install development version here. Bit of a newbie question I'm afraid, but hopefully simple one to fix.  Tried using:  pip install git://github.com/networkx/networkx.git#egg=networkx --upgrade  Get error:  Sorry, 'git://github.com/networkx/networkx.git#egg=networkx' is a malformed VCS url. The format is <vcs>+<protocol>://<url>, e.g. svn+http://myrepo/svn/MyApp#egg=MyApp 

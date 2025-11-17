@@ -1,0 +1,2 @@
+comment
+I believe the centrality measures for nodes 1124 through 1205 are all being calculated correctly (as zeros).  There are no edges connecting those nodes to any other nodes.  Brent  ---   From: avcsapcs notifications@github.com To: networkx/networkx networkx@noreply.github.com  Sent: Wednesday, February 13, 2013 11:51 AM Subject: Re: [networkx] All zero values in centrality (#846)  Yes. Here is the network file. http://www.filefactory.com/file/5sd2kg325pbv/n/ex1_zip — Reply to this email directly or view it on GitHub. 

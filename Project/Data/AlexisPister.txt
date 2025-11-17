@@ -1,0 +1,2 @@
+issue
+Non induced subgraph matching ?#TITLE_END#Hi,  I would like to find all occurences of a non-induced subgraph B inside a larger graph A. The nodes found in A could possibly have other edges between them not in B.  I saw that the VF2 algorithm is implemented in networkx, but it seems to only be for the induced subgraph matching problem.  Is there an other implementation somewhere for the non-induced case ?  Thanks

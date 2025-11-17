@@ -1,0 +1,2 @@
+issue
+use gcd from math#TITLE_END#because gcd from fractions is deprecated in python 3.6

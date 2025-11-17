@@ -1,0 +1,2 @@
+issue
+Improves description bfs_predecessors and bfs_successors.#TITLE_END#Corrects the return type of bfs_predecessors. Adds more details to the return type of bfs_successors.  Adds doctests for bfs_predecessors and bfs_successors that are indicative for the behaviour of these functions on DiGraphs. Previous tests only used these functions on undirect Graphs.  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

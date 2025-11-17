@@ -1,0 +1,6 @@
+issue
+Changing node-border color in draw_networkx_nodes#TITLE_END#I'd like to change the color of node borders using `draw_networkx_nodes`.   While the function allows you to change the widths of these borders, it does not allow you to change the color. Instead, it sets the border color to the node face color.   I'd like to add a keyword argument like `edgecolors` to `draw_networkx_nodes` that allows one to change these border colors. Something like this:  ```python nx.draw_networkx_nodes(G, pos={0:[0,0]},                         node_size=5000,                         linewidths=5,                         edgecolors='k') ```  ![node-border-color](https://user-images.githubusercontent.com/2791223/33676101-a0035f16-da69-11e7-8ac2-1804b09d22d9.png) 
+issue
+Control node-border color in draw_networkx_nodes#TITLE_END#Addresses issue #2787 
+issue
+alpha kwarg not used in pylab label drawing, added it here.  #TITLE_END#Fixed issue #2217.   Both `draw_networkx_labels` and `draw_networkx_edge_labels` functions in the `nx_pylab` module take an `alpha` keyword argument, but don't use it when generating the text objects. I just added the bridge between the two here.  

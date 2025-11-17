@@ -1,0 +1,2 @@
+issue
+not well-formed (invalid token): line 9242, column 48#TITLE_END#Ubuntu 22.04 python 3.10.13 nx: 3.2.1  i saved 5 graphs  as xx.gexf or graphml , there were no problem.  When i read them with nx.read_gexf or nx.graphml, three of them  raised : `not well-formed (invalid token): line 9242, column 48`, the other two are OK . weird

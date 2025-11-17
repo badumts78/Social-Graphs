@@ -1,0 +1,2 @@
+issue
+Adjust function "is_list_of_ints". (fix #3322)#TITLE_END#Following script allows numpy array or any iterable object with integers to pass the test:  ```python >> from numbers import Integral >> import numpy as np >> isinstance(np.int32(0), Integral) True >> from typing import Iterable, Iterator, ItemsView >> isinstance(np.array([0, 1, 2]), Iterable) True >> isinstance(np.array([0, 1, 2]), (Iterator, ItemsView)) False ```  Allowed types:  + List[int], Tuple[int, ...] + range + Dict[int, Any] + ndarray[dtype=int]

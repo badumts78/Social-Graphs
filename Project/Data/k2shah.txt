@@ -1,0 +1,4 @@
+issue
+changed is_string_like to isinstance#TITLE_END#fixes issue #4213 
+issue
+Deprecation warning with flatten#TITLE_END#Since 2.5, when `flatten` calls `is_string_like()` it results in `DeprecationWarning`.  https://github.com/networkx/networkx/blob/dae8b01782ca4fada704d11a1d16c60663f8a90d/networkx/utils/misc.py#L54-L65  `DeprecationWarning`  is from  https://github.com/networkx/networkx/blob/dae8b01782ca4fada704d11a1d16c60663f8a90d/networkx/utils/misc.py#L28-L35  I'm happy to update `is_string_like(obj)` -> `isinstance(obj, str)` in a PR.

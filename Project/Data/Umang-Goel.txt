@@ -1,0 +1,2 @@
+comment
+@abeld @dschult  I would like to work on this issue. I think keeping a simple check while adding a node to the graph that the node is None or not would do. I'm also thinking of contributing to the org as part of gsoc'15 so it would just help me getting started. 

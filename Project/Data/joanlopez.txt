@@ -1,0 +1,2 @@
+issue
+NetworkX2 release TBA?#TITLE_END#Hi,  I'm currently using `networkx2`.   I need this version because i'm using the Transitive Reduction method, so I want to know when this version will be published for production environments (PyPI, etc)?  Thanks!  PD: Are there any way to define this version as a dependency in my `setup.py`? Or it has to be released? 

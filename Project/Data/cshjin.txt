@@ -1,0 +1,6 @@
+issue
+Issue-3315: add normalized_laplacian_spectrum#TITLE_END#Add the normalized_laplacian_spectrum and its test functions.   Resolves https://github.com/networkx/networkx/issues/3315#issue-407978202, which is created by me. 
+issue
+Add Signless Laplacian algorithms: FIX issue 3657#TITLE_END#Update the API for the Laplacian matrix and its spectrum with the new parameter __signless__, which indicates to use the `L = D+A`.  Enhance for issue #3657 .  Feel free to reject this PR if the API is not properly designed.  
+issue
+Add the normalized_laplacian_spectrum to linalg.spectrum #TITLE_END#I am curious about why there is no method called **normalized_laplacian_spectrum** in the [spectrum.py](https://github.com/networkx/networkx/blob/master/networkx/linalg/spectrum.py)  Since the normalized laplacian is widely used in network analysis and a lot of theoretical work has been developed. And the implementation is quite straight forward.   ```python def normalized_laplacian_spectrum(G, weight='weight'):     from scipy.linalg import eigvalsh     return eigvalsh(nx.normalized_laplacian_matrix(G, weight=weight).todense()) ```  Will it possible to add it to upcoming release?

@@ -1,0 +1,2 @@
+issue
+bug report - BFS_Tree function#TITLE_END#The source code, only generates list of edges of the bfs tree, from which the tree will be created. therefore the case of tree with one-node only is missing. so if i run: G = nx.Graph() G.add_node(0) print len(bfs_tree(G,0))  i get: 0. which is wrong. please fix it, Barak. 

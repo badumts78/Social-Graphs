@@ -1,0 +1,2 @@
+issue
+minimum_spanning_arborescence#TITLE_END#Hello!  I have used minimum_spanning_arborescence() of networkx on a weighted and directed network, but the returned graph does not retain the original graph node attributes. Any ideas on how to retain these attributes? Many thanks! 

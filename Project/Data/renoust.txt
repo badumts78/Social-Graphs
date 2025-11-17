@@ -1,0 +1,8 @@
+issue
+Computes approximate Ramsey number using maximum size of sets#TITLE_END#Fixing python 2.7 invalid max 
+issue
+Computes approximate clique using size of sets#TITLE_END#Fixing the following algorithmic mistake: max(list(sets)) does not return the maximum size set. 
+issue
+Fixing algorithmic mistake in clique.py#TITLE_END#Currently 'maxiset' doesn't return the maximal set, but applies max() on a list of sets but what we need here is the biggest set. Here is a fix. 
+issue
+Fixing algorithmic mistake in ramsey.py#TITLE_END#Same issue as in clique.py The definition of max for lists of sets/lists is not the one that returns the largest in terms of size. We now insure the return of the largest elements 

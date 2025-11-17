@@ -1,0 +1,2 @@
+issue
+Add is_perfect_matching function#TITLE_END#Add a method to check whether a maximum matching is perfect.

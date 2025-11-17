@@ -1,0 +1,2 @@
+issue
+Better support for large layouts#TITLE_END#Many of the constants assume the layout size is 1x1.  This may not be the case if pos and/or fixed are passed. 

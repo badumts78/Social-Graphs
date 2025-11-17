@@ -1,0 +1,4 @@
+issue
+current_flow_betweenness_centrality self loops#TITLE_END#The result for current_flow_betweenness_centrality is quite different depending on whether or not you have self loops, but the documentation doesn't indicate which way is correct.  The networks I work with typically come from correlation matrices, so I by default have self loops.  But I assume in this case I need to remove them first?  Ideally self loops would just be ignored automatically.  Compared to the documentation for clustering, which clearly states "Self loops are ignored".   
+issue
+unexpected modification of inputs#TITLE_END#I was surprised to find that disjoint_union_all was popping the first graph off my list of graphs.  I had further uses for that list of graphs, so it caused a number of problems when the first graph is secretly removed!  Other functions might do the same thing, I haven't checked.   

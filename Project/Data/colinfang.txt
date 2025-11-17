@@ -1,0 +1,2 @@
+issue
+Minor correction of comments and default value regarding alpha#TITLE_END#1. A minor correction to the comment. 2. A minor change to the default value in terms of consistency. 

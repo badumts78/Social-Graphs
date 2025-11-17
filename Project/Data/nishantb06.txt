@@ -1,0 +1,2 @@
+issue
+feat: docstring examples for algorithms/operators/all.py#TITLE_END# [DOC]: Added docstring example for `union_all` in algorithms/operators/all.py 

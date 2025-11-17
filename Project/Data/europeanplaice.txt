@@ -1,0 +1,2 @@
+issue
+In `DiGraph.to_undirected`, remove not accessed variable#TITLE_END#In `DiGraph.to_undirected`, local variable `graph_class` was defined but not used in this function.  Though it is not a serious problem, this should be removed. 

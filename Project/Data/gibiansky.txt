@@ -1,0 +1,2 @@
+issue
+documentation has some misformatting#TITLE_END#There's some places where something that's supposed to appear as code doesn't. Here's an example site:  http://networkx.github.io/documentation/latest/reference/generated/networkx.algorithms.cycles.simple_cycles.html#networkx.algorithms.cycles.simple_cycles  There's an example about halfway down that should be monospace code, but it's not (Firefox 29 or something like that, Mac) 

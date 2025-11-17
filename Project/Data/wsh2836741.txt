@@ -1,0 +1,10 @@
+comment
+Thanks for useful work, and i want to know when we can use this function?
+comment
+@dschult Hi, thanks for your help, and i want to know how can i use the branch of the PR, i see the branch is "feature-for-issue-5949" and i use the command "git clone -b feature-for-issue-5949 git@github.com:networkx/networkx.git", but it said "fatal: Remote branch feature-for-issue-5949 not found in upstream origin". How can i use it now via the branch of the PR?
+comment
+Hi all, i use this branch and find a bug when there is an unconnected node. ![image](https://user-images.githubusercontent.com/21173914/194755023-ff1048f1-9579-4f54-ab52-5a7dddcea91a.png) 
+comment
+@dschult That is not a reasonable result. These is no exception when i use the function "all_pairs_shortest_path".  If nodes in the graph are not connected then the function "all_pairs_all_shortest_paths" will not compute all shortest paths and the nodes will not appear in the return result of the function, but not raises an exception. 
+comment
+@dzy49 Yes，i think output partial results is more useful. Can you modify the code? Thanks a lot.

@@ -1,0 +1,2 @@
+issue
+Implementation of the Katz Centrality #TITLE_END#This is an implementation of the Katz centrality based on the eigenvalue centrality. Tests have also be implemented.   I have added the following files : - katz.py  - tests/test_katz_centrality.py  Regards Vincent Gauthier 

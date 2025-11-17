@@ -1,0 +1,4 @@
+issue
+Add option to BFS_edges to process children in order based on node attribute#TITLE_END#I would like to add the option to pass in a comparator function that will add children to the queue in an order specified by the comparator and their [node attributes](https://networkx.github.io/documentation/stable/reference/generated/networkx.classes.function.set_node_attributes.html)
+issue
+Asynchronous Topological Sort#TITLE_END#I am running tasks in parallel via MPI and want to use a DAG and topological sort to distribute these tasks to other processors. Using the topological sort algorithm provides me a generator for tasks, but it assumes that a task is completed as soon as it is generated. Does networkx provide an asynchronous topological sort generator that waits for a node to be asynchronously marked as completed before removing it a dependency for its children?

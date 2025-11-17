@@ -1,0 +1,2 @@
+issue
+Minor fix in documentation#TITLE_END#add required argument to `write_graphml` example in the documentation

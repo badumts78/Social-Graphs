@@ -1,0 +1,2 @@
+issue
+Add pydot_ng as a supported pydot lib#TITLE_END#pydot_ng is a another pydot fork  URL: https://pypi.python.org/pypi/pydot-ng 

@@ -1,0 +1,4 @@
+issue
+added pipenv support#TITLE_END#Added Pipfile and Pipfile.lock as it is a more robust and proven virtualenv manager
+issue
+Missing pipenv support#TITLE_END#Pipenv has proven to be a very robus virtualenv manager and dependency solver. How about adding support?  Thanks

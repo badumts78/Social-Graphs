@@ -1,0 +1,2 @@
+comment
+On the [documentation page](https://networkx.github.io/documentation/stable/citing.html), the BibTeX and the PDF links are still broken.

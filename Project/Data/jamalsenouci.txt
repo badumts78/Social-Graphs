@@ -1,0 +1,4 @@
+issue
+added to_pandas_dataframe and from_pandas_dataframe#TITLE_END#closes issue #1174  
+issue
+Remove unnecessary np.outer function for slightly better performance in google_matrix algorithm#TITLE_END#As far as I can tell there doesn't seem to be a need for the np.outer as numpy broadcasts the vector. Removing the function results in an improvement in speed. 

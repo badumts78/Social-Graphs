@@ -1,0 +1,4 @@
+issue
+Fix default solver of approximate_current_flow_betweenness_centrality, edge_current_flow_betweenness_centrality and current_flow_betweenness_centrality#TITLE_END#Fixes the mismatching defaults as described in https://github.com/networkx/networkx/issues/3980
+issue
+Documentation for approximate_current_flow_betweenness_centrality, edge_current_flow_betweenness_centrality and current_flow_betweenness_centrality does not match#TITLE_END#In the documentation the default `solver` of nx.approximate_current_flow_betweenness_centrality nx.edge_current_flow_betweenness_centrality and nx.current_flow_betweenness_centrality is `'lu'`. In the definition of the function the default is however `'full'`.  As `'lu'` is the recommended method and it is the default is in   - `nx.edge_current_flow_betweenness_centrality_subset`,  - `nx.current_flow_betweenness_centrality_subset`,  - `nx.current_flow_closeness_centrality`   the defaults should be changed here as well.

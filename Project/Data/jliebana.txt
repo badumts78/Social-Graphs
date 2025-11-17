@@ -1,0 +1,2 @@
+issue
+MinCost Max flow: MultiGraph and MultiDiGraph not supported (yet)#TITLE_END#Hi,  I want to execute the max_flow_min_cost function for a multidigraph but I get the error:  >   File "/usr/lib/python2.7/site-packages/networkx/algorithms/flow/utils.py", line 100, in build_residual_network >     'MultiGraph and MultiDiGraph not supported (yet).') >  > NetworkXError: MultiGraph and MultiDiGraph not supported (yet).  Is there a plan to implement this? I couldn't find any clue about it.  Thanks! 

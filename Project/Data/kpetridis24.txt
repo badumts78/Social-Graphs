@@ -1,0 +1,30 @@
+issue
+VF2++ for Directed Graphs#TITLE_END#This is the new, updated branch, containing the VF2++ implementation for Directed Graphs.  @dschult @rossbar @MridulS 
+issue
+Preliminary VF2++ Implementation#TITLE_END#The workspace for the VF2++ implementation. This PR only exists so people can take a look at our work, provide feedback and discuss about the implementation. It is only a draft and is not meant to be merged yet.  The related milestone and issues can be [found here](https://github.com/kpetridis24/networkx/milestone/1)
+issue
+Add examples for the condensation function#TITLE_END#Added two examples for the better understanding of the condensation funciton use 
+issue
+Removed prefixes#TITLE_END#Removed the 'NetworkX' prefix throughout the entire networkx repository.
+comment
+I am bringing this up since i am a big lover of parallelism. What about MPI and CUDA? Are we interested in them as well?
+comment
+I will start working on this as well! @dschult @MridulS 
+comment
+@dschult oops, i forgot about that while i was fixing everything else. I will have it fixed during the next days and i will tag you when i push the changes!
+comment
+@dschult @rossbar I accidentally didn't include the changes in a new PR... The issue was that the graphs were created as a class member variable and were accessed/modified by the unit tests ```python class Test:   G1 = Graph   G2 = Graph      def test1():     modify G1, G2    def test2():     modify G1, G2 ```  The ONLY change that i made was  ```python class Test:   def test1():     G1 = Graph     G2 = Graph     modify G1, G2    def test2():     G1 = Graph     G2 = Graph     modify G1, G2 ``` So now no test depends on the one running prior to it.
+comment
+There are 2 doc-related failures that i cannot understand.
+comment
+So yes, these changes have taken place in the directed version of the VF2++. So should we wait for it to get merged or should we apply them to the already merged version as well?
+comment
+I was already working on it btw :) But if you want we could cooperate or provide examples both. It's a documentation related issue so i think that if we both provided some examples it would be ok
+comment
+@MridulS Is there a place that code-examples are meant to be placed except for the ''example' dir? For this specific issue, the goal is to provide examples of how to access the returning graph. Where should the examples be placed exactly?
+comment
+oh ok nice. So it's all placed inside the documentation. 
+comment
+@MridulS Added 2 examples and created a PR. Heading to find another issue to solve.
+comment
+I removed all prefixes from NetworkX errors, inside the exception.py file, and replaced all their old occurences inside the project. Can i somehow check that everything works correctly in the entire project? Is there a specific way to check everything (for example run all doctests)?

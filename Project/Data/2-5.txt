@@ -1,0 +1,4 @@
+issue
+Basic support for IronPython 2.7#TITLE_END#It looks like CPython and IronPython execute module contents in a different order during import.
+issue
+Doesn't work in IronPython because it uses sys._getframe#TITLE_END#Importing networkx fails in IronPython, because IronPython doesn't have a sys._getframe method.

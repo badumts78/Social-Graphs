@@ -1,0 +1,2 @@
+issue
+add_node attributes#TITLE_END#Hello,  add_node on the graph accepts attributes. I know it can be used to provide your own set of attributes, but it's also used for system defined attributes like colors, sizes, etc.  Is there a list of system defined attributes available where I can choose from ? For example, I tried "linewidth" in order to determine the width of the line, but that doesn't seem to work. I've looked into the source code, but to no avail. 

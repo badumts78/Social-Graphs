@@ -1,0 +1,2 @@
+issue
+I add edges first, then I get the edges,but the the order of edge's node changed#TITLE_END### code is here:  ``` g = nx.Graph() g.add_edge('b', 'c') print g.edges() # result is [('c', 'b')] ```  ---  what I want is [('b', 'c')]. enter others like ('a','b'),it show as [('a','b')],  **just('b','c') have this problem** please tell me this is for what. thanks 

@@ -1,0 +1,2 @@
+issue
+Reading and Writing METIS/DIMACS graphs#TITLE_END#I believe it would be very useful if NetworkX can read and write in the METIS graph format ([see METIS documentation](http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/manual.pdf)). METIS is one of the most widely-used graph partitioners and although there already exist interfaces between NetworkX and Metis, adding native support for the METIS file format also extends support to other graph partitioning algorithms that have adopted this graph format structure, such as [KaHIP](http://algo2.iti.kit.edu/kahip/).

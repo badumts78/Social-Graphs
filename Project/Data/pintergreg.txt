@@ -1,0 +1,2 @@
+issue
+label in gml output should be quoted#TITLE_END#The output of the `write_gml` function currently (1.11) does not quote the label values, but I do think it should according to the [GML spec.](http://www.fim.uni-passau.de/fileadmin/files/lehrstuhl/brandenburg/projekte/gml/gml-technical-report.pdf). Because of this, tools like Cytoscape, jhive and gml2gv fails to read the gml file.  A node from my output: ```   node [     id 0     label 1203   ] ``` that should be   ```   node [     id 0     label "1203"   ] ```

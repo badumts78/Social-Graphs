@@ -1,0 +1,2 @@
+issue
+Enhance Networkx Performance with Cython (or equivalent)#TITLE_END#Hi everyone,  I'm a Ph.D. student in Computer Science, and as part of my work, I'm using Networkx a lot. Unfortunately, even if Python is brilliant language, Python can be slow... However, certain "framework" intended to ease the dialog between C/C++ and Python. Which leads to my question: Do Networkx main contributors consider implement part  #of Networkx in C/C++ ?  

@@ -1,0 +1,2 @@
+issue
+Networkx can not read the attributes from .gexf file#TITLE_END#1) networkx only supports .gexf of version 1.1, but now .gexf has already been version 1.3 2) after I change the .gexf to 1.1(by changing the head of xml), networkx can load the file but the attributes of node are only color, size and position, the other attributes between <attributes></attributes> are missing.  I use networkx of version 1.11 The operation system is ubuntu 16.04 

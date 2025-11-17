@@ -1,0 +1,2 @@
+issue
+Snyk-High Vulnerability-Deserialization of Untrusted Data#TITLE_END# Ref: [https://app.snyk.io/vuln/SNYK-PYTHON-NETWORKX-1062709](https://app.snyk.io/vuln/SNYK-PYTHON-NETWORKX-1062709)  ### Current Behavior We get Snyk high Vulnerability warning, currently we are running networkx-1.11  ### Expected Behavior fix Snyk high Vulnerability  Python version: 3.7.9 NetworkX version: 1.11  ### Additional context We upgrade NetworkX to 2.5.1, still get Snyk-High Vulnerability-Deserialization of Untrusted Data.

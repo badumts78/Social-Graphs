@@ -1,0 +1,4 @@
+issue
+adding support for singleton in add_path and add_star#TITLE_END#WIP- I have added the support for adding an iterator with a single element(Singleton). I will add the test cases as well.
+comment
+> The problem is known to be difficult. Here is an interesting CS stack exchange discussion that explains it well https://cstheory.stackexchange.com/questions/20767/partition-a-graph-into-2-connected-subgraphs  Well, the problem of finding maximally balanced connected partition is tough, I am not sure about the connectedness in kernighan_lin's optimization problem. The optimization objective in the two stated problems are different, therefore it's hard to draw a parallel. 

@@ -1,0 +1,4 @@
+issue
+Set default source=None for dfs_tree#TITLE_END#Docstring for `dfs_tree` states that `source` parameter is optional, None is a valid value for `source`, and other functions in the same module default to source=None.  Set `source=None` default and test. 
+issue
+Multiple test failures on Python 3.6#TITLE_END#Both current master (commit 862cc2b) and release 1.11 have multiple test failures when running the test suite on Python 3.6 (in my case, on OSX, with Python.org Python). On master:  ``` ---------------------------------------------------------------------- Ran 2996 tests in 51.441s  FAILED (SKIP=10, failures=70) ```  For release 1.11:   ``` ---------------------------------------------------------------------- Ran 2742 tests in 30.889s  FAILED (SKIP=10, failures=69) ```

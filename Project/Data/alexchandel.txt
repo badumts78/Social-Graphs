@@ -1,0 +1,2 @@
+comment
+The `decorator<5` upper limit in 2.5.1 blocks upgrading `decorator` in installs with jupyterlab, ipython, retry, snooty-lextudio, & others.

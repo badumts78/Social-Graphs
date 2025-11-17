@@ -1,0 +1,2 @@
+issue
+Cannot import Ford Fulkerson#TITLE_END#I am relatively new to programming, and attempting to implement a ford fulkerson algorithm on a DiGraph. Upon attempting to import, I get this error message. Can somebody help? Be greatly appreciated.   ImportError: cannot import name 'ford_fulkerson' from 'networkx.algorithms.flow'  It could be a minor mistake, or something larger. Unfortunately, I am trying my best to decipher this one and I could use a bit of advice.  

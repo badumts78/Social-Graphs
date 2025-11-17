@@ -1,0 +1,4 @@
+issue
+Shapefile readwrite improvements#TITLE_END#Attribute tests for edges and PEP8 style fixes. 
+comment
+I think testing it should be about the [same as it is now](https://github.com/networkx/networkx/blob/master/networkx/readwrite/tests/test_shp.py), which is to say a pair of shapefiles are created temporarily as part of `setUp`, used for testing, and then eliminated in the `tearDown` method.  As for updating to Python 3, I could take a look at it over the weekend. But I'll admit I haven't done much Python 3 in general. 

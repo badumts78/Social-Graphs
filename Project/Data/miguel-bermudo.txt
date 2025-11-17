@@ -1,0 +1,2 @@
+issue
+all_pairs_shortest_path_length now runs in multiple cores.#TITLE_END#Added multiprocessing capabilities to this function for unwheighted graphs, tested it for Freebase, NELL and WordNet, speed increased significantly. 

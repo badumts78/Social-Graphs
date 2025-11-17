@@ -1,0 +1,4 @@
+issue
+Contributing.md details with setup not included#TITLE_END#### Current Version  One setup step from CONTRIBUTING.md doesn't include step/link to download relevant dependencies:  - pip install -r requirements/default.txt -r requirements/test.txt -r requirements/developer.txt : You have to install Rust and Cargo beforehand which should be mentioned  ### Expected Behavior  Contributing should have included a message telling users to have rust installed and relevant links  Python version: 3.11.1 NetworkX version: 3.3rc0.dev0 
+issue
+Added match statements to shortest_path function#TITLE_END#As stated in issue [#7036](https://github.com/networkx/networkx/issues/7036), there is a need to add python features from 3.10 now that 3.9 support has dropped. This PR switches out all the if else statements from the shortest_path function to match-case statements. This can be done for more than just this function, I've just started with this.

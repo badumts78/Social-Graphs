@@ -1,0 +1,2 @@
+issue
+When exporting to GML, write non 32-bit numbers as strings.#TITLE_END#According to the GML technical report, integers in GML must fit into a signed 32-bit integer. Values outside this range have to be written as strings instead.

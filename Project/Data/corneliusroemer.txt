@@ -1,0 +1,2 @@
+issue
+DOCS: Docs stable version (2.6.2) does not match latest release (2.6.3)#TITLE_END#### Current Behavior The latest release was in September to 2.6.3, but it seems like it was forgotten to update the docs' stable version to 2.6.3 as it's still at 2.6.2, this is confusing.  See current docs version: ![image](https://user-images.githubusercontent.com/25161793/152519129-85ee835f-8cde-417f-bb88-35567a6682b2.png)  See latest release: ![image](https://user-images.githubusercontent.com/25161793/152519201-7cffc15d-5f9e-48a1-9929-ef2edb2cb4cb.png) 

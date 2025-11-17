@@ -1,0 +1,2 @@
+issue
+nx.set_node_attributes  Typeerror:unhashable type "dict"#TITLE_END#nx.set_node_attributes(G,'state',state_ini)  state_ini is a dict,but i have read the manual,the mistake is Typeerror:unhashable type "dict"

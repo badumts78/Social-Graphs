@@ -1,0 +1,2 @@
+comment
+As @hagberg mentioned 'Also we need to document these changes in the 2.0 api doc.' This is done, but not in the 2.x release notes API changes https://networkx.github.io/documentation/networkx-2.0/release/release_2.0.html (I found out the hard way) en also mention this in the 1.x to 2.0 migration guide. https://networkx.github.io/documentation/networkx-2.0/release/migration_guide_from_1.x_to_2.0.html 

@@ -1,0 +1,2 @@
+issue
+Point to the latest URL for the description.#TITLE_END#Dear community,  This is a tiny patch though,  point to 3.x document URL as Python 2.x has been deprecated a long time ago.  Thanks,  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

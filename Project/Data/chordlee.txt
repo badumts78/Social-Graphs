@@ -1,0 +1,2 @@
+issue
+why the nx.all_neighbors(G,node)return<dictionary-keyiterator object at 0x000000001432D818>#TITLE_END#![image](https://user-images.githubusercontent.com/32956671/35479074-9c9a1124-0428-11e8-96b7-175852f2731f.png) ![image](https://user-images.githubusercontent.com/32956671/35479077-aa8a7e22-0428-11e8-9cc9-42a4124a664c.png) it's the screenshots the version:python 2.7 ; networkx 2.1 i'm a beginner for nx. I want to get the neighbors of one node,so I read the pdf. but the method dosen't work. I don't know why ,thank you! Is there other method can achieve that too?

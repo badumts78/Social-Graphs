@@ -1,0 +1,2 @@
+issue
+No function for swapping that preserves edge weights#TITLE_END#double_edge_swap and connected_double_edge_swap work fine however we also want to swap edge weights. At the moment, a graph with weighted edges becomes unweighted after swaps. We wish to have x - y (weight xy) u - v (weight uv) after swap to look like x - u (weight uv) and y - v (weight xy).

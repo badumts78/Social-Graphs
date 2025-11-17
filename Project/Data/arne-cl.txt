@@ -1,0 +1,4 @@
+issue
+Breath First Search: source parameter is not optional (but the docstrings say so)#TITLE_END#The docstrings of the functions in `networkx/algorithms/traversal/breadth_first_search.py` all claim that the `source` parameter is optional, while the code says otherwise. 
+issue
+clarified edge attribute update precedence in add_edges_from()#TITLE_END#Hi,  `add_nodes_from` clearly mentions attribute update precendence and I think `add_edges_from` should do so, too.  Kind regards, Arne 

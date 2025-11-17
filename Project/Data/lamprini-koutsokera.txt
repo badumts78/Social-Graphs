@@ -1,0 +1,4 @@
+issue
+Implementing Canadian Travelling Problem (CTP)#TITLE_END#CTP is a generalization of the shortest path problem to graphs that are partially observable. You can find more information here: https://en.wikipedia.org/wiki/Canadian_traveller_problem.  I would like to implement a problem like this.   Does networkx want to have this problem implemented? 
+issue
+Is_fully_completed function#TITLE_END#Function for checking if a graph is full completed. 

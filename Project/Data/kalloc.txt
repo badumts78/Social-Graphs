@@ -1,0 +1,2 @@
+issue
+Font-Size dynamic#TITLE_END#Hi!  I wish using degree to set font_size.  Example code:  ``` import networkx as nx import numpy as np   D = np.random.randn(10, 10) * 10 D[D < 5] = 0 D[D != 0] = 1  g = nx.from_numpy_matrix(D) pos=nx.fruchterman_reingold_layout(g, weight=10) labels = dict([(item, item) for item in g.nodes()]) font_sizes = g.degree() nx.draw_networkx_nodes(g, pos) nx.draw_networkx_labels(g, pos, labels=labels, font_size=font_sizes) ```  Can I create pull-request with adding dict type for font_size? 

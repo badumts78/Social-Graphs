@@ -1,0 +1,2 @@
+comment
+Should this really be closed? There is no implemented functionality, the PR has been closed, following the chain of links from https://github.com/networkx/networkx/pull/2152 and others leads to nothing or dead links. 

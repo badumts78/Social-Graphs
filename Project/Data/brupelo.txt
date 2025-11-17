@@ -1,0 +1,4 @@
+issue
+How to represent Input & Output node slots#TITLE_END#I was interested on using networkx on one pyqt widget similar to blender's node graph editor. What's the proper way to have input & output slots on my graphs/subgraphs?  I know having a DiGraph i'd have access to in_edges and out_edges but not sure if that's what i'm looking for, any advice?  Also, any well-known pyqt software using networkx behind the curtains? 
+issue
+AttributeError: 'module' object has no attribute 'graphviz_layout' with networkx 1.11#TITLE_END#Any clue about this [issue](http://stackoverflow.com/questions/39411102/attributeerror-module-object-has-no-attribute-graphviz-layout-with-networkx)? 

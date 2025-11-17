@@ -1,0 +1,2 @@
+issue
+Condensation edge mapping#TITLE_END#`networkx.algorithms.components.strongly_connected.condensation` provides a `mapping` attribute (and `members` on the nodes) from nodes to the set of original nodes. It would be useful for some applications to have similar attributes for the edges (specifically, here, I need to reduce a graph to have only one edge for each edge in its condensation—not going as far as the transitive reduction, but still reducing the graph to a transitive one). 

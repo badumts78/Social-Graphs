@@ -1,0 +1,2 @@
+comment
+Hi everyone, thanks for reaching out. I'll take a look at the Matplotlib plotting PR in igraph today and we'll merge it soon once we're happy with it.

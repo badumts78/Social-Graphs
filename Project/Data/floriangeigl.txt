@@ -1,0 +1,2 @@
+comment
+You can find the correct definition for directed graphs on slide 26 (http://kti.tugraz.at/staff/denis/courses/netsci/measures.pdf) or in the Book: Networks: An Introduction by Newman. I think for directed graphs you just have to change [nbr] to [predecessors] and everything should be fine. 

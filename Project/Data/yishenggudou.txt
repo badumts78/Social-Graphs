@@ -1,0 +1,2 @@
+issue
+will change my weight value after i use `add_weighted_edges_from`#TITLE_END#Hi I use `G.add_edge()` ![image](https://f.cloud.github.com/assets/380657/1699845/e4f121ee-5fca-11e3-9df2-ee194e43eb15.png) but after i add many edge my weight has changed  ``` {'weight': Decimal('11.4243611110999996327564076636917889118194580078125')} {'weight': Decimal('10.8485833333000005751500793849118053913116455078125')} ``` 

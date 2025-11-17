@@ -1,0 +1,2 @@
+issue
+Better arrow drawing#TITLE_END#Improved arrow drawing using PatchCollection and FancyArrow instead of LineCollection. The numbers can be adjusted but worked well for my application. 

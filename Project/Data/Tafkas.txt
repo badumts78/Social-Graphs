@@ -1,0 +1,2 @@
+issue
+added networkx.__bibtex__ attribute#TITLE_END#Added a bibtex attribute for quick command-line access to the recommended citation info. Idea by @jakevdp: https://twitter.com/jakevdp/status/524329573580697600 

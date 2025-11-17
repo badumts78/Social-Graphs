@@ -1,0 +1,14 @@
+issue
+Added class GraphMLWriteLxml to support incremental generation.#TITLE_END#It is an attempt to solve issue #448.  Note that this is a preliminar CL, and probably is necessary to polish some edges: - A new class was introduced and just in case lxml is available it uses it. - There are some hacks, as to be able to reuse the existing code. - The method generate_graphml is still based on the old writer. 
+issue
+Added graphmlxml class#TITLE_END#It is an attempt to solve issue #448.  Note that this is a preliminar CL, and probably is necessary to polish some edges: A new class was introduced and just in case lxml is available it uses it. There are some hacks, as to be able to reuse the existing code. The method generate_graphml is still based on the old writer.  Note: It's a resubmission of https://github.com/networkx/networkx/pull/1074 
+issue
+Resubmit#TITLE_END#This is just a resubmission of https://github.com/networkx/networkx/pull/1074, so Travis can test it. 
+issue
+Modify the replacement in coverage so files are correctly displayed in coveralls#TITLE_END#Apparently coveralls like to have relative pathnames, as seen in https://coveralls.io/builds/1048112. 
+comment
+Is there any progress on this issue or a new implementation should be proposed?  I was forced to write my own GraphML writer to output very large graphs, and would be glad to send a pull request for this if needed.  
+comment
+I haven't finished the change, but it would use lxml instead of SAX (http://lxml.de/api.html#incremental-xml-generation), as it allows you to reuse some of the already written pieces using Element Tree.  I will work on this and send you a Pull request then. 
+comment
+I submitted a pull request 4 months ago, and still no comments. 

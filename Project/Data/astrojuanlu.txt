@@ -1,0 +1,4 @@
+comment
+:+1: Dask has a graph [visualization system](https://github.com/dask/dask/blob/1.0.0/dask/dot.py) on top of graphviz ([not to be confused with pygraphviz](https://stackoverflow.com/a/37893606/554319), which is what networkx uses) that works great, see for example [[1]](http://docs.dask.org/en/latest/graphviz.html), [[2]](http://docs.dask.org/en/latest/optimize.html).
+comment
+@hagberg was this already implemented?

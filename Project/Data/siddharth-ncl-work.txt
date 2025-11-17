@@ -1,0 +1,2 @@
+issue
+want to add new feature(3d graph plotting with matplotlib)#TITLE_END#As far as I know, drawing methods like draw(), draw_networkx() and other similar methods do not support 3d plots with matplotlib (correct me if I am wrong). I am also aware that mayavi can be used for the 3d plotting but for my personal project I want 3d plotting functionality through methods like draw(), draw_networkx() etc.  I would like to add this feature to the networkx module, but want some feedback if its worth working on it?

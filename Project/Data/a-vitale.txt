@@ -1,0 +1,2 @@
+issue
+Update bfs_search.py#TITLE_END#Aggiunta la stampa dei nodi processati (source + child)  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

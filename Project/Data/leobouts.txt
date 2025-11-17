@@ -1,0 +1,2 @@
+issue
+Keep data when computing the complement graph#TITLE_END#complement(G, name=None) currently returns a new graph but does not propagate the edge/nodes data.  This could be useful for link prediction or for someone that want to do things with edge additions algorithms.

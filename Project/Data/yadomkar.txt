@@ -1,0 +1,10 @@
+issue
+Enhancements change default join trees 6947#TITLE_END#<!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> This PR addresses GitHub Issue #6947, improving the default behavior of `join_trees`. Now, node attributes won't store old labels unless specified with `label_attribute`. It also introduces a `first_label` argument for specifying the root node's label. Tests for no `label_attribute` and custom `first_label` are included, enhancing flexibility while minimizing attribute creation. Additionally, it fixes a regression where the code depended on old labels. 
+issue
+Doc add nongraphical examples 6944#TITLE_END#<!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html -->  Examples were added to the doc strings for non-graphical sequences. Fixes https://github.com/networkx/networkx/issues/6944 
+issue
+6944 non graphical examples added#TITLE_END#<!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> Examples were added to the doc strings for non-graphical sequences. Fixes #6944 
+comment
+@dschult Raised a PR to add these enhancements. Please review and let me know if there are any adjustments or changes needed. Appreciate your feedback!
+comment
+@MridulS Added non graphical examples to the doc strings. Please review and let me know if there are any adjustments or changes needed. Appreciate your feedback!

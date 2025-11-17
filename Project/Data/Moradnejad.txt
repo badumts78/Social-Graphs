@@ -1,0 +1,8 @@
+issue
+Adding myself as a new contributor#TITLE_END#Adding myself as a new contributor to the list :)
+issue
+ Replacing `Return` to `Returns` in docs for functions#TITLE_END#There are some inconsistencies in explaining functions in documentations. Some of them used `Return`, while most of them are using `Returns`. Examples [here](https://networkx.github.io/documentation/latest/reference/generators.html) I think the latter is correct, so I changed them all. Also, I made a mistake in my previous PR in doc indents which I fixed here.
+issue
+Coappearance network of characters in the novel Les Miserables#TITLE_END#This is a pull request to add a new real famous social network: Coappearance network of characters in the novel Les Miserables. I added it to the list too, alongside its reference. Please review.  I was doing a research and wanted to use real networks. Although the other ones have been used largely, but they were all small-sized networks. This is not so big either, but somehow more compelling.
+comment
+Can you please explain what r stands for and what does it do? @BoboTiG

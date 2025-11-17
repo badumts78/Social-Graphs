@@ -1,0 +1,6 @@
+issue
+Adding Generalized Petersen Graph#TITLE_END#This PR adds Generalized Petersen Graph as discussed in #8133   @dschult  is going to take this on and hopefully get it merged.
+issue
+Unusual clipping in spring_layout#TITLE_END#In the `_fruchterman_reingold` and `_sparse_fruchterman_reingold` functions after the displacements have been computed their lengths are calculated by  ```         length = np.linalg.norm(displacement, axis=-1)         length = np.where(length < 0.01, 0.1, length) ``` this seems odd. if a length is 0.009 then it is set to 0.1, longer that a value that was originally, say,  0.09. I'd guess it's a typo of ```         length = np.where(length < 0.01, 0.01, length) ``` But there is perhaps some logic to this that I am missing.    
+issue
+Adding Generalized Petersen Graph#TITLE_END#It's all in the title really. I am not so experienced with this code base so I have probably made some mistakes. And I truly hate using github. 

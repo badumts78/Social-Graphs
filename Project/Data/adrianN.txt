@@ -1,0 +1,6 @@
+issue
+Floating-Point issue in mincost.py#TITLE_END#Around Line 481 in mincost.py it says  ``` for u, v in artificialEdges:     if H[u][v]['flow'] != 0:         raise nx.NetworkXUnfeasible("No flow satisfying all demands.")     H.remove_edge(u, v) ```  This doesn't work properly, because of floating point issues, i.e. sometimes we have a tiny leftover flow throw an exception.  
+issue
+eulerian_circuit#TITLE_END#Hi,  the eulerian_circuit function doesn't work if the graph has exactly two odd degree nodes, not even if one provides one of the two as a starting node. This should be relatively easy to fix. 
+comment
+Since there we have the possibility to set source=None for the DFS algorithms, we need to add all isolated vertices separately, or they'll be omitted. 

@@ -1,0 +1,14 @@
+issue
+depth-first search with cutoff#TITLE_END#ticket is #781, I'm interested in the comments. 
+issue
+depth first search, with a cutting condition#TITLE_END#I have written a function based on the `dfs_labeled_edges` function in the `networkx.algorithms.traversal.depth_first_search` module, I think it could be useful to others.  imagine the problem of visiting a network from a given node as long as a specific property is satisfied. for example all nodes that have a "z" coordinate lower than the starting point. or such that the node can be reached along a path where the "z" coordinate is everywhere increasing.  I could not find such a function in the library and I have written it. it's not as beautifully optimized as the original `dfs_labeled_edges` function I modified. 
+comment
+attaching my github account to the migrated issue 
+comment
+attaching my github account to the issue. 
+comment
+attaching my github account to the migrated issue 
+comment
+attaching my github account to the migrated issue 
+comment
+attaching my github account to the migrated issue 

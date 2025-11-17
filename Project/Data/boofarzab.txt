@@ -1,0 +1,2 @@
+issue
+Support GEXF version 1.3 schema definition#TITLE_END#Change the GEXF class to support GEXF file format version 1.3.

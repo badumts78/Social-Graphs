@@ -1,0 +1,2 @@
+issue
+How to remove float('nan') from a graph?#TITLE_END#It is possible to add `float('nan')` to a graph as a node. ``` import networkx as nx G = nx.Graph() G.add_node(float('nan')) ``` However, I donot know how to remove this node from the graph. `G.remove_node(float('nan'))` raise a `NetworkXError` telling me that there is not a node `float('nan')` in the graph. But `G.nodes` shows that the node exists.

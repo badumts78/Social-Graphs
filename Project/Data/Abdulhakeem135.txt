@@ -1,0 +1,2 @@
+issue
+Depth-limited Breadth First Search#TITLE_END#It would be very good to have a new parameter to the breadth-first search function like "distance" which is  None by default – the maximum distance from the start nodes to traverse.    bfs_tree(G, source,**distance=None**, reverse=False)  I want to start breadth first search from start node for a specific distance. 

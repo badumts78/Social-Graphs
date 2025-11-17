@@ -1,0 +1,2 @@
+issue
+node name not shown#TITLE_END#I tried to create a some nodes for graphing and I want their names shown in the graph (such as 'A','B','C', etc). However, I wrote G.add_nodes_from(['A','B', 'C', 'D', 'E', 'F']), and all the nodes in the graph are just red spots with no indication of which is which.   Is there something else I need to specify when I'm creating the nodes?  Many thanks! 

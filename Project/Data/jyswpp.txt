@@ -1,0 +1,2 @@
+comment
+ I have a question about an equation in `fastcommunity.py`. In [line 55](https://networkx.lanl.gov/trac/attachment/ticket/245/fastcommunity.py#L55) is the equation  ``` dqr[(neighbor,)] = 2*(1.0/(2 * m) - (ki * kj)/((2.0*m)**2)) ```  but in the paper,  ``` Qij=1.0/(2 * m) - (ki * kj)/((2.0*m)**2) ``` 

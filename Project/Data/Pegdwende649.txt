@@ -1,0 +1,4 @@
+issue
+small worldness of multigraphs#TITLE_END#It seems to be no implementation of the sigma and omega values for the multigraphs. How could i retrieve these values ?
+comment
+Is there now any possibility to compute the sigma and/or omega value for the multigraphs? 

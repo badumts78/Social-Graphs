@@ -1,0 +1,40 @@
+issue
+Add `bfs_predecessors_iter` function#TITLE_END#In taskflow (and openstack project) we have this function, which I don't think networkx provides,  https://github.com/openstack/taskflow/blob/master/taskflow/types/graph.py#L104  Does this seem useful to add to networkx, if so, I can make a PR and it can be included. 
+issue
+Replace py2/py3 hacks with usages of six#TITLE_END#Part of fixes for issue #1702 
+issue
+Add IRC channel to README.rst#TITLE_END#A IRC channel has been made where discussion can be performed about networkx, using the popular opensource freenode servers so it might as well be mentioned in the README.rst so people can find it as needed.  https://freenode.net/ 
+issue
+Create and use/raise a `NetworkXNotFound` error#TITLE_END#In a lot of places it seems `NetworkXError` is raised for items not existing in graphs (edges, nodes) but it seems like a much better choice would be to raise some sort of `NetworkXNotFound` error/exception instead as this allows for determining whether something is missing vs the other `serious error in NetworkX` (which is on the docstring of `NetworkXError`). 
+issue
+Use the six library#TITLE_END#I see some places in the code that do things like  ``` try:     basestring except NameError:     basestring = str ```  Or:  ``` PY2 = sys.version_info[0] == 2 ```  Or:  ``` unicode = str ... isinstance(key, (str, unicode)) ```  I'm thinking the six library could just be used to do most of this instead, that's pretty much what its designed for. 
+issue
+Provide a iterative topological sort algorithm?#TITLE_END#To match most of the other iterative algorithms it would be great if there could also be a iterative topological sort algorithm as well that would iteratively yield nodes back. 
+issue
+Lose digraph ordering when creating a duplicate#TITLE_END#I am seeing the following, which doesn't look right at all.  ``` >>> import networkx as nx >>> g = nx.OrderedDiGraph() >>> g.add_node('a') >>> g.add_node('b') >>> g.add_node('c') >>> list(g) ['a', 'b', 'c'] >>> g1 = nx.OrderedDiGraph(g) >>> list(g1) ['a', 'c', 'b'] ```  It seems the order is being lost when the graph is being copied (which is the recommended way to generate a new graph, if the prior one is frozen for example); this doesn't feel like what would be the expected result here.  ``` $ pip freeze | grep networkx networkx==1.10 $ python --version Python 2.7.10 ``` 
+issue
+Add frozen attribute and freeze method onto graph+digraph#TITLE_END#It can be useful to introspect if a graph is frozen and to be able to easily freeze it, so to make this possible add a simple freeze method onto the graph and expose whether the graph is frozen (or not) as a graph attribute. 
+issue
+Allow for specifying the dictionary type#TITLE_END#In order to allow for usage of dictionaries that retain the addition order, or for dictionaries that retain some other properties it is useful to allow the digraph (and maybe in the future the graph module) to take in a type that will be used to construct dictionary objects when those types are needed. 
+comment
+I very much agree with not using prefixes. :+1:  
+comment
+(although do note it would have to be a 2.0 change to do this); because people actually use those exception names as they exist right now, so a backward compat. set of 'aliases' would have to be retained if this was done before 2.0 is released. 
+comment
+A few more authorities/view points from other large codebases: - https://github.com/openstack/taskflow/blob/master/taskflow/exceptions.py - https://github.com/openstack/nova/blob/master/nova/exception.py - https://github.com/openstack/neutron/blob/master/neutron/common/exceptions.py  - (a bunch of other openstack projects)  None afaik use the prefix notation for exceptions. 
+comment
+Do note that most of those do have a root level exception that is inherited from for all other exceptions, so we should still do that (this allows for folks that want to capture **all** networkx exceptions to still be able to). 
+comment
+Sounds good to me :+1:  
+comment
+Personally I'd be ok with methods or just direct attribute access, just having something that is recommended and 'one way' would be super :smile: (vs having many ways, each with different drawbacks). 
+comment
+Should checks be done on the edge(s) also? Since those I think can also be ordered now. 
+comment
+How goes this? I see a rc2 release on pypi still, is a non-rc release expected? 
+comment
+Thanks, updated in openstack @ https://review.openstack.org/208220 so that openstack libraries/projects can use it, much appreciated. 
+comment
+I'd like the ordereddict dictionaries usage (even if graphs really should be unordered in the _ideal_ world). #980 and #1047 (and maybe others?) started along this path and maybe we can get those to be finished up?  Btw hash randomization is usually a really good idea (see https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1150 and https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5371 and others...), and asking for it to be disabled for networkx would severely hamper its usage in servers (and other applications) that use networkx internally (and those same applications/servers may output graph files for users to download, for example). 
+comment
+The problem that I hit was that its not just the construction that needs to use an OrderedDict, its also any clone methods, any copy methods and so-on, it extends into edge addition/ordering (should that also use an OrderedDict?).  Some of the issues I see (others may have a better idea here): - `def to_undirected` (creates a new undirected graph, should this retain ordering?) - `def subgraph(self, nbunch)` (same question) - `def to_directed(self)` (same question) - Any of the copy functions in `networkx/classes/function.py` and the generation functions that exist in networkx (how will these behave?) - Others?  My guess is none of this is insurmountable, just needs to be analyzed to figure out the scope that should be tackled to get from here to there. 

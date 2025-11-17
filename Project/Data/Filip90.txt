@@ -1,0 +1,2 @@
+issue
+Problem 'Graph' object has no attribute 'successors'#TITLE_END#Hi. I don't know why but when I run my script show this problem: 'Graph' object has no attribute 'successors'  I installed the package networkx 2.0 from GitHub so I don't know how resolve it. Thank you  

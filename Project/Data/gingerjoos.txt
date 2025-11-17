@@ -1,0 +1,2 @@
+issue
+Running single_source_dijkstra_path with cutoffs and weighted edges gives incorrect output#TITLE_END#If I build a DiGraph and run the `single_source_dijkstra_path` algorithm it works as expected. If this DiGraph has weighted edges, returns just the source node alone.  Proof-of-concept: https://gist.github.com/gingerjoos/e4b129e2ad436f0ec618ce3215370282

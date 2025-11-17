@@ -1,0 +1,2 @@
+issue
+Exclude matplotlib from default requirements#TITLE_END#For non-interactive applications that don't ever need to plot anything, it would be useful to exclude the `matplotlib` dependency from the `default` set of dependencies and expose it through something like `pip install networkx[draw]` to opt-in instead.   Would you be open to consider this as an enhancement? If so, I'd be happy to contribute a PR!  PS: In terms of previous discussions, I've only found [this issue](https://github.com/networkx/networkx/issues/1325), but this is 8 years old and was closed 3 years ago.

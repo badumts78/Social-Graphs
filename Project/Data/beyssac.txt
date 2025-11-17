@@ -1,0 +1,2 @@
+issue
+int' object has no attribute 'copy' - MultiDiGraph#TITLE_END#Hi,  I was trying to write a .Net (Pajek) file with generate_pajek() and I got an error when passed MultiDiGraph as parameter:  'int' object has no attribute 'copy'  It does not happen when I pass DiGraphs  PS: Both cases the graphs had edges having attributes   Thanks, Pedro Henrique 

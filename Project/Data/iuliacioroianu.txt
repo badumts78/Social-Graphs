@@ -1,0 +1,2 @@
+issue
+Module 'networkx' has no attribute 'convert_matrix'#TITLE_END#``` import networkx as nx G = nx.from_pandas_edgelist(df, source='user_id1', target='user_id2', create_using=nx.Graph()) ``` throws: *AttributeError: module 'networkx' has no attribute 'from_pandas_edgelist'*  ``` G = nx.convert_matrix.from_pandas_edgelist(df, source='user_id1', target='user_id2', create_using=nx.Graph()) ``` throws: *AttributeError: module 'networkx' has no attribute 'convert_matrix'*  I've upgraded to networkx 2.5, but I had the same issue in the previous version (hence the upgrade).  

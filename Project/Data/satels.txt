@@ -1,0 +1,2 @@
+issue
+pagerank and personalization vector#TITLE_END#Hello!  https://github.com/networkx/networkx/blob/master/networkx/algorithms/link_analysis/pagerank_alg.py#L229  the personalize on pagerank doez not  change result pr vector.  On S.Brin article: <a href="http://ubuntuone.com/0barnty7pEx49o0Z1QXL6u"><img src="http://ubuntuone.com/0barnty7pEx49o0Z1QXL6u" /></a>  E - is ther personalize vector and this vector change result pr vector, right? 

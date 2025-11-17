@@ -1,0 +1,154 @@
+issue
+Normalize Subgraph centrality#TITLE_END#Ernesto Estrada, the inventor of subgraph centrality, didn't provide a scaling method. However, he proposed the following in private correspondence:  ``` G_norm = V * exp(L) / exp(l1) * V' ```  where `V` is the matrix of orthonormalised eigenvectors, `L` is the diagonal matrix of eigenvalues and `l1` the largest eigenvalue.  The formula above is equivalent to dividing each subgraph centrality by a `exp(l1)`.  The current method for subgraph centrality (falsely branded as communicability centrality, see issue #1239) must be something like   ``` G = V * exp(L) * V' ``` 
+issue
+Cloning a fork on Windows fails due to examples/drawing/chess_masters_WCC.pgn.bz2#TITLE_END#On a Microsoft Windows 7 Enterprise [Version 6.1.7601]  ``` Z:\software>git clone https://github.com/Michael-E-Rose/networkx.git Cloning into 'networkx'... remote: Counting objects: 34469, done. remote: Total 34469 (delta 0), reused 0 (delta 0), pack-reused 34469 Receiving objects: 100% (34469/34469), 11.22 MiB | 426.00 KiB/s, done. Resolving deltas: 100% (22286/22286), done. error: unable to create file examples/drawing/chess_masters_WCC.pgn.bz2: No such file or directory ```
+issue
+Refactor set_node_attributes() and set_edge_attributes()#TITLE_END#This is related to #2343:  - `set_node_attributes()` and `set_edge_attributes()` no longer throw KeyErrors when a key in the passed dict is not present in the graph - `set_node_attributes()` and `set_edge_attributes()` both accept dictionary of dictionaries, conditional on parameters "values" and "name" - parameter "name" now has a default value (`None`), and therefore parameter "name" now has to come last - harmonized, corrected and extended documentation for `set_node_attributes()` and `set_edge_attributes()`
+issue
+Default value for set_node_attributes() with incomplete dictionaries#TITLE_END#When the dictionary that contains node attributes in `set_node_attributes()` has keys not present in the graph, there will be a KeyError.  That's because the algorithm iterates over the entries in the dictionary.  I find this annoying and would like to change this.  Instead the algorithm should iterate over the nodes.  To handle missing values I would add a few lines to either skip those entries (i.e. do not pass a value at all, as it's implicitly the case now) or to set a standard value.  The latter can also be achieved right now by two consecutive `set_node_attributes()` calls: the first one with a string and the second one with a dictionary.  I thought I ask first how you guys feel about.
+issue
+Correct see also links#TITLE_END#This is to (hopefully finally) fix #1176 by adding the full prefix to methods in other moduls in order to link them from any "see also" section.  In PR #2082 we discovered that prefixing with `components.` is not enough. Here I prefix with the full path `networkx.algorithms.components.connected.` I am still unable to build the docs myself (both with Python 2.7 and Python 3.4). 
+issue
+Use version 1.2draft by default and apply PEP8 to gexf.py#TITLE_END#Addresses #2312 (not sure if it fixes all of it).  * Use 1.2draft as default xml version * Apply PEP8 were useful
+issue
+Gexf viz#TITLE_END#This finishes #1453.  All that was needed was to update the test files to the current version, it seems.  In particular it was about the meta tags with creator and the date created. See e.g. https://github.com/networkx/networkx/blob/master/networkx/readwrite/tests/test_gexf.py#L296 It wasn't implemented in 2015 when this PR originally started.
+issue
+Use weight=None in Centrality Algorithms rather than weight="weight"#TITLE_END#Some functions use `None` as standard for the `weight` parameter, but most used `'weight'`.  I harmonized this such that all functions use `weight='weight'` if their computation differs for weighted graphs.   On the go I applied PEP8 and Networkx' Top of the Module standards.  There was also one misspecified test for the `global_reaching_centrality`, namely the one on undirected and weighted networks.
+issue
+Gitwash update#TITLE_END#1. Remove the page on patching (addresses #2353) 2. Fix external links 3. Some minor code cleanup
+issue
+Do we need ./networkx/doc/source/developer?#TITLE_END#Do we (still) need [`./networkx/doc/source/developer`](https://github.com/networkx/networkx/tree/master/doc/source/developer)?  It seems like an artefact of the times when there was a guide for developers how to contribute on git.  I am not sure though.  Last edit is from June 2015.
+issue
+Fix broken links and remove pdf files from Makefile#TITLE_END#This addresses #2281  1. Fix (or remove) broken links to documentation files 2. Remove obsolete calls in `Makefile`
+issue
+Sort centralities together and outsource dispersion#TITLE_END#This is to fix #1397.  Basically, there are three types of centralities: Based on paths, neighbors and the entire network. Those based on paths are usually betweenness centralities, while those based on neighbors (degree centrality, eigenvector centrality, katz centrality). The latter category are usually called closeness centralities. I ordered all the centralities in `algorithms.centrality.rst` by category.  Furthermore I outsourced `dispersion` into a new file/page because it's not a centrality. 
+issue
+Order betweenness centralities together#TITLE_END#Betweenness centralities (as listed on https://networkx.github.io/documentation/latest/reference/algorithms.centrality.html#betweenness) all measure how many paths go through a certain node. There are different definitions of paths. The original betweenness centrality takes the shortest path.  Alternative path definitions are [`communicability_betweenness_centrality()`](https://networkx.github.io/documentation/latest/reference/generated/networkx.algorithms.centrality.communicability_betweenness_centrality.html#networkx.algorithms.centrality.communicability_betweenness_centrality) (all paths between two nodes) and [`load_centrality()`](https://networkx.github.io/documentation/latest/reference/generated/networkx.algorithms.centrality.load_centrality.html#networkx.algorithms.centrality.load_centrality) (all paths between two nodes, but kind of weighted).  Therefore I propose to sort these centralities together. [`doc/source/reference/algorithms.centrality.rst`](https://github.com/networkx/networkx/blob/master/doc/source/reference/algorithms.centrality.rst) is the respective file. Maybe the "See also" sections of each of these centralities should be updated as well. 
+issue
+See also-correction#TITLE_END#This is an attempt to fix #1176, which is about missing links to methods in other modules. Working on the docstrings, I added some references in text and added `raises` statements where they were missing.  Furthermore, I updated the tops of the modules to current standards and applied PEP8 in the code. 
+issue
+Use not_implemented_for() for in_degree_centrality() and out_degree_centrality()#TITLE_END#Using `not_implemented_for()` from `networkx.utils.decorators` for `in_degree_centrality()` and `out_degree_centrality()`. Applying PEP8 (removing trailing whitespaces and adding missing whitespaces) and current top-of-the-module standards as well. 
+issue
+Generalize and improve docstrings of node_link.py#TITLE_END#This is related to issue #1951.  Changes:  - Set default value of `id` to `name` and rename attribute key `id` to `name` - Use `attrs` parameter to update `_attrs` such that default parameters don't need to be provided - Add attribute key `link` with default value `links` - Update docstrings (i.e. extend example, apply PEP8 and remove obsolete note) - Apply PEP8 to `test_node_link.py`  Some questions remain: 1. Do we really need `make_str`? After all, it's just a wrapper and doesn't make things shorter. Removing it means to import one package less. 2. Should we get rid of all the blanks in the output? Especially for large graphs writing `{'source':0,'target':1}` instead of `{'source': 0, 'target': 1}` results in a good compression. 3. Should I remove `__author__` attribute according to #1728? 
+issue
+Improve gexf.py#TITLE_END#This is related to #1949.  Changes in first commit:  - Apply PEP8 - Fix a little bug where `'1'` was keyed to `False` although `1` was keyed to `True` (this was certainly not intended) - Expand docstring of `relabel_gexf_graph()` with information on raised errors  Changes in second commit: - Add all `.graph` attributes to `<graph>` tag in xml - Read `name` from `<graph>` tag in xml - Add `<meta>` tag with creator + version and datecreated as text (this required two new packages to be imported) 
+issue
+json_graph.node_link_data() doesn't get node IDs right#TITLE_END#There is a bug with writing json files related to node IDs.  Let's create a simple graph with nodes `k` and `l` with a undirected edge between them:  ``` >>> import networkx >>> from networkx.readwrite import json_graph >>> G = networkx.Graph([('k', 'l')]) >>> data = json_graph.node_link_data(G) ```  Let's create a `.json` output:  ``` >>> print json_graph.node_link_data(G) {'directed': False, 'graph': [], 'nodes': [{'id': 'k'}, {'id': 'l'}], 'links': [{'source': 0, 'target': 1}], 'multigraph': False} ```  A link is created between `1` and `0`, but these nodes are not existent. That's clearly a bug, as the resulting file is quite useless.  I can think of two fixes: 1. The result should be: `{'source': 'k', 'target': 'l'}` -> change in [`networkx/readwrite/json_graph/node_link.py`](https://github.com/networkx/networkx/blob/master/networkx/readwrite/json_graph/node_link.py) 2. The result should be: `{'id': 0, 'label': 'k'}, {'id': 1, 'label': 'l'}` -> change somewhere in [`classes/graph.py`](https://github.com/networkx/networkx/blob/master/networkx/classes/graph.py) 
+issue
+xml version and meta tags for .gexf files#TITLE_END#Networkx' `.gexf` files lack the starting `<?xml version="1.0" encoding="UTF-8"?>` tag which are needed by some editors to highlight text. It's easy to implement this and I can do this.  While I am at it, how's your feeling on `<meta`> tags? Other programs (Gephi) state `lastmodifieddate` as well as `creator`. 
+issue
+Improve drawing test scripts (typos, newlines, methods)#TITLE_END#First, I wanted to remove the typo in `test_agraph.py` (intefaace). Then I saw that the list of `.add_edge()` can be collapsed to `.add_edges_from()`. I did the same in `test_pydot.py`, where I additionally entered `with open() as` statements. Finally, I ended up harmonizing all four test files: remove whitespaces around `=`, remove redundant newlines, collapse title to one-line. 
+issue
+Communicability, subgraph centrality, clarification and refactor#TITLE_END#The documentation on `communicability_centrality()` says that it calculates communicability centrality which is also know as subgraph centrality according the documentation. But communicability centrality is not the same as subgraph centrality. These two are related but distinct concepts:  Subgraph centrality builds subgraphs using closed walks. Communicability centrality uses open walks between any two nodes.   Given the formula and description of the command, it seems that NetworkX actually uses subgraph centrality which however renders the NetworkX command 'communicability' wrong. 
+issue
+Communicability fix#TITLE_END#This commit is via #1239: - Split `communicability_alg.py`, because it wrongly confused subgraph centrality and communicability centrality:   - Since communicability is not a centrality, the respective part is in `networkx/algorithms`   - The part on subgraph centrality and communicability betweenness centrality together with the Estrada index forms the new `subgraph.py` in `networkx/algorithms/centrality` - (Hopefully) all docs updated  Note: this pull request renders #1950, #1887 and #1466 obsolete. 
+issue
+ Refactor (rename) communicability and subgraph centrality (#1239)#TITLE_END#Following the discussion in #1239, I renamed all centrality measures in `communicability_alg.py`, after clarification. One problem remains: `communicability()` and `communicability_exp()` are not really centrality measures. Hence, they don't belong where they are stored right now. 
+issue
+Readwrite update#TITLE_END#Files `adjacency.py` and `node_link.py` from `readwrite/json_graph` were outdated in terms of copyright. I also removed the use of `G.graph` as it resulted in empty space in the output. 
+issue
+Split communicability_alg to subgraph.py and communicability.py#TITLE_END#This commit is via #1239: - Split `communicability_alg.py`, because it wrongly confused subgraph centrality and communicability centrality:   - Since communicability is not a centrality, the respective part is in `networkx/algorithms`   - The part on subgraph centrality and communicability betweenness centrality together with the Estrada index forms the new `subgraph.py` in `networkx/algorithms/centrality` - (Hopefully) all docs updated 
+issue
+Refactor subgraph and communicability measures (#1239)#TITLE_END#- Correct names of functions (communicability centrality was really subgraph centrality) - Split subgraph centrality measures (including communicability betweenness centrality) and communicability, as the latter is not a centrality - Update documentation and correct references - Update doc tree 
+issue
+Update Git docs#TITLE_END#First I only wanted to update and correct the steps listed on http://networkx.github.io/documentation/latest/developer/gitwash/following_latest.html, but then I saw that many links on http://networkx.github.io/documentation/latest/developer/gitwash/git_resources.html are also outdated. So I decided to clean that page and soft-redirect visitors to https://help.github.com/articles/what-are-other-good-resources-for-learning-git-and-github/ instead of listing outdated links. 
+issue
+networkx.info() can't handle directed networkx#TITLE_END#The `info()` function (I know, it's not officially mentioned in the docs for 1.9.1) yields wrong results for directed graphs. The error is that average in degree and average out degree are the same.  ``` G = nx.DiGraph() G.add_nodes_from(range(0,10)) G.add_path([0,1,2,3,4,5,6,7,8,9]) nx.info(G) ```  > 'Name: \nType: DiGraph\nNumber of nodes: 20\nNumber of edges: 9\nAverage in degree:   0.4500\nAverage out degree:   0.4500' 
+issue
+enhance docs for centrality measures, close #1257 close #1250 close #1247#TITLE_END#I added some references e.g. to provide the original article introducing a centrality. For eigenvector() and eigenvector_numpy() I added a formula. I also fixed the problems mentioned in the issues #1257, #1250 and #1247. 
+issue
+Katz centrality docs incomplete#TITLE_END#The formulas in the docs for the Katz centrality (https://networkx.github.io/documentation/latest/reference/generated/networkx.algorithms.centrality.katz_centrality.html) are not rendered.  Also, I would suggest to add the origin as a reference, that is Katz, L. (1953). A New Status Index Derived from Sociometric Index. Psychometrika, 39-43. 
+issue
+Load centrality reference not formatted#TITLE_END#The reference on the doc on load centrality (https://networkx.github.io/documentation/latest/reference/generated/networkx.algorithms.centrality.load_centrality.html#networkx.algorithms.centrality.load_centrality) is not formatted like the other references. 
+comment
+Yes, networkx' standard version (xml namespace) is still on `'1.1draft'`, which is [deprecated](http://www.gexf.net/format/schema.html).  Would it be sufficient to simply change the default value of the version parameter?
+comment
+PR is live.  But why do you want version 1.3?  According to http://www.gexf.net/format/schema.html (January 2017) the recommended version is 1.2draft.
+comment
+Welcome. Are you familiar with the concept of forks and pull requests? NetworkX has a section on it: https://networkx.readthedocs.io/en/stable/developer/index.html 
+comment
+No need to close the issue. You can leave it open and refer to it from the pull request (PR), which will get it's own number. Once the PR has been merged (i.e. accepted), this issue can be closed as well.  Also refer to the [Wiki](https://github.com/networkx/networkx/wiki) for NetworkX' coding style. 
+comment
+Just bumped into the same problem.  Why not running a (conditional) conversion to integers or floats somewhere in `.write_gexf()`?
+comment
+Just found this 5 year old ticket.  The link to the code that replicated the bug is dead.  Can someone still replicate the bug?
+comment
+May I ask, what's the status on this one? The first PR looks quite clean but the longer one waits, the more merge conflicts there will be. 
+comment
+As for the question: I use the name, but it was long useless as the name wasn't written to `.gexf` files (and hence not ported). PR #2010 changed that (but will only take effect in networkx-2.0). However, I think that the name without parameters is enough. It's very easy to change the name if people create more than one generated graph of the same type (which is the only case when a name is needed to discriminate based on the name). 
+comment
+If I'm not mistaken, we can close this issue, as it was fixed in #1321. 
+comment
+According to @theaverageguy's [fork](https://github.com/theaverageguy/networkx/commits/master), there was no activity since Feb 28 
+comment
+Reviving an 11 months old issue... To me the idea of a separate `CONTRIBUTING.md` looks redundant to what the [wiki](https://github.com/networkx/networkx/wiki) fulfills. 
+comment
+I see, some useful information is indeed missing. Now the question is: Should this information be part of the wiki or the only content of CONTRIBUTING.md? Am 30.03.2016 00:44 schrieb "Jean-Gabriel Young" notifications@github.com:  > The wiki now address some of the issues, I agree. > Some very useful information is still missing though: are "uninvited > feature" pull requests welcome? Would an external developer's time be > better spent addressing open issues. How is the codebase organized? What > are the middle / long term plan of the development team. >  > — > You are receiving this because you commented. > Reply to this email directly or view it on GitHub > https://github.com/networkx/networkx/issues/1480#issuecomment-203143748 
+comment
+Yes, it's a duplicate to #2281.
+comment
+That's true, but the commit that fixes the broken link is _not yet_ live. That's why you see the same error as the other OP six months ago.
+comment
+> My understanding is that it is fixed in the master branch of github but not in the v1.11 release.  That is absolutely the case. In the above referenced PR, I changed `download.rst` such [that](https://github.com/networkx/networkx/pull/2344/files#diff-ff8e8d6c0c2c8db1b04b9e4e2563bd06) there is no section called PDF any more.  Eiter it is not live yet, or the docs have not been updated.
+comment
+> Got to find a simpler doc system to keep this working well.  Maybe no github.io docs at all? Or we redirect rtfd.org to point to the build.
+comment
+This is the opposite of #2332, which is about producing a json graph, while this issue is about reading a json graph.  It's best to answer both issues together:  Should the mapping onto indexes still be possible (optional) or not?
+comment
+The problem still exists. Hence I would volunteer to finish the PR. Must I start a new PR or can I somehow add to this one?
+comment
+Then what's the advantage of forking this PR first given that is not easy? As an alternative I could take @kmanninen's code here, update the test files, and add everything to the still open PR #2355 of mine, which deals with gexf as well.
+comment
+Okay, I see, but after all it's "just" four lines of code in one file (https://github.com/networkx/networkx/pull/1453/files). Forking the PR and then resolving the merge conflict might outweigh the benefits?
+comment
+Alright, I did it. What's strange is that all nosetests pass.  Now, how do I push & make the new PR?  I surely can't push to the branch of the OP, which is `kmanninen-master`, can I?  Guess I better ask beforehand instead of messing things up.
+comment
+For reference: http://networkx.readthedocs.io/en/stable/reference/generated/networkx.algorithms.bipartite.projection.collaboration_weighted_projected_graph.html?highlight=collaboration_weighted_projected_graph with `i = v`, `j = w`.  It seems that the first delta should have superscript `k` and the denominator should be `k` (or `n^k`), but not `k_w`.  To me the code looks correct, however.  Can someone confirm?  When fixing this, someone should apply PEP8 and add the decorator.  I bet we can also gain some speed by computing a degree dictionary once rather than twice in each iteration.
+comment
+This is about [`algorithms/traversal/depth_first_search.py`](https://github.com/networkx/networkx/blob/master/networkx/algorithms/traversal/depth_first_search.py). I has changed a little since Jun 2014, but not the docs.  I think it's easy to expand on `dfs_edges` by showing how a graph could be rebuild using the edges or by showing how one could get nodes from the result.  However I don't understand the proposal for `dfs_tree`: Why should the function work on a list of nodes (as is the case for `DiGraph.nodes()` or `DiGraph.node_iter()`)? 
+comment
+It's easy to change this behaviour by removing the mapping (i.e. `mapping = dict(zip(G, count()))` and subsequent use of this).  The question is: Should it still be possible to use indexes corresponding to the node list?  I could implement this with an optional parameter.
+comment
+Don't you just need to remove the mapping?  Because then the algorithm will just use the id's which are already there.  I had nearly finished a PR but wanted to wait for the others to be accepted.  It seem you're more advanced, @rhilenova, so go ahead with a PR and we have a look on the code!
+comment
+Yes of course you need to adapt the test files. They expect integers but this must change.
+comment
+Given that there is extensive explanation of pull requests in the [development workflow](https://networkx.readthedocs.io/en/stable/developer/gitwash/development_workflow.html), I'd suggest to dump the section on patching altogether.
+comment
+If I understood the developers correctly they rather use the wiki: https://github.com/networkx/networkx/wiki
+comment
+There's also a part on contributing in the Developer Guide on read the docs: https://networkx.github.io/documentation/networkx-1.9/developer/index.html It's unfortunately a bit outdated, which #2371 is going to fix.  Whether networkx should have `CONTRIBUTING.md` or not is up to the developers, I would say.
+comment
+The links for https://networkx.readthedocs.io/en/stable/index.html are non-clickable (how could even know where they link to?), and were removed in 0ec1e80632d93ff91f0cc9729028387f828f87ce.  With the next networkx update the changes will go live and remove the text. 
+comment
+The correct link is http://networkx.readthedocs.io/en/stable/reference/drawing.html.  On `drawing.rst`, the function name is already formatted as code (i.e. `networkx.write_graphml(G)`). Problem here is that Latex is enabled, but I don't see where. 
+comment
+Issue can be closed. Google reindexed networkx. 
+comment
+Issue can be closed. Google reindexed networkx. 
+comment
+I think this issue can be closed, as the corresponding PR has been merged. Question is: Is this problem related to issue #1985? 
+comment
+Since networkx has Napoleon enabled in [`doc/source/conf.py`](https://github.com/networkx/networkx/blob/master/doc/source/conf.py), I guess the answer to @hagberg's question is No: references to functions not in the same module stay plain text.  I believe, in this case adding the prefix `components.` to the see also-refs in [`semiconnected.py`](https://github.com/networkx/networkx/blob/master/networkx/algorithms/components/semiconnected.py) as prefix would fix the issue. At the same time, one should update [`strongly_connected.py`](https://github.com/networkx/networkx/blob/master/networkx/algorithms/components/strongly_connected.py) and [`weakly_connected.py`](https://github.com/networkx/networkx/blob/master/networkx/algorithms/components/weakly_connected.py)  On a more general level: The missing linking of methods outside the same module holds for quite some files and it takes a while to find them all. Isn't it possible to check for see also-links in nosetest or other pre-build tests? 
+comment
+Not sure if my suggested edit (adding the prefix) will work. But I'm willing to try! 
+comment
+PR is live. Let's have a look to check whether the linking works. If so, there are many more docstrings to update. 
+comment
+Apparently, the already merged PR #2082 didn't fix the problem. The first four entries in http://networkx.readthedocs.org/en/latest/reference/generated/networkx.algorithms.components.connected.is_connected.html#networkx.algorithms.components.connected.is_connected should be links.  I am confused: `numpy`'s [`HOWTO_DOCUMENT.rst`](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt#sections) clearly states:   > Prefix functions from other sub-modules appropriately. E.g., whilst documenting the `random` module, refer to a function in `fft` by >    `fft.fft2 : 2-D fast discrete Fourier transform`  So either my prefixing is wrong, or a setting differs from the one used by `numpy`, so something else. Let's reopen this issue and continue looking for an answer. 
+comment
+PR is live. Still unable to test whether it worked. 
+comment
+I'm still unsure whether adding the full file path works.  Take a look at http://networkx.readthedocs.org/en/networkx-1.11/reference/generated/networkx.algorithms.centrality.betweenness_centrality.html: There is a link in "See also" to `load_centrality()`, although this method is in another file/module. Same goes for the link to `eigenvector_centrality()` on the page of [`katz_centrality()`](http://networkx.readthedocs.org/en/networkx-1.11/reference/generated/networkx.algorithms.centrality.katz_centrality.html). Then again, `pagerank()` does not get linked to, but this is in another folder.  What's different with the centralities? 
+comment
+I got it. The trick was to remove `currentmodule` in `algorithms.component.rst` and list `automodule` only once.  PR #2095 updated. 
+comment
+Yes, line 75 in [`networkx/readwrite/pajek.py`](https://github.com/networkx/networkx/blob/master/networkx/readwrite/pajek.py) looks also redundant to me. At the same time, we should update the file to PEP8 and replace `__author__` tag. 
+comment
+So I believe this issue can be closed. 
+comment
+Looks redundant to #1954. 
+comment
+In `tests/test_connectivity.py`, the import statement could be reduced to `from nose.tools import assert_almost_equal,import assert_equal,assert_true,raises`. `test_single_node()` contains ToDo notes. Finally, it seems a newline at the end is missing.  I also wonder why you removed `__author__` from `connectivity.py`? 
+comment
+Sorry guys to add a comment to an already closed issue, but I disagree with ysitu's claim:   > You can define "largest" in terms of number of nodes, number of edges, node/edge weight, average node/edge weight, etc., etc.  It's not. Scientific work and handbooks (on (social) network analysis) only speak of a giant component in terms of the number of nodes. Additionally, the largest connected subcomponent is always called the giant component. See for example [this handbook chapter of J. de Martí and Y. Zenou](http://www.iza.org/en/webcontent/publications/papers/viewAbstract?dp_id=4621).  Furthermore, the giant component is quite important in scientific work because it often stands as representative for the entire network, at least when we need centralities. Everyone knows, centralities can only be calculated for connected components. We think it's still better to use centralities of the giant component than none at all. An example is [this](https://ideas.repec.org/a/ucp/jpolec/v114y2006i2p403-432.html) Journal of Political Economy paper by S. Goyal, M. J. van der Leij and J. L. Moraga-Gonzalez.  In total, the giant component is widely used in scientific work and networkx would definitely do us a favor when implementing such a function, even though it's a one-liner for a one-liner (which networkx already has, btw.). 

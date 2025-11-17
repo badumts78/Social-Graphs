@@ -1,0 +1,2 @@
+issue
+Fix centrality betweeness subset#TITLE_END#This proposed changeset fixes a bug in the implementation of the `subset centrality betweeness`.  I believe that the existing implementation fails to take into account the case where a node lies on multiple shortest paths, and only accounts for the number of predecessors of those nodes. This changeset adds a test case that illustrates the problem, along with a proposed fix. I also took the liberty of fixing what apperas to be a mistake in some tests fixtures names.

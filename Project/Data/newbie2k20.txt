@@ -1,0 +1,2 @@
+issue
+time complexity of the methods#TITLE_END#sir i am working on community detection and trying to optimize parts of the code. It would be great help for a newbie like me if there is a note in the documentation indicating the time complexity of the methods. Can you tell me what is the time complexity of the following methods: 1. Graph.subgraph(nodes) 2. connected_components(Graph)  

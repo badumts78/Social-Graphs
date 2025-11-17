@@ -1,0 +1,2 @@
+issue
+fixing dtype in to_numpy_array and initialization of matrix#TITLE_END#fixing dtype in to_numpy_array (calling to_numpy_array(dtype=int) used to return a matrix full of floats) changing init of numpy.array from np.zeros() + np.nan to np.full() 

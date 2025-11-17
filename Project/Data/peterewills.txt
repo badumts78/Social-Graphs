@@ -1,0 +1,8 @@
+issue
+Fix for #2364#TITLE_END#scipy.linalg.expm was being used on a numpy matrix, which is known to be buggy. See scipy/scipy#5546.
+comment
+I'm looking into implementing a fast edit distance for a project I'm working on. Let me know if you make any inroads on this, or have any good references.
+comment
+The issue is in `scipy.linalg.expm`. This function breaks when applied to certain matrices of size greater than 199x199. For some reason this only happens with the input to `expm` is a numpy matrix. It's not a problem for numpy arrays. For example,      >>> import numpy as np     >>> from scipy.linalg import expm     >>> A = np.diag(np.ones(199,1)) + np.diag(np.ones(199,-1)) # a path graph     >>> expm(A) # works fine     >>> expm(np.matrix(A)) # breaks  This problem is not present for all matrices of size over 200. For example, `expm(np.matrix(np.eye(200)))` works fine. However, as far as I can tell, it is present for all *adjacency* matrices. The issue is discussed in greater detail in scipy/scipy#5546.  A (somewhat cheesy) way to avoid the problem is to convert the adjacency matrix to an array before applying `expm`.  
+comment
+It looks like `communicability_betweenness_centraility` isn't present in networkx version 2.0. Should I add it back in with the above changes? Or is there another reason it was removed?  Apologies if this is a stupid question, this is my first time contributing to an open-source project.

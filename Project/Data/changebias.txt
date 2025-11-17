@@ -1,0 +1,2 @@
+comment
+Hello.  I found the same bug. The page https://networkx.github.io/documentation/stable/tutorial.html#drawing-graphs has link _See Drawing for additional details_ to https://networkx.github.io/documentation/latest/gallery.html, but https://networkx.github.io/documentation/latest/gallery.html returns 404.

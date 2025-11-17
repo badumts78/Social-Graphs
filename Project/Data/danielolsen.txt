@@ -1,0 +1,2 @@
+issue
+doc: fix typos in docstring and comment#TITLE_END#No code changes, just a typo I noticed in the docs and one more typo in a comment that I found by searching the repo.

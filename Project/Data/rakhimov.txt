@@ -1,0 +1,2 @@
+issue
+import networkx is slow#TITLE_END#Importing networkx takes from 0.2 to 0.5s.  Example project: https://github.com/rakhimov/cppdep Platform: Ubuntu 16.04, virtualenv with python 2 and 3.

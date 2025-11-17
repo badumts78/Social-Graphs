@@ -1,0 +1,4 @@
+issue
+algorithms for cographs#TITLE_END#Two algorithms for cographs: - modular decomposition of cographs into cotrees - verification of cographs 
+issue
+Algorithms for cographs#TITLE_END#I've written to algorithms for cographs: - modular decomposition for a cograph into its corresponding cotree - verification of cographs  The code can be seen here: https://github.com/jnyrup/thisandthat/blob/master/cographs.py  I've tried to make it ready for inclusion in networkX, so please comment on missings, wrongs or other suggestions. 

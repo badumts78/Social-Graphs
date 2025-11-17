@@ -1,0 +1,8 @@
+issue
+Steiner tree approximation#TITLE_END#with regards to issue #5889 I have taken a stab at implementing multiple calls to the shortest path algorithm. I have removed the metric closure function from the previous implementation too.
+comment
+hello I have tried to implement an alternative single source shortest path implementation linked with #5905. 
+comment
+Can i work on this issue 
+comment
+> Hi All, I would also be interested in contributing to this. >  > It looks like there are handful of functions to address - perhaps we can split the work among ourselves?  sure lets do it 

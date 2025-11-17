@@ -1,0 +1,4 @@
+comment
+Was there ever an implemented design for this?
+comment
+I see the motivation behind why this design is tricky (it seems like the most general candidate is to pass in a lambda for filtering target nodes, which is [how petgraph does it with `astar`](https://docs.rs/petgraph/latest/petgraph/algo/astar/fn.astar.html)), though a "multi target" dijkstra function really helps when doing a dijkstra call on a large graph but only on a few select, close-together nodes.

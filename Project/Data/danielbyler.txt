@@ -1,0 +1,2 @@
+issue
+Limiting the size of a simple cycle#TITLE_END#I'm searching for simple cycles in a large graph and despite having 2 TB of RAM, am running out of memory. I am considering implementing a limiting optional argument for the simple cycle.   Basically, if you go over X links in the chain then just stop searching because the loop is too long to be useful.   If I did this, would this be of use/something you'd be interested in having as a contribution?  Thanks!

@@ -1,0 +1,8 @@
+issue
+Fixed 404 link of reference pdf#TITLE_END#Fixed issue which is related to #1318. 
+issue
+Not found in reference PDF of closeness_centrality#TITLE_END#I'm reading the document described about `networkx.closeness_centrality()` at https://networkx.github.io/documentation/latest/reference/generated/networkx.algorithms.centrality.closeness_centrality.html, but link of reference paper (http://www.soc.ucsb.edu/faculty/friedkin/Syllabi/Soc146/Freeman78.PDF) is now dead.  I found another pdf link, that is http://leonidzhukov.ru/hse/2013/socialnetworks/papers/freeman79-centrality.pdf.  
+comment
+:+1:  
+comment
+@jg-you its sweet... :+1:  

@@ -1,0 +1,2 @@
+issue
+Wishlist: Approximation for edge_betweenness_centrality#TITLE_END#The `betweenness_centrality` function includes an option to pick _k_ seed nodes to estimate betweenness. It would be nice (and NetworkX would be more consistent) if this option was available for the `edge_betweenness_centrality` function, too. 

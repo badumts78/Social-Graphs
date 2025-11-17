@@ -1,0 +1,2 @@
+issue
+float take out of inner loop for speed#TITLE_END#for big network this speed improvement matters 

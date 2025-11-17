@@ -1,0 +1,2 @@
+issue
+fixing bug related to #4980#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> Method that fix the bug #4980 , in which the user will have the detailed shortest path (with keys)

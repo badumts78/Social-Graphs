@@ -1,0 +1,2 @@
+issue
+all_simple_paths should not return cycles. Fix issue #2762#TITLE_END#Following instruction on fix for issue #2762 

@@ -1,0 +1,2 @@
+issue
+Implementation for TextRank#TITLE_END#Hi, I am trying to use networkx's PageRank algorithm for my implementation of TextRank. https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf The scoring matrix that they have used uses weights for edges.  So, if I pass in weight parameter while constructing the graph, then what does the scoring function look like ? 

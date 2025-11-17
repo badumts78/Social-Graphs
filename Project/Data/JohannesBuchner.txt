@@ -1,0 +1,2 @@
+issue
+Is relabeling safe for partially overlapping names?#TITLE_END#If I have nodes (1-2-3-4-5) and I rename 5->6, 4->5, 3->4, networkx should not get confused and rename 3 to 4 first, followed by another rename to 5.  If I read the first if-clause of _relabel_inplace correctly, then it is safe to rename nodes when some of the old and new names overlap. So I suspect networkx is doing this correctly, but it would be nice if the doc would confirm this explicitly, especially for copy=False.  

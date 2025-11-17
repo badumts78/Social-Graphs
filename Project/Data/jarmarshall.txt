@@ -1,0 +1,4 @@
+issue
+metric_closure will throw KeyError with unconnected graph#TITLE_END#Suggest checking connectedness with `nx.is_connected()` on entry to `metric_closure()` and throwing a more informative error if not.
+comment
+Thanks, this is great functionality, but you assume the graph supplied is connected, which may not be the case... see issue #2979 

@@ -1,0 +1,2 @@
+issue
+Degree histogram figure misleading#TITLE_END#Hey! I found out that the degree distribution from the below page is wrong.  It is not possible that multiple rank can exists for certain degree.  When you plot 'degree_sequence', you should change 'x' and 'y' axis.  https://networkx.github.io/documentation/latest/examples/drawing/degree_histogram.html 

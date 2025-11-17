@@ -1,0 +1,2 @@
+issue
+Fix indexing in kernighan_lin_bisection#TITLE_END#initialize side list from input partition, must set index of members of A, not the element itself

@@ -1,0 +1,2 @@
+issue
+Problem with all_neighbors function#TITLE_END#  File "/usr/local/lib/python2.7/dist-packages/networkx-1.7-py2.7.egg/networkx/classes/function.py", line 396, in all_neighbors     values = itertools.chain.from_iterable([graph.predecessors_iter(node), NameError: global name 'itertools' is not defined  I solve this error add a "import itertools" on funcion.py.. and solve.. you need to do the same or something like that.  Thanks and congratulations! 

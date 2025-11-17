@@ -1,0 +1,2 @@
+issue
+A star not find the same path when switch the start and the end point in an undirected graph#TITLE_END#Hi guys,  Recently when I used networkx library to build a undirected graph, and then used astar to search for the shortest path, I found that if I switch the start and the end point, astar_path will return different sequence. I wonder why this happens and can anybody help me?  Thanks!

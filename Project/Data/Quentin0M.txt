@@ -1,0 +1,2 @@
+issue
+nx.binary.nx#TITLE_END#Hi. This doesn't really pose a problem but I'm really curious as to why nx is included in binary. I'm not really that great of a developper and mostly use python for academic research so this would be enlightening for me. Looking forward for your responding. Thanks in advance, Quentin

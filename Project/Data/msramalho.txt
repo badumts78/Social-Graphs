@@ -1,0 +1,4 @@
+issue
+Eulerization of a Graph#TITLE_END## Eulerization of a Graph What I propose is that the **Euler** functionality be expanded to handle the transformation of a non-euler graph into one, with as little additions and removals as possible. This would be useful because many programs need such features and it would be a disruptive feature.   [File to update](https://github.com/networkx/networkx/blob/master/networkx/algorithms/euler.py)  I would like to do it, but I don't know wether I'll have enough time.  [Instructions](http://www.math.unl.edu/~bharbourne1/M203Spr07/EulerizationHandout.pdf)
+issue
+Floyd Warshall rebuild path#TITLE_END#In this PR I have implemented a simple function to reconstruct the path from a node `source` to a node `target` with the result of executing: `floyd_warshall_predecessor_and_distance`  The code is being properly tested:  . Expected behavior  . Abnormal behavior: `source == target`  . KeyError exception (this test is optional)

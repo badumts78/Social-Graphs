@@ -1,0 +1,2 @@
+issue
+Support pydotplus as a (Python 3 compatible) replacement for pydot#TITLE_END#pydotplus is a replacement for pydot that works on Python 3. This PR uses pydotplus if pydot isn't available. Tests pass for me (Python 3.4, Windows 64-bit). 

@@ -1,0 +1,2 @@
+issue
+Allow curved edges#TITLE_END#Hi,  I'm interested in plotting a bidirectional directed graph in a way that the arrows aren't overlapping. It seems like it should be relatively easy to tweak the call `FancyArrowPatch` to include such curved arrows. Would that be a relevant/interesting pull request?   Sorry if it's a silly question, first time I'm trying to contribute to an OSS at this scale :-)  EDIT: Also tried to label this as an "enhancement" but wasn't able to. Would be happy to understand why.

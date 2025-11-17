@@ -1,0 +1,28 @@
+issue
+Triadic Census for Undirected Graph#TITLE_END#Is there any specific reason (for e.g. computationally expensive, etc.) why the [triads algorithms](https://networkx.org/documentation/stable/reference/algorithms/triads.html) are not implemented for Undirected Graphs ? From what I understand, there would be only 4 types of triads possible in an undirected graph and the calculation would be similar to how it's done for directed graph. Please let me know if I am missing something here. Also, can I please go ahead with the implementation for the triad algorithms ?  :)
+issue
+Added nodelist attribute to triadic_census#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> Solves #4104   Adds a parameter `nodeslist`, which allows calculating triadic_census for a specific set of nodes.
+issue
+Use bidirection_dijkstra as default in weighted shortest_path#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> Solves #3368   Makes `nx.shortest_path` use `bidirectional_dijkstra` in case of weighted graphs (when source and target are known)
+issue
+[WIP]Iterative Deepening Search#TITLE_END#Addresses [#1909](https://github.com/networkx/networkx/issues/1909). I have added the initial logic for Iterative Deepening Search (also known as Iterative Deepening DFS). I have following question about the implementation  1. Here I am returning True or False depending on whether the target node is reachable from the source node or not. Is the correct way or do you want me to return the path from source to target?   TODO: 1. Add examples in docstrings 2. Add tests
+issue
+Depth-limited Breadth First Search#TITLE_END#Addresses [#2352](https://github.com/networkx/networkx/issues/2352). Added code for depth_limit for BFS along with the tests, references, and examples.
+comment
+@dschult  Is it okay if I look into this issue ?
+comment
+If nobody else is working on this issue, can I work on it?
+comment
+Hi @dschult , when I am trying to create a pull request it is taking changes from the depth limit in BFS feature as well (This was a previous pull request that was merged with the master branch). Is there something else that I need to figure out ? I am not able to understand what exactly am I doing wrong here.
+comment
+I guess I messed up things really bad. I was trying different things to clean the repo but ended up making more mess than before. I will fix it and get back with the updates. I have reverted the commits on my master branch. Thank you for your help :) I really appreciate that! 
+comment
+Thank you so much for your help! It took some time but I finally got it to work! I will update the code today with examples, tests and documentation. Please let me know if you want any changes in the implementation :)
+comment
+Hi Dan, I think we should go ahead with your previous comment of yielding edges and keeping track of them ?  On Sat, Aug 4, 2018, 12:41 AM Dan Schult <notifications@github.com> wrote:  > Thanks for the response! > So I think that means we don't want to store the edges we have already > reported because that will also take O(b^d) memory. Right? Or maybe I am > confused. Don't we need O(b^d) memory just to hold the graph anyway? > > — > You are receiving this because you commented. > Reply to this email directly, view it on GitHub > <https://github.com/networkx/networkx/issues/1909#issuecomment-410349128>, > or mute the thread > <https://github.com/notifications/unsubscribe-auth/AUHDSpPVvsbJsLh2i3DLr3645-4by0KPks5uNKBEgaJpZM4G_CXv> > . > 
+comment
+If nobody else is working on this issue, can I work on this issue ?
+comment
+Sorry for the delay. I am still working on it and will get this done by this weekend positively. Sorry for the inconvenience caused. 
+comment
+@gmyr I appreciate that :)

@@ -1,0 +1,2 @@
+issue
+PythonRandomInterface seed initialized to None #TITLE_END#https://github.com/networkx/networkx/blob/087ed3b9ff9d92cf97a1d5a5cb3afd1c8b78298d/networkx/utils/misc.py#L341  When `None` is passed as seed, the code flow initializes to a `RandomState()` then sets it back to `None`. Maybe an else is missing? 

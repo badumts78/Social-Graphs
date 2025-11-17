@@ -1,0 +1,2 @@
+issue
+How large network can be created in networkx?#TITLE_END#I tried to create a network with about 200 million weighted edges but python file stopped running after around 90 million. Is it possible to create such a large network? I don't know if it's because of the limit of my computer or networkx. Do you have any suggestions on how to create a large network? Any optimizations? Maybe other packages or tools?

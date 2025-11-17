@@ -1,0 +1,2 @@
+issue
+in_degree values#TITLE_END#The [docs](https://networkx.github.io/documentation/networkx-1.10/reference/generated/networkx.MultiDiGraph.in_degree.html?highlight=in_degree#in-degree)  says `list(G.in_degree([0,1]).values())` should return the values. 2.0 [docs](https://networkx.github.io/)   doesn't mention anything about values just returning a tuple. So the question is how to fetch the values of the in_degree? What are the options? 

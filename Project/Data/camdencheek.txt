@@ -1,0 +1,2 @@
+issue
+Add algorithms for regular graphs#TITLE_END#Adds the functions `is_regular`, `is_k_regular`, and `k_factor`.  The functions `is_regular` are fairly self-explanatory. The `k_factor` function implements an algorithm for computing the k-factor of a graph. The algorithm is described in "An algorithm for computing simple k-factors" (Meijer, H., Núñez-Rodríguez, Y., & Rappaport, D. 2009).

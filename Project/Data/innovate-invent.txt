@@ -1,0 +1,2 @@
+issue
+eccentricity() doesn't efficiently handle its sp parameter#TITLE_END#When iteratively reducing a graph based on its eccentricity, there is no reason to recalculate all path lengths for sub-graphs.  The exception networkx.exception.NetworkXError: Graph not connected: infinite path length occurs when passing the result of all_pairs_dijkstra_path_length() calculated on the initial super-graph. The function should just make use of the relevant paths and ignore any removed paths from the sub-graph.

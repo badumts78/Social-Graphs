@@ -1,0 +1,2 @@
+issue
+Maximum Priority Matching#TITLE_END#We added the Maximum Priority Algorithm directory. This directory is implementation of two algorithms that displayed in the articles 'Maximum Priority Matching' and 'Faster Maximium Priority Matchings in Bipartite Graphs' that were written by Jonathan Turner.  In addition we used cython functions in order to improve the run time of the algorithms and there is an option to use them or run the algorithm without them. 

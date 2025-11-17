@@ -1,0 +1,2 @@
+issue
+Reading GML files#TITLE_END#Reading the `polblogs.gml` file [downloaded here ](http://www-personal.umich.edu/~mejn/netdata/) using NetworkX's `read_gml` function throws `NetworkXError: edge is duplicated`.   This was not the case previously. I'm running both `Python 2.7` and `Python 3.6`; the same error is thrown using both kernels. My NetworkX version is 1.11.  

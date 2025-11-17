@@ -1,0 +1,2 @@
+issue
+nx.simple_cycles counts more cycles than exist. #TITLE_END#### Current Behavior Function returns more than million cycles in graph that contains only 2000 edges and ~1300 nodes and 100-200 cycles. ### Steps to Reproduce 1. Load graph from this file.  [graph_to_git.csv](https://github.com/networkx/networkx/files/6899157/graph_to_git.csv) 2. Call nx.simple_cycles on it.   ### Environment <!--- Please provide details about your local environment --> Python version:3.7 NetworkX version: 2.5  

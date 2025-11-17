@@ -1,0 +1,2 @@
+issue
+Copy changes from https://github.com/networkx/networkx/pull/4573#TITLE_END# 

@@ -1,0 +1,4 @@
+issue
+`usebounds` parameter (related to eccentricity-based calculations) is undocumented#TITLE_END#The following functions have a `usebounds` parameter: `center`, `periphery`, `diameter`, `radius`.  The purpose of this parameter is not documented.  What does it do?  Doc page:   https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.distance_measures.center.html  ### Environment  NetworkX version: 3.4.1   
+issue
+Use inline math#TITLE_END#It seems to me that these pieces in the docs should be inline math, not inline code. 

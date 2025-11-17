@@ -1,0 +1,2 @@
+issue
+Replace deprecated numpy.alltrue method#TITLE_END#The method `numpy.alltrue` has been deprecated in 1.25 and will be removed in numpy 2.0. See https://github.com/numpy/numpy/pull/23314 

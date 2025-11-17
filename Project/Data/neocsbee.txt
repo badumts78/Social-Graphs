@@ -1,0 +1,2 @@
+issue
+Node_classification_hmn function and the publication#TITLE_END#The implementation [here](https://networkx.github.io/documentation/stable/_modules/networkx/algorithms/node_classification/hmn.html)  does conversion to matrix form without considering weights, however the pertinent paper on which this implementation is based stresses on having a weight matrix.  Are there plans for further enhancement to make the implementation align better with the publication?    

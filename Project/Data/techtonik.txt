@@ -1,0 +1,2 @@
+issue
+Need JSON format description#TITLE_END#The page on JSON serialization lacks information about the actual structure of produced data. This make it hard to see if networkx is a suitable tool for a backend of already existing JavaScript front.  http://networkx.lanl.gov/reference/readwrite.json_graph.html 

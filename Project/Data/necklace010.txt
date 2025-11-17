@@ -1,0 +1,2 @@
+issue
+nx.draw() NOT working on python 3.6#TITLE_END#I recently used upgraded my python from 3.5 to 3.6 and realized that the nx.draw() does NOT work now. Does anybody know how to fix this issue?  The error message is something like this: MatplotlibDeprecationWarning: pyplot.hold is deprecated. Future behavior will be consistent with the long-time default: plot commands add elements without first clearing the Axes and/or Figure.

@@ -1,0 +1,4 @@
+comment
+Why hasn't the result  been normalized? Does exist any reason? 
+comment
+@Scinawa  I was asking it because in "_Closeness Centrality Extended To Unconnected Graphs : The Harmonic Centrality Index_" where the harmonic centrality was presented for the first time, the author explains that the index of the harmonic centrality is calculated in the following way:   ![Alt Text](http://i.imgur.com/Y6bnY1G.png)  Maybe I misunderstood something reading the paper and its only normalized in some specific cases, I don't know.  

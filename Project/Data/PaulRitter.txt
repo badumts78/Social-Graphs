@@ -1,0 +1,2 @@
+issue
+write_dot does not properly escape quotes in node attribute values#TITLE_END#when saving a graph with a node attribute value which contains one or more quotes, write_dot does not properly escape the quotes, leading to an invalid dot-file.  Actual: ``` NODEID [label="foo("bar")"]; ``` Expected: ``` NODEID [label="foo(\"bar\")"]; ```  I assume this issue also extends to edge attributes.

@@ -1,0 +1,2 @@
+issue
+find_cliques  return cliques number more than nodes number#TITLE_END#I have a graph with 9075 nodes and 201304 edges, when using find_cliques to find the cliques, I got 7498374 cliques. I fell it's impossible.  I add log in function: k_clique_communities and recode is:  > [k_clique_communities]: begin to find community from graph with 9075 nodes and 201304 edges. > [k_clique_communities]: find 7498374 cliques finished. cost 206.45541548728943 seconds. > [k_clique_communities]: index nodes in cliques finished. cost 46.55423021316528 seconds. 

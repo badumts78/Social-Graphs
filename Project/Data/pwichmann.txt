@@ -1,0 +1,4 @@
+issue
+Arrows for edges#TITLE_END#I know 'arrows for edges' has been a feature that was requested a lot. And I've also read loads of reasons why it wasn't implemented.  At the same time I saw a few pull requests that seem to have implemented arrows for directional graphs.  Are arrows now implemented for edges? I could not find this in the documentation.  Could anyone clarify and help me out?  EDIT: If it's not implemented, what is the best workaround? The current stubs are unacceptable for a visualisation.
+comment
+Wait. Does networkx now have the capability to draw arrows?

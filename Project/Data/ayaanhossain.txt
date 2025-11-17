@@ -1,0 +1,2 @@
+issue
+[request] automatic access to node with maximum/minimum degree?#TITLE_END#Hi, is it possible to efficiently find the maximum degree or minimum degree node from an undirected graph, without traversing the nodes of the graph in the first place? If not, then is it maybe too much to ask for as a feature? Thanks.

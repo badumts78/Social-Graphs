@@ -1,0 +1,2 @@
+issue
+fix prefix_tree doc string#TITLE_END#Very minor docs typo. `T = nx.prefix_tree(paths)` returns a tuple and `T.predecessors(NIL)` will throw. The other examples all have `T, root = nx.prefix_tree(paths)`.

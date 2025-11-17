@@ -1,0 +1,2 @@
+issue
+Louvain Algorithm Incorrectly Imports `modularity`#TITLE_END#### Current Behavior  In `louvain.py` the utility function `modularity` is incorrectly imported as `from networkx.algorithms.community import modularity`. This breaks the algorithm   ### Expected Behavior  The import has changed to `from networkx.algorithms.community.quality import modularity` as seen in e.g. `modularity_max.py`  Python version: NetworkX version: 3.0 

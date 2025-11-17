@@ -1,0 +1,2 @@
+issue
+All zero values in centrality#TITLE_END#Hi  I used a network with 1205 nodes and calculated the centrality including degree centrality, in degree centrality, out degree centrality, closeness centrality, betweenness centrality, eigenvector centrality, eigenvector centrality numpy. However, the results from nodes 1124 to the end (nodes 1205) are all zero when the results from nodes 1 to 1123 seems to have normal values.  What's the problem? Is it memory problem of networkx? How to solve? 

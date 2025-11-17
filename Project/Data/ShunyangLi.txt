@@ -1,0 +1,2 @@
+issue
+add (alpha, beta)-core computation for bipartite graphs#TITLE_END#The (alpha, beta)-core of a bipartite graph is a maximal subgraph where each vertex in the upper set has at least `alpha` neighbors and each vertex in the lower set has at least `beta` neighbors.  The idea is mentioned in the paper: Efficient (alpha, beta)-core computation: An index-based approach B. Liu, L. Yuan, X. Lin, L. Qin, W. Zhang, & J. Zhou The World Wide Web Conference, 2019, pp. 1130-1141. https://doi.org/10.1145/3308558.3313682

@@ -1,0 +1,6 @@
+issue
+adding test coverage for isomorphism when using digraphs#TITLE_END#Adding some basic test coverage while looking at Networkx. First time contributing to nx so let me know if there's anything I missed in the guidelines and I'll fix it!
+comment
+This makes sense to me. 👍 
+comment
+Makes sense to me. Related to [this pull](https://github.com/networkx/networkx/pull/6366) for someone who has the power to merge.

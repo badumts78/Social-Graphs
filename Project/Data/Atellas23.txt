@@ -1,0 +1,2 @@
+issue
+Source as a general parameter to TSP solvers#TITLE_END#Added parameter to the `traveling_salesman_problem` and `christofides` functions, to be able to select a source node for all of the implemented methods.  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

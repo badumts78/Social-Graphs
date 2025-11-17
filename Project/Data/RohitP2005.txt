@@ -1,0 +1,2 @@
+comment
+Hey @rossbar ,    I'd like to work on this issue. My proposal:   - Restrict CI to PRs targeting the main repo.   - Allow manual CI runs on forks if needed.   - Optionally, keep minimal CI checks on forks.    Let me know your thoughts!   

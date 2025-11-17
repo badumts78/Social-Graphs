@@ -1,0 +1,2 @@
+issue
+explicitly stated i.j convention in to_numpy_array#TITLE_END#Explicitly stated i.j convention in to_numpy_array() function for ready reference. This is important to mention AGAIN because in many texts/articles (including M E J Newman's book "Networks: An Introduction") the opposite convention is used! Ideally, this point should be prominently mentioned in the documentation wherever network information is converted to/from adjacency matrices.

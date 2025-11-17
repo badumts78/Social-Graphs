@@ -1,0 +1,4 @@
+issue
+Fix SOURCE_DATE_EPOCH ignored bug (#2735)#TITLE_END#* Fix SOURCE_DATE_EPOCH ignored bug  Fix a bug in networkx/release.py that makes build non-reproducible.
+issue
+networkx/release.py ignores SOURCE_DATE_EPOCH#TITLE_END#Networkx build is currently not reproducible because of timestamp in version.py.  To get to know more about the importance of reproducible builds, please see: https://reproducible-builds.org/ 

@@ -1,0 +1,2 @@
+issue
+alghoritm used in single_source_shortest_path subroutine#TITLE_END#Hi,  I've been inspecting `networkx/networkx/algorithms/shortest_paths/unweighted.py`  file and the documentation but I am not seeing any information about exact algorithm implemented.  Could it be clarified is it some home brewed solution used?  Thx. 

@@ -1,0 +1,2 @@
+issue
+Please document G.shortest_path when no path exists#TITLE_END#I should be able to tell after reading the docs what is the behaviour of calling `G.shortest_path(a, b)` when there is no path between a and b. Does it return Infinity, throw an exception, return None? This is currently not documented. https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.shortest_paths.generic.shortest_path.html#networkx.algorithms.shortest_paths.generic.shortest_path

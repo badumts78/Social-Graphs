@@ -1,0 +1,2 @@
+issue
+pareto_sequence,create_degree_sequence and configuration model missing/changed#TITLE_END#I have an not so old code (one month old) that uses the Pareto sequence function from "nx.utils.random_sequences", to put as parameter in the "nx.utils.create_degree_sequence", to finally, use in the configuration model.  But stopped to work the moment I updated. I work in Arch, and I have networkx 2.0-1.  I have searched into the docs here in GitHub, and have seen some changes into the code, some functions missing, and stuff like that.   Any idea what can I do?

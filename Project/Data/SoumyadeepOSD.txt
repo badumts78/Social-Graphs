@@ -1,0 +1,2 @@
+issue
+Website Footer needs to align at center#TITLE_END#### Hey everyone, I've seen the footer part of the website https://networkx.org/documentation/stable/  is not centered. I think it'll be great to set the footer to the center to align with the whole page 👇  ## You can see it in picture  ![image](https://user-images.githubusercontent.com/115442240/219105396-749ca027-785d-412c-aaf3-28605bb75ad2.png) 

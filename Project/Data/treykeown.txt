@@ -1,0 +1,2 @@
+issue
+SyntaxWarning for invalid escape sequence#TITLE_END#Caused by https://github.com/networkx/networkx/commit/d5ed5d3839136a1dfd9f1df7fd50e99512456f4f Offending line: https://github.com/networkx/networkx/blob/692d5c4fab0131928f5ac60602107a29288a1d99/networkx/algorithms/operators/product.py#L386  ### Current Behavior  SyntaxWarning on first import  ### Expected Behavior  N/A  ### Steps to Reproduce  Install networkx in a fresh environment, `import networkx`.  ### Environment  Python version: 3.12.0 NetworkX version: 3.2  ### Additional context  N/A 

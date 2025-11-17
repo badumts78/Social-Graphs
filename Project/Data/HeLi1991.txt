@@ -1,0 +1,2 @@
+comment
+I have the same error, can you five some advice? def visualize_s_graph(edge_set,fname):     graph=nx.DiGraph()     #graph=nx.Graph()     graph.add_edges_from(edge_set)     nx.draw(graph)  ``` print nx.info(graph) plt.savefig(fname+".png") plt.show()       #print nx.degree_centrality(graph)    #print nx.closeness_centrality(graph)     #print nx.betweenness_centrality(graph) print nx.current_flow_betweenness_centrality(graph) ``` 

@@ -1,0 +1,2 @@
+comment
+My fault for not making a release candidate. I underestimated the magnitude of the breaking. By all means, add the upper bound, it is always a good practice not to accept changes in the major release number.

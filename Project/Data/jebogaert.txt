@@ -1,0 +1,8 @@
+issue
+Added implementation for MinHeap in heaps.py#TITLE_END#Implemented MinHeap class in heaps.py. The insert function is less efficient than the one in BinaryHeap, but it has the advantage of being the most efficient possible while maintaining no duplicate in the heap. Deleted get method in other heaps that extend MinHeap since the method is inherited.  
+issue
+Bugfix for issue 4336, moving try/except and adding else clause#TITLE_END#Fixes #4336 by adding an else clause to avoid resetting rng to None, and i moved the try/except to encapsulate the import statement only.  
+comment
+I can work on it, i don't know if this issue has to be assigned or if i should just fork the project and add a pull request when done ? Sorry if it is a dumb question, i'm quite new to open source contribution but i like networkx and i want to help if possible. Thanks in advance for your answer :) 
+comment
+I was implementing the MinHeap class in networkx/utils/heaps.py and i saw that the BinaryHeap class has a strange behaviour:  - It creates (key, counter, value) tuples that it stores in the heap, but it doesn't make any use of it. Is it used anywhere else is the code ? - It orders the heap using the values rather than the keys. Again, is it intented ?  Here is a screen shot of what is the heap like after calling insert("zero", 0), insert ("one", 1), insert("two", 2) and insert("three", 3).  ![image](https://user-images.githubusercontent.com/38529198/99426354-43db8500-2904-11eb-8d81-8c3a90649b65.png)  I think it should rather be something like :  ![image](https://user-images.githubusercontent.com/38529198/99426211-1ee71200-2904-11eb-8b52-8aa0193e043e.png)  Am i missing something or should i make the changes ? 

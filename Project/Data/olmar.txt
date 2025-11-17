@@ -1,0 +1,2 @@
+issue
+Remove attr_dict from parameters list in the docstring#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> `attr_dict` parameter in `MultiDiGraph.add_edge` was removed in https://github.com/networkx/networkx/commit/1b35e352daf740f115012427d53a48f460a62206  This PR updates the docstring to conform to the above-mentioned update.    

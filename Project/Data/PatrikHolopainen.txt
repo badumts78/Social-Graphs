@@ -1,0 +1,2 @@
+issue
+Typo in node clustering coefficient#TITLE_END#https://networkx.github.io/documentation/networkx-1.10/reference/generated/networkx.algorithms.cluster.clustering.html#id2  In the equation for the weighted clustering coefficient of a node, the sum should be over `v` and `w` instead of `u` and `v`, as in the paper which it refers to http://jponnela.com/web_documents/a9.pdf.  

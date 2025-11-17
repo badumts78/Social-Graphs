@@ -1,0 +1,2 @@
+issue
+Fix custom weight attribute for Mehlhorn#TITLE_END#Using a custom weight attribute in the Mehlhorn implementation gave a KeyError. Reason: Edges in G_1_prime are given "weight" attributes, but upon updating, the weight (=/= "weight") of the existing edge in G_1_prime is get. Fix: set and get only "weight" attributes for G_1_prime.  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

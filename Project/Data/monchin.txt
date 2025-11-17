@@ -1,0 +1,6 @@
+issue
+Add '_' to legal .gml key names#TITLE_END#I found that when I'd like to write a .gml file, the key must be '[A-Za-z][A-Za-z0-9]*$', but I think it is usual that '\_' appears in a legal variable name, so maybe it is good to add '\_' in it.
+issue
+Add '_' to legal key variable names when writing .gml files#TITLE_END#I found that when I'd like to write a .gml file, the key must be '[A-Za-z][A-Za-z0-9]*$', but I think it is usual that '\_' appears in a legal variable name, so maybe it is good to add '\_' in it.
+issue
+A suggestion to add numpy data structure in write_gml method#TITLE_END#When I need to add some attributes from numpy.array to the nodes of a graph, and when I would like to save it using nx.write_gml() method, it raises a NetworkXError that '0 is not a string'. I looked the source code and found that if the element is (int, bool, float) and so on, it could be converted to string automatically. But the element here is a numpy.float32, so I need to write stringize function myself.  However, as numpy is frequently used in data analysis, I think maybe it is a good idea that we can add data structures in numpy such as (np.int64, np.float64) so that they can be converted to string automatically. That would be much more convenient than I write stringize function myself.

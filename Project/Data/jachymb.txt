@@ -1,0 +1,2 @@
+issue
+Implement algorithms for reverse line graph#TITLE_END#Implement algorithm for reconstruction of original graph from a line graph. The Roussopoulos' algorithm or  MARINLINGA.  see http://mathworld.wolfram.com/LineGraph.html 

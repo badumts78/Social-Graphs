@@ -1,0 +1,2 @@
+issue
+Set attributes as a dict like#TITLE_END#Would it be possible to set the attributes of a node to be a dict like? I have a dict which is backed by JSON so when it is updated it updates its associated file and when serialized only writes out the path to that file making the resulting files smaller and more readable. I would like to set node attributes to this class. Is that possible?

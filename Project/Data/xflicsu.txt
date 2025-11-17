@@ -1,0 +1,2 @@
+issue
+How to identify community from weighted networks?#TITLE_END#I want to use 'asyn_lpa_communities', 'girvan_newman' and 'k_clique_communities' to identify communities from weighted directianl networks. I am a new begainer of python, how can I adopt these method? Thanks 

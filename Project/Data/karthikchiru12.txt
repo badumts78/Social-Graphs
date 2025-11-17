@@ -1,0 +1,2 @@
+issue
+Added few tests for /generators/duplication.py and /generators/geomet…#TITLE_END#Added a few tests for /generators/duplication.py and /generators/geometric.py. Corrected an exception statement in geometric.py (r must be >=0 instead of r must be >= 1)  This pull request was created as part of the dev-sprints workshop conducted by @navyagarwal on October 2, 2023, as part of Pycon India 2023.  <!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> 

@@ -1,0 +1,2 @@
+issue
+DOC: Clarify behaviour of k_crust(G, k)#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> Fix #3944 by clarifying exact behaviour of `k_crust(G, k)` Tagging @dschult for review

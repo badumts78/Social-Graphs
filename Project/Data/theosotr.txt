@@ -1,0 +1,30 @@
+issue
+Algorithms for solving Travelling Salesman Problem (TSP)#TITLE_END#This pull request implements some algorithms for solving a Combinatorial Optimization Problem. For more information see: [(https://github.com/networkx/networkx/issues/1507)] One of the most famous Combinatorial Optimization Problem is Travelling Salesman Problem  Travelling Salesman Problem tries to find, given the weight (distance) between all points where salesman has to visit, the route so that: - Total distance (cost) which salesman travels to be minimized. - Salesman has to return to the point where he started. - Salesman has to visit each point only once apart fom source point.  In terms of graph, solution of TSP is the Hamiltonian circuit with the minimum cost. There are a lot of heuristic, metahuristic, artificial intelligence algorithms for solving TSP. This pull request implements a simple greedy algorithm for constructing a initial solution of TSP, and Simulated Annealing; an iteration improvement algorithm which tries to improve a current solution in each iteration.  We intend to implement more algorithms for that purpose, but we would like to get some feedback about our code. 
+issue
+Adds Threshold Accepting algorithm for solving TSP#TITLE_END#This pull request implements Threshold Accepting algorithm; an iterative improvement algorithm for solving the Travelling Salesman Problem (TSP).  Solution of TSP is the Hamiltonian circuit with the minimum cost in a graph.  This pull requests depends on https://github.com/networkx/networkx/pull/1508 which implements a greedy and simulated annealing algorithm for solving TSP 
+issue
+Add Kamada-Kawai force directed algorithm#TITLE_END#This pull request implements Kamada-Kawai force directed algorithm for graph layout.  Here are some visualizations of some graphs using this algorithm. Graph 1 ![figure_1](https://cloud.githubusercontent.com/assets/6434138/7871300/bddb12b2-0597-11e5-8200-865f71cecf89.png) Graph 2 ![figure_2](https://cloud.githubusercontent.com/assets/6434138/7871319/d628290e-0597-11e5-8b8a-4556762e8f9e.png) Graph 3 ![figure_3](https://cloud.githubusercontent.com/assets/6434138/7872960/49acbe6e-05a5-11e5-96ad-69db2794ced7.png) 
+issue
+Update Johnson's algorithm so that graph is not modified(#1506)#TITLE_END#In response to https://github.com/networkx/networkx/issues/1506 this pull request updates `johnson` in order graph not be modified.  To be more specific, not any node is added to the graph to compute dist values of each other node using Bellman - Ford algorithm. For this purpose, a new function is added `_bellman_ford_relaxation` which contains the relaxation loop for Bellman - Ford. It is used both in `johnson` and `bellman_ford` 
+issue
+Algorithms for Combinatorial Optimization Problems#TITLE_END#It is widely accepted that graphs have many applications in different aspects of science such as Computer Science, Operational Research, Biology, Maths, Sociology, etc. One of these applications is that many Combinational Optimization problems can be represented as graphs. The characteristic  and the interesting thing of these problems is that even computers fail to solve them because there is not any algorithm which can solve them in polynomial time. Travelling Salesman Problem (TSP), Vehicle Routing Problem (VRP) are example of such problems. However, many heuristic, metaheuristic algorithms have been published over the past years to solve / approximate the solution of these problems such as Simulated Annealing, Variable Neighborhood Search, Tabu Search, Ant Colony Optimization, etc.  Also, there is an implementation of algorithm to solve a combinatorial optimization problem in NetworkX  in `algorithms.coloring`  The solution to these problems have enormous significance and they can be translated in terms of graph. For example, output of such algorithms is the Hamiltonian circuit with the minimum cost in case of TSP. 
+issue
+Adds Johnson's algorithm for computing all pairs shortest paths#TITLE_END#Johnson's algorithm is one more algorithm for the shortest paths. This algorithm solves all pairs shortest paths, and may be faster than Floyd–Warshall on sparse graphs.  For this reason, this pull request adds **johnson()** which implements the main algorithm. The **_reweight_graph_johnson()** and **_add_node_johnson()** are parts of the algorithm. 
+comment
+Yes, of cource. First of all, I have some questions to understand the whole concept about what @ysitu suggested. To be more specific, I do not understand how exactly dist values using Belman - Ford algorithm are going to be calculated without adding a new node.  Moreover, in all cases or in certain cases iteration order is going to be changed after calling `johnson`. 
+comment
+Ok, Johnson's algorithm uses Bellman - Ford with source node, the node which just added to the graph. Therefore, how are we going to use Bellman-Ford? Which node we should set as a source node to compute dist values? A random node? (Sorry for my repeated questions but I still do not understand your approach.) 
+comment
+Ok I think I understand. So, we must use a customized implementation of Bellman-Ford and not `belman_ford` function. Please correct me if I am wrong. 
+comment
+Interesting! I will try to prepare a code for this. 
+comment
+Ok. We made the necessary code simplifications. 
+comment
+I hope everything is fine now! 
+comment
+We could write something like this:  ``` return not any(if neighbors for node, neighbors in G.adj.items()) ```  What do you think? 
+comment
+Ok! 
+comment
+Done. 

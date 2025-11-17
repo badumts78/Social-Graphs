@@ -1,0 +1,2 @@
+issue
+Fixes #5012 implementation of newman watts strogatz graph inconsistent with model#TITLE_END#This PR fixes issue #5012 by modifying the implementation to allow multi-edges and self-loops in the model. The description for the Newman-Watts-Strogatz algorithm can be found in: Newman, M.E.J., Watts, D.J.: Scaling and percolation in the small-world network model. Phys.Rev. E60(6), 7332–7342 (1999). https://doi.org/10.1103/PhysRevE.60.7332  Also adds a simple test for the other extreme case p=1.

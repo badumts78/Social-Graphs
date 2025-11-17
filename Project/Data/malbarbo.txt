@@ -1,0 +1,2 @@
+issue
+articulations_points returns repeated nodes#TITLE_END#```python import networkx as nx from networkx.algorithms.components.biconnected import articulation_points  g = nx.Graph() g.add_edges_from([(0, 1), (1, 2), (1, 3)]) assert list(articulation_points(g)) == [1, 1] ``` 

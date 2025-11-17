@@ -1,0 +1,2 @@
+issue
+Made CONTRIBUTING.rst more clearer#TITLE_END#I saw that in CONTRIBUTING.rst that is wasn't clear that you had to navigate to the folder before adding the upstream repo. So I added that to make sure that that was clearer for newbies like me.

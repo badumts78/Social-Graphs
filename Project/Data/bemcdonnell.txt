@@ -1,0 +1,2 @@
+issue
+Updated draw_networkx_edge_labels: unique label positions along each edge#TITLE_END#If there are additional tasks that need to be done to bolster this pull request, let me know. I needed this for a project this morning and thought others might benefit. Ultimately, a dictionary is passed to the label_pos argument.  Each edge can have a unique label position.   ![labelpositions](https://cloud.githubusercontent.com/assets/6105134/10025429/2ec6a4bc-612a-11e5-87ca-ccff1d18099b.png) 

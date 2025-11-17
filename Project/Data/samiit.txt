@@ -1,0 +1,2 @@
+issue
+Orthogonal layout#TITLE_END#Is it possible in networkx to view the graph layout as orthogonal, wherein, the edges are either vertical or horizontal between the nodes?  Something along the lines of [graphviz](https://stackoverflow.com/questions/8939973/how-can-i-generate-rectangle-style-edges-instead-of-curves-in-graphviz).

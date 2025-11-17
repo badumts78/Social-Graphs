@@ -1,0 +1,2 @@
+issue
+Reworked Dijkstra's algorithm for weighted betweenness metrics.#TITLE_END#This revamped piece of code does not need a 'seen' list. Also, it needs less values to be added to the Q, that is used as a heap. Moreover, it does significantly less 'if' checks and other operations.  I have tested the implementation and it outputs the same results with the previous one. 

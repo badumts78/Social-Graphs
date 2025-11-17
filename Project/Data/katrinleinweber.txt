@@ -1,0 +1,2 @@
+issue
+link DOIs to preferred resolver#TITLE_END#Hello!  The DOI foundation recommends [this new, secure resolver](https://www.doi.org/doi_handbook/3_Resolution.html#3.8). This PR implements that recommendation by changing all static DOI links to `https://doi.org/`, see diff.  If you agree and merge, I'll also update other repos, website, docu, etc. in the same manner.  Cheers :-)

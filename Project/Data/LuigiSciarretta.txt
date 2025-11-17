@@ -1,0 +1,8 @@
+issue
+update triadic_census documentation for undirected graphs - issue 4386#TITLE_END#With this contribution I have updated the documentation for triadic census to handle directed graphs.  The update is in the Notes section of the triadic_census and the text added is as follows:  For undirected graphs, the triadic census can be computed by first converting the graph into a directed graph using the ``G.to_directed()`` method. Afther this conversion, only the triad types 003, 102, 201 and 300 will be present in the undirected scenario.  Closes #4386
+comment
+Hello everyone, I hope this message finds you well. I am interested in contributing to this issue and wanted to see if there is anyone working on it. If not, I would be happy to take care of it and send a pull request. Please let me know if there is someone already working. Thank you! 
+comment
+> go for it. :) @dschult I updated the documentation as per the issue and made a pull request. All checks passed except "reviewer label". I am new to this, but I think there is a need for a reviewer?   The situation is:  Run echo "This PR needs a reviewer to label the PR with a 'type:' label"   echo "This PR needs a reviewer to label the PR with a 'type:' label"   exit 1   shell: /usr/bin/bash -e {0}   env:     LABELS:  This PR needs a reviewer to label the PR with a 'type:' label Error: Process completed with exit code 1.  Thank you for availabilty!
+comment
+> @LuigiSciarretta a reviewer needs to a label there (I have added one), nothing for you to do there :)  Thank you very much! And for the next times, if it is my responsibility, can I do something to fix that check or does it have to be done by an reviewer? 

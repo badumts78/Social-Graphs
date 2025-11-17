@@ -1,0 +1,2 @@
+issue
+Could I use the module to draw a multiplex network?#TITLE_END#I want to draw a multiplex network, but previously I only used this module to draw a monoplex network. The graph which I want to draw likes this below: ![image](https://user-images.githubusercontent.com/13978535/39556654-61613976-4eb4-11e8-9e0b-62fc2fdf15e9.png) 

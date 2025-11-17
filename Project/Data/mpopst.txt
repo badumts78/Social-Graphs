@@ -1,0 +1,2 @@
+issue
+Bug Report: problem when importing from pandas#TITLE_END#Hi!  I was working with a adjacency matrix witch was a DataFrame of Pandas. There is a Networkx function capable of exporting a graph of this. But it never recognizes when the graph is directed. I tried even writing the optional condition, but or it turns a error or it creates a undirected graph.  The solution for me was exporting from pandas to numpy and using the nx function for numpy.

@@ -1,0 +1,2 @@
+issue
+Memory leak in read_dot#TITLE_END#I wanted to report that I faced a memory leak in read_dot method.  Reading dot files iteratively have some problem with memory that make it be increased.  For your interest, the code was something like that:  for rep in range(0, num_rep):         output_file_name = output_file_name.replace('$number_of_repetition$', str(simNumber))         g=nx.Graph(nx.read_dot(output_file_name))  I'd like to report it just if someone is interested in fixing it. 

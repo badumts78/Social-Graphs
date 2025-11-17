@@ -1,0 +1,8 @@
+issue
+Remove unused variable has_numpy from create_py_random_state#TITLE_END#A straightforward simplification.
+issue
+Write mixed-type attributes correctly in write_graphml_lxml#TITLE_END#If an attribute has different types on different nodes, it needs a separate key for each type. This has always worked fine when calling `write_graphml_xml`, but `write_graphml_lxml` wouldn't write all of the necessary `<key>` elements, which resulted in an invalid GraphML file. (I have added a test case that you can try out to see what I mean.) This patch fixes it so that the two functions produce the same output.
+issue
+Remove unused imports#TITLE_END#This dead code was identified by [pyflakes](https://github.com/nvie/pyflakes).
+issue
+Correctly infer numpy float types#TITLE_END#This fixes a bug where np.float64 values are given an integer type in the GraphML file, which leads to parsing errors.

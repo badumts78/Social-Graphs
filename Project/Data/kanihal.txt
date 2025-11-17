@@ -1,0 +1,2 @@
+issue
+support for multimodal networks and cross edges#TITLE_END#Let's say I have a biological dataset containing genes, diseases and drugs which form node groups(also called modes) of different types. Disease-disease interactions, disease-gene interactions and gene-drug interactions form cross edges between these edge groups.  SNAP has support for this kind of networks - https://snap.stanford.edu/snappy/doc/reference/multimodal.html  How would I do the same thing in NetworkX? If it's already not there It would be nice add support for this kind of networks. 

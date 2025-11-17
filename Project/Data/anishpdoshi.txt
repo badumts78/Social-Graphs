@@ -1,0 +1,2 @@
+issue
+dag_longest_path not correctly working for MultiDiGraph#TITLE_END#https://networkx.github.io/documentation/stable/_modules/networkx/algorithms/dag.html#dag_longest_path isn't properly fetching weights from multidigraph edges. I suspect the algorithm would have to be modified a little to account for this, but right now the result is deceptive due to the default_weight property.

@@ -1,0 +1,4 @@
+issue
+strongly_connected_components_recursive documentation#TITLE_END#This is similar to #1216. `strongly_connected_components_recursive`  documentation states `A list of nodes for each component of G. The list is ordered from largest connected component to smallest.` when it seems that the order in fact not guaranteed, like the other SCC methods. 
+comment
+`strongly_connected_components_recursive` has this same documentation issue: `A list of nodes for each component of G. The list is ordered from largest connected component to smallest.` when it seems that here the order is, again, in fact not guaranteed.  Not sure if comments on old closed issues get seen; opened new issue #1473. Sorry if unnecessary. 

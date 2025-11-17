@@ -1,0 +1,14 @@
+issue
+Add SPQR tree for finding triconnected components#TITLE_END#As described in #2315  This addition is reasonably complex and not yet finished but I will push incremental progress to this pull request as I go so that anyone interested in helping can do so, and so that mistakes I make can be seen earlier. This commit contains just the function to calculate the palm tree of a graph, which is a precursor step for the SPQR tree but is perhaps useful in its own right (or for other algorithms).
+issue
+Add inverse_line_graph generator using Roussopolous algorithm.#TITLE_END#This is an initial attempt at implementing an inverse_line_graph operation using the Roussopolous algorithm, as requested in #2139 . Reviews would be great - I have a few questions about the implementation marked by TODO comments. Any and all suggestions welcome as the algorithm is reasonably complex and so mistakes on my part are likely and there is probably great potential for making this more efficient. 
+issue
+Added transitive_reduction in dag#TITLE_END#I've added an initial implementation of [transitive reduction](https://en.wikipedia.org/wiki/Transitive_reduction) in the dag.py algorithms. It's a standard operation on directed acyclic graphs, basically the opposite of the transitive closure which is already implemented there.  This is my first attempt at contributing to this library but I'd like to get more involved if possible. I've tried to follow the development workflow in the docs but any feedback is welcome and apologies on anything that's been overlooked.  James 
+issue
+Add approximation for minimal feedback vertex set#TITLE_END#First attempt at adding an approximation for finding a minimal feedback vertex set. Solves issue #2270  Review and feedback very welcome. 
+comment
+Is anybody else working on this? If not then I will have a go.
+comment
+I've had an attempt at this in #2279  
+comment
+In case anyone else is working on this I have implemented Roussopoulos' algorithm and so will create a pull request with this feature soon. 

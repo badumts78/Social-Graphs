@@ -1,0 +1,2 @@
+comment
+Thank you for fixing the pyyaml dependency. Do you know when this fix will be released? The security bug,  CVE-2020-1747, has been flag as a high severity for us and is currently a show stopper.

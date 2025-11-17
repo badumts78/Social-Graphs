@@ -1,0 +1,2 @@
+issue
+Update some deprecated print and except statements.#TITLE_END#I am using networkx library to hold a syntantic analysis of python source code and I noticed that you had some deprecated python statements (print and except for Python:v2.5) that could be easily solve. The new syntaxt shouldn't change anything of the library but mainly for the documentation  Hope it helps ;) 

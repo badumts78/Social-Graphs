@@ -1,0 +1,2 @@
+issue
+codespell: pre-commit, config, typos fixed#TITLE_END#more about codespell: https://github.com/codespell-project/codespell/    As you can see: - networkx is a bit a tricky case requiring a good number of skips.  Some are legit names, but some are a bit odd choices of variables (e.g. childs, ans, etc) which come close to real words thus triggering codespell - I didn't add a dedicated workflow since there is one for pre-commit so I expect it to trigger codespell  as well - be careful to not list actual typo in the changelog ;)  hope this comes useful

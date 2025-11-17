@@ -1,0 +1,2 @@
+issue
+Create kcomponents_weighted_graph.py#TITLE_END#This algorithm allows to identifying kcomponents of directed graph.  Related discussion: #7106 

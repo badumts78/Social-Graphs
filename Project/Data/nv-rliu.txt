@@ -1,0 +1,4 @@
+issue
+Add missing `weight` and `gravity` attribute to `forceatlas2_layout` docstring#TITLE_END#Closes #7912   ## Proposed Change Small PR that adds the missing docstring description for the `weight` and `gravity` arg. Followed wording convention from similar functions.
+issue
+Networkx ForceAtlas2 No Docstring Entry for `weight`#TITLE_END#I noticed that `weight` is a parameter accepted by `drawing.forceatlas2_layout` but there's no docstring entry describing that param.  [Source](https://github.com/networkx/networkx/blob/main/networkx/drawing/layout.py#L1528)

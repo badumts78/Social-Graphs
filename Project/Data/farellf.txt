@@ -1,0 +1,12 @@
+comment
+Dear All,   @dpfens  is there any version of Networkx or any implementation code that already allows to test the snap_aggregation algorithm? I've tried the example provided in plot_snap.py but got an error: _AttributeError: module 'networkx' has no attribute 'snap_aggregation_'  I would like to test the summarisation algorithm on some datasets.  Thanks.  Regards.  
+comment
+Hello @dpfens,   it worked perfectly. I had 2.5.1 installed and using python3 (so I've used pip3)  Were you one of the author that wrote the paper on SNAP in 2008? I have read this paper for my phd research. I've tried to write an implementation of the algorithm but wasn't that successful. Now I am interested on modifying the algorithm a bit, not splitting all groups but according a depth definining by the user input.  Many thanks. 
+comment
+@dpfens,  Yes definitely, it is is definitely close to that. Speficy a k number of groups to obtain, but not necessarily basing the stop condition on the same original attributes, ie start building and splitting according to some attribute but the condition to stop is based on something else.
+comment
+I have read the papaer again and this merely describes what I would like to have:  "_Users control how many groups are present in the summary by specifying the required number of groups, denoted as k. There are many different groupings of size k, thus there is a need to measure the qualities of the different groupings. The Δ-measure is proposed to assess the quality of a k-SNAP summary by examining how different it is to a hypothetical “ideal summary.”_"
+comment
+Hello @dpfens ,  It is me again, is there a method to get the nodes (members) of each of the Supernodes of the summary_graph, output by the Python implementation of the snap aggregation algorithm? i.e all the groups built according to the edge and node attributes provided, from a method or an extra property of summary_graph.  A quick inspection of the source suggested me to return the summary graph as well as the groups from buil_snap_graph function. Maybe I am wrong, or you have a better idea?  Thanks once more for your help.  
+comment
+Morning @dschult,  Thank you very much.

@@ -1,0 +1,2 @@
+issue
+Pydot layout fix#TITLE_END#Fixed an issue caused by #5710: In the `pydot_layout` function, all the node names are converted to strings in the returned dictionary keys. Therefore, when using numerical node names (e.g. `0, 1`) the return pos dictionary contains `{'0':..., '1':...}` instead of `{0:..., 1:...}`.   <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

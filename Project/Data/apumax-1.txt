@@ -1,0 +1,2 @@
+issue
+DOC: Add links to proposals for completed projects#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> need to review 

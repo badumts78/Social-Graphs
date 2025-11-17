@@ -1,0 +1,8 @@
+issue
+Supporting target random path 8014#TITLE_END#Fixes #8014
+issue
+Correct the docs for `display()` keyword `node_pos`#TITLE_END#Fixes issue #8143  [Edit: The issue is about `nx.display(G, pos=_)`         not finding a kwarg named "pos"]  
+issue
+solution using Counters and added some unit tests#TITLE_END#This is for issue #7758 
+comment
+The easiest fix is to use `node_pos` instead of `pos` and update the documentation. Otherwise we would have to refactor the code for `pos`. Let me know what you think is best and I can make this fix! 

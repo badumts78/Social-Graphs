@@ -1,0 +1,2 @@
+issue
+Cannot read graph6#TITLE_END#I have a basic script that I used a year ago to convert graph6 strings into PACE-format graph files; it doesn't work now with networkx version 2.4:  `in from_graph6_bytes     if string.startswith(b'>>graph6<<'): TypeError: startswith first arg must be str or a tuple of str, not bytes`

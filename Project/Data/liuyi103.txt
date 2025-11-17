@@ -1,0 +1,2 @@
+issue
+maximal_matching is wrong#TITLE_END#You can find that by running the following program  ``` python import networkx as nx g=nx.random_graphs.binomial_graph(100, 0.1) ap={} for i in nx.maximal_matching(g):     x,y=i     ap[x]=x in ap and ap[x]+1 or 1     ap[y]= y in ap and ap[y]+1 or 1 print ap print nx.maximal_matching(g) ``` 

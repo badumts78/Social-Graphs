@@ -1,0 +1,30 @@
+issue
+Sampling a tree#TITLE_END#Hi, I am preparing a pull request for an implementation of an algorithm to sample spanning trees from a graph according to their weight. My problem is that I can't decide where to put the actual code. I am thinking it should be under _algorithms_  in a new folder. What's your opinion? 
+issue
+Fixes formula for edge betweenness centrality#TITLE_END#There's another issue that I couldn't fix. The first occurrence of `\sigma(s, t)` after the formula does not render correctly.  
+issue
+DOC: caveman graph generator#TITLE_END#In the functions `caveman_graph` and `connected_caveman_graph`, the number of cliques needs to be `l` instead of `n`.  Also, I couldn't find these functions (the community generators) on the website. I had to dig through the code. 
+issue
+Add the option to export the incidence matrix in sparse format#TITLE_END#The incidence matrix is huge in size (#nodes x #edges) but really sparse, since there are only two non-zeros elements per column. The way the code is right now does not allow to export the incidence matrix of a large graph (million nodes by million edges) as it initializes the result as a dense matrix full of zeros. However, using a sparse representation, as the one in scipy.sparse.lil_matrix, would make it work. 
+comment
+Just a heads up (particularly for spectrum.py) . The matrices should be handled as scipy.sparse, as in #1021 . Also, the way that linear algebra is coded will be super extra slow. 
+comment
+This reference might also prove more useful http://arxiv.org/pdf/1402.3851v2.pdf  Most of these algorithms return graphs that are sparsifiers at least with some probability. 
+comment
+For us, programmers, it feels almost natural to think algorithmically and transform our abstract ideas into code. In the same way, when designers are working for a logo, they follow a thought procedure that seems almost subconscious to them. However, when it comes to programming, even if they learn how to write Python, it will require a lot of time and effort before they get accustomed into our way of thinking.   My opinion is that if we are indeed interested into getting a logo (it shouldn't be a priority, only a few packages have one), we should ask a designer to create one, as it will become the single representative and most recognizable image for networkx.  
+comment
+To get a single spanning tree, you can just run a BFS. To sample a spanning tree according to its weight, there is a really nice algorithm [1]. You can read the paper [here](http://www.cs.cmu.edu/~15859n/RelatedWork/RandomTrees-Wilson.pdf). I might implement it in the near future myself.  [1] Wilson, David Bruce. "Generating random spanning trees more quickly than the cover time." Proceedings of the twenty-eighth annual ACM symposium on Theory of computing. ACM, 1996. 
+comment
+I agree with you. (is your Home link deliberately pointing to SumPy?) I just wanted to point out that a development workflow already exists [here](http://networkx.github.io/documentation/development/developer/index.html), but maybe it's not drawing enough attention. 
+comment
+You could also check the notebooks on graph analysis that we developed as part of a data science course.   http://nbviewer.ipython.org/github/dataminingapp/dataminingapp-lectures/blob/master/Lecture-17/GraphAnalysis-I.ipynb  http://nbviewer.ipython.org/github/dataminingapp/dataminingapp-lectures/blob/master/Lecture-18/GraphAnalysis-II.ipynb  The material is under a CC Attribution license. 
+comment
+You should probably also mention Gephi then http://gephi.github.io/ . 
+comment
+Maybe I am missing something big, but this has been troubling me while I was reading this discussion: since we are not (or should not, to quote @hagberg) care about order, why don't we return sets instead of lists ? 
+comment
+Ah, right, I forgot about that. 
+comment
+The alternative would be to drop doctests altogether and rely on unittests for testing. We can still keep the sample code in the documentation as usage examples, and rely on the user base to update them or point out mistakes.  Furthermore, I think that if order is something that we should not rely on, this should be made explicitly clear in the documentation. Lists imply an ordering which users, including myself, may be tempted to use. If this breaks at some point, a lot of user code might need to be re-written. 
+comment
+There has already been a discussion in #1355 , just for a reference. 

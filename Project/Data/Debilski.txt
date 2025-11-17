@@ -1,0 +1,2 @@
+issue
+More accurate NodeNotFound error message.#TITLE_END#I find the exception `Either source {source} or target {target} is not in G` to be not really helpful because the exception should really tell you which of the two it is that is not in G.  I separated the cases to raise individually on a missing source or target node. If necessary, I can also add a case when *both* are not in G. 

@@ -1,0 +1,2 @@
+issue
+eulerian_circuit() is not compatible with MultiGraph#TITLE_END#When calculating the Eulerian circuit on a MultiGraph (which is necessary when you convert a non-Eulerian graph to an Eulerian graph), the edges are returned as a 2-tuple, even if there is a key. This means all the data related to the edges is lost

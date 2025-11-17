@@ -1,0 +1,4 @@
+issue
+Multigraph docs update#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> Here's my pull request for an update to the MultiGraph docs that parallels the updates I just suggested to the MultiDiGraphs docs which were accepted (PR #5387 ).
+issue
+Updated MultiDiGraph documentation to include more examples of actually#TITLE_END#Updated MultiDiGraph documentation to include more examples of actually using parallel edges, and fixed references to things like G[u, v] where G[u, v, k] is required for a MultiDigraph. Have not made parallel changes in MultiGraph which should maybe also be made?  Docs tests pass on my end; no code outside of comments was changed.  -Peter Mawhorter  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

@@ -1,0 +1,6 @@
+issue
+Add infromation_line functionality to edgelist read and write#TITLE_END#Closes #4596.  - [x] Writing with infomation_line = True needs to be tested
+issue
+Add reading and writing for graphs in DIMACS graph format#TITLE_END#Closes #4590 See [here](http://archive.dimacs.rutgers.edu/pub/challenge/graph/doc/ccformat.dvi) for details about the format. 
+issue
+Maxcut heuristics#TITLE_END#This adds a simple one exchange heuristic to calculate a solution for the [maximum cut problem](https://en.wikipedia.org/wiki/Maximum_cut). We mirrored the return values from the already implemented minimum cut functions.

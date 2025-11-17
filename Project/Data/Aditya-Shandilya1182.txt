@@ -1,0 +1,12 @@
+issue
+fix categorical_multi_edge_match for monomorphism#TITLE_END#Modified categorical_multiedge_match() in networkx\algorithms\isomorphism\matchhelpers.py to address issues #7758.  
+issue
+trophic_levels now checks for paths from each node to a basal node#TITLE_END#Fixes #6899 
+issue
+Added code to handle multi-graph in mst#TITLE_END#<!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> 
+comment
+I made a PR addressing this issue. Can someone please review it? Link: https://github.com/networkx/networkx/pull/7453 Thank You!
+comment
+@mjschwenne @jlportner  I can work on this. Can you please provide me with a headstart?
+comment
+I have tried the following approach. ````python def _write_partition(self, partition):`               partition_dict = partition.partition_dict         partition_key = self.partition_key         G = self.G          #Handling multi-graphs         if G.is_multigraph():             for u, v, k, d in G.edges(keys= True, data = True):                 edge = (u, v, k)                 d[partition_key] = partition_dict.get(edge, EdgePartition.OPEN)                  else:             for u, v, d in G.edges(data=True):                 edge = (u, v)                 d[partition_key] = partition_dict.get(edge, EdgePartition.OPEN)  def _clear_partition(self, G):         """         Removes partition data from the graph         """         partition_key = self.partition_key         edges = G.edges(keys=True, data=True) if G.is_multigraph() else G.edges(data=True)         for *e, d in edges:             if partition_key in d:                 del d[partition_key] ```` This worked fine for some test cases I tried. I have opened a PR. Can you please review it? Link: https://github.com/networkx/networkx/pull/7454 Thank You!

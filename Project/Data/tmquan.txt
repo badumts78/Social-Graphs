@@ -1,0 +1,2 @@
+issue
+Connectivity of draw_circular as bezier curves#TITLE_END#Hi @networkx,  Is there any way to tweak the curves in draw_circular to become bezier curves for nicer visualization instead of straight line?  Best, 

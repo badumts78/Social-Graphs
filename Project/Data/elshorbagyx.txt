@@ -1,0 +1,28 @@
+issue
+Add single node with self loop check to local and global reaching centrality#TITLE_END#<!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> This PR partially solves #6914  I have just added a check for single node with self loops, this behavior is meaningless and should raise ``NetworkXPointlessConcept``. Also, I have added the corresponding test cases.
+issue
+Add check for empty graphs in `non_randomness`#TITLE_END#<!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> In the light of #7393, I have adopted the same approach to solve empty graph corner case in `non_randomness` as it was also producing `ZeroDivisionError`  ```python import networkx as nx G = nx.Graph() G.add_node(1) print(nx.non_randomness(G)) ```
+issue
+Add check for empty graphs in `flow_hierarchy`#TITLE_END#<!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> The following snippet produces a division by zero error due to the lack of null graph catching condition, I just added it and updated the tests :)  ```py import networkx as nx G = nx.DiGraph() G.add_node(1) print(nx.flow_hierarchy(G)) ```
+issue
+Fix graph name attribute for `complete_bipartite_graph`#TITLE_END#Fixes  #7396. Also, I added a testcase :)
+issue
+Simplify flow func augmentation logic in `connectivity` module#TITLE_END#<!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> Following the steps of #7036 and #7166, I have refactored the if/elif statements in ``networkx/algorithms/connectivity/connectivity.py`` with match/case statements.  There was a couple of unwanted matches since they can be replaced with ``or`` , I guess they were there because of reference equality with ``is``, but matching with name makes it easier to group similar conditions together.
+issue
+Refactor `distance_measures` submodule with match case#TITLE_END#<!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> Following the steps of #7036 and #7166, I have refactored the if/elif statements in ``networkx/algorithms/distance_measures.py`` with match/case statements.
+issue
+Refactor `neighbor_degree` submodule with match case#TITLE_END#<!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> Following the steps of #7036 and #7166, I have refactored the if/elif statements in ``networkx/algorithms/assortativity/neighbor_degree.py`` with match/case statements.  I aware that the indentation depth is increased by one, any hack for this issue ?
+issue
+Error handling for invalid prufer sequence `from_prufer_sequence`: issue #6420#TITLE_END#This pull request is meant for fixing #6420. the author of the issue passes the prufer sequence `[7,5,5,3,1]` to the function `from_prufer_sequence` and expects a valid output (tree). The conflict happens due to the difference in indexing styles; networkx uses the zero-indexing , on the other hand , mathematicians (graph theorists ) use one as the first label/index . Adopting zero-indexing style, every element in the sequence has to obey the following constraint:  $$0 \le sequence[i] \le length(sequence) + 1   \ \ \ \  ,  \ \ \ \ such \  that  \ \ \  0 \le i < length(sequence)$$ If not the case a `NetworkXError` is raised . Hope this is thoughtful    Closes #6420 
+comment
+@amirfarrahi  Could you please post a minimal reproducible example ? 
+comment
+The expected behavior should be printing the length of the generator, right ?  
+comment
+> Usually it's `Graph with 7 nodes and 12 edges`  This is a bipartite graph, so i guess n1 and n2 refers to the two  node sets. I think it should be  `complete_bipartite_graph(4,3) with 7 nodes and 12 edges`  
+comment
+Can you provide a minimal reproducible example, to see where the issue is ? 
+comment
+It works fine with  development version of networkx   Matplotlib:  3.8.3  I guess it is fixed in  #7010   ![image](https://github.com/networkx/networkx/assets/59314933/005aed11-fbb8-49b7-87f7-e4a0561e70c0) 
+comment
+You have raised a good point. I went through the code, and yes implementing these exceptions is for custom-build graphs which user can pass through create_using argument as a graph constructor. This behavior is also present in some other graph generator functions which might not support all sort of graph classes ( like digraph, multigrpah,  or generally non-simple graphs).

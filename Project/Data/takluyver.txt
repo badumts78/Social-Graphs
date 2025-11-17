@@ -1,0 +1,16 @@
+comment
+@hagberg: I think you need a newer version of `requests`. 
+comment
+.text was added in 0.10.0, it seems, while precise has 0.8.2. I don't know if we rely on anything else added recently. 
+comment
+I think it's quite important to post on success, so that everyone can see that the PR was tested before it was merged. Scanning through #762, it looks like the confusion just relates to the wording 'merged into master', so maybe that can be adjusted. Then again, I don't think we've had the same confusion in IPython, so maybe it was a one off. 
+comment
+In fact, I think your wording is already clearer in the report above: "This pull request can be merged clearly..." (although I think it should say 'cleanly', not clearly). I like the little icons - I assume there's a different icon for a failure? I'm not so sure about the branch description line, it seems to duplicate information already in the PR, although I know there's not a link to the repository. Maybe it should be integrated into the title: "...pull request #752 ([jtorrents 'tools' branch](https://github.com/jtorrents/networkx/tree/tools))" 
+comment
+Doesn't git default to calling the clone source 'origin', rather than 'upstream'? I guess that doesn't work if you cloned from your own Github fork, though. Can the rebase command use a remote repository URL? 
+comment
+Depending on how your `setup.py` works, it might try to byte-compile all the Python files it installs, which will pick up on invalid syntax. If that's what you're seeing, it's most likely harmless. 
+comment
+You're welcome! At some point I might spin test_pr out into a separate project that can be used for multiple projects, so it's good to see someone else using it. 
+comment
+Thanks - one of the reasons I haven't spun it out into a separate project is that I worry it would rapidly gain complexity to handle the requirements of different projects.  I'm thinking of insisting projects use a standard way to run tests, something like: we will install your project in a virtualenv, then call "import Foo; Foo.test()". We already have IPython.test(), although test_pr doesn't use it at present. Then all the configuration it needs for a project should be:  [ipython] github_repo = ipython/ipython package_name = IPython  I see you're already doing something similar in your variant of the script, but specifying arguments to .test(). Would it be acceptable for .test() to be called with the default arguments if test_pr became a generic thing? 

@@ -1,0 +1,2 @@
+issue
+add verbosity to find_cliques#TITLE_END#I am wondering if it is possible to add a sort of progression bar to the find_cliques algorithm.   I think it would be useful to give the user an idea of how long the algorithm will take.

@@ -1,0 +1,2 @@
+comment
+It works for me with decorator 5.0.5, but it is broken again with 5.0.6 .

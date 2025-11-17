@@ -1,0 +1,8 @@
+comment
+@Peiffap @dschult thank you!
+comment
+I'm also running into this. Currently, `immediate_dominators` is inconsistent regarding the not strictly dominated nodes. ``` import networkx as nx G = nx.DiGraph([(1, 3)]) print(sorted(nx.immediate_dominators(G, 1).items())) ``` gives ``` [(1, 1), (3, 1)] ``` It should either return (preferably?) ``` [(3, 1)] ``` or ``` [(1, 1), (3, 1), (3, 3)] ``` 
+comment
+@dschult thank you!  Regardless of everything else, this really should warrant a big fat `WARNING` in the docs.  > Given the above conversation, would you agree that it is troublesome to leave out the start node as a key from the returned dict? Would it be sufficient to have the starting node's value be `None` as discussed above?  IMHO - i don't see why the info about the root node _must_ be present in the returned dict, because this way, it's not actually `immediate_dominators()`,  but `immediate_dominators_and_root`. I don't know if it does or does not make sense for the internal implementation, i just think it shouldn't be in the final result.
+comment
+For example, consider: `TestData(NumNodes=3, NumEdges=6, NodePairs=((1, 2), (1, 3), (2, 1), (2, 3), (3, 1), (3, 2)), GraphEdges=(False, False, True, False, True, False))` `networkx.immediate_dominators()` returns: ``` r=0: {0: 0} r=1: {1: 1, 0: 1} r=2: {2: 2, 0: 2} ``` and `igraph`'s `dominator()`: ``` [(0, -1), (1, nan), (2, nan)] [(0, 1), (1, -1), (2, nan)] [(0, 2), (1, nan), (2, -1)] ```  `networkx.immediate_dominators()`'s `dict` does not contain all the nodes already!

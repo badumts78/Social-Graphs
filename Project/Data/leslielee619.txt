@@ -1,0 +1,2 @@
+issue
+when i use read_gml() to read a graphml file, a error occurs #TITLE_END#error is: NetworkXError: cannot tokenize '?xml version="1.0" encoding="UTF-8"?\r' at (1, 1）

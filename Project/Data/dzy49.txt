@@ -1,0 +1,4 @@
+issue
+Add single_source_all_shortest_paths and all_pairs_all_shortest_paths#TITLE_END#as discussed in issue #5949, add `single_source_all_shortest_paths` and `all_pairs_all_shortest_paths`  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+all_pairs_shortest_path ties?#TITLE_END#Hello, I am noticing that when multiple shortest path exist, all_pairs_shortest_path only return one. I am wondering if there's anything setting that can allow the return of all shortest path(that have equal weight)?  

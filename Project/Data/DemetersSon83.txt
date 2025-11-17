@@ -1,0 +1,4 @@
+issue
+Added cluster_layout method to layout.py#TITLE_END#Cluster_layout will create a position dict where nodes within the same clusters are closer together than nodes in different clusters.  Gaussian noise is used to introduce positional variation both within and outside of clusters.  <!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> 
+issue
+Update layout.py#TITLE_END#Added cluster_layout option to drawing that builds positions based on the cluster assignments of the nodes.  Gaussian noise is used to vary positions both within and between clusters.  Supports useful visualization of clusters.  <!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> 

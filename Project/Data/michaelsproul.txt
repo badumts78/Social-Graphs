@@ -1,0 +1,2 @@
+issue
+Remove Python 3 incompatible print statement#TITLE_END#I've removed what I think is the last print statement from the examples. Prevents a nasty error when installing. 

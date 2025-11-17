@@ -1,0 +1,4 @@
+issue
+Update layout.py#TITLE_END#Bring `None` comparisons in line with PEP 8: "Comparisons to singletons like None should always be done with `is` or `is not`, never the equality operators." Also, satisfy "FutureWarning: comparison to `None` will result in an elementwise object comparison in the future." 
+comment
+Ah this surprised me: see https://github.com/related-sciences/nxontology/pull/18. I'm a bit puzzled why `nx.transitive_reduction` wouldn't want to preserve node/edge/graph data. Silently dropping it seems dangerous and inconsistent with other functions like `graph.reverse` and `nx.DiGraph(graph)`, which preserve data.  > the algorithm doesn't do this (to save space and copying time).  Can't the algorithm just copy everything over at the end? Or take an option to preserve data?  I ended up using the 3 lines suggested by @dschult to preserve data, but I don't think we want users having to do that... seems error-prone and low level.

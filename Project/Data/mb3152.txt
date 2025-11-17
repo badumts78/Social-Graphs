@@ -1,0 +1,14 @@
+issue
+two nodal role functions, louvain#TITLE_END#I built two different versions of nodal role measures (participation coefficient, and within-module-degree). The nodal_roles_nx.py works with the published Louvain that has been discussed. The nodal_roles_brainx.py works with the brainx classes of weighted_modularity (again, Louvain). The brainx version is faster. Depending on how y'all decide to output the modularity partition results, either one will work, and I can write some tests then and improve the speed a bit.  
+issue
+wishlist: nodal roles#TITLE_END#within module degree and participation index?  
+issue
+wishlist: make chordal graph#TITLE_END#A function to add edges to make a graph chordal would be great. 
+issue
+Is there anyway to get some bayesian graph manipulation tools like moralizing and triangulating?#TITLE_END#I have been wrapping old matlab code, but networkx stuff would be great!  
+issue
+make chordal graphs#TITLE_END#Is there anyway to get a function to make a chordal version of the graph? 
+issue
+Make Chordal Graphs#TITLE_END#Is there anyway to add a function to make an undirected graph chordal? 
+issue
+make graph chordal#TITLE_END#Is there any code out there to make a networkx graph chordal? 

@@ -1,0 +1,2 @@
+issue
+Is it possible to have duplicate node labels in a networkx 2.4?#TITLE_END#I was trying to relabel a graph with with 3 integers (i.e. the labels of the nodes will be 1 or 2 or 3) on the basis of a distance metric. The initial graph contained 10 nodes, but after using the relabel function (I used a dict which mapped the nodes to the integers) , the graph only contains 3 nodes.  I do not want to set the labels as a node attribute as I already have other attributes. Can this be done in some other way? Thank you very much.

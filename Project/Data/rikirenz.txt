@@ -1,0 +1,2 @@
+issue
+Implementation N-Cliques algorithm#TITLE_END#Dear all, I would like to ask you: if is there any possibility to have an algorithm to compute the n-cliques for a given graph?

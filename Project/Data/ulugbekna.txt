@@ -1,0 +1,2 @@
+issue
+examples/javascript missing files#TITLE_END#Hi!   [examples/javascript](https://networkx.github.io/documentation/networkx-2.2/auto_examples/javascript/force.html#sphx-glr-download-auto-examples-javascript-force-py) shows how to get the graph in html. Webpage allows downloading the python file but doesn't the other related files and folders. One has to go to the github and download the example from the repo.   Is this just an omission or a bug? I could perhaps fix it with some initial guidance.   Thanks!

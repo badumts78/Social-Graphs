@@ -1,0 +1,2 @@
+issue
+`minimum_st_node_cut` returns empty list instead of set for adjacent nodes#TITLE_END#https://github.com/networkx/networkx/blob/3f4f9c3379a5d70fc58852154aab7b1051ff96d6/networkx/algorithms/connectivity/cuts.py#L284  Should read `return {}`. Was questioning my sanity for a bit there 😉

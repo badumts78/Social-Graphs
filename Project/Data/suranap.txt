@@ -1,0 +1,2 @@
+issue
+Return all permutations of topological_sort#TITLE_END#Currently topological_sort returns only one ordering. Would there be interest in a version that returns all possible correct sorts? Then the standard `topological_sort` function would just return the first one.  I have a need for this currently. If there's interest I can make a PR when I've written it.  

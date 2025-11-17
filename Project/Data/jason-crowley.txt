@@ -1,0 +1,2 @@
+issue
+Fix performance issue in nx.edge_boundary#TITLE_END#Before, `nset1` was created by iterating over nodes in `G` and checking for membership in `nbunch1`. However, `nbunch1` can be any iterable, so checking for membership is O(n) in the worst case. Instead, iterating over `nbunch1` and checking for membership in `G` should fix this performance issue.

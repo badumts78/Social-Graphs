@@ -1,0 +1,2 @@
+issue
+Add a way to draw self loops with Matplotlib#TITLE_END#If you call networkx.draw(), you will face two issues: 1. If the draw() function puts three nodes on one line, you won't see the edge between two further nodes. 2. The draw() function can't draw self loops with Matplotlib because self loop edges have pos[0] == pos[1].  Solution: Instead of using simple line edges, use the Bezier curves.  Example of a Bezier-tweaked graph: ![graph43](https://cloud.githubusercontent.com/assets/8112274/13440104/7d50fed8-e001-11e5-923b-9daa96110b37.png) 

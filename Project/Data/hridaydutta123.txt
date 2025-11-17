@@ -1,0 +1,2 @@
+issue
+Handle singleton input in add_star/cycle#TITLE_END#Fixes #3277

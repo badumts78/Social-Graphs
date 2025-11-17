@@ -1,0 +1,4 @@
+issue
+Bug in export to Pajek format#TITLE_END#The second to last line in function `generate_pajek(.)` in file `networkx/networkx/readwrite/pajek.py` is redundant and should be deleted because it produces duplicate of every k,v pair for edge data.  Also, it should be checked whether the value of the attribute is not an empty string (for nodes and for eges) before writing it out. As it is now, the function can produce strange results. The Pajek program itself is quite tolerant and will parse the file containing errors but other programs which accept Pajek files may not. 
+issue
+fix issue #1948 and PEP8 formatting#TITLE_END#This is a fix for the reported issue  #1948. I also added checking for empty string attribute values for nodes and applied PEP8 formatting. 

@@ -1,0 +1,4 @@
+issue
+fix examples in tournament.py#TITLE_END#This PR closes #6924. It fixes the example in the docstring for `tournament.is_strongly_connected` and checks whether other example graphs in `tournament.py` are actually tournaments using method `is_tournament`.
+comment
+Hello! I have been working on this issue. I changed the example for `is_strongly_connected` and checked the others in my PR.

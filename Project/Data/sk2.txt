@@ -1,0 +1,2 @@
+comment
+I'm using d3 with the standard NetworkX JSON output and it all works quite well. 

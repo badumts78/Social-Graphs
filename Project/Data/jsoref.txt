@@ -1,0 +1,2 @@
+issue
+Spelling#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> This PR corrects misspellings identified by the [check-spelling action](https://github.com/marketplace/actions/check-spelling).  The misspellings have been reported at https://github.com/jsoref/networkx/actions/runs/5305274358#summary-14356588146  The action reports that the changes in this PR would make it happy: https://github.com/jsoref/networkx/actions/runs/5305274583#summary-14356589741

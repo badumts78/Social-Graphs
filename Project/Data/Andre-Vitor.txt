@@ -1,0 +1,2 @@
+issue
+Watts-Strogatts with variable neighbours.#TITLE_END#![image](https://user-images.githubusercontent.com/21976913/103505314-b367ee00-4e38-11eb-883b-7d4feb44d940.png) In the Watts-Strogatts model, shouldn't each node have a fixed amount of neighbours? Why the node 2 have only one neighbour and node 4 have 3 neighbours? 

@@ -1,0 +1,2 @@
+issue
+ShortestPath-Algorithm ignores weight-attributes with MultiDiGraph#TITLE_END#import networkx graph = networkx.MultiDiGraph() graph.add_nodes_from(range(1,2)) graph.add_edge(1,2,key=0,attr_dict={"time":5}) print networkx.shortest_path_length(graph, 1, 2, weight="time")  Test with Networkx 2.0 should return 5, but returns 1 because it ignores the weight="time" attribute When will this be resolved?

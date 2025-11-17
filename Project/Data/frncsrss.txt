@@ -1,0 +1,4 @@
+issue
+Speed up k-corona computation.#TITLE_END#- Only nodes from the k-shell can be in the k-corona (no need to consider all the nodes in the k-core). - Also fix the pydoc (s/subset/subgraph/ and s/vertices/nodes/ for consistency). 
+issue
+Fix k-shell pydoc.#TITLE_END#A node can have more than k neighbors in the k-core but still be in the k-shell. The current definition is the one of the k-corona. 

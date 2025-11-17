@@ -1,0 +1,2 @@
+issue
+Fix a tiny typo in `structuralholes.py::local_constraint` docstring#TITLE_END#To fix a tiny typo in `structuralholes.py::local_constraint` docstring. 

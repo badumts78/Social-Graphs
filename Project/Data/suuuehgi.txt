@@ -1,0 +1,2 @@
+comment
+I had a quick test on a 8-core machine and there seems to be a big overhead.  I need at least a graph with a couple of thousand nodes and edges to be on par with `networkx.all_pairs_shortest_path_length`. Below it's considerably slower, above it get's more "efficient".  On a `MultiDiGraph with 4201 nodes and 9683 edges` it's just two times as fast.  Can this be improved?

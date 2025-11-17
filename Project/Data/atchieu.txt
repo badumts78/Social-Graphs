@@ -1,0 +1,2 @@
+issue
+Error writing edge spells to .gexf#TITLE_END#Problem: I am trying to export a DYNAMIC graph to a .gexf file for use in Gephi. Therefore I use spells for the nodes and edges as an added attribute (e.g. 'spells': [(start, end), ...]) but when I write a .gexf file using nx.write_gexf(...), nodes write the spells just fine, but the edges don't have that same functionality.  Specifically, it is missing: add_spells(...) in the add_edge(...) member of gexf.py. 

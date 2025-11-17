@@ -1,0 +1,2 @@
+issue
+Correct variable names in an example#TITLE_END#I noticed the names of two variables were incorrect in an example while following the tutorial. 

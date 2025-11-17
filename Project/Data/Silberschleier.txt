@@ -1,0 +1,4 @@
+comment
+I would also be willing to contribute some code, which approximates the ged with simulated annealing, similar to the approach of Kostakis and Kinable in https://dl.acm.org/citation.cfm?id=1982509 My current implementation would need some clean up and abstraction for more general problems though. So would this algorithm be something you are interested in?
+comment
+Sorry for the late answer, but I'm currently occupied with other projects. This is also why it might take me some time to port my implementation.  @ramaroberto Sure. It is not published though yet, so just contact me by mail (address should be visible in my profile) and I'll send it to you.

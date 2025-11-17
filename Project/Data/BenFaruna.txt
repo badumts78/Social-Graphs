@@ -1,0 +1,6 @@
+comment
+I am an outreachy intern and I am interested in taking on this issue. Can it be assigned to me please
+comment
+@MridulS thank you I will do my best
+comment
+> I am importing numpy to mst.py to set the weight of an edge as NaN which is causing some of the checks to fail. >  > <img alt="image" width="712" src="https://user-images.githubusercontent.com/82928853/224432023-d65c922c-9a37-4208-ad9d-8b31af04bd44.png"> >  > I think I have to mention the imports in some other file as well but I am not able to figure out where. Could someone please help out?  Concerning this, I don't know if this runs on your machine but it seems the environment you're working with does not have numpy installed. So maybe try running python in your virtual environment and importing numpy to see if it works

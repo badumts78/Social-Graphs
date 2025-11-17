@@ -1,0 +1,4 @@
+issue
+Pajek .clu readwrite#TITLE_END#Dear all,  I needed functions to read/write .clu files (Pajek clusters, communities) and I wrote them. I am willing to contribute with a PR, but I have a doubt with naming convention. As there are already "read_pajek" and "write_pajek" functions in the pajek.py file, is it ok to create new functions with suffix "_clu" within the same file?  My work so far: https://github.com/joaquincabezas/networkx_pajek_util
+issue
+Add pajek communities#TITLE_END#Pajek allows to define communities in a CLU file  In this PR we add support for reading and writing CLU files following: - CLU format from Pajek specification - Communities style following networkx's communities  Tests have been added for simple scenarios

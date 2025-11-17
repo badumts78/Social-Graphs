@@ -1,0 +1,2 @@
+issue
+Corona Product#TITLE_END#Hi all,  I have added the "corona product" of two graphs in the product algorithms.  I also had written a [blog post here](https://blog.alifaraji.ir/math/graph-theory/corona-product.html) about this product months ago.  Thank you

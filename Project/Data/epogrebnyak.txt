@@ -1,0 +1,2 @@
+issue
+docs: several links in Citing section seem to have expired #TITLE_END#The specific links in https://networkx.org/documentation/stable/#citing to PDF and *Exploring network structure, dynamics, and function using NetworkX*  seem to have expired - for example https://conference.scipy.org/proceedings/SciPy2008/paper_2/ is not lobger valid.  Would be nice to fix the link, if it still exists. I looked up http://conference.scipy.org.s3-website-us-east-1.amazonaws.com/proceedings/scipy2008/ - but there is no NetworkX paper there.

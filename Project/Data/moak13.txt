@@ -1,0 +1,2 @@
+issue
+interactivity with nodes#TITLE_END#Is not really an issue but a list of suggestion if you seem fit to add 1. How to change the arrow direction from one node to the other and reflect back to the database (spreadsheets) 2. How to show node details on hover 3. Ability to switch between an "activity-on-arrow" and "activity-on-node" 4. How to highlight the critical path (longest, shortest, etc) within a generated graph

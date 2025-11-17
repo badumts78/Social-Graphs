@@ -1,0 +1,4 @@
+issue
+Fixed an error in the documentation of the katz centrality#TITLE_END#Issue  #6279 reported a sentence in the documentation of the method stating  >  When $\alpha = 1/\lambda_{\max}$ and $\beta=0$, Katz centrality is the same  >      as eigenvector centrality.   I replaced $\beta=0$ with $\beta=1$, according to the issue's suggestion (and fixed a small typo along the way). 
+comment
+I guess you are right! It's nice that you even found the probable origin of this.  Since the  `beta` parameter accounts for the weights in the neighborhood, an assignment of '0' should be expected to output zeroes as you reported.

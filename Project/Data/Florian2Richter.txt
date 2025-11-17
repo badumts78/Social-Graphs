@@ -1,0 +1,6 @@
+issue
+3d facebook plot example#TITLE_END#Added 3D example to gallery [documentation]
+issue
+3d facebook plot example#TITLE_END#Adding a 3D example to the gallery
+issue
+3d facebook plot example#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

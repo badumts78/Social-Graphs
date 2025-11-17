@@ -1,0 +1,2 @@
+issue
+Implement min cost perfect matching for generic graphs#TITLE_END#https://courses.engr.illinois.edu/cs598csc/sp2010/Lectures/Lecture11.pdf  Possible usecases: [Christofides algorithm](http://en.wikipedia.org/wiki/Christofides_algorithm) for approximating traveling salesman. 

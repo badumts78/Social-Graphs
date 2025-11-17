@@ -1,0 +1,2 @@
+issue
+Improved running time for harmonic centrality#TITLE_END#Computing the harmonic centrality was unnecessarily slow in many cases, for instance when computing the harmonic centrality for just a single vertex and all vertices as sources. This was due to a shortest path search starting from each vertex in `sources`. If `sources` is larger than `nbunch`, it is faster to do a shortest path search on the reversed graph starting from each vertex in `nbunch`. I implemented the graph reversal for this case, and a test case.

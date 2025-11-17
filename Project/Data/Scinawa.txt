@@ -1,0 +1,8 @@
+issue
+Added Harmonic Centrality Algorithm#TITLE_END#Added a new algorithm for centrality based on Harmonic Centrality. 
+issue
+add max_iter and tol parameter for numpy version#TITLE_END#I added the possibility to specify max_iter and tol parameters for eigenvector centrality with numpy.  
+issue
+Seeley centrality#TITLE_END#Hi! I want to implement Seeley's centrality, a particular kind of eigenvector on a normalized matrix. (L1 norm on rows). I was thinking to edit the eigenvector centrality and start from there. Which is the correct way of normalizing a matrix by row inside networkx?  
+issue
+Harmonic#TITLE_END#Copyright correction, better explaination, correct latex formula 

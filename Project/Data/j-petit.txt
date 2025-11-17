@@ -1,0 +1,8 @@
+issue
+Directed combinatorial laplacian as in #2404#TITLE_END#Hi,  I gave the integration of the directed combinatorial laplacian a try as suggested in #2404 . This includes some tests. As the calculation oft the transition probability matrix is the same as in the normalized directed laplacian, I refactored it into a separate function. Open to any feedback!
+issue
+Added documentation for spectral layout (#2971)#TITLE_END#Added documentation as proposed in #2971 
+issue
+Fixed node attributes to edge attributes in from_pandas_edgelist docu (#3002)#TITLE_END##3002 fixed
+issue
+Typo in from_pandas_edgelist docu: node attributes vs edge attributes#TITLE_END#```python def from_pandas_edgelist(df, source='source', target='target', edge_attr=None,                          create_using=None):     """Return a graph from Pandas DataFrame containing an edge list.      The Pandas DataFrame should contain at least two columns of node names and     zero or more columns of **node attributes**. Each row will be processed as one     edge instance. ``` Is this not supposed to be "zero or more columns of **edge attributes**"? Because each row is an edge instance.

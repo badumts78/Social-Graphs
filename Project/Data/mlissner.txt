@@ -1,0 +1,2 @@
+issue
+Add release notes#TITLE_END#A huge reason people come to your repo is to find the release notes. I see that you're using the Releases feature of Github, but it seems to be just a summary of fixed bugs and note release notes, per se. The website seems a lot better, but takes some hunting to find, so I put the link here.  I hope this helps! 

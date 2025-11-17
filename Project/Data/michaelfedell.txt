@@ -1,0 +1,2 @@
+issue
+Add spiral layout for graph drawing#TITLE_END#New method in layout will arrange nodes of a graph in a spiral layout with variable compactness. Nodes may be positioned with equal angles (increasing separation further from center), or equidistant (decreasing angle further from center)

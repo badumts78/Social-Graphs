@@ -1,0 +1,2 @@
+issue
+navigable_small_world_graph wrong description#TITLE_END#The following description of a variable  n (int) – The number of nodes.  in this model is wrong, model actually builds a graph with n*n nodes  https://networkx.github.io/documentation/development/reference/generated/networkx.generators.geometric.navigable_small_world_graph.html#networkx.generators.geometric.navigable_small_world_graph

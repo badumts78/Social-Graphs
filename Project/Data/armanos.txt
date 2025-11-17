@@ -1,0 +1,2 @@
+issue
+Using `gcd` from `fractions` module#TITLE_END#`gcd` has been deprecated in the `fractions` module since Python 3.5 and is completely non-functional in Python 3.9. As per official Python documentation, the recommended fix is to use `gcd` from the `math` module: https://docs.python.org/3.5/library/fractions.html#fractions.gcd

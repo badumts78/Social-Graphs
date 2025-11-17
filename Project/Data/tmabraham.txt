@@ -1,0 +1,2 @@
+issue
+Why is Watts-Strogatz graph generation limited to k<n#TITLE_END#Right now, networkx throws an error if k<n for the `watts_strogatz_graph` function. However, it is actually possible for it to return a complete graph for k>=n. Can this error raising be removed?

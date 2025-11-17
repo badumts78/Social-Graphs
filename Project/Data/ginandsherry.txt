@@ -1,0 +1,2 @@
+comment
+import networkx as nx  G = nx.DiGraph() for i in range(10):     G.add_node(i) G.add_edges_from([(0, 2), (0, 1), (1, 0), (2, 1), (2, 0), (3, 4), (4, 3), (7, 8), (8, 7), (9, 10), (10, 9)])  pa=nx.algorithms.community.louvain_communities(G,seed=123)

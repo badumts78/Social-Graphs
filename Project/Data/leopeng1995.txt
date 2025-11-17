@@ -1,0 +1,2 @@
+issue
+typo error: test_maxflow_large_graph.py#TITLE_END#In networkx/algorithms/flow/tests/test_maxflow_large_graph.py line 14, https://github.com/networkx/networkx/blob/master/networkx/algorithms/flow/tests/test_maxflow_large_graph.py#L14: ``` from networkx.algorithms.flow import boykov_kolmogorov ```  However, the actual filename is `boykovkolmogorov.py` in networkx/algorithms/flow. It seems to be omitted the underscore. Can the official team fix it?

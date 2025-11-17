@@ -1,0 +1,2 @@
+issue
+Misleading description in the doc#TITLE_END#In this page https://networkx.github.io/documentation/stable/reference/algorithms/generated/networkx.algorithms.structuralholes.effective_size.html The description of *Return* is "Dictionary with nodes as keys and the constraint on the node as values." But this is effective size. I think it should be  "Dictionary with nodes as keys and the **effective size of** the node as values."

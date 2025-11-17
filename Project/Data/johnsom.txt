@@ -1,0 +1,2 @@
+issue
+Allow individual extras selection#TITLE_END#Currently networkx only has a definition for "all" dependency extras. This patch adds support to specify the individual extras required.  Our use case is for pydot where we use nx_pydot but none of the other "extras".

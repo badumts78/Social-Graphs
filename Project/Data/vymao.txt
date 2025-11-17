@@ -1,0 +1,6 @@
+issue
+Remove specific edge from MultiDiGraph#TITLE_END#Hi,   I am using MultiDiGraph and would like to remove a particular edge with particular class from node `u` to `v`. That is, for example, for a graph as such:  ``` >>> G.edges(data = "class") OutMultiEdgeDataView([(1, 2, 12), (1, 2, 14), (1, 3, 53), (1, 3, 50), (1, 4, 12), (4, 5, 53), (5, 6, 12), (5, 7, 53)]) ``` I would like to remove the edge (1, 2, {"class": 12}) while leaving the other edge from 1 to 2 unchanged.   Is it possible to do this? I looked at `remove_edge` but that seems to require that the edge attributes have different classification names, and that if I put multiple edges under the same classification name, it would remove them all.  I have edges with weights, and ideally I would be able to assign these attributes without a particular class label but so far I don't seem to be able to do that. 
+issue
+Line graph with attributes#TITLE_END#If we have some graph with edge attributes, is it possible to generate the line graph somehow with the original edge attributes embedded into the line graph nodes? Would save a lot of hassle. 
+issue
+Networkx node ordering for undirected graphs#TITLE_END#How does Networkx order nodes when doing `G.edges` for undirected graphs? Is it always that the lower node index comes first (ie. so [1, 2] vs. [2, 1])?

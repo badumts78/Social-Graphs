@@ -1,0 +1,2 @@
+issue
+Add longest path algorithm for DAGs#TITLE_END#Hello!  Looks like there is no longest path algorithm for DAGs in networkx, thought it's simple linear time dynamic programming, so here is my basic implementation.  If it is OK, I'll add some wrapper functions:  longest_path_in_dag(G, source, target) longest_path_length_in_dag(G, source, target) critical_path(G) 

@@ -1,0 +1,2 @@
+comment
+Are there any plans to address this/merge in the commits made in the fork above to switch to `defusedxml`?   We have enterprise restrictions preventing us from downloading all versions of `networkx` at the moment due to the vulnerability, hence why I am asking.

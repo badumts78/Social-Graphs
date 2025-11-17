@@ -1,0 +1,2 @@
+issue
+error when running next(communities_generator) on girvan_newman algorithm: module 'networkx' has no attribute 'selfloop_edges'#TITLE_END#I'm running community detection using girvan newman algorithm:  `from networkx.algorithms.community.centrality import girvan_newman  communities_generator = girvan_newman(nxG)  next(communities_generator)`  this produces the error:  `AttributeError: module 'networkx' has no attribute 'selfloop_edges'` 

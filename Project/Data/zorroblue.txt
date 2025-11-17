@@ -1,0 +1,2 @@
+comment
+I am able to run the code snippet successfully. Is this issue due to some version incompatibility?

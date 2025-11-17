@@ -1,0 +1,4 @@
+issue
+subgraph_is_isomorphic()#TITLE_END#Hello, how can I make subgraph_is_isomorphic() function return true only if the graphs have the same edge and nodes? because it return true for the same structure(even if the nodes are different) 
+issue
+Many graphs in one file#TITLE_END#Hello! I want to know if it is possible to use Networkx library to read/write many graphs from/in one file? I find only examples with one graph! 

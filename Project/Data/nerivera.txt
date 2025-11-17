@@ -1,0 +1,2 @@
+issue
+Fix typo in contributing page#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> There was a missing backtick causing an extra one to appear after `sp` in the contributing page.

@@ -1,0 +1,4 @@
+comment
+Hi @MridulS! I would like to work on this issue, to get acquainted with the networkx for Gsoc. Please let me know if this is a reasonable initial attempt. Thank you.
+comment
+> @Gopal-Dahale, have you been working on this at all?  Not now. You may work on this if would like to. 

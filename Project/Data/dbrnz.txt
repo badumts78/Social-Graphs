@@ -1,0 +1,2 @@
+issue
+Allow single coordinates to be fixed in a spring layout.#TITLE_END#This adds a `fixed_coords` parameter to the `fruchterman_reingold_layout` function, a dictionary specifying node coordinates to keep fixed as a list or tuple of boolean values.

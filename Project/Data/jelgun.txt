@@ -1,0 +1,2 @@
+issue
+fix small index iteration bug in kernighan_lin algorithm#TITLE_END#The algorithm works incorrectly because of that bug as min_i in line 124 always gets 0. 

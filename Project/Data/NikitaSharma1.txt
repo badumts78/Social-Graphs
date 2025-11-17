@@ -1,0 +1,28 @@
+issue
+Wrong output in `hamiltonian_path()`#TITLE_END#According to documentation, the `hamiltonian_path()` function is applicable only for tournament graphs, but, it is not checking whether the graph is a tournament or not. Moreover, it gives the wrong output even if the graph doesn't have a hamiltonian path.   Current Output ```py >>> from networkx.algorithms import tournament >>> G = nx.DiGraph([(1, 2), (2, 3), (0, 1), (4, 3)]) >>> tournament.is_tournament(G) False >>> tournament.hamiltonian_path(G) [1, 2, 3, 0, 4] ``` The code should check for the tournament graph first and return "G is not a tournament graph" instead of the wrong output.
+issue
+Added examples in weakly_connected.py#TITLE_END#Added examples to the following functions: - number_weakly_connected_components() - is_weakly_connected() 
+issue
+Cannot access `branching_weight()`#TITLE_END#The documentation of [branching_weight()](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.tree.branchings.branching_weight.html#networkx.algorithms.tree.branchings.branching_weight) specifies `Returns the total weight of a branching`  but I am unable to access the function.  ```py >>> G = nx.DiGraph() >>> G.add_weighted_edges_from([(0, 1, 2), (1, 2, 4), (2, 3, 3), (3, 4, 2)]) >>> nx.branching_weight(G) AttributeError: module networkx has no attribute branching_weight ```
+issue
+Added examples in connected and strongly connected functions#TITLE_END#I added examples in the following functions: - number_connected_components() - node_connected_components() - number_strongly_connected_components() - is_strongly_connected()
+issue
+Corrected the documentation of find_negative_cycle() solving issue #5610#TITLE_END#Changed the documentation of the parameters (source) and added an example, in find_negative_cycle() solving issue #5610 
+issue
+Added documentation for branching_weight() solving issue #5553#TITLE_END#I solved #5553 issue and added parameters, returns, and examples in the branching_weight() function. 
+issue
+Added examples in tournament and tree functions#TITLE_END#Added examples in tournament functions and is_branching() and is_aborescence() functions of tree.
+issue
+Added examples in is_forest() and is_tree()#TITLE_END#I added basic examples and raise error documentation in is_forest() and is_tree(). If required, I can add in is_arborescence() and is_branching() as well.
+issue
+Added documentation for branching_weight() solving issue #5553#TITLE_END#I solved #5553  issue and added parameters, returns, and examples in the branching_weight() function.
+issue
+Added examples in connected and strongly connected#TITLE_END#I added examples in the following functions: - number_connected_components() - node_connected_components() - number_strongly_connected_components() - is_strongly_connected()
+issue
+added edge labels in weighted graph#TITLE_END#I added edge weight labels in [weighted graph](https://networkx.org/documentation/stable/auto_examples/drawing/plot_weighted_graph.html#sphx-glr-auto-examples-drawing-plot-weighted-graph-py) because I thought that's an important part of a weighted graph.
+issue
+shortest_path() example#TITLE_END#I added more comments and made the example more clear.
+issue
+Change in shortest_path() example#TITLE_END#I added more comments and changed the example little bit to make it easier to understand. 
+comment
+@stanyas I faced a similar issue in style in the start as you are facing now. I was told to make the following changes and it worked for me.   `One thing that will need to be done is to ensure that the docstring examples are properly formatted, i.e. the code in the examples follows the black formatting rules. Since these examples are small, it may be easy enough to fix up the formatting manually. Alternatively, I believe a pre-commit hook has been recently added to handle doc formatting automatically, so updating your development environment with the latest pre-commit hooks would likely work too` I think you should try this too.  Please correct me if I'm wrong.

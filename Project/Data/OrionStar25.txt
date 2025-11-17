@@ -1,0 +1,4 @@
+issue
+max_flow_min_cost: Support MultiGraph and MultiDiGraph #TITLE_END#While  running [max_flow_min_cost](https://networkx.github.io/documentation/stable/reference/algorithms/generated/networkx.algorithms.flow.max_flow_min_cost.html#networkx-algorithms-flow-max-flow-min-cost) using Open Street Map data of Singapore, I received this error message:  > NetworkXError: MultiGraph and MultiDiGraph not supported (yet).  I wanted to know if this is going to come anytime soon? Every city data is a MultiDigraph and this algorithm is really important for me! 
+issue
+Wrong unfeasible paths#TITLE_END#While using the `capacity_scaling` algo, it's raising unfeasible path error between the source and destination even when all edge capacities are set to infinite. The demand has been specified like this: ``` G.add_node(source, demand = -1) G.add_node(destination, demand = 1) ``` But using dijkstra gives a proper path. Why is this happening when a path does exist? 

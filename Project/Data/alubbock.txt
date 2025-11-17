@@ -1,0 +1,4 @@
+issue
+pydot read_dot doesn't strip quotes from node/edge/graph attributes#TITLE_END#Some programs output dot files with quoted attributes, which are not stripped of their quotes when read using pydot (but are correctly stripped of quotes using pygraphviz).  Example:  ```python dot_data = StringIO(""" digraph G{     "A_0" [shape="ellipse" style=filled]; }     """) G = nx.nx_pydot.read_dot(dot_data) assert G.nodes(data=True)['A_0']['shape'] == 'ellipse' ```
+issue
+pydot read_dot now strips quotes from attributes#TITLE_END#.dot file node/edge/graph attributes which are double-quoted are not stripped of their quotes when using `read_dot` via pydot, but are stripped of their quotes when using pygraphviz. This commit adds quote-stripping to `read_dot` when using pydot.  Fixes: #2832

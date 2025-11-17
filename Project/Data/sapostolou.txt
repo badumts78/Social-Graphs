@@ -1,0 +1,2 @@
+issue
+All pairs shortest path lengths using too much memory#TITLE_END#Is it normal that I need more than 24 GBs or RAM to calculate the all pairs shortest path lengths for a graph with 62078 vertices and 216104 edges?  I assume that something must be wrong somewhere but I can't find out where. Could someone share some more insight on the implementation and the memory footprint?  Thanks in advance

@@ -1,0 +1,4 @@
+issue
+Edge centrality measure#TITLE_END#Hello Everyone,  I have been looking for packages that allow the computation of centrality measures for a network. I could find implementations of node centrality measures in Networkx. However, I would like to know if implementations of edge centrality measures like Kirchhoff Index or Resistance are available. For instance, after I delete an edge in a network and use k-core to remove nodes with degree < k this will result in a subgraph. By doing this experiment, I would like to study the impact of edge deletion on the variation of effective resistance of the resulting subgraph.
+issue
+Order of nodes is not preserved while adding an edge #TITLE_END#While adding a new edge using G.add_edge(u,v), the order of node is changed from  (u,v) to (v,u). An example is [here](https://stackoverflow.com/questions/57934885/how-to-stop-networkx-from-changing-the-order-of-head-and-tail-nodesu-v-to-v-u) 

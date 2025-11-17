@@ -1,0 +1,10 @@
+comment
+This is still a bug that `networkx` needs to fix; it is calling private API that is changed in Matplotlib 3.6.0rc1, and [fails to build docs](https://copr.fedorainfracloud.org/coprs/qulogic/matplotlib-3.6.0/build/4751432/): ``` Extension error: Here is a summary of the problems encountered when running the examples  Unexpected failing examples: /builddir/build/BUILD/networkx-networkx-2.8.5/examples/basic/plot_properties.py failed leaving traceback: Traceback (most recent call last):   File "/builddir/build/BUILD/networkx-networkx-2.8.5/examples/basic/plot_properties.py", line 48, in <module>     nx.draw(G, pos=pos, with_labels=True)   File "/builddir/build/BUILD/networkx-networkx-2.8.5/build/lib/networkx/drawing/nx_pylab.py", line 113, in draw     if cf._axstack() is None:        ^^^^^^^^^^^^^ TypeError: '_AxesStack' object is not callable ```
+comment
+That second commit looks like it might be a bug in Matplotlib; do you have a small reproducer?
+comment
+Ah, sorry, I looked at the wrong commit for the doc build; I was wondering what was up with this: ``` /home/circleci/project/examples/drawing/plot_directed.py failed leaving traceback: Traceback (most recent call last):   File "/home/circleci/project/examples/drawing/plot_directed.py", line 45, in <module>     plt.colorbar(pc)   File "/home/circleci/project/venv/lib/python3.9/site-packages/matplotlib/pyplot.py", line 2053, in colorbar     ret = gcf().colorbar(mappable, cax=cax, ax=ax, **kwargs)   File "/home/circleci/project/venv/lib/python3.9/site-packages/matplotlib/figure.py", line 1260, in colorbar     cax, kwargs = cbar.make_axes(ax, **kwargs)   File "/home/circleci/project/venv/lib/python3.9/site-packages/matplotlib/colorbar.py", line 1396, in make_axes     fig = parents[0].get_figure() AttributeError: 'NoneType' object has no attribute 'get_figure' ```
+comment
+The deprecation should not break the existing code though; I think we still need to fix something in Matplotlib.
+comment
+Ah, I see, you are using a `Mappable` that is not actually added to an `Axes`, and so the switch of source for space stealing breaks. We should probably add a more explicit error for that case.

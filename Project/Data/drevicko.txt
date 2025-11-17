@@ -1,0 +1,2 @@
+issue
+corrected docstring#TITLE_END#The docstring of connected_component_subgraphs() had one parameter (copy=True) listed as a Return. 

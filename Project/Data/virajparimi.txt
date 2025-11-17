@@ -1,0 +1,4 @@
+issue
+Fixes bug #2503 by removing arrow labels#TITLE_END#Tested it in my virtual environment.  Fixes bug #2503 .
+comment
+Hi, I am willing to submit a PR if this is still open and no one is assigned to it. All there needs to be changed is removing `arrow_collection.set_label(label)`?

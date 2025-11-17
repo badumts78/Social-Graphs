@@ -1,0 +1,2 @@
+issue
+question: how to run max_independent_set() for weighted nodes?#TITLE_END#Is there a way to run max_independent_set() that maximizes not the cardinality of the set but the sum of its weights? 

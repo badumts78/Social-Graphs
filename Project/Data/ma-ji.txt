@@ -1,0 +1,4 @@
+issue
+definition of transitivity is misleading#TITLE_END#Hi, I found this definition is misleading, if not wrong. It should be $closed triads / (close + open triads)$. Not "the fraction of all possible triangles present in G".  https://github.com/networkx/networkx/blob/80704838e60327f3e3a292f4fb4812039be843df/networkx/algorithms/cluster.py#L395
+issue
+explanation of weight in projection#TITLE_END#add the explanation of how to calculate the weight in projection.

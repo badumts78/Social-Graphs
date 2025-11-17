@@ -1,0 +1,4 @@
+issue
+Add dynamic graph attribute start/end field into node element in gexf#TITLE_END#Hi, I am sending a pull request which adds dynamic graph attribute `start`/`end` field into `node` element in gexf utils and tests that.  (Based on https://github.com/networkx/networkx/pull/1797)
+issue
+Added dynamic graph attribute field `start` into `node element` in gexf utils.#TITLE_END#Hi, I am sending a pull request which adds dynamic graph attribute field `start`/`end` into `node` element in gexf utils and tests that.  (Based on https://github.com/networkx/networkx/pull/1797)

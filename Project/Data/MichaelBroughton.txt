@@ -1,0 +1,2 @@
+issue
+New Feature: SPFA algorithm ?#TITLE_END#Although not so well documented, it might be cool to have as an option for one of the shortest path algorithms available to use. I would love to add it , if there is any interest.  https://en.wikipedia.org/wiki/Shortest_Path_Faster_Algorithm 

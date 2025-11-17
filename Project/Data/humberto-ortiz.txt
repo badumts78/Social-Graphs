@@ -1,0 +1,2 @@
+issue
+Implemented eulerian_path().#TITLE_END#This is a refactoring of https://github.com/networkx/networkx/pull/1488  Edwardo RIvera was my undergraduate student, and has since graduated.  I'd like to see his work merged upstream. I think I have addressed most of the concerns noted on the pull request. 

@@ -1,0 +1,2 @@
+comment
+While I appreciate that certain functionality can be a bit tricky to typehint correctly, I can't imaging it being _that_ disruptive to provide typing for nodes and edges. As the MR illustrates most changes are not huge. Maybe some of the algorithms is tricker, but there is no need for the library to fully typed _internally_. Only the public interfaces need to be hinted. That can't possibly make the code that much harder to read?  It is quite jarring to use a container-type library without basic typehints in 2024. 

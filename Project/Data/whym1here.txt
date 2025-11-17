@@ -1,0 +1,20 @@
+issue
+modifies ```bfs_edges``` and adds warning to ```generic_bfs_edges```#TITLE_END#- [x] adds the deprecated warning for ```sort_neighbors``` argument in ```generic_bfs_edges``` - [x] modifies the implementation of ```bfs_edges``` where it calls ```generic_bfs_edges``` with only ```neighbors``` parameters. [#5871](https://github.com/networkx/networkx/issues/5871)
+issue
+adds bfs_edges kwrags in sort_neighbors to deprecations.rst#TITLE_END#Refer https://github.com/networkx/networkx/pull/5925 
+issue
+Adds ```nx.bfs_layers``` method#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> Adds ```bfs_layers``` method to [breadth_first_search.py](https://github.com/networkx/networkx/blob/main/networkx/algorithms/traversal/breadth_first_search.py). ```python3 def bfs_layers(G, sources):     """Returns an iterator of all the layers in breadth-first search traversal.      Parameters     ----------     G : NetworkX graph         A graph over which to find the layers using breadth-first search.      sources : node in `G` or list of nodes in `G`         Specify starting nodes for single source or multiple sources breadth-first search      Yields     -------     layer: list of nodes         Yields list of nodes at the same distance from sources      Examples     --------     >>> G = nx.path_graph(5)     >>> dict(enumerate(nx.bfs_layers(G, [0, 4])))     {0: [0, 4], 1: [1, 3], 2: [2]}     >>> H = nx.Graph()     >>> H.add_edges_from([(0, 1), (0, 2), (1, 3), (1, 4), (2, 5), (2, 6)])     >>> dict(enumerate(nx.bfs_layers(H, [1])))     {0: [1], 1: [0, 3, 4], 2: [2], 3: [5, 6]}     >>> dict(enumerate(nx.bfs_layers(H, [1, 6])))     {0: [1, 6], 1: [0, 3, 4, 2], 2: [5]}     """     ... ``` ToDo: - [x] adds `bfs_layers` method to the docs  - [x] adds tests for the `bfs_layers` method  - [x] changes the implementation of `descendents_at_distance` 
+comment
+Hi @akshitasure12, can you explain the algorithm a bit here? 
+comment
+@dschult should I work on an algorithm to provide the maximal s-metric graph, or to compute the maximal s-metric itself, taking https://arxiv.org/abs/cond-mat/0501169 as an reference? 
+comment
+- If I get this right ```neighbors``` is a callable object (or function) which decides how the neighbors of visited node should be added to the ```queue``` ?  - Do we need to remove ```sort_neighbors```(is a callable object or function) and only work with ```neighbors```(is a callable object or function)? since that might cause break some things (I am not really sure about it)
+comment
+@dschult ?
+comment
+https://github.com/networkx/networkx/pull/5925 @dschult 
+comment
+Should it be implemented using layer-wise bfs and return a list(or generator) with the nodes in each layer? This will also work with multiple sources. ```python3 def bfs_layers(G, source, depth_limit=None, reverse=False):   """To be added soon and reverse needs to be handled too"""   neighbors = lambda node: iter(_neighbors(node))   visited = {}   if isintance(source, Iterable): # from collection.abc import Iterable     visited = set(source)   else:     visisted = {source}    if depth_limit is None:         depth_limit = len(G)   # from collections import deque    queue = deque([(node, depth_limit, neighbors(node))] for node in visited)   while queue:     layer = set({})     while queue:       parent, depth_now, children = queue[0]       try:         child = next(children)         if child not visited:           layer.add(child)           visited.add(child)           if depth_now > 1:             queue.append((child, depth_now - 1, neighbors(child)))       except StopIteration:           queue.popleft()       yield layer ``` something like this? 
+comment
+@dschult can you take a look at https://github.com/networkx/networkx/pull/5879 and help me with the testing if possible? 

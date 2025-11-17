@@ -1,0 +1,2 @@
+issue
+Improves docs regarding aliases of erdos-reyni graph generators#TITLE_END#The functions `gnp_random_graph`, `binomial_graph` and `erdos_renyi_graph` are all aliases of each other.  However current documentation reads like this, "_The functions `binomial_graph` and `erdos_renyi_graph` are aliases of this function._".  This is a bit unclear. To improve clarity, this PR changes the wording of the documentation to "_The functions `gnp_random_graph`, `binomial_graph` and `erdos_renyi_graph` are aliases of each other._"

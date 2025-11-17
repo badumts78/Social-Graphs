@@ -1,0 +1,4 @@
+issue
+Reference documentation of fluid communities added#TITLE_END#Solving Issue [#2590](https://github.com/networkx/networkx/issues/2590).
+issue
+Fluid communities algorithm implementation#TITLE_END#Hello there,  We are interested in adding the fluid communities algorithm [1] to networkx. It's a community detection algorithm competitive both in performance (close to multilevel) and in scalability (close to LPA). So far we have a tested version of the code based on the LPA code originally found in  "networkx/networkx/algorithms/community/asyn_lpa.py".  Best regards,  [1] https://arxiv.org/pdf/1703.09307.pdf

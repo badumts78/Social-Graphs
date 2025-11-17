@@ -1,0 +1,8 @@
+issue
+update docs to match implementation of geographical threshold graph#TITLE_END#Fixes #4712 
+comment
+Related to the documentation issue there is some counter intuitive behavior with the generator. For a given theta and given node weights, if instead of using 1/r^2 as p_dist, we use 1/r^3, we end up with a lot more edges.  <img width="1072" alt="Screen Shot 2021-03-31 at 10 22 53 AM" src="https://user-images.githubusercontent.com/49379192/113160039-1b955880-920b-11eb-8307-3e54c9939e03.png">    Counter intuitive doesn't mean wrong but I'm not sure this behavior was intended in the implementation. Do you think it may be worth it to try and make the behavior more in line with expectations? 
+comment
+Yes, of course you are correct. I say unexpected only because normally when I think of going from 1/r^2 to 1/r^3 I think of an effect getting weaker, but here we have the opposite and end up with a lot more connections. Also some of the points within the unit square are separated by more than 1 (consider two points connected by a diagonal across the square), so 1/r^3 is not always going to be bigger than 1/r^2, which adds slightly to the confusion.   At any rate, I think it's a great idea to update the docs as described in the original comment on the issue.  
+comment
+Hi guys. I'd like to take a crack at updating these docs over the weekend and hopefully getting this issue closed. Noob question: Just updating the docstrings (in my own forked version and then creating a PR from there) is sufficient, right? 

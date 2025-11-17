@@ -1,0 +1,2 @@
+comment
+Even though this has been closed for 5 months. I am still getting this error from networkX freshly installed from PyPI:   File "/usr/local/lib/python2.7/dist-packages/networkx/readwrite/graphml.py", line 243, in add_data     '%s as data values.'%element_type) networkx.exception.NetworkXError: GraphML writer does not support <type 'numpy.float64'> as data values. 

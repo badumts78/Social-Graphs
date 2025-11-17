@@ -1,0 +1,2 @@
+issue
+can we use networkx to create pajek temporal network from txt file #TITLE_END# I am trying to convert edge list into temporal network.My edge list file is like this.  a	b	10-10-2016 b	c	20-10-2016 d	e	30-10-2016 a	b	30-10-2016                a and b are vertex and 3rd column is date. i want to generate network on basis of date. Is there any solution of this Sir? 

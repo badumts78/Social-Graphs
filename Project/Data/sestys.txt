@@ -1,0 +1,2 @@
+comment
+Hey,  It seems no one is working on this so I will do it. I just have few questions to start: should any attribute be allowed to be used as the "edge id"? Also, should we then check for id uniqueness for parallel edges in MultiGraph?  

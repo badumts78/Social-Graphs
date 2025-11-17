@@ -1,0 +1,14 @@
+issue
+Modified release.py#TITLE_END##1882  @hagberg Should I cherry-pick this commit and create a new PR for master branch? 
+issue
+Added requirements.txt#TITLE_END#Fixes #1661  @chebee7i @jfinkels @hagberg Have a look on this. Also suggest modifications as I don't have much ideas of the dependencies being used by NetworkX. Thank you 
+issue
+Modified release.py#TITLE_END##1882 
+comment
+@hagberg I can't find the add_clique function, so I'm not sure where to put these functions after removing them from the base classes. If there is no add_clique function, where should we put add_path, add_cycle and add_star? 
+comment
+@hagberg I think as the functionality of add_clique is not clear for directed graphs ,so maybe we should not add it then. But are we supposed to totally remove add_path, add_cycle, and add_star from base classes and not put it anywhere? If not, where do we need to put these functions? 
+comment
+It seems to me like a bug. As you said many isometric node cuts are being omitted and in these polygon cases some of the node cuts mentioned in the result fail to create "two or more connected components".   I tried some more graphs and I think maybe it has got issues handling graphs with all vertices having the same degree. For eg,  <pre> K_5=nx.complete_graph(5) list(nx.all_node_cuts(K_5)) >>> [{0, 1, 2, 3}] </pre>  but should actually also return all other isometric node cuts.  Did you noticed any other pattern of graphs for which <code>all_node_cuts</code> gives incorrect results? 
+comment
+@OrkoHunter I'll be sending a PR shortly 

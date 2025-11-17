@@ -1,0 +1,2 @@
+issue
+networkx.algorithms.community.quality.modularity#TITLE_END#I use the default Zachary’s Karate Club graph and nx.algorithms.community.label_propagation_communities to get the community detection result. Then I use networkx.algorithms.community.quality.modularity to evaluate the performance but it returns "AttributeError: 'generator' object has no attribute 'is_multigraph'"

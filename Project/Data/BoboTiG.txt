@@ -1,0 +1,2 @@
+issue
+Fix several DeprecationWarning: invalid escape sequence#TITLE_END#Hello,  This is a little patch to fix warnings such as: ```python networkx/networkx/algorithms/cluster.py:537: DeprecationWarning: invalid escape sequence \m ```  In one place, I had to shorten the output of a function to fix ```python ValueError: line 31 of the docstring for networkx.algorithms.cluster.generalized_degree has inconsistent leading whitespace: '3: Counter({3: 4}), 4: Counter({3: 4})}' ``` Let me know if you are not OK with that :)  Signed-off-by: Mickaël Schoentgen <contact@tiger-222.fr>

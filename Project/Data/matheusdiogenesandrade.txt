@@ -1,0 +1,2 @@
+issue
+New algorithm for calculating the longest path between two nodes#TITLE_END#A new algorithm for finding the longest path between two nodes in a DAG. 

@@ -1,0 +1,2 @@
+issue
+Fix dispatch docs formatting#TITLE_END#This PR fixes the rendering or the dispatch docs:  This PR:  ![Screenshot 2024-09-01 at 8 02 10 PM](https://github.com/user-attachments/assets/0b06e38f-7125-4124-b139-95feb1c58f35)  On main:  ![Screenshot 2024-09-01 at 8 02 39 PM](https://github.com/user-attachments/assets/6c2d409e-e213-466b-9e80-ec1c4d25a989)

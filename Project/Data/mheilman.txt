@@ -1,0 +1,2 @@
+comment
+It looks like the issue is that this try catch on `unichr` isn't in 1.9.1:  https://github.com/networkx/networkx/blob/master/networkx/readwrite/gml.py#L66 

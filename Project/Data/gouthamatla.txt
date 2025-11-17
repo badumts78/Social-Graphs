@@ -1,0 +1,2 @@
+issue
+Can someone help with this problem posted on stackoverflow about NetworkX#TITLE_END#https://stackoverflow.com/questions/54366875/randomly-subset-a-large-network-with-given-type-of-nodes-and-weights?noredirect=1#comment95547776_54366875

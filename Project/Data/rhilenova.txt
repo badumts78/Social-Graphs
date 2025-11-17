@@ -1,0 +1,8 @@
+issue
+json_graph.node_link_graph only accepts integer indicies in links#TITLE_END#The d3.js example [here](http://bl.ocks.org/mbostock/4062045) has the node names for the sources and targets. However, this graph fails to load using json_graph.node_link_graph: ``` .../anaconda/lib/python2.7/site-packages/networkx/readwrite/json_graph/node_link.py in node_link_graph(data, directed, multigraph, attrs)     168             edgedata = dict((make_str(k), v) for k, v in d.items()     169                             if k != source and k != target and k != key) --> 170             graph.add_edge(mapping[src], mapping[tgt], ky, **edgedata)     171     return graph  TypeError: list indices must be integers, not unicode ```  Shouldn't node_link_graph only use `mapping` if it gets integer indices?
+issue
+Fix for issues #2328 and #2332#TITLE_END#Fix for issues #2328 and #2332.  Changes JSON node-link format to no longer export or import expecting links to be by node index. Instead, it expects node IDs like D3's current examples.
+comment
+I'm attempting to create a PR for this, but I'm not sure how to handle tuple nodes. The current code creates a node with the name `[0, 1]`, and then can successfully create edges by index. However, a quick test with [the example](https://bl.ocks.org/mbostock/4062045#index.html) doesn't look like it handles that format well.
+comment
+If I just remove the mapping, `TestNodeLink.test_graph_with_tuple_nodes` fails (unhashable type list). I haven't tried to fix that issue yet, because it made me wonder what D3 would expect and if it even made sense for tuple nodes to be output to json.

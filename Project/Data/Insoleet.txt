@@ -1,0 +1,2 @@
+issue
+Error building networkx on windows#TITLE_END#Hello,  When I install networkx on windows, I get the following error :   ```   creating build\bdist.win-amd64\wheel\networkx-1.10.data\data\share\doc\networkx-1.10\examples\drawing   error: can't copy 'examples\drawing\atlas.py': doesn't exist or not a regular file    ----------------------------------------   Failed building wheel for networkx ```  Any idea of what is happening here ? 

@@ -1,0 +1,2 @@
+issue
+Find all faces for a planar graph#TITLE_END#I thought it would be good to have a functionality to find all the faces in a planar graph. The current `networkx.algortihms.cycles` doesn't support planar graphs with node positions known. I want to write an additional function like `networkx.algorithms.cycles.planar_faces`.   I can work on this if the above fuctionality seems good.  

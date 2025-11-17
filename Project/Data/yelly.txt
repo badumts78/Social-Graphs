@@ -1,0 +1,2 @@
+issue
+Fix dag_longest_path bug#TITLE_END#Fix a bug in dag_longest_path that raises an exception when an empty graph is given.

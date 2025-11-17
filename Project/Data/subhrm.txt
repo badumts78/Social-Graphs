@@ -1,0 +1,4 @@
+issue
+Fixes Issue #3493 - Bug in lexicographical_topological_sort()#TITLE_END#Add `NodeId` filed to the tuple for cases where two or more nodes have the same key. It causes a problem with the `heapq` object in `lexicographical_topological_sort` function. 
+comment
+I am now working on it. 

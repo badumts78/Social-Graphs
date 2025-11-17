@@ -1,0 +1,2 @@
+issue
+Create bridges.py#TITLE_END#Contains three simple functions for detection and retrieval of bridges or local bridges in a undirected network. 

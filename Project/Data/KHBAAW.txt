@@ -1,0 +1,6 @@
+comment
+I have same problem Random state index is incorrect  how to resolve it  ![Screenshot (2)](https://user-images.githubusercontent.com/68842470/133200924-dc72fe9a-05e1-429e-89b0-95b9dec9ef45.png) 
+comment
+Error while updating the decorator   ![Screenshot (4)](https://user-images.githubusercontent.com/68842470/133221506-744f6e02-7222-45f4-903f-0ff08aa40989.png) 
+comment
+No, I did not delete it 

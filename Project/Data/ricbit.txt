@@ -1,0 +1,2 @@
+issue
+Improve runtime of number_of_nonisomorphic_trees().#TITLE_END#The current implementation of number_of_nonisomorphic_trees() constructs all trees and output the amount of trees created, which is exponential. The proposed implementation computes directly the number, using an O(n**3) formula.

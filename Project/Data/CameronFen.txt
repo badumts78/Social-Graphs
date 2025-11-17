@@ -1,0 +1,2 @@
+comment
+Oh ok.  I was mistaken.  I assumed each 2-tuple was an edge as well.  Can I rename them to have values from 0 to n number of nodes instead of the 2 tuple?  It's messing up my downstream algorithm.  You are welcome to close.  

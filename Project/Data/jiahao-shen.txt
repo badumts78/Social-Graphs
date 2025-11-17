@@ -1,0 +1,2 @@
+issue
+Error message#TITLE_END#The file networkx/generators/directed.py, line 262, the debug message is Wrong

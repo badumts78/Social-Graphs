@@ -1,0 +1,2 @@
+issue
+Failed simple node comparison#TITLE_END#Can anybody solve this riddle for me? My graph contains objects of my own class implementation. version 2.4.0  ` for node in self.graph.nodes: print(node in self.graph.nodes) `  ` False True False False `

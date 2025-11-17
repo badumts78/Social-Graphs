@@ -1,0 +1,2 @@
+issue
+Computing Voronoi cells of a graph using parallel Dijkstra's algorithm#TITLE_END#I would like to share some work I've done with the parallel Dijkstra algorithm used to generate voronoi graphs. Hope it can be useful for you. Any recommendation is welcome. Son I will have the implementation for directed graphs and unweighted graphs.  Thanks.   Arturo  

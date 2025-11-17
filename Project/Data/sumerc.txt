@@ -1,0 +1,2 @@
+issue
+UnionFind - Use union by rank#TITLE_END#Hi,  How about implementing union by rank for the UnionFind structure instead of union by weight? It has a better asymptotic running time(a tight bound). (With weighted union, there is always a possibility to merge a taller tree to a shorter tree.)  Is there any design decision behind this?  Thanks!

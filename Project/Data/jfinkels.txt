@@ -1,0 +1,948 @@
+issue
+Adds functions for partitioning a graph#TITLE_END#This is the partitioning code from pull request #764. I have made PEP8 and style updates for clarity. Also, I updated it to use the `modularity_matrix()` function introduced in #1448.  This pull request depends on pull request #1729 for the `modularity()` function. 
+issue
+Adds functions for sampling nodes from a graph#TITLE_END#This pull request includes code from issue #463. I'm not sure how to properly test randomized sampling functions, though.  This module may also be a good place for functions that sample from trees, see issue #1125. 
+issue
+Functions for computing a cycle basis, part 2#TITLE_END#Unfortunately, I had some problem with git not uploading my new commits for the pull request #1538; I couldn't figure out how to fix it so I opened this new pull request instead. Sorry about that.  Anyway, the new commit I made capitalizes on the changes introduced in pull request #1740 (the `Graph.edge_subgraph()` method) and in pull request #1741 (allowing keys to be returned by the `minimum_spanning_edges()` function). In fact, I extended the latter pull request in commit 1d4e7dd67115a660aad621845828f9483a2d8373, the first commit in the current pull request, since I needed access to the edge key for the edges from which the minimum spanning tree of a multigraph was derived. The `chords()` function is now as simple as I had originally hoped. 
+issue
+Adds a graph "walk" power operation.#TITLE_END#This adds the `networkx.algorithms.operators.product.pow` function, which computes a power of a given a graph. If SciPy is available, this function computes the power of the adjacency matrix of the graph. If SciPy is not available, it falls back to a naive (and slow) exponentiation-by-squaring implementation using only the graph primitives provided by NetworkX. 
+issue
+Adds functions for computing number of walks.#TITLE_END#This commit creates a new module, `networkx.algorithms.walks`, containing three functions related to counting the number of walks in a graph.  This commit is also part of the pull request #1307, so this one should be reviewed and merged before that one. 
+issue
+Implements all-pairs shortest paths in parallel#TITLE_END#This commit modifies the implementation of the unweighted all-pairs shortest paths to use the multiprocessing module.  This pull request is intended to experiment with employing parallelism directly within NetworkX. See issue #356. 
+issue
+Remove the @open_file decorator#TITLE_END#In working on a fix for issue #2295, I found the `@open_file` decorator confusing. Correct me if I'm wrong, but I think it's purpose is to allow the possibility of, for example, both `write_graph6(G, '/tmp/foo')` *and* `with open('/tmp/foo', 'w') as f: write_graph6(G, f)`. Modern versions of Python make opening files (and creating file-like objects like `StringIO`) easy, so this layer of abstraction seems unnecessary.  I propose removing the `open_file` decorator and changing the signature of functions that allow a path as input to require an (open) file-like object instead. This would require users to replace code like this: ```python write_graph6(G, '/tmp/foo') ``` with code like this: ```python with open('/tmp/foo', 'w') as f:     write_graph6(G, f) ```
+issue
+Remove "NetworkX" prefix from exceptions#TITLE_END#The `NetworkX` prefix is redundant information and can be safely removed from exception class names without affecting the user's understanding of the source of the exception. The final line of the following stack trace demonstrates that the exception's package is output by Python along with the exception class name:  ``` $ python3 -c "import networkx as nx; nx.Graph().remove_edge(0, 0)" Traceback (most recent call last):   File "/home/foo/src/networkx/networkx/classes/graph.py", line 938, in remove_edge     del self.adj[u][v] KeyError: 0  During handling of the above exception, another exception occurred:  Traceback (most recent call last):   File "<string>", line 1, in <module>   File "/home/foo/src/networkx/networkx/classes/graph.py", line 942, in remove_edge     raise NetworkXError("The edge %s-%s is not in the graph" % (u, v)) networkx.exception.NetworkXError: The edge 0-0 is not in the graph ```  Furthermore, as an appeal to authority, Django, for example, one of the most popular Python projects, doesn't use prefixes: https://github.com/django/django/blob/master/django/core/exceptions.py (unless the exceptions are related by some topic more specific than just "Django").  This change would mean that places where `NetworkXError` is raised must be modified to raise more meaningful exception classes (or use built-in exception classes). This is tedious work, but totally worth it. 
+issue
+Generate a random planar graph#TITLE_END#It would be cool to be able to generate a random planar graph. An implementer might start from the StackOverflow question "[Generate a large random planar graph](http://stackoverflow.com/q/3232048)". For example, one of the answers there references a Java implementation at the [homepage of Eric Fusy](http://www.lix.polytechnique.fr/~fusy/) (search for "Uniform random sampling of planar graphs in linear time").   This complements issues #1602 and #1603. 
+issue
+Add SPQR tree for finding triconnected components and 2-vertex cuts#TITLE_END#NetworkX has a function for computing [biconnected components][1], maximal 2-vertex-connected subgraphs. It would be nice to have a function for computing [triconnected components][2], maximal 3-vertex-connected subgraphs, those subgraphs in which the removal of three vertices causes the graph to become disconnected. (Note: even though a subgraph may be 3-vertex-connected, the entire graph itself may only be 2-vertex-connected.) The [SPQR tree][2] data structure gives the algorithm for finding triconnected components, as well as an algorithm for finding each 2-vertex cut in the graph (that is, a pair of vertices whose removal disconnects the graph).  [1]: https://en.wikipedia.org/wiki/Biconnected_component [2]: https://en.wikipedia.org/wiki/SPQR_tree
+issue
+Add approximation algorithm for feedback vertex set#TITLE_END#The _minimum feedback vertex set problem_ is the problem of finding the smallest subset of vertices that, when removed, cause a graph to become acyclic. The problem is NP-complete in general, but there is [a 2-approximation algorithm](http://dx.doi.org/10.1137/S0895480196305124). 
+issue
+Add postprocessing heuristic to improve approximate dominating set#TITLE_END#Add the postprocessing heuristic that improves the approximate dominating set algorithm as suggested by @bbphd in https://github.com/networkx/networkx/pull/1566#issuecomment-110189242. The suggested change is in a gist at https://gist.github.com/jfinkels/9ea6ef5cb50789328c42.  I'll create a pull request implementing this change. 
+issue
+Implement low-stretch spanning tree algorithms#TITLE_END#See the footnote at the bottom of page 2 of http://arxiv.org/pdf/1301.6628v1.pdf for some recent references for algorithms for low-stretch spanning trees. #1609 likely depends on the resolution of this issue. 
+issue
+Adds pure NetworkX implementation of SimRank similarity#TITLE_END#Adds a function `simrank_similarity` (in a new module `algorithms.similarity`) that computes the similarity of each pair of nodes in the graph. This supercedes pull request #1593.  The previous pull request required NumPy, this one does not (though I have included an example of how to convert the return value of this function into a NumPy array).  This pull request still needs unit tests. 
+issue
+`create_using` should be a class, not an instance of a class#TITLE_END#The `create_using` idiom appears in several places throughout the code. As a keyword argument to, for example, the `from_numpy_matrix` function, it specifies the type of graph that will be returned. The function expects this keyword argument to be an _instance_ of a graph, and it proceeds to clear the graph and add nodes and edges to it.  Why should `create_using` be an instance of a graph class if it is just going to be cleared? Instead, `create_using` should be a graph _class_ which should then be instantiated by the function when creating the graph that it will eventually return. Not only does this make more sense with respect to way the keyword argument is being used, this way, the responsibility of instantiating the graph that will be eventually be returned moves from the caller to the callee: this helps to prevent the caller from fiddling with the object when it is being created. 
+issue
+Add an approximation algorithm for the minimum Steiner tree problem#TITLE_END#The [Steiner tree problem](https://en.wikipedia.org/wiki/Steiner_tree_problem) is the problem of computing a minimum weight tree connecting a given subset of nodes. This problem is NP-complete, but there approximation algorithms (Wikipedia describes one). There are also approximation algorithms with better approximation ratios for certain classes of graphs, like [quasi-bipartite graphs](https://en.wikipedia.org/wiki/Quasi-bipartite_graph). 
+issue
+Rewrites quotient so it can implement block model#TITLE_END#This commit removes the `blockmodel()` function (and its containing module `networkx.algorithms.block`) and adds code to the `quotient_graph()` function so that it can handle the use cases for `blockmodel()`.  This is a backwards-incompatible change; it removes a function.  This fixes issue #1580.  I can add an alias from `blockmodel` to `quotient_graph`, or vice versa, if preferred. 
+issue
+Adds a large clique size heuristic function#TITLE_END#This commit creates a new package, `networkx.algorithms.heuristic`, and a new module within that package containing a function for finding the size of a large clique in a graph.  This is the algorithm suggested in issue #773. I'm not certain if it is accurate, so please double check it.  There's no unit test because I'm not sure how to test it. 
+issue
+Adds prefix_tree, dag_to_branching, and example.#TITLE_END#This commit adds two new functions and an example application using those functions. - The `prefix_tree` function (in the new module   `networkx/generators/trees.py`) generates a prefix tree (aka a trie)   from a given list of strings (or integers, etc.). - The `dag_to_branching` function in `networkx/algorithms/dag.py`   creates the branching that results from interpreting the list of all   paths from root nodes to leaf nodes in the DAG as the root-to-leaf   paths in a prefix tree. - The example application of the `dag_to_branching` function, in the   `examples/applications/circuits.py` module, demonstrates how to   convert a Boolean circuit into an equivalent Boolean formula.  There are a couple other changes. Some PEP8 fixes in the `dag.py` file, and a new exception, the `HasACycle` exception, following the naming scheme proposed in #1705. 
+issue
+maximal_matching and max_weight_matching have different return types#TITLE_END#The former returns a set of edges, the latter a dictionary. Should these return the same type of object? 
+issue
+Makes write_graph6 less memory-intensive.#TITLE_END#This commit changes the implementation of the `write_graph6` function so that it makes better use of iterators and writes directly to file instead of buffering the entire encoding of the graph as a string in memory before writing. This commit also removes the `generate_graph6` function, since it's functionality can be simulated by using the `write_graph6` function to write to a file.  Fixes issue #2295.
+issue
+Adds heuristically optimized tradeoffs generator#TITLE_END#This simplifies and updates the code suggested in #374. 
+issue
+Add efficient algorithms for graph isomorphism of restricted classes of graphs#TITLE_END#Graph isomorphism can be decided in polynomial time for certain classes of graphs, such as trees and planar graphs (for more classes, see the Wikipedia article on the [graph isomorphism problem](https://en.wikipedia.org/wiki/Graph_isomorphism_problem#Solved_special_cases)). It would be interesting to see which of these can be implemented under the `networkx.algorithms.isomorphism` package.  The interface I'm envisioning is that the user will decide beforehand whether the graph belongs to a given class or not (for example, `if nx.is_planar(G) and nx.is_planar(H): ...`, though it appears there is currently no function that tests for planarity...that's a different issue), then call the appropriate isomorphism testing function (for example `nx.isomorphism.planar.is_isomorphic(G, H)`, a function that has planarity of its two input graphs as a pre-condition). 
+issue
+Contributors should agree to license their contributions under NetworkX's copyright license#TITLE_END#As with any free and open source software developed in the open, NetworkX ought to have a [contributor license agreement](https://en.wikipedia.org/wiki/Contributor_License_Agreement). [Here](https://github.com/clahub/clahub) is an example of a web service that integrates with GitHub that requires contributors to agreement to the terms of such a contract. 
+issue
+Missing function for breadth-first search on edges#TITLE_END#There is an `edge_dfs` function, for performing a depth-first search on edges, but no `edge_bfs` function for performing a breadth-first search on edges.  The behavior I'm imagining is:  ``` >>> import networkx as nx >>> G = nx.DiGraph([(0, 1), (0, 2), (1, 3), (2, 3)]) >>> list(nx.edge_dfs(G)) [(0, 1), (1, 3), (0, 2), (2, 3)] >>> list(nx.edge_bfs(G)) [(0, 1), (0, 2), (1, 3), (2, 3)] ```  I would like to be able to use such a function for converting a directed acyclic graph to an "equivalent" tree. 
+issue
+Allow G.edges(keys=True) in non-multigraphs?#TITLE_END#There are many places in the code where we have  ``` if G.is_multigraph():     edges = G.edges(keys=True) else:     edges = G.edges() ```  It would be simpler to just allow the `Graph.edges()` method to have a keyword argument `keys` and just ignore it (or have `**kw`). 
+issue
+Add color refinement algorithm#TITLE_END#The _color refinement algorithm_ (also known as "naive vertex classification", or "1-dimensional Weisfeiler-Lehman") is an algorithm that efficiently decides whether two graphs are definitely _not_ isomorphic, without making any decision on whether they are isomorphic. It repeatedly refines a partition of a graph based on the neighbors of nodes in each block of the partition. The partition that results from this process is called the _coarsest equitable partition_; the orbit partition of a graph is a refinement of this partition, so it can be used to decide whether two graphs are definitely not isomorphic.  One might also implement the more general _k_-dimensional Weisfeiler-Lehman algorithm, but I'm deferring that to a different issue.  (See also "canonical labeling".)  I have an initial (slow) implementation at https://github.com/jfinkels/fraciso/blob/master/fraciso/partitions.py#L138. I wrote it to match the mathematical definition, but it needs to be rewritten to be fast. It should theoretically be implementable in O((_n_ + _m_) log _n_) time, where _n_ is the number of nodes in the graph and _m_ the number of edges; see Section 3 of "[Dimension Reduction via Colour Refinement](http://arxiv.org/abs/1307.5697)", 2014, for more information.  A related issue: even deciding whether the color refinement algorithm produces the discrete partition (that is, the partition in which each node is in its own distinct block) is P-hard, which means this algorithm is unlikely to be parallelizable in an asymptotically significant way; for more information, see Section 8 of "[Graph Isomorphism, Color Refinement, and Compactness](http://arxiv.org/abs/1502.01255)", 2015. 
+issue
+Highly parallel algorithm for finding 2-cores in a graph#TITLE_END#NetworkX currently includes a linear time sequential algorithm for computing the _k_-core of a graph, that is, the maximal subgraph of minimum degree _k_; see `networkx.algorithms.core`. There is a highly parallel algorithm for finding the 2-core of a graph, according to [this technical report](http://infolab.stanford.edu/pub/cstr/reports/cs/tr/84/1014/CS-TR-84-1014.pdf) from 1984. Rephrasing Theorem 2, it is possible to find the 2-core of a graph by a parallel algorithm using a polynomial number of processors in a polylogarithmic amount of time. Their description of the algorithm is quite terse, but maybe someone else can help me figure it out.  Here's the relevant text. Where they say _HDS<sub>k</sub>(G)_, they mean the _k_-core of the graph _G_, and where they say _NC_, they mean "with a highly parallel algorithm".  > For the case _k_ = 2, it is possible to find _HDS<sub>k</sub>(G)_ in _NC_. The algorithm for computing _HDS<sub>2</sub>(G)_ has log _n_ phases, where each phase removes all _chains_. A chain is a path of vertices that starts with a vertex of degree 1 and contains no vertex of degree greater than 2. The chains can easily be identified by path doubling techniques. When the chains are deleted, more nodes of degree 1 might be created, however each new node of degree 1 required the removal of at least two chains, so the number of chains removed decreases by at least half at each phase.  And that's it. So if anyone could clarify the "path doubling techniques" and how to ensure that each of the log _n_ phases requires only a polylogarithmic amount of work for each processor, that would be helpful. 
+issue
+Add algorithm for computing toughness of a graph#TITLE_END#[Graph toughness](https://en.wikipedia.org/wiki/Graph_toughness) is a measure of connectivity of a graph. Even for a fixed arbitrary toughness value, determining whether the graph has that particular toughness value is [coNP-complete](http://dx.doi.org/10.1016/0166-218X%2890%2990001-S), so finding the minimum toughness is even harder. Indeed, even [approximating the minimum toughness of a graph is hard](http://dx.doi.org/10.1016/j.disc.2003.10.013). That being said, NetworkX does include exact algorithms for some intractable problems, so this may be of interest. 
+issue
+Add test for planarity#TITLE_END#A _[planar graph](https://en.wikipedia.org/wiki/Planar_graph)_ is a graph that can be embedded in the Euclidean plane with no edge crossings. Wikipedia knows about a few algorithms for [planarity testing](https://en.wikipedia.org/wiki/Planarity_testing). 
+issue
+Include default keyword argument to minimum_spanning_edges function#TITLE_END#As pointed out in https://github.com/networkx/networkx/pull/1741#commitcomment-12726208, it would be nice to have a `default` keyword argument to `minimum_spanning_edges`, identical to the keyword argument with the same name in the `Graph.edges()` method. This makes function/method parameters more consistent. 
+issue
+Adds missing __all__ attributes.#TITLE_END#In the community package. 
+issue
+Adds example for getting all simple edge paths#TITLE_END#I suggested this example in a comment on issue #718. This commit adds it to the _Examples_ section of the docstring for `all_simple_paths`. 
+issue
+Make harmonic centrality more memory-efficient#TITLE_END#This commit changes the implementation of harmonic centrality to compute single-source shortest path length in the body of a loop instead of computing all-pairs shortest path lengths outside of the loop, in order to make the implementation more memory efficient.  Fixes issue #2238. 
+issue
+Use ego graph when computing local efficiency#TITLE_END#This commit fixes a bug in the `local_efficiency()` function in which the central node was being excluded from the computation of global efficiency.  This fixes issue #2233. 
+issue
+Simplifies two community test for asyn-lpa.#TITLE_END#I'm hoping this should help with the occasional test failures while maintaining the spirit of the test.
+issue
+Corrects navigable small world graph param docs#TITLE_END#Fixes issue #2311.
+issue
+Adds linear-time bridge-finding algorithm.#TITLE_END#This bridge-finding algorithm is implemented using the `chain_decomposition` function.  This is an alternate implementation to the approach given in pull request #2273. The implementation there is basically ```python for component in nx.biconnected_components(G):     if len(component) == 2:         yield tuple(component) ``` I find this implementation based on chain decomposition a bit less mysterious.
+issue
+Adds depth-limited search#TITLE_END#This pull request simply resolves the merge conflicts from #1928. It also updates the examples a bit to use keyword arguments to make them clearer. 
+issue
+Adds functions computing structural hole measures#TITLE_END#This commit creates a new module, `networkx.algorithms.structuralholes`, that provides functions for measuring structural holes in a graph.  I have cleaned and documented the functions created by @hagberg in issue #192. They are failing the tests provided by a previous contributor. Using Google to search for a name, I'm guessing the originator of this code was @drdee (please feel free to ignore this mention if you are not the original contributor). In any case, this pull request still needs some tests and needs to pass the existing tests, but at least now there is a pull request associated with the (documented) code. 
+issue
+Node contraction documentation should provide an example with multigraphs#TITLE_END#Node or edge contraction is really a multigraph operation. For example, identifying the two endpoints of the path graph on three vertices yields a graph with two nodes and two parallel edges joining them. This should be at least an example in the documentation, and probably a unit test too. 
+issue
+Documents orderable node requirement for isom.#TITLE_END#Fixes issue #2198.
+issue
+Update predecessors/successors in edge subgraph#TITLE_END#This fixes issue #2370.
+issue
+Updates structure of documentation to facilitate automatic building#TITLE_END#This is a large change so here is the summary.  Check out the documentation generated from this branch at https://jfinkels-networkx.readthedocs.org/en/latest/.  This pull request fixes issue #2030. In doing so it makes unnecessary the "manual" scripts required to generate the examples from the `examples/drawing` directory and the gallery (which seems to be a page with just the images generated by the drawing examples). This means the documentation can be built easily by readthedocs with no additional configuration, simply by doing `pip install -r requirements-doc.txt && python setup.py build_sphinx`. I hope that this can one day be the sole documentation home.  However, this pull request also changes the structure of the documentation in several ways.  I regenerated a new `doc/conf.py`, using the most recent version of Sphinx and `sphinx-quickstart`.  The main `doc/index.rst` is reorganized in a way that makes a little more sense (for example, "License" and "Citing" are no longer listed under the API reference).  The `doc/reference/` directory now (mostly) mirrors the matching `networkx/` Python package. Specifically, there is now a `doc/reference/algorithms` directory, a `doc/reference/generators` directory, etc. This makes it much easier to navigate the directory structure and to find the .rst file corresponding to a particular .py file.  I made some small changes to the documentation here and there as well, removing outdated information or unnecessary formatting.  _What this pull request doesn't do:_ - This branch uses the default Sphinx theme that comes with the most recent version of Sphinx and the default templates, styles, etc.; I don't really know how to change it, so please let me know if you want it to look like the current "black and blue" theme on https://networkx.readthedocs.org/en/latest/. - Some of the settings in `doc/conf.py` may be a little off, feel free to compare them with the current settings and let me know what needs to be changed. - The gallery doesn't match exactly what is there now. The `plot` directive is not very flexible in how the images are placed on the page. - The "Overview" page has some citations that appear in the middle of the page. They should move to the end of the page. - I would like to drop 99% of the "Developer Guide" and simply link to the appropriate help pages on GitHub (or wherever), but I didn't do that because I suspect it would meet some resistance. - It doesn't have a "landing page", as appears at https://networkx.github.io. That can be added. 
+issue
+Use the matplotlib plot directive when generating documentation#TITLE_END#The `plot` directive in the Sphinx extension [`matplotlib.sphinxext.plot_directive`](http://matplotlib.org/sampledoc/extensions.html#inserting-matplotlib-plots) automatically generates matplotlib plots in the rendered HTML from Sphinx documentation. This can replace the "manual" generation of examples currently in use in the `doc/make_gallery.py` script. 
+issue
+Single source dijkstra has confusing output if target is specified#TITLE_END#I would expect `single_source_dijkstra(G, source=u, target=v)` to return a pair in which the left element is the length of the shortest path from `u` to `v` and the right element is the shortest path from `u` to `v`. However, the return value seems to be the dictionary of lengths keyed by destination node and the dictionary of paths keyed by destination node that together represent the state of Dijkstra's algorithm at the point that the target node was found. Should this be changed? 
+issue
+Adds triangular lattice generator and grid layout#TITLE_END#In addition to creating a new generator for triangular lattice graph, this commit creates a new module, `networkx.generators.lattice`. It moves `grid_2d_graph`, `grid_graph`, and `hypercube_graph` generators from the `networkx.generators.classic` module to the new `lattice` module.  Finally, this commit creates a new layout function, `grid_layout`, for graphs that have a natural embedding in the two-dimensional integer lattice.  This is an implementation of (a subset of) the behavior provided by #1489 by @joelmiller. Compared to that pull request, this pull request is missing the correct positioning for a triangular lattice layout and the hexagonal lattice graph generator. 
+issue
+Moves is_partition to community.utils.#TITLE_END#This makes the function `is_partition` public, and ensures that it only appears in one place. This commit also changes the `community` package so that it behaves like the `bipartite` package, and various others: its functions are not exported to the top-level `networkx` namespace; the functions must be accessed through `networkx.algorithms.community`.  Finally, this commit also simplifies some of the community tests and makes them more readable. 
+issue
+Enables PyPy-5.3.1 in Travis builds#TITLE_END#Addresses issue #2291.
+issue
+atlas example is duplicated in two directories#TITLE_END#The file `examples/drawing/atlas.py` and `examples/graph/atlas.py` are the same file. I recommend keeping only the former. 
+issue
+Allow either orientation of edges in edge boundary#TITLE_END#This commit was extracted from pull request #2213.
+issue
+Confusing behavior when getting degree of a node not in the graph#TITLE_END#If I ask for the degree of a node not in the graph (or directed graph), the method returns a generator object: ```sh $ python -c "import networkx; print(networkx.Graph().degree(0))" <generator object Graph.degree.<locals>.d_iter at 0x7fcfc64230a0> ``` I expected that this would have raised an exception, not return a generator: ```sh $ python -c "import networkx; networkx.Graph().degree(0)" networkx.exception.NodeNotFound: 0 is not in the graph ```
+issue
+Intersphinx links to Networkx graph classes don't work#TITLE_END#Suppose I set up a Sphinx build (outside of NetworkX) with `conf.py` contents  ``` python extensions = [     'sphinx.ext.intersphinx', ]  intersphinx_mapping = {     'networkx': ('https://networkx.readthedocs.io/en/latest', None), } ```  and try to write an `index.rst` file with  ``` rst :class:`networkx.Graph` ```  Attempting to render this documentation with Sphinx yields the warning  ``` sh index.rst:14: WARNING: py:class reference target not found: networkx.Graph ```  This is because NetworkX generates the documentation for `networkx.Graph` as a _function_ instead of a _class_:  ``` rst .. autofunction:: Graph ```  This can be fixed in NetworkX by changing `autofunction` to `autoclass`. In the meantime, as a workaround, the referring documentation can use `:func:`networkx.Graph`` instead of `:class:`networkx.Graph``.  I remember bringing this up at some point but there was some reason why it was `autofunction`... 
+issue
+Adds tree encoding and decoding functions.#TITLE_END#This commit makes several additions. The main additions are two encoding/decoding schemes for trees, the nested tuple and Prüfer sequence schemes. These appear in a new module, `networkx.algorithms.tree.coding`.  These encoding/decoding functions required implementing a function for joining subtrees at a root node, which appears as the `join` function in a new module, `networkx.algorithms.tree.operations`.  Finally, the encoding/decoding schemes suggest a simple implementation for generating a uniformly random tree. The random tree generator first generates a random Prüfer sequence, then converts that sequence to the corresponding tree. This `random_tree` function appears in a new module, `networkx.generators.tree`. 
+issue
+Adds multigraph keys to Eulerian circuits#TITLE_END#This fixes issue #2358.  *What change does this make?* This commit adds a `keys=False` keyword argument to the `eulerian_circuit()` function to allow users to request the multigraph keys to be generated with edges in the Eulerian circuit of a multigraph.  *How does this affect the user?* Since I have set the default value to `False`, this change is backwards-compatible. This merely provides a new feature on request.  *Why is this better than the alternative?* This allows the user to explicitly choose whether keys appear in the list of edges or not, and explicit is better than implicit. Also, this matches the behavior of many other functions in NetworkX.
+issue
+Corrects number_of_edges docs for directed graphs#TITLE_END#Updates documentation to avoid the confusion reported in issue #2356.
+issue
+Simplifies degree sequence graph generators.#TITLE_END#There are two major changes in this commit. One is refactoring the common code from the undirected and directed versions of the configuration model graph generator. The other removes a few unnecessary data structures from the `expected_degree_graph` function.  This also updates test code, adds missing tests, and makes some PEP8 changes in the module. 
+issue
+Adds modularity measure for communities.#TITLE_END#This is from pull request #764. I made PEP8 and style fixes. 
+issue
+Implement transitive reduction for directed graphs#TITLE_END#The [transitive reduction](https://en.wikipedia.org/wiki/Transitive_reduction) of a directed graph is the minimal graph (in terms of number of edges) in the equivalence class comprising all directed graphs that have the same transitive closure.  This should be easier to compute for directed acyclic graphs first. For directed acyclic graphs, this complements the existing [`transitive_closure` function](https://networkx.readthedocs.io/en/stable/reference/generated/networkx.algorithms.dag.transitive_closure.html). 
+issue
+dag_longest_path_length and dag_longest_path can be refactored#TITLE_END#The pull request #2237 corrected a bug in the behavior of `dag_longest_path_length`. However, the code could be refactored with `dag_longest_path` into a shared common private function that returns both the longest path and the weight, with each public function exposing either the path or the length,, respectively. This prevents O(n) additional work done by `dag_longest_path_length`. 
+issue
+Adds chain decomposition algorithm.#TITLE_END#The chain decomposition is essentially the non-overlapping initial segments of the fundamental cycles of a DFS search tree, when cycles are read as a list of edges starting from the nontree edge. This function induces a very simple bridge-finding algorithm (every edge not in a chain is a bridge), which I will propose later if this function is satisfactory. 
+issue
+Adds unit tests for using dtype with to_numpy_matrix#TITLE_END#This commit incorporates the change from pull request #1363, which makes the `to_numpy_matrix` code a little easier to understand (just create a matrix full of NaNs instead of adding a NaN to a matrix of zeros). However, the issue reported in that pull request was already fixed in pull request #2038. The current pull request adds the missing unit tests for those pull requests. 
+issue
+Yield string, not dict, in dfs_labeled_edges.#TITLE_END#Previously, the `dfs_labeled_edges` function included yield statements of the form  ``` yield u, v, {'dir': 'nontree'} ```  This commit changes those statements to be  ``` yield u, v, 'nontree' ```  This change is _not_ backwards-compatible: code that was previously like  ``` python for u, v, d in nx.dfs_labeled_edges(G):     if d['dir'] == 'forward':         ... ```  needs to be changed now to  ``` python for u, v, d in nx.dfs_labeled_edges(G):     if d == 'forward':         ... ``` 
+issue
+Adds Borůvka's minimum spanning tree algorithm.#TITLE_END#This commit also simplifies the unit tests for the minimum spanning tree functions while maintaining full test coverage.  This fixes issue #417. 
+issue
+Moves Graph Atlas to data file.#TITLE_END#This commit moves the edge lists of the graphs in the graph atlas from a Python list defined in `networkx/generators/atlas.py` to a text file in the same directory. This means that accessing the list of atlas graphs will cause a file read.  This also adds a new function, `graph_atlas(i)`, that outputs only the `i`th graph from the atlas.  This should help fix issue #1671. 
+issue
+Adds beam search traversal algorithm with example#TITLE_END#This commit adds the generalization of breadth-first search known as "[beam search](https://en.wikipedia.org/wiki/Beam_search)", in which only a subset of "good" neighbors are enqueued when visiting a new node. This refactors the breadth-first search functions to call a generic BFS helper function that allows an arbitrary successors function.  This also adds an example application, which is the progressive widening beam search. 
+issue
+Adds exception: failed power iteration convergence#TITLE_END#This commit adds two new exceptions, `ExceededMaxIterations` and its subclass `PowerIterationFailedConvergence`, intended to be used by algorithms that accept a `max_iter` keyword argument specifying the maximum number of allowable iterations of a main loop. Several existing algorithms have been modified to raise these more meaningful exceptions.  (This pull request was inspired by pull request #2142, and needs to be updated once that gets merged. Specifically, that pull request should be merged before this one.)  This pull request follows the suggestion of issue #1705 to remove the "NetworkX" prefix from exception names. 
+issue
+Adds functions for computing cycle space basis#TITLE_END#This pull request supercedes pull request #1067 to fix issue #1046. As stated in my comment on the former, a fix to #330 would greatly simplify the `chords()` algorithm below. 
+issue
+Adds global/local reaching centrality functions.#TITLE_END#This supercedes pull request #1555 and #6 to implement issue #698. 
+issue
+Adds local and global reaching centrality functions#TITLE_END#This pull request supercedes pull request #6 to implement issue #698. It takes the code from #6 and updates and clarifies. It introduces two functions, `local_reaching_centrality`, a node centrality measure, and `global_reaching_centrality`, a centrality measure for an entire graph. Unlike the previous pull request which put the `global_reaching_centrality` function in the `algorithms/hierachy.py` module, these functions now live in a new module, `reaching.py`, under the `centrality` package.  The main issue, as noted in that pull request, is that it modifies the edge attribute dictionary during the computation. The only way I can think of fixing this problem without copying the entire graph is to allow, for example, the `weight` keyword argument of the `shortest_path` function to be a function instead of just a dictionary key. For example, `nx.shortest_path(G, weight=lambda u, v: total_weight / G.edge[u][v]['weight'])`. 
+issue
+Most utility functions should not be exposed to the end user#TITLE_END#Many functions in the `networkx.utils` package are [documented](http://networkx.github.io/documentation/development/reference/utils.html) and exposed to the end user, but most of them should not be. The purpose of NetworkX is to provide graph data structures, generators, algorithms, etc., not to provide functions like `flatten` or `is_list_of_ints`. These are used internally, and implementation details should not be exposed to the user. For a few of these, you might make a (weak) case for exposing to the end user, for example, `cuthill_mckee_ordering`, but if these should be made available, they should not be under the `networkx.utils` package. 
+issue
+Adds global and local efficiency functions.#TITLE_END#Fixes issue #602. 
+issue
+Adds LFM benchmark graph generator for communities#TITLE_END#This is a generator for graphs based on desired community structure from pull request #764. I made PEP8 fixes and some structural changes for clarity. 
+issue
+Fixes tests for maximal matching.#TITLE_END#Previously the tests for maximal matchings were testing that a given set of edges was an edge cover, _not_ a matching. In addition, they were not testing maximality of the matching. This updates the tests to correctly test that the `maximal_matching()` function returns a valid maximal matching.  As part of this fix, this commit also introduces two public functions, `is_matching()` and `is_maximal_matching()`, which decide whether a given set of edges is a valid matching or maximal matching, respectively. 
+issue
+Updates set_{node,edge}_attributes and docs.#TITLE_END#This commit simplifies `set_node_attributes` and `set_edge_attributes` by using `zip_longest` in order to avoid creating a list when not necessary. It also clarifies the documentation.  The documentation change was suggested in issue #1818. 
+issue
+Allows arbitrary metric in geometric generators.#TITLE_END#This commit adds the `metric` keyword argument to three functions in `networkx.generators.geometric`, namely - `random_geometric_graph`, - `waxman_graph`, - `geographical_threshold_graph`.  This keyword argument allows the function to compare distances between nodes according to arbitrary metric functions instead of hardcoded Euclidean metrics. The default behavior if no `metric` argument is specified remains the Euclidean metric.  This commit also cleans and simplifies the implementations of these three functions, as well as adds more meaningful unit tests. 
+issue
+Simplifies code in functions for greedy coloring.#TITLE_END#This commit also lists the built-in strategy functions separately in the documentation. 
+issue
+Support digraphs in approximate min vertex cover#TITLE_END#This commit removes the decorator that marked the approximate minimum weighted vertex cover function as "not implemented" for directed graphs, because it works for a reasonable definition of vertex cover in directed graphs.  This also updates the documentation and tests.  This fixes issue #961. 
+issue
+The edge_load() function has only placeholder documentation#TITLE_END#The `edge_load` function is exposed in the documentation, but not documented.  http://networkx.readthedocs.org/en/latest/reference/generated/networkx.algorithms.centrality.edge_load.html#networkx.algorithms.centrality.edge_load 
+issue
+Moves is_path from utils to simple_paths.#TITLE_END#This commit adds the `is_simple_path` function to the public API.  As suggested in pull request #1816. 
+issue
+Allow arbitrary ranking function in girvan_newman.#TITLE_END#This generalizes the `girvan_newman()` function to allow for arbitrary ranking functions on the edges during each iteration.  This removes the `weight` argument from the function so it is backwards incompatible, but I believe the function has not appeared in a public release yet?  This covers all the functionality in https://bitbucket.org/bedwards/networkx-community/src/5f88c6ae0db47fd3a5b4a52988093b448f083ca8/networkx/algorithms/community/divisive.py so that file no longer needs to be merged into NetworkX. 
+issue
+Makes girvan_newman return communities as sets.#TITLE_END#Previously, the community-finding algorithm `girvan_newman` returned a list of tuples of lists of nodes. Now the function returns an iterator over tuples of sets of nodes, each set representing a community. This matches the behavior of the other community-finding functions.  This also prevents computing the connected components of the graph an additional time when yielding the tuples of communities. 
+issue
+Fixes several issues with the Girvan-Newman partitioning function#TITLE_END#This includes the fixes from pull request #1703, pull request #1725, and fixes for issue #1799. 
+issue
+Adds Voronoi cells algorithm#TITLE_END#This provides a new function, `voronoi_cells`, that computes the Voronoi partition of a graph with a given set of center nodes, with respect to the shortest-path distance metric.  This pull request uses the multi-source Dijkstra's algorithm from pull request #2073 and supercedes #2037.  The first commit refactors out a utility function, `groups()`, for "inverting" a many-to-one mapping which can be used in the `networkx.algorithms.community.asyn_lpa` module as well as in the `networkx.algorithms.voronoi` module. 
+issue
+Adds multi-source Dijkstra's algorithm#TITLE_END#This is a generalization of Dijkstra's algorithm that works for a set of initial nodes instead of just a single initial node.  With this addition pull request #2037 can be implemented easily as follows:  ``` python import networkx as nx  def groups(many_to_one):     one_to_many = defaultdict(set)     for v, k in many_to_one.items():         one_to_many[k].add(v)     return dict(one_to_many)   def voronoi_cells(G, center_nodes, weight='weight'):     paths = nx.multi_source_dijkstra_path(G, center_nodes, weight=weight)     nearest = {v: p[0] for v, p in paths.items()}     return groups(nearest) ``` 
+issue
+Allows weight functions in shortest path functions#TITLE_END#This commit allows the user to provide an arbitrary function that computes the weight of an edge instead of relying on an edge attribute.  This is a backwards-compatible change.  If this pull request is merged, then pull request #1555 should be updated in the manner described there. 
+issue
+Adds an edge-induced subgraph method#TITLE_END#Fixes issue #330. 
+issue
+Fixes and extends Wiener index, vitality functions#TITLE_END#Previously, the closeness vitality function was using an incorrect definition of the Wiener index, counting each orientation of a pair of nodes in an undirected graph twice. This commit corrects the behavior of the Wiener index function and therefore the closeness vitality function.  Correcting the Wiener index function also corrects another case for the closeness vitality function: when removing a node causes a graph to become disconnected. By definition, the closeness vitality of a node whose removal causes the graph to become disconnected should be negative infinity. This commit fixes the Wiener index function to return positive infinity on a disconnected graph.  Furthermore, this commit improves the closeness vitality function so that it does not mutate the graph in order to compute the vitality value.  Finally, this places the Wiener index function in its own module, documents it, and makes it available to the end user. 
+issue
+Find max clique and independent set by cardinality#TITLE_END#Before, the maximum clique and maximum independent set were chosen from a collection of candidates according to the subset ordering on sets. This commit changes the code to choose the maximum clique and maximum independent set according to cardinality of the sets.  This pull request supercedes #1532.  There is a problem with this change: it affects one of the unit tests for the clique removal function. The unit test expects cliques to be of size greater than one, but now the function returns, among others, a clique of size one. 
+issue
+Simplifies functions in cluster.py.#TITLE_END#Replaces numbers like `1.0` with `1` after importing division from `__future__`, which should solve the problem that using the decimal points intended to solve. 
+issue
+Adds Kernighan--Lin bipartition algorithm.#TITLE_END#This is one of the algorithms for community detection from #764. I made PEP8 fixes. 
+issue
+Simplifies rich-club coefficient code.#TITLE_END#Uses enumerate and heapq instead of more complicated code constructions.  Also updates documentation and makes PEP8 style fixes. 
+issue
+Cleans make_max_clique_graph, make_clique_bipartite#TITLE_END#This commit makes several updates to networkx/algorithms/clique.py, including - removing some unnecessary arguments to the functions, - updates documentation strings, - removes the local `project_up` and `project_down` functions, which   were duplicating the bipartite projection functions - sets the node attributes of the bipartite clique graph in the same way   as the bipartite generator functions (that is, setting the `bipartite`   node attribute to be 0 for the "top" nodes and 1 for the "bottom"   nodes).  Since the signature of these functions has changed, this is not a backwards-compatible change. 
+issue
+Removes unnecessary code in harmonic centrality.#TITLE_END#If the graph has one or zero nodes, the overhead for calling the shortest-path algorithms will be small. This slight increase in overhead is worth the decrease in the complexity of the code. 
+issue
+Return minimum spanning edge keys for multigraphs#TITLE_END#Before, the `minimum_spanning_edges()` function returned edges without edge keys for multigraphs. This commit enables the user to choose to return edge keys in addition to edges in a multigraph.  This can potentially be used in pull request #1538. 
+issue
+Simplifies dominating set functions.#TITLE_END#Also updates documentation and makes PEP8 fixes. 
+issue
+Fixes some documentation compilation errors.#TITLE_END#This should fix some of the errors in #1667.  One of the main issues here was that some section headings had one too many hyphens on the following line. For example:  ``` Notes ------ ```  will cause an error. It must be  ``` Notes ----- ``` 
+issue
+Adds test for whether graph is strongly regular.#TITLE_END#This commit introduces the `is_strongly_regular` function. 
+issue
+Fixes approximate dominating set greedy choice.#TITLE_END#Before, the greedy algorithm for approximate dominating set chose each node based on the sum of the weights in the closed neighborhood of the node. Now it just uses the weight of the node. This fixes an issue that causes, for example, the return value for a star graph to be all nodes other than the center node.  Fixes issue #1527. 
+issue
+Returns iterators instead of lists for Graph.nodes(), Graph.edges(), etc.#TITLE_END#This pull request is work-in-progress for a fix to issue #572.  With this first commit, I have changed `nodes()` to behave like `nodes_iter()` and removed `nodes_iter()`. This was a huge pain. When I get the courage to do the rest of the functions, I will update this pull request.  I ran into one problem that I did not dig deeply enough to fix; see the `TODO` comment marked in `graph.py`. 
+issue
+Cleans documentation for generators.random_graphs#TITLE_END#Also exposes previously unexposed `duplication_divergence_graph` function. 
+issue
+Forces PEP8 style recommendations on Python files#TITLE_END#This branch was created using the [autopep8](https://pypi.python.org/pypi/autopep8/) tool. [PEP8](https://www.python.org/dev/peps/pep-0008/) compliance is important because PEP8 is an almost-universal style convention, and universality implies predictability. Predictability is as important in coding style as it is in rules of the road: it prevents confusion and therefore prevents "dangerous" behavior. In this environment, that mostly just means improved readability. 
+issue
+Moves unit tests out of main networkx/ package#TITLE_END#Before, unit tests were distributed within the `networkx` package, with a distinct directory containing unit tests for each sub-package. Doing this adds a great number of files that do not need to be distributed with the NetworkX code.  This commit moves those test files to the `tests/` directory, which is outside the `networkx` package, so they will no longer be distributed (for example, in PyPI) with NetworkX.  This also helps to clarify the codebase: only the library code is in the `networkx` package, and all the test code can be found in its own directory, if a developer is looking specifically for test code. 
+issue
+Uses weight function for dijkstra_path_length.#TITLE_END#This commit also makes the test classes use inheritance.  Fixes issue #2032. 
+issue
+add_cycle, add_path, etc. must be removed from Graph documentation#TITLE_END#The documentation for, for example, the `Graph` class includes an entry in autosummary for `add_cycle`, etc., but these methods were removed in #1970 in favor of functions. The autosummary entries must be removed. 
+issue
+Implements random k-out graph generator.#TITLE_END#Fixes issue #1316. 
+issue
+Moves triad_graph function to generators package.#TITLE_END#Previously, the `triad_graphs` function in the `networkx.algorithms.triads` module, returned a dictionary containing a graph representing each possible triad. This commit moves that function to a new module, `networkx.generators.triads`, and adds previously missing test code for that function. It also modifies the function to return a single graph instead of a dictionary of graphs. The dictionary can now be generated by the code  ``` from networkx.algorithms.triads import TRIAD_NAMES triad_graphs = {name: triad_graph(name) for name in TRIAD_NAMES} ```  This commit should improve test coverage. 
+issue
+Makes stochastic_graph work for multigraphs.#TITLE_END#This commit allows the `stochastic_graph` generator to operate on `MultiDiGraph` instances. It also adds some missing unit tests. 
+issue
+Makes balanced unary tree generator return path.#TITLE_END#Previously, the `balanced_tree` generator function always returned a path graph on two nodes instead of a path graph of the appropriate length when provided a branching factor of one. This corrects that error so the function now returns the path graph on `h + 1` nodes, where `h` is the specified height of the tree, when the branching factor is one. 
+issue
+Adds unit test for new use of string.format().#TITLE_END#This should have been included in pull request #1813. 
+issue
+Adds functions operating on tournament graphs.#TITLE_END#Creates a new module, `networkx.algorithms.tournament`.  This is also creates a new utility function `is_path`, which may be useful in other places in NetworkX. 
+issue
+Adds functions for measuring cuts in a graph#TITLE_END#Adds some measures for cuts of a graph from pull request #764. Updates for PEP8 style and adds missing tests. This was originally called the `community.community_quality` module, but "cuts" applies to more areas of computer science than just finding communities.  This also updates the `boundary` module (and its tests) to accommodate directed graphs and multigraphs.  This pull request _does not_ include the two functions `community_performance` and `community_coverage` that were initially suggested for this module. Those are more appropriate for a module called `community.measures` or something (like the original suggested name for this module), since they concern full partitions of a graph, not just individual cuts. 
+issue
+Adds functions for measuring "quality" of a partition#TITLE_END#This is some of the functionality proposed in #764, renamed and reimplemented using other NetworkX functions (like `subgraph`, `complement`, and `blockmodel`). 
+issue
+Moves chordal package to module.#TITLE_END#The four functions exposed in the `networkx.algorithms.chordal` namespace do not need to live in a module under a package; they can simply live in a module named `chordal.py`.  (This commit also removes trailing whitespace from the file.)  Here is some justification for this change. - It is unnecessarily complicated to have a package containing a single module. - Furthermore, the title of the package was `chordal` and its sole submodule `chordal_alg`, which does not aid in identifying the contents of the module. - This matches the layout of other similar modules in NetworkX: if there are only a few public functions available concerning a single topic, the functions live in a module whose name is the title of that topic. 
+issue
+Adds number_of_isolates function and updates docs.#TITLE_END#This commit makes several changes to the `networkx.algorithms.isolate` module. It - updates and clarifies docstrings, - makes PEP8 fixes, - changes `isolates()` to return an iterator instead of a list, - adds a `number_of_isolates()` function, - adds a new unit test module, `test_isolate.py`.  With this new `number_of_isolates()` function, pull request #1831 could be simplified. 
+issue
+Allows copying a graph without attribute data.#TITLE_END#Adds the `with_data` keyword argument to the `Graph.copy()` method, which specifies whether the graph, node, and edge data will be included in the copy of the graph object.  This commit also updates algorithms that include a call to `Graph.copy()` to use `with_data=False` if they really do not need a copy of the data.  This should theoretically allow both our algorithms and user algorithms to save some memory when copies of large graphs are made. 
+issue
+Don't recompute Wiener index unless necessary.#TITLE_END#This commit changes the behavior of the `closeness_vitality()` function so that it only computes the Wiener index of the original graph once instead of recomputing the same value for each node in the graph. 
+issue
+Removes unnecessary cast to float.#TITLE_END#By using true division, we can avoid casting to floats entirely.  As discussed in pull request #1877. 
+issue
+Marks file encoding as UTF-8#TITLE_END#Due to em dash character. 
+issue
+Adds random uniform k-out generator#TITLE_END#This commit adds the `random_uniform_k_out_graph` generator to complement the `random_k_out_graph` generator. The latter has preferential attachment rules, while the former has uniform attachment.  This commit also makes PEP8 changes.  The random k-out graph generator was introduced in pull request #1316. 
+issue
+Adds partial_duplication_graph generator.#TITLE_END#This commit adds the `partial_duplication_graph` generator function in a new module `networkx.generators.duplication`. It also moves the `duplication_divergence_graph` function from the `random_graphs` module to the `duplication` module.  Fixes issue #1368. 
+issue
+Returns 0 for average path length of trivial graph#TITLE_END#This commit updates the `average_shortest_path_length` function to return zero for the trivial graph (the graph with a single node).  This fixes issue #1960, if my understanding of Google's machine translation of the original Chinese text is correct. 
+issue
+Improves test coverage for avg degree connectivity#TITLE_END#This commit improves the test coverage by both simplifying the code and adding missing unit tests. 
+issue
+Improves test coverage for A* shortest path.#TITLE_END#This commit improves test coverage by 1. using the `not_implemented_for` decorator and 2. updating a unit test to ensure it runs correctly on both Python 2 and Python 3. This commit also simplifies the unit tests and applies PEP8 to make them more readable. 
+issue
+Adds unorderable nodes test for dag_longest_path.#TITLE_END#This commit adds a unit test to ensure that the `dag_longest_path` function correctly handles graphs with unorderable nodes. It also cleans some other unit tests and removes a duplicate test.  This tests for the bug reported in issue #1989. 
+issue
+copying a graph without data fails for non-Graph classes#TITLE_END#See #1876. The unit test there was insufficient for other graph classes, including directed and multigraphs. 
+issue
+Uses correct graph class when copying without data#TITLE_END#Fixes issue #1916. 
+issue
+Can the blockmodel and quotient_graph functions be refactored?#TITLE_END#A function for computing a quotient graph, `networkx.algorithms.minors.quotient_graph`, was added in pull request #1437. There is a similar function, `networkx.algorithms.block.blockmodel`. Are these the same function? Is one a generalization of the other? 
+issue
+Getting node data in iterator behaves differently from getting edge data in iterator#TITLE_END#I know that `G.edges(data='foo')` returns an iterator over tuples that include the value of the `'foo'` edge attribute instead of the full edge attribute dictionary. I would expect `G.nodes(data='foo')` to behave the same way, but instead it returns an iterator over tuples that include the full node data dictionary. 
+issue
+Module generators.threshold is undocumented and not exported#TITLE_END#This module has no public documentation and no names from this module are made public. If some of the functions are to be made public, most of them should not be in the `generators` package anyway. 
+issue
+Remove __author__ from existing files#TITLE_END#Many files have an `__author__` module-level attribute. This is unnecessary: if it is a copyright notice, the copyright notice should appear in a comment at the head of the file; if it is simply a notice of authorship, this can be inferred from the blame chart for the file (`git blame`) or simply the commit history. Its existence also encourages new contributors to add this attribute to new modules in pull requests which is a bad habit. 
+issue
+Find maximum clique by cardinality.#TITLE_END#Before, the maximum clique was chosen from a set of candidate cliques according to the subset ordering on sets. This commit changes the code to choose the maximum clique according to clique size.  This pull request supercedes #1531. 
+issue
+Clarifies error message in eccentricity#TITLE_END#Changes the error message when an infinite path length is encountered so that it is different based on whether the graph is directed or not.  Fixes issue #1803. 
+issue
+Clarifies error message in configuration_model#TITLE_END#Changes the error message when a degree sequence with an odd sum is provided to the `configuration_model` function so that it indicates that the user must provide a degree sequence with an even sum.  This fixes issue #1800. 
+issue
+Add a not_implemented_for() handler for the null graph#TITLE_END#There are several functions whose first line rejects empty graphs. This can be abstracted and placed in a decorator, for example, `not_implemented_for('null')`. The exception raised would be `NetworkXPointlessConcept`. 
+issue
+Build errors on readthedocs#TITLE_END#See, for example, the log for the most recent build as of the writing of this issue: https://readthedocs.org/builds/networkx/3082116/  If you search for "Build Standard Error" you can see all the errors. 
+issue
+Weighted and unweighted all-pairs shortest path lengths behave differently#TITLE_END#The unweighted versions of the all-pairs shortest path lengths function returns an iterator, whereas the weighted version returns a dictionary. Presumably, the weighted version should be changed to return an iterator as well. 
+issue
+Documentation is not automatically built on commit#TITLE_END#Does someone manually build and upload the documentation for NetworkX? Why is it not automatic? 
+issue
+Don't use indexing to access elements of a set#TITLE_END#Replaces indexing with `arbitrary_element()` function.  This issue caused a build error in https://travis-ci.org/networkx/networkx/jobs/74853743, a build for pull request #1729. 
+issue
+Simplifies is_eulerian function.#TITLE_END#Also updates documentation and makes PEP8 style fixes. 
+issue
+Simplifies global_parameters function in distance_regular module.#TITLE_END#Also makes some PEP8 style fixes. 
+issue
+Simplify and refactor functions related to k-cores#TITLE_END#Also makes PEP8 style fixes. 
+issue
+Use peek(S) instead of next(iter(S)).#TITLE_END#As of the date of this commit, there is no way to get an arbitrary element of an iterable like a set without modifying it (for example, as in `set.pop()`). The `peek()` function is more readable than writing  ``` next(iter(S)) ```  whenever an arbitrary element of an iterable is required.  This commit also makes a couple of PEP8 changes, but not many. 
+issue
+Make identified_nodes an alias for contracted_nodes#TITLE_END#"Node identification" is a more accurate term than "node contraction" for the operation provided by `algorithms.minors.contracted_nodes`. Create an alias, `algorithms.minors.identified_nodes`. 
+issue
+Cleans docs and simplifies bipartite.redundancy#TITLE_END#Cleans and updates the documentation for the `networkx.algorithms.bipartite.redundancy` module, and creates a corresponding test module.  Also simplifies the code for computing the node redundancy.  I did some (minimal) timing tests, and this appears to be about the same as the previous code. 
+issue
+Inputs in bipartite generator funcs must be lists#TITLE_END#The documentation states that the degree sequences provided as inputs to the `bipartite_configuration_model` function may be lists or "iterators". However, the code includes calls to `len()`, multiple iterations over the same iterable, and access of elements at specific indices, all of which fail for generator expressions.  Changes the documentation in the functions in this module to be clearer about this requirement. 
+issue
+Return empty graph for random 0-regular graph#TITLE_END#There is exactly one 0-regular graph, namely the empty graph. A call to `random_regular_graph(0, n)` now returns the empty graph on n nodes instead of the null graph. 
+issue
+Simplifies _prep_create_using function#TITLE_END#Removes redundant code. 
+issue
+Allows from_numpy_matrix to create parallel edges#TITLE_END#Adds the `parallel` keyword argument to the from_numpy_matrix() function. If the adjacency matrix has integer entries, this is set to `True`, and the `create_using` keyword argument is an instance of `MultiGraph`, then each positive integer entry in the adjacency matrix is interpreted as the number of parallel edges, each with weight 1, joining two vertices. Otherwise, if any of these conditions is not met, the function behaves as it previously did: an integer entry is interpreted as the weight of a single edge joining the two vertices.  This is a backwards compatible change. 
+issue
+Adds a generator for the chordal p-cycle graph.#TITLE_END#Adds the chordal p-cycle graph, a mildly explicit algebraic construction of a family of 3-regular expander graphs. Also, moves both the existing expander graph generator function (for the Margulis-Gabber-Galil expander) and the new chordal cycle graph function to a new module, `networkx.generators.expanders`. 
+issue
+Don't add edges twice when converting from numpy or scipy#TITLE_END#Previously in `from_scipy_sparse_matrix()` and `from_numpy_matrix()`, if `create_using` were an undirected multigraph and the input matrix were symmetric, the edge (u, v) and the edge (v, u) would be added separately, thereby resulting in two parallel edges. This change makes the function behave more intelligently: it now assumes that when the input matrix is symmetric and `create_using` is undirected, the edge (u, v) should be added only once. 
+issue
+Maximum cardinality matching in bipartite graphs.#TITLE_END#Adds the Hopcroft--Karp algorithm for finding a maximum cardinality matching in bipartite graphs.  I wasn't sure whether to put this in `networkx.algorithms.matching` or in `networkx.algorithms.bipartite`; I chose the latter. 
+issue
+Allows explicit conversion with parallel edges#TITLE_END#Adds the `parallel_edges` keyword argument to the `from_numpy_matrix` and `from_scipy_sparse_matrix`. This allows the user to specify whether to interpret an integer matrix as parallel edges in a multigraph or single weighted edges in a multigraph.  This restores the default behavior of these functions that was changed by pull request #1305. 
+issue
+Removes unused variable#TITLE_END#Before, providing an empty list to `assert_nodes_equal` caused an error. By removing this line, the function now correctly returns `True` if provided with an empty input list. 
+issue
+Adds generator for complete multipartite graph.#TITLE_END#This is a generalization of the complete bipartite graph generator. 
+issue
+Adds function for computing a quotient graph.#TITLE_END#The quotient graph of a graph `G` with respect to an equivalence relation `R` on the nodes of `G` is the graph whose vertex set is the equivalence classes of `R` and where there is an edge joining class `c` to class `d` if the vertices in `c` are adjacent to the vertices in `d`.  This commit places that function in a new module, `networkx/algorithms/minors.py`, for functions related to graph minors.  This is a generalization of some other functions already in NetworkX. For example, the [condensation](https://networkx.github.io/documentation/latest/reference/generated/networkx.algorithms.components.strongly_connected.condensation.html#condensation) of a graph can be expressed as a quotient graph under the appropriate node and edge relations. You can see an example of this in one of the unit tests. 
+issue
+Adds vertex and edge contraction functions.#TITLE_END#This implements vertex and edge contraction as functions that return new graph objects with the specified vertices or edge contracted.  This fixes issue #1057 (by creating entirely new code that I agree to license under NetworkX's BSD license).  This pull request needs some attention though. 1. I'm not sure how node attributes should be handled. Currently the code stores them in a dictionary on the contracted edge. Should they be dropped completely? Accordingly, there's an unimplemented test there. 2. Currently the code keeps the first vertex argument and removes the second argument. Should both vertices be removed and a new vertex created? How should it be named?  This pull request complements pull request #1437: if one is merged, the other needs to be rebased and merged, since they both are creating a new file called `minors.py`. 
+issue
+Replaces cumulative_sum with accumulate.#TITLE_END#Python 3.2 introduces the `itertools.accumulate()`. Before, we were using less flexible custom code for performing the same task, in `networkx.utils.misc.cumulative_sum`. This commit replaces calls to `cumulative_sum` with calls to `itertools.accumulate()`.  Since we currently still support Python 2.7, this commit adds a fallback equivalent definition of accumulate that matches the Python 3.2 implementation. Once support for Python 2.7 is dropped, all of this code can be removed, and calls to `networkx.utils.accumulate()` can be replaced by calls to `itertools.accumulate()`.  This will also affect pull request #1425; if one is merged, the other should be updated. 
+issue
+Documents the networkx.generators.community module#TITLE_END#The `community` module was previously undocumented. This commit adds documentation for the functions in this module.  This fixes  #1471.  This commit also updates some of the documentation to fix some errors. 
+issue
+Adds triadic census function to new `triads` module#TITLE_END#Fixes issue #191.  I took one of the implementations and one of the test functions I found in the referenced issue and updated them, mostly for style. 
+issue
+Optimization for connected double edge swap.#TITLE_END#This implements an optimization that speeds up the `connected_double_edge_swap()` function. It uses a threshold, below which graph connectivity is checked after each swap, and above which, graph connectivity is only checked after a number of swaps are made.  This code is from #325, with updates mostly for style. 
+issue
+Removes reference to nonexistent function#TITLE_END#Pull request #1463 removed the `cumulative_sum` function. This commit removes the reference to it in the documentation. 
+issue
+Moves and updates docs for hybrid power law graphs#TITLE_END#This commit combines two changes. First, it moves the module `networkx.generators.hybrid` to `networkx.algorithms.hybrid` (and moves the corresponding test modules as well). Second, it adds missing documentation to the functions in that module. 
+issue
+Cleans documentation for generators.line.#TITLE_END#Cleans formatting and syntax for the `networkx.generators.line` module. Also moves discussion of self-loops from module-level to function-level. 
+issue
+Simplifies call to max() in utils.union_find#TITLE_END#Also makes PEP8 fixes. 
+issue
+Simplifies the code for the karate club graph.#TITLE_END#Also updates the documentation to disclose previously undocumented node attributes and provides PEP8 compliance. 
+issue
+Cleans generators.stochastic docstrings and code#TITLE_END#PEP8 fixes, updates and clarifies documentation, and imports real division in order to remove casting numbers to floats. 
+comment
+Sorry, it's been too long! I'm afraid I don't remember the reason for that choice.
+comment
+`networkx.algorithms.clique`, `networkx.algorithms.dominating`, and `networkx.algorithms.mis` modules already exist; the functions suggested here should be incorporated into those existing modules. 
+comment
+There are already some functions for reading and writing e.g. adjacency matrices, perhaps those can be used so you don't need to reimplement an adjacency matrix reader/writer? 
+comment
+So the intended usage is to instantiate the class, then add vertices, edges, and/or faces using the combinatorial definition of planar graph (that is, a set of discrete faces)? What happens when the user attempts to make an addition that would cause the graph to become non-planar? 
+comment
+By the way, I brought up the issue of testing for planarity in #1603. 
+comment
+Lots of PEP8 code style issues here. Please run your code through a style checker, like [`flake8`](https://flake8.readthedocs.org/en/2.3.0/), for example. Also, naming in Python follows the `separated_by_underscores` convention instead of the `camelCase` convention. 
+comment
+Hi! See #2265.
+comment
+You can view the build log by clicking the "Details" link next to the Travis CI status check below.    https://travis-ci.org/networkx/networkx/jobs/127505243  Choose one of the failing builds and scroll down to find the first error:    https://travis-ci.org/networkx/networkx/jobs/127505243#L4070  This error was caused by an exception:    https://travis-ci.org/networkx/networkx/jobs/127505243#L4085  That error is due to a comparison between `None` and an integer in your code on line 48:    https://github.com/networkx/networkx/pull/2116/files#diff-d0daae046235657adddfedae432d8e8cR48 
+comment
+This pull request complements pull request #1928, which proposes depth-limited depth-first search. 
+comment
+This sounds similar to the "chain decomposition" I added in pull request #2284; what is the relationship between the chain decomposition and the palm tree? (I've been out of the mindset for a while so I don't remember.) Just trying to avoid duplicating code.
+comment
+Can we extend the chain decomposition function so that it computes the extra information you need?  On Fri, Apr 21, 2017 at 8:32 AM James Clough <notifications@github.com> wrote:  > They do certainly seem similar - I think if you already had the chain > decomposition you could find a palm tree more easily. It's probably not > worth taking that approach here though since in this case there are other > things needed for the SPQR tree which are calculated in the same > depth-first-search the palm tree uses. > > — > You are receiving this because you commented. > > > Reply to this email directly, view it on GitHub > <https://github.com/networkx/networkx/pull/2430#issuecomment-296178366>, > or mute the thread > <https://github.com/notifications/unsubscribe-auth/AAHbm0kyCwQ1AApD2eVEE810csneqetiks5ryKHogaJpZM4NDuWv> > . > 
+comment
+Hi @sjackman. In general, computing the longest path in a graph is an NP-hard search problem! Only if the graph is acyclic (i.e. a directed acylic graph, or a tree in particular) is the problem of finding the longest path solvable in polynomial time. For more information, see https://en.wikipedia.org/wiki/Longest_path_problem
+comment
+Ah, I see, sorry for misreading there.
+comment
+Can you clarify in what sense you would consider these "useful"? The _[Rationale and Goals](https://www.python.org/dev/peps/pep-0484/#rationale-and-goals)_ section of PEP484 states  > This PEP aims to provide a standard syntax for type annotations, opening up Python code to easier static analysis and refactoring, potential runtime type checking, and (perhaps, in some contexts) code generation utilizing type information.  >  > Of these goals, static analysis is the most important. This includes support for off-line type checkers such as mypy, as well as providing a standard notation that can be used by IDEs for code completion and refactoring. 
+comment
+If I understand correctly, you are suggesting ```python random.sample(set(seq), m) ``` as an alternate implementation, which is more costly in terms of memory usage? 
+comment
+So this?  ```python nodes, degree = zip(*G.degree()) random.choices(nodes, degree) ``` (On Python 3.6 only: https://docs.python.org/3/library/random.html#random.choices)
+comment
+Sorry, I was being a dummy :). I'm with you now, I promise. Weighted random sample without replacement.
+comment
+I would probably make a new pull request that depends on this one being pulled in, I guess...  Also, this pull request needs to expose documentation by creating a file `doc/source/reference/algorithms.tsp.rst`, and modifying `doc/source/reference/algorithms.rst`. 
+comment
+I have a (slow) implementation of the color refinement algorithm, which I believe is the same thing or at least related, at https://github.com/jfinkels/fraciso/blob/master/fraciso/partitions.py (see function `coarsest_equitable_partition`). 
+comment
+The `grid_2d_graph()` generator might be useful to you: https://networkx.github.io/documentation/stable/reference/generated/networkx.generators.lattice.grid_2d_graph.html#networkx.generators.lattice.grid_2d_graph
+comment
+hey @idc9 :). a workaround for now is to convert to a string via `datetime.isoformat()` <https://docs.python.org/3/library/datetime.html#datetime.datetime.isoformat> and then back via `datetime.fromisoformat()` (in Python 3.7) <https://docs.python.org/3/library/datetime.html#datetime.datetime.fromisoformat>. 
+comment
+I'm not familiar with a "geometric network", but you it looks like you have a directed acyclic graph. After a cursory glance, one thing you might want to try is doing a [`topological_sort()`](https://networkx.github.io/documentation/stable/reference/algorithms/generated/networkx.algorithms.dag.topological_sort.html#networkx.algorithms.dag.topological_sort), then traversing the sorted list of nodes in order and adding any overflow from each node to its neighbors.
+comment
+A relatively simpler recursive algorithm for enumerating all chordless paths (and cycles) in a graph appears in the 2014 paper "[An Efficient Algorithm for Enumerating Chordless Cycles and Chordless Paths](http://arxiv.org/abs/1404.7610)". There appears to be a C implementation of that code in [CYPATH](http://research.nii.ac.jp/~uno/code/cypath.htm), as mentioned in the StackOverflow question, but the algorithm should be much easier to implement directly in Python. 
+comment
+Just to clarify, @blogle's algorithm solves the minimum spanning tree for complete graphs in which the edge weights form a metric space, which is a special case of the more general problem of finding a minimum weight spanning tree. 
+comment
+An unrelated comment: this is far too many levels of indentation. This should be either refactored into a separate function somehow or possibly adapted to use `for x in (y for y in iterable if ...):` loops instead of the guarded for loops you have now. 
+comment
+> @jfinkels  removed the iterators, I thought this way it is a bit faster ...  Why would that be faster? The extra function call would make it slower I assume.  > concerning the continue, I guess every second counts ;) and without continues, the code is slightly more efficient ...  Slightly, I guess, in the sense that you avoid an additional `JUMP` instruction (or something like that). 
+comment
+The paper is published now here: https://dx.doi.org/10.1007/978-3-319-03536-9_13 and more recently here: https://dx.doi.org/10.1080/15427951.2014.986778 
+comment
+Hi @ch728. The `from_nested_tuple()` function doesn't allow providing node labels (or other data) within the tuple. It only allows tuples whose elements are other tuples, like `((), ())` for the balanced binary tree of depth one, or `(((), ), )` for the path graph on three nodes. For example usage, see here https://github.com/networkx/networkx/blob/ec36a0e10a455bc7ca1a3d27b9d52ac6bb4c4df4/networkx/algorithms/tree/coding.py#L177-L178  You may need to adapt the code in the `from_nested_tuple()` function to allow providing specific labels for nodes in the tree.
+comment
+The Matlab code to which @mb3152 refers is at https://github.com/bayesnet/bnt/blob/master/graph/triangulate.m.  [Here](http://dx.doi.org/10.1016/j.tcs.2009.10.004) is a paper that provides an algorithm for computing a minimal triangulation of a graph. 
+comment
+@MridulS Not immediately. Seems like it would be easy to get _an_ implementation, hard to get a _fast_ implementation. Feel free to do it. 
+comment
+Makes sense to me; you could probably use `heapq` instead of calling `min` repeatedly (as suggested in the referenced paper, I believe).
+comment
+Please make a pull request when you are ready. 
+comment
+Thanks for the help @hirschsn. Can you add a unit test for this in the file `networkx/networkx/utils/tests/test_unionfind.py`?
+comment
+I believe this is the same as #2258, but for breadth-first search instead of depth-first search.
+comment
+I think the `bfs_edges()` function yields the edges underlying a breadth-first search of the nodes of a graph. What you are requesting sounds like it might be a breadth-first search on the edges of the graph, analagous to the depth-first search on the edges of the graph provided by the `edge_dfs` function: https://networkx.github.io/documentation/latest/reference/algorithms/generated/networkx.algorithms.traversal.edgedfs.edge_dfs.html#networkx.algorithms.traversal.edgedfs.edge_dfs. If so, then that function does not yet exist.
+comment
+While the running time is reduced, this implementation uses a good deal more memory than the previous implementation (a copy of the entire graph, plus the storage for an additional list of nodes). For large graphs this might be significant. It's probably worth updating the documentation to note the memory usage.
+comment
+Thanks for the suggestion @hongshaoyang! Can you trim the line to 79 characters?
+comment
+When this change is made, a reminder should also be documented somewhere that randomness should not be used for cryptographic security (unless NetworkX explicitly includes a secure random number generator). 
+comment
+Maybe this should live in the `networkx.algorithms.cycles` module, which already contains functions for computing cycle bases, instead of creating a new `networkx.algorithms.minimum_cycles` module? 
+comment
+Code style is starting to look better. You should run [flake8](https://flake8.readthedocs.org/en/2.3.0/) and make the corrections it suggests. 
+comment
+Can you please add a line in the file `doc/source/reference/algorithms.cycles.rst` corresponding to this function in order to expose the function in the documentation? After that and the changes to the test file, I'm fine with this. The commits should be squashed into one. 
+comment
+Can you please squash these changes into a single commit with a good commit message? `git rebase -i master`  https://help.github.com/articles/about-git-rebase/ 
+comment
+Your pull request seems to have gained duplicate files `minimum_cycles` and `test_minimum_cycles`? 
+comment
+I'm not familiar with "multimodal" networks, but you can set a node attribute to indicate which type of node it is; see https://networkx.github.io/documentation/latest/reference/classes/generated/networkx.Graph.add_node.html#networkx.Graph.add_node. For example,  ```python import networkx as nx G = nx.Graph() G.add_node(0, mode='gene') G.add_node(1, mode='drug') ``` Any edge in which the endpoints are of a different "mode" are "cross" edges. Is that what you're looking for? 
+comment
+It will take us some time to review this, since it is somewhat complicated. I have one initial comment from a quick glance at the tests: you are missing the one test that I really care about: testing that `networkx.line_graph` and `networkx.inverse_line_graph` are truly inverses. That is, test for a wide range of graphs, that `line_graph(inverse_line_graph(G)) == inverse_line_graph(line_graph(G)) == G`.  Also, as a rule of thumb for tests, you should only be testing functions that appear in the public interface, so your tests should only call `networkx.inverse_line_graph()`. They should not test the `_triangles()` function, etc. since those are implementation details that (1) are not used by the user, and (2) may change in the future. So if you want to increase test coverage (a good thing to do), you should add tests that only involve the public function `inverse_line_graph()`. 
+comment
+The approximate Steiner tree algorithm should be in the `networkx/algorithms/approximation/` directory, since it is an approximation algorithm. 
+comment
+Should the `metric_closure` accept only the graph and the weight attribute as input? Currently it is combining two conceptual steps: 1) computing a metric closure, 2) selecting a subgraph. It would be nice for the `metric_closure` function to perform only step 1, and the `subgraph()` method to perform step 2. However, this comes at added memory cost, especially if the number of terminals is small. Still, I think I prefer having the signature `metric_closure(G, weight='weight')`, and then the calling code would do  ``` python M = metric_closure(G, weight=weight) H = M.subgraph(terminals) ``` 
+comment
+The `steiner_tree` function needs to be imported in the `networkx/algorithms/approximation/__init__.py` module, after `ramsey` but before `vertex_cover`. 
+comment
+@mcognetta I was going to let that slide in this particular pull request and treat it for now as just an internal helper function used by the approximate Steiner tree function. Could be fixed by a future pull request, since I was already making a great deal of comments on this one. 
+comment
+@mcognetta If you would like to split this into two pull requests, one introducing the metric closure function (perhaps in the `shortest_paths/` directory) and a second one that depends on the first and introduces the approximation algorithm, please do so and I'll review them. Be sure to use (and squash) the commits here so the original author of the commits is credited in the commit history. 
+comment
+There is now an alternate way of ignoring edges (or nodes) due to pull request #1690. For example, to ignore all edges with the color "red":  ``` without_red_edges = lambda u, v, d: 1 if d['color'] != 'red' else None nx.shortest_path(G, weight=without_red_edges) ```  You can also effectively ignore edges this way, by ignoring all edges incident to the node you wish to ignore:  ``` evil_nodes = {1, 2, 3}  # or whatever without_evil_nodes = lambda u, v, d: None if {u, v} & evil_nodes else 1 nx.shortest_path(G, weight=without_evil_nodes) ```  This was also requested in issue #1946. 
+comment
+Based on past experience, blanket code style changes are usually not accepted as pull requests. The maintainers have expressed a preference for making small style changes, if necessary, alongside pull requests that fix other issues. 
+comment
+The original comment is a little unclear. The paper linked by @kshitij10496 states  > A vertex _u_ in a directed graph is in a _knot_ if for every vertex _v_ reachable from _u_, _u_ is reachable from _v_.  Another way to express this seems to be that a strongly connected component is a knot if it has no outgoing edges on its boundary. So I propose the following algorithm. Please correct me if this seems wrong.  ``` python def knots(G):     for S in nx.strongly_connected_components(G):         try:             next(nx.edge_boundary(G, S))         except StopIteration:             yield S ```  (_Edited to use `edge_boundary`, not `boundary`._) 
+comment
+Would it help to put the atlas graphs into a separate data file? 
+comment
+Thanks @joelmiller, it would be helpful if you post a pull request, or at least a diff, so that we can see the changes more easily. 
+comment
+This seems like a good idea to me, mirroring the behavior of `dict.items()`, etc. in Python 3. 
+comment
+In #1837, I changed `edge_boundary` to return an iterator (and `node_boundary` to return a set). 
+comment
+(I skimmed this discussion.) I added functions for computing graph minors (node and edge contraction functions), as well as a more general function for computing quotient graphs, in `networkx.algorithms.minors`. Does that help? 
+comment
+Write your tests first. The test functions should test the expected _behavior_ of your function, not its implementation. 
+comment
+There is a `has_path` function. I started working on space-efficient reachability on a branch in my repository. https://github.com/networkx/networkx/compare/master...jfinkels:reachable 
+comment
+That's a separate function, so you should create a pull request separate from my code. 
+comment
+I wholeheartedly support this. I made an argument based on readability, not speed, on some commit a few weeks ago. 
+comment
+I essentially started this in #1307 but ran into some issues with terminology, multigraphs, etc. You may want to check out what I did there, and check out #1399 as well. 
+comment
+I would call this the "power graph", but if there is another well-known name, it should be documented, at least... 
+comment
+Yeah, that's what I originally had in #1307; see [line 223](https://github.com/networkx/networkx/pull/1307/files#diff-414eaa09098b00206eecbff1d545bbf4R223). I called that a "power graph" but the name seems to be overloaded in different parts of computer science. Perhaps you can rename the functions I have there? 
+comment
+You can just check out my pull request as a branch on your local machine. Here's one way to do that: http://nedbatchelder.com/blog/201407/fetching_github_pull_requests.html  Then you can just add your commits on top of mine and create a new pull request. 
+comment
+It seems I can no longer access the patch from the old trac site at networkx.lanl.gov: https://networkx.lanl.gov/trac/attachment/ticket/457/networkx-components.patch redirects to networkx.github.io.  Can someone with access re-post the suggested patch? 
+comment
+Well, one useful application of such a class would be for a smarter implementation of the Girvan-Newman algorithm: make a copy of the graph so that it tracks connected components, then repeatedly remove edges without having to manually recompute the connected components. 
+comment
+Maybe these functions should be separated and put in the `networkx.algorithms.tree` and `networkx.algorithms.dag` packages. 
+comment
+This module would benefit from a `from __future__ import division`. 
+comment
+In plain Sphinx, you can do `:func:`~networkx.algorithms.components.weakly_connected.is_weakly_connected`` (i.e. prepend a tilde) to have the rendered output as just the (hyperlinked) function name `weakly_connected`, but I don't know how that plays out with Napoleon. 
+comment
+Maybe a better solution would have been to put this in `networkx/generators/community.py`. (I suggested a similar thing for tree generators in pull request #1874, in which I suggest adding a new generator to `networkx/generators/tree.py`.) This maintains some nice structural parallelism in `algorithms` and `generators`. 
+comment
+Looks good to me. Can you do one last thing: squash your commits into a single commit with a [good commit message](http://chris.beams.io/posts/git-commit/)? 
+comment
+The test should definitely be changed so that there is a unique longest weighted path.  As for the unorderable nodes issue, the suggested change should come with a test case that fails for the current code but is fixed with the suggested change. Can you provide a minimal working example that demonstrates the issue? 
+comment
+I just want to totally clarify this for myself: `NotImplemented` and `NotImplementedError` are different, and the former has a special meaning for comparison methods, see https://docs.python.org/3.6/library/constants.html#NotImplemented. Since I don't quite understand what the difference is in this situation, could you explain why that needs to be changed? Thanks. 
+comment
+Awesome, thanks for explaining. Since class is there specifically to test the behavior on Python 2 (see the comment above the class definition of `Unorderable`), let's make it match the default behavior of `object.__lt__` in Python3, i.e., raise a `TypeError`:  ``` sh $ python3 -c "object() < object()" Traceback (most recent call last):   File "<string>", line 1, in <module> TypeError: unorderable types: object() < object() ``` 
+comment
+Needs a space after the colon in the lambda expression, after that it looks good to me. Thanks for all your work on this! 
+comment
+Thanks @JamesClough! This needs some unit tests in `networkx/algorithms/tests/test_dag.py` and an entry needs to be added in `doc/source/reference/algorithms.dag.rst`.  How about this modification of your code:  ``` python TR = nx.DiGraph() TR.add_nodes_from(G) for u in G:     u_edges = set(G[u])     for v in G[u]:         u_edges -= {y for x, y in nx.dfs_edges(G, v)}     TR.add_edges_from((u,v) for v in u_edges) ```  Will that work? 
+comment
+Can you squash these three commits into a single commit with a [good commit message](http://chris.beams.io/posts/git-commit/)? After that, it looks good to me. 
+comment
+Looks good to me. 
+comment
+Is it really necessary to add these new functions `single_target_shortest_path` that are essentially verbatim copies of existing functions? Can we just use `G.reverse()`?
+comment
+Perhaps you can use the `networkx.utils.reversed` context manager for this purpose: it calls `DiGraph.reverse(copy=False)` which seems to be memory-efficient.
+comment
+Travis is telling us that the code fails when SciPy is not installed. Since NetworkX does not assume the user always has SciPy installed, perhaps we can try the SciPy version first, then fall back to the pure Python implementation if SciPy is not installed? Something like  ```python try:     from scipy.spatial import KDTree except ImportError:     is_scipy_available = False else:     is_scipy_available = True  def _fast_geometric_graph(G):     ...  def _slow_geometric_graph(G):     ...  def geometric_graph(G):    return _fast_geom_graph(G) if is_scipy_available else _slow_geom_graph(G) ```  Second, I believe there is a faster KDTree in SciPy called `cKDTree`. Can you test that one out instead? It should have the same interface.
+comment
+That test failure is being addressed by pull request #2329.
+comment
+Although we appreciate the effort, please see my comment about a similar change https://github.com/networkx/networkx/pull/1700#issuecomment-255016723 and the comments on pull request #1355 and #1435. The general rule being followed currently in NetworkX is to make these changes only when nearby code is being changed. 
+comment
+Looks good to me. 
+comment
+Thanks! 
+comment
+Hi @thecapacity, thanks for the report. The reStructured Text format cheat sheet is here: http://docutils.sourceforge.net/docs/user/rst/quickref.html, specifically, you want the section on [hyperlink targets](http://docutils.sourceforge.net/docs/user/rst/quickref.html#hyperlink-targets).  However, it looks like those download links have been removed in the latest version of the documentation, https://networkx.readthedocs.io/en/latest/, so this is no longer an issue. 
+comment
+I know it's silly, but I really appreciate the single-use GitHub user account @DonQuixoteDeLaMancha for making a pull request for windmills.
+comment
+To get the paths as edges, you can do something like  ``` python >>> import networkx as nx >>> G = nx.complete_graph(4) >>> for p in map(nx.utils.pairwise, nx.all_simple_paths(G, 0, 3)): ...     print(list(p)) ...  [(0, 1), (1, 2), (2, 3)] [(0, 1), (1, 3)] [(0, 2), (2, 1), (1, 3)] [(0, 2), (2, 3)] [(0, 3)] ```  If you are not using the development version of NetworkX, you can implement pairwise yourself by doing something like `pairwise = lambda l: zip(l, l[1:])`. 
+comment
+Hi @mikk-c, can you provide a minimal working example that demonstrates the error (and what you expected as output)? Also what version of Python are you using? From what I see, the `from __future__ import division` should cause true division everywhere in the `networkx.algorithms.centrality.reaching` module.
+comment
+Seems that this can be closed due to #874, #890, etc. 
+comment
+There seems to be an `edge_subgraph` implementation in `networkx.algorithms.trees.branchings`, for some reason. (It is not used anywhere, and definitely doesn't belong in its current module.) 
+comment
+Implemented in #1474. 
+comment
+I agree with @hagberg on the one-liners. `sources = [v for v, d for G.in_degree() if d == 0]`. 
+comment
+Oops, sorry I didn't make the connection. Thanks for checking up, and please continue to contribute! 
+comment
+Fixed in pull request #2011. 
+comment
+These functions are all nearly identical to those in `depth_first_search`. Instead of writing this code twice, maybe we can just add a `depth_limit` keyword argument to the existing depth-first search functions? @dschult did suggest having a separate module in https://github.com/networkx/networkx/issues/1912#issuecomment-169702983, but the depth limit seems relevant enough to the original DFS algorithm to apply as a keyword argument.  If we are going to have two separate modules, at least refactor the code so that you have a single underlying function, `_dfs_edges`, that can be called by both `dls_edges` and `dfs_edges`. 
+comment
+Sorry, what I should have said in the second paragraph of my previous comment is have `dfs_edges` call `dls_edges` with a depth limit of positive infinity. 
+comment
+This would really benefit from an example in the documentation for the modified functions. 
+comment
+It should be straightforward to do this for both general undirected graphs and for bipartite graphs.  There are already algorithms for finding a maximum matching in a graph (`nx.max_weight_matching(G, maxcardinality=True)`) and for finding a maximum matching in a bipartite graph (`nx.bipartite.maximum_matching(G)`). You can use those matchings to compute an edge cover; see [edge cover algorithms](https://en.wikipedia.org/wiki/Edge_cover#Algorithms) and [bipartite graph properties](https://en.wikipedia.org/wiki/Bipartite_graph#K.C3.B6nig.27s_theorem_and_perfect_graphs) on Wikipedia. 
+comment
+To be more clear, I was suggesting writing one function for general graphs and a separate function for bipartite graphs (in the `bipartite` package). 
+comment
+This feature was added in pull request #1915. 
+comment
+Implemented by #1427. 
+comment
+Please create a pull request so that we can discuss the suggested changes directly on the pull request. 
+comment
+Needs documentation added to `doc/source/reference/algorithms.bipartite.rst` and `doc/source/reference/algorithms.covering.rst` and `doc/source/reference/algorithms.rst`. 
+comment
+This is not quite what I meant. What I meant was this.  In `networkx.algorithms.covering`:  ``` def min_edge_cover(G, matching_algorithm=...):     # the algorithm for computing an edge cover goes here ```  In `networkx.algorithms.bipartite.covering`:  ``` from networkx.algorithms.covering import min_edge_cover as _min_edge_cover from networkx.algorithms.bipartite.matching import hopcroft_karp_matching  def min_edge_cover(G, matching_algorithm=None):     if matching_algorithm is None:         matching_algorithm = hopcroft_karp_matching     return _min_edge_cover(G, matching_algorithm=matching_algorithm) ``` 
+comment
+The bipartite version is theoretically more efficient, since it uses a bipartite matching algorithm. The bipartite version is meant to provide a helpful default for users so that they don't have to manually specify a bipartite matching algorithm in the plain version of the algorithm.  On Wed, Mar 30, 2016 at 9:54 PM Dan Schult notifications@github.com wrote:  > Maybe Ii don't understand completely the distinction between bipartite and > general graph covering. It looks like your code for the bipartite case > simply calls the general algorithm. Why do you have the bipartite version > of these functions? >  > — > You are receiving this because you were mentioned. >  > Reply to this email directly or view it on GitHub > https://github.com/networkx/networkx/pull/1915#issuecomment-203714243 
+comment
+I'll take another look now. 
+comment
+Looks good to me! 
+comment
+Thanks for the contribution @nishnik! 
+comment
+@rmsyed Thanks for your contribution! Before you spend the time to reformat your code, I'd like to propose implementing the bridge-finding algorithm given in the Wikipedia article, https://en.wikipedia.org/wiki/Bridge_(graph_theory), which is linear time as opposed to the cubic time of the proposed implementation here. Are interested or able to do that? 
+comment
+Can you adjust your pull request to create a `bridges()` function that is a wrapper around the existing code that's already in NetworkX? As discussed on the linked pull request above, see the `networkx/algorithms/components/biconnected.py` module. Note that module is for determining 2-node-connectivity, not 2-edge-connectivity. 
+comment
+The `local_bridges` function is needlessly complicated. From my understanding based on the definition you've provided for "local bridge", an edge is a "local bridge" if its two incident nodes do not share a common neighbor. So I think you could do this (assuming a graph with no self-loops):  ``` python def local_bridges(G):     for u, v in G.edges():         if not (set(G[u]) & set(G[v])):             yield u, v ```  Is my understanding correct? 
+comment
+Oh, I see, you are also returning the distance between the two endpoints when the edge is removed. Well how about something like  ``` python def local_bridges(G):     for u, v in G.edges():         if not (set(G[u]) & set(G[v])):             H = G.copy()             H.remove_edge(u, v)             try:                 d = nx.shortest_path_length(H, u, v)             except NetworkXNoPath:                 d = float('inf')             yield u, v, d ```  If you need some kind of dictionary, you can do  ``` python from collections import defaultdict distances = defaultdict(dict) for u, v, d in local_bridges(G):     distances[u][v] = distances[v][u] = d ```  It would be nice if there were a faster algorithm for this. Do you have any references for these algorithms, or a reference for local bridges, with which I am not familiar? 
+comment
+The reason I suggested using a copy is so that we do not have to modify the user's graph directly. This is something of a convention in NetworkX functions (at least, that's what it seems to me). This is both slow and memory-intensive, yes, but it doesn't perform any unexpected modification of the user's data, and a less memory-hungry version can be implemented directly by the user if needed.  As for the running time, it is quadratic if the graph is sparse, but if the graph is dense, the running time is quartic (!), which is particularly unpleasant for large graphs. 
+comment
+I think the attributes are designed to work well as static key/value pairs. They were not designed with this particular use case in mind.  As I think you suggest in the second-to-last paragraph, you might try setting the attribute on each node to be a distinct object that knows about the graph and the node. Another possibility is setting the attribute on each node to be a unique "global" object that knows about the graph. Finally, you might try creating your own (hashable) `Node` class that has the information you want.
+comment
+I objected to the suggested implementation and provided a simpler one in #1549. There I separated the graph generator from the layout code. 
+comment
+> Our other grid graph generators name the nodes using tuples that hold coordinates (as embedded in a geometry). Can you (@jfinkels) explain the motivation behind the tuples used in #1549 for nodes in, say, `triangle_lattice_graph`?  Sure. In terms of edge structure, the triangular lattice is just the grid graph with some edges added to the diagonals:  ``` text o----o----o | \  | \  | |  \ |  \ | o----o----o | \  | \  | |  \ |  \ | o----o----o ```  The plain old 2D grid graph has simple (i, j) node labels, so I thought the triangular lattice would benefit from these simple names as well. The user can then access individual nodes directly by doing `G[(i, j)]`, where _i_ and _j_ are just integers, instead of having to use floating point numbers.  The hexagonal grid graph is similar, in that it is a subgraph (instead of a supergraph) of the 2D grid graph:  ``` text o----o    o----o |    |    |    | o    o----o    o |    |    |    | o----o    o----o |    |    |    | o    o----o    o |    |    |    | o----o    o----o ```  > It looks like the separated layout functions can ONLY work with the specific lattice graphs -- that is, `nx.triangular_lattice_layout(G, m, n)` doesn't really need the input `G` as the only graph it works for is the graph created by `nx.triangular_lattice_graph(m, n)`.  Is this correct?  Following the idea above, the triangular lattice layout really works for any graph with nodes labeled like the 2D grid graph. It is just a linear transformation of the grid layout. The hexagonal layout function is a different but still fairly simple transformation.  > Without good justifications for the node names in #1549 and a reason to separate the functions, I lean toward the approach from #1489. It reduces the number of functions overall and removes the need to translate between the "standard" coordinate names and the tuples stemming from a rectangular grid. comments?  If you do this, please consider concatenating the code from my two functions (the graph generator and the layout function) together into a single function. It avoids a lot of unnecessary code! 
+comment
+There should be a much simpler way of creating a triangular grid without assuming the nodes live in the Euclidean plane. Also, Wolfram seems to think a "triangular grid graph" is [this](http://mathworld.wolfram.com/TriangularGridGraph.html), which is different from what you implemented. 
+comment
+Basically my concern is that the `triangular_lattice()` function should just create a set of nodes and a set of edges (in other words, the minimum information necessary to define a graph); the Euclidean embedding is not a property of the graph, it should be left to the end user (or perhaps write a different function that computes and outputs the embedding). 
+comment
+@joelmiller Quoting from your comments above:  > Currently the 2d_grid also makes the node name the lattice coordinates (as integers).  That function is acceptable to me because the coordinates happen to be pairs of integers, which are easy to read and understand. However, those pairs of integers don't necessarily _have_ to be the coordinates: maybe I want to display the graph in its natural bipartite layout, with half the nodes on the left and the other half on the right. The layout is independent of the nodes and edges.  > if I save a node as (3,4) to mean it is the fourth node in the third column, and then stored its location as G.node[(3,4)]['location'] = (x,y) where x and y are coordinates, would that be something you're happy with?  I would be happier with two separate functions: one for generating a triangular lattice graph and one for computing the grid layout of a lattice graph produced by one of these functions, say `grid_layout()`, in the `networkx.drawing.layout` module. For example  ``` import networkx as nx G = nx.triangular_lattice(5, 10) layout = nx.grid_layout(G, 5, 10) # drawing code here if necessary... ```  This would actually benefit both the `triangular_grid` and `grid_2d_graph` functions, which would use the same `grid_layout` function.  > I've created a triangular (and hexagonal) lattice - cf wolfram.  According to that picture, wouldn't it be simpler to just create a `grid_2d_graph`, then add the missing edges for the triangular lattice? For example,  ``` def triangular_lattice(m, n):     G = grid_2d_graph(m, n)     G.add_edges_from(((i, j), (i + 1, j + 1)) for i, j in itertools.product(range(m), range(n)))     return G ```  The hexagonal lattice is a bit more complicated, but there should still be a relatively simple way of generating it. (It has the 2D grid graph as a minor.) 
+comment
+First, the definition for a path allows a path of length zero, i.e., from a node to itself, so the self-loop in your example is unnecessary:  ``` python >>> G = nx.DiGraph() >>> G.add_node(0) >>> nx.has_path(G, 0, 0) True ```  Second, the `networkx.dag.ancestors` function is only guaranteed to work for directed acyclic graphs, and your graph has a cycle of length one, or in other words, a self-loop. In general, the functions in `networkx.dag` don't check for acyclic-ness, so it is up to the user to check for that. You can remove self-loops by doing `G.remove_edges_from(G.selfloop_edges())`. 
+comment
+The documentation is a bit spread out because the project is so large, unfortunately. But it would be nice for the precondition that graphs are directed and acyclic to be stated somewhere, like at the `netwrokx.algorithms.dag` package-level docstring. 
+comment
+@hagberg I think this is a slightly different issue, one with DiGraph.reverse. The test case here should be something like  ```python     def test_reverse_hashable(self):         class Foo(object): pass         x = Foo()         y = Foo()         G = nx.DiGraph()         G.add_edge(x, y)         self.assertCountEqual(G.nodes(), G.reverse().nodes())         self.assertCountEqual(map(reversed, G.edges()), G.reverse().edges()) ``` Is the contract for `DiGraph.reverse` supposed to be that the nodes are the exact same objects?
+comment
+The method for adding edge to a graph is `G.add_edge(u, v)`. Modifying the underlying data structure dictionaries directly will certainly cause inconsistencies, but there's not much we can do about that (that's a feature of Python). So I guess all we can say in this situation is "don't do that". Is there some change to the code or documentation that you are requesting here? 
+comment
+Perhaps a note in the [Edge Attributes](https://networkx.readthedocs.io/en/latest/tutorial/tutorial.html#edge-attributes) section of the tutorial and the class-level documentation for the `Graph` class to only read from `Graph.edge`, not write to it? 
+comment
+Hi @rikirenz, does the `find_cliques` function help you? Can you give an exact definition of your problem?
+comment
+I'll take a look at the chain decomposition test since I contributed that one. It is true that the decomposition is not unique. It may end up being too much of a pain to be in the test suite.
+comment
+Hi @antoniopugliese, thanks for contributing. Can you please create a new issue containing your question so that we can track its resolution separately from this pull request? (Feel free to reference this pull request when you create the issue.)
+comment
+Awesome. Sorry for all my bugs :\
+comment
+Can you provide just the (bipartite) graph that causes the problem and I'll take a look at it? Is the problem in the `maximum_matching` function or the `to_vertex_cover` function? Or is it not clear?  No way for me to know for sure but maybe there's an issue similar to that of #1927 (fixed by pull request #1955). 
+comment
+In the meantime, you can use `eppstein_matching` instead of `hopcroft_karp_matching`. 
+comment
+@jtorrents Are you suggesting changing both the `hopcroft_karp_matching` function and the `to_vertex_cover` function to accept an additional argument, say `left_set`, that allows the user to explicitly specify the same "left set" in both functions? 
+comment
+Fixed in pull request #2373. Thanks!
+comment
+(See also issues #1989, #1111, and #554 for more issues with unorderable nodes.) 
+comment
+Just adding some references for background information for anyone who might try to fix this issue. 
+comment
+The `G2_nodes - set(self.core_2)` part requires only hashability, but the `min()` requires orderability, I believe. 
+comment
+I'm fine with requiring orderability of nodes, but this should be documented, maybe in `networkx.algorithms.isomorphism.isomorphvf2`, along with an example provided for using, e.g. `convert_node_labels_to_integers`. 
+comment
+I ran into this and I also believe it is intentional: the `(root, root, 'forward')` signals the start of the traversal and the `(root, root, 'reverse')` signals the end. This function came from the original code in PADS: https://www.ics.uci.edu/~eppstein/PADS/DFS.py, which I assume was done in this manner because it was helpful when implementing some of the other functions in PADS. I recommend leaving it as-is unless there is a good reason to change it. If you want to exclude the first element from the iterator, you can use, for example, `itertools.islice(dfs_labeled_edges(G), 1, None)`. 
+comment
+(Note the reported issue is for Python 2.7; might be worth checking on Python 3.) 
+comment
+I think the `edge_boundary` issue is that when I call, for example, `G.edges({0, 1, 2})` I get all edges incident to node 0, node 1, or node 2. The original code assumes that the edges come out in the form `(0, v)`, `(1, v)`, `(2, v)`, etc., but in other Python implementations, the edge may come out as `(v, 1)`, `(v, 2)`, etc. I think this issue is worth a separate pull request. 
+comment
+FYI, Python 3.2+ has [`unittest.TestCase.assertCountEqual`](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertCountEqual). In Python 2.7 it is named [`unittest.TestCase.assertItemsEqual`](https://docs.python.org/2/library/unittest.html#unittest.TestCase.assertItemsEqual). 
+comment
+The workaround would be something like  ``` python def shortest_path_length(G, source, target):     try:         return nx.shortest_path_length(G, source, target)     except NetworkXNoPath:         return float('inf') ``` 
+comment
+@hagberg Do you want the single-source shortest path version in NetworkX? 
+comment
+It seems the function currently yields the node once each time it is discovered to lie in the intersection of two maximal biconnected subgraphs. In this example, the node 1 is in the intersection of the two maximal biconnected components {0, 1} and {1, 2} and in the intersection of {0, 1} and {1, 3}. This is a little confusing if we just consider the name of the function, `articulation_points`, which seems to me to imply that it yields each articulation point once.  My feeling is that this "multiplicity" information about articulation points could be expressed more clearly in a different way (see the [Related structures][1] section of the Wikipedia article on biconnected components for some possibilities). Therefore, I think that this function should yield each articulation point only once:  ```python seen = set() for v in _biconnected_dfs(G, components=False):     if v not in seen:         yield v ```  A test should also be added to check that node are yielded only once (the example code by @malbarbo is fine).  [1]: https://en.wikipedia.org/wiki/Biconnected_component#Related_structures
+comment
+What I was imagining was creating a function for computing either the "block graph" or "block-cut tree" as described in the Wikipedia article to which I linked above. From these structures, the number of blocks in which each articulation point participates can be read off more easily. The length of the name of the function you are suggesting is an indicates to me that it may be too specific :)
+comment
+Thanks for the feedback! Can you provide a minimal working example that demonstrates the issue, and if possible, the output produced by the code, and the output you expect? 
+comment
+See pull request #2329 for a proposed solution.
+comment
+Hi @basimr, thanks for the report. It looks like with a bit of review, the function can be rewritten to reduce its memory usage. Which version of Python are you using? 
+comment
+I am working on a fix for this. The function seems to create the contents of the graph6 file as a string in memory before writing it to a file. Rewriting it so it makes better use of iterators and writes each chunk of data directly to the file should help. 
+comment
+I think you are using the `cycle_basis` function as if it returned a list of all cycles in the graph, but that is not the correct usage of the function (it returns the "cycle basis" of the graph, a minimum set of cycles from which all other cycles can be constructed via "exclusive or").  
+comment
+I'm about to create a pull request that has my attempt at an implementation of this. It is not quite working yet, but the code matches the paper's pseudocode fairly closely, so a fresh set of eyes should be able to determine where my code is incorrect. I'll cc you @JamesClough so you can take a look at it.
+comment
+Hi @fangqian, I'm not sure exactly what you're looking for, but advice on how to use NetworkX in your own projects is best discussed on the [NetworkX mailing list][1].  [1]: https://groups.google.com/forum/#!forum/networkx-discuss
+comment
+Can you provide a specific situation in which `super()` is required and the current setup does not work? It's probably best for us not to mess with the core NetworkX data structures unless there is a very good reason. 
+comment
+I'll close this until there is a specific situation that calls for changing the code. Thanks for your input.
+comment
+Doing `g1.add_edge(3, 4)` also adds the node 4, so the two graphs are different because they have a different number of nodes. 
+comment
+Thanks for the report @LancelotHolmes! This has been fixed in the latest version of NetworkX: https://networkx.readthedocs.io/en/latest/tutorial/tutorial.html#accessing-edges 
+comment
+Fixed in pull request #2272. Thanks for the help. 
+comment
+Might it be better to use `nose.tools.assert_items_equal`/`nose.tools.assert_count_equal` in order to avoid sorting everything? 
+comment
+Sure.  On Sun, Aug 7, 2016 at 7:29 PM Marco notifications@github.com wrote:  > Would "(disjoint) subsets" be an ok term since block is the term for > maximally connected subgraphs? >  > — > You are receiving this because you commented. >  > Reply to this email directly, view it on GitHub > https://github.com/networkx/networkx/pull/2218#issuecomment-238115782, > or mute the thread > https://github.com/notifications/unsubscribe-auth/AAHbm7Myn4Ij0avGk36XF69QVrj34sVDks5qdmo_gaJpZM4JelQT > . 
+comment
+Yes, this appears to be a bug. The problem is that if two nodes have the same label (say node 0 and node 1 both have label 5), then the dictionary comprehension will only reflect one entry for the label (the key 5 will have value 1) so the Counter only counts that label once. Can you prepare a pull request that includes the proposed change to the code as well as a unit test in `networkx/algorithms/community/tests/test_asyn_lpa.py` that would fail with the current implementation but passes with the proposed change? 
+comment
+I generally agree. The functions from `tools/test_pr.py` and `post_pr_test.py` seem to be covered by Travis. The functions from `tools/gh_api.py` are provided by other libraries (search "GitHub command line interface" and you'll find several). 
+comment
+Fixed in pull request #2075. 
+comment
+This seems to be working on readthedocs: http://networkx.readthedocs.io/en/latest/reference/algorithms.operators.html 
+comment
+Love the nested for/else. 
+comment
+Fixed in pull request #2114. 
+comment
+Fixed in pull request #2142. 
+comment
+Thanks! 
+comment
+Hi @CrazyPython, the following brief code explicitly creates such a graph.  ``` python from math import sqrt from itertools import combinations  from networkx import Graph  def dist(u, v):    return sqrt(sum((a - b) ** 2 for a, b in zip(u, v)))  def create_euclidean_graph(nodes):     # Assuming `nodes` is an iterable of coordinate vectors...     G = Graph()     G.add_weighted_edges_from((u, v, dist(u, v)) for u, v in combinations(nodes, 2))     return G ```  This should be sufficient for many situations and can probably be left to the user to implement outside of NetworkX. Do you have a specific example in mind where the distance needs to be computed on-demand and that's common enough that it should be included in the library? (For shortest path functions, you can specify a function to use as the weight of an edge, so for this particular family of algorithms, we do allow on-demand computation of edge weights.) 
+comment
+Without a very good reason to include a Euclidean graph implementation in NetworkX, I think we should just leave this to the user to implement. 
+comment
+Hi @brupelo, this question is probably more appropriate for the discussion group at: https://groups.google.com/forum/#!forum/networkx-discuss. 
+comment
+For help with using NetworkX, you'll probably find the discussion group more helpful: https://groups.google.com/forum/#!forum/networkx-discuss 
+comment
+Fixed in pull request #2246. Thanks! 
+comment
+Hi @priyambial123. For help installing NetworkX, please send a message describing your issue to the NetworkX discussion group: https://groups.google.com/forum/#!forum/networkx-discuss. Briefly, if the command `python -c "import networkx"` produces no output, then NetworkX is installed correctly. 
+comment
+@brupelo The question there seems to be answered. In the future, you may consider discussing things like this on the [NetworkX mailing list](https://groups.google.com/d/forum/networkx-discuss) before opening a GitHub issue. 
+comment
+This pull request seems to be against the `v1.11` tag instead of the `master` branch. This seems to have been fixed on the master branch: http://networkx.readthedocs.io/en/latest/tutorial/tutorial.html#accessing-edges. So I'm going to close this pull request.  The build seems to be failing for unrelated reasons, but I'm not really sure how to diagnose the problem, hopefully someone else can figure that out and open a new pull request to fix the issue. 
+comment
+I agree with you. This should match the behavior of `shortest_path_length`, which returns the sum of the weights (distances) on the edges:  ``` python >>> import networkx as nx >>> G = nx.Graph() >>> G.add_edge(0, 1, weight=10) >>> nx.shortest_path_length(G, 0, 1, weight='weight') 10 ``` 
+comment
+@michaelkkim Do these answers help resolve your issue? 
+comment
+@chebee7i Auto-incremented integers could be just as uninformative as UUIDs. If I add and remove many edges, I may end up with several edges joining a pair of nodes with keys that appear to be totally random integers. 
+comment
+What seems to make sense to me is: 1. Add a `new_edge_key(u, v)` method to the `MultiGraph` class. This method takes the nodes as input and generates a new edge key, presumably based on information about the current edge keys for edges currently joining the nodes. Most of the time, users can ignore this method, but subclasses can override this. 2. The `add_edge` function uses `new_edge_key` and returns the key of the edge created. 3. The `add_edges_from` method returns a list of keys in the same order as the input iterable.  So for example:  ``` python >>> G = nx.MultiGraph() >>> G.add_edge(0, 1) 0 >>> G.add_edges_from([(0, 1), (1, 2), (0, 1)]) [1, 0, 2] >>> G.new_edge_key(0, 1) 3 >>> G.new_edge_key(0, 1)  # should be the same as the edges haven't changed 3 ``` 
+comment
+or lzma: https://docs.python.org/3/library/lzma.html 
+comment
+@thegreathippo If you wish to edit (or "squash") the commits you've made on your branch, you can use `git rebase`; see "[About Git rebase](https://help.github.com/articles/about-git-rebase/)" for more information. 
+comment
+NodeNotFound is a better name for an exception than InvalidNode. 
+comment
+Well updating an exception name in one file has changes throughout the code, wherever the exception is raised. This is different from making local style changes in a single file.  I don't think it really matters how the changes are made, but if these changes are definitely going to be made, they must be totally finished within one release cycle (say networkx-2.0), not spread across multiple releases (i.e. half the exceptions renamed by networkx-2.0, the other half by networkx-2.1). 
+comment
+As for the exception itself, I think this is the right idea. 
+comment
+All of your docstrings need to be wrapped to 79 characters per line. Also, they need to be formatted so that they are rendered well when compiled to HTML by Sphinx: for example, function arguments should be wrapped by asterisks, and code snippets should be surrounded by backticks. See http://www.sphinx-doc.org/en/stable/ for more information on formatting docstrings. 
+comment
+Here's an example of a better docstring for `is_valid_joint_degree`, with inline explanations of why I make these suggestions. See also [PEP 0257](https://www.python.org/dev/peps/pep-0257/) for docstring conventions:  ``` def is_valid_joint_degree(joint_degrees): ```  Change the argument name to be meaningful.  ```     """Checks whether the given joint degree dictionary is realizable as     a simple graph. ```  Explain what the function does without describing the implementation details. Use four-space indentation after the first line.  ```     A *joint degree dictionary* is a dictionary of dictionaries, in     which entry ``joint_degrees[k][l]`` is an integer representing the     number of edges joining nodes of degree *k* with nodes of degree     *l*. Such a dictionary is realizable as a simple graph if and only     if the following conditions are satisfied. ```  Explain what a "joint degree dictionary" is in as close to plain English as possible while still maintaining mathematical readability.  ```     - each entry must be an integer,     - the total number of nodes of degree *k*, computed by       ``sum(joint_degrees[k].values()) / k``, must be an integer,     - the total number of edges joining nodes of degree *k* with nodes       of degree *l* cannot exceed the total number of possible edges,     - each diagonal entry ``joint_degrees[k][k]`` must be even (this is       a convention assumed by the :func:`joint_degree_model` function). ```  This is an unordered list of conditions, the numbers are not necessary. Code and variable names are correctly formatted using the ReStructured Text format. Decide whether the code snippets are there as a reminder to you as the implementer or as important information to the user; if the former, then remove it and place it in a comment in the code.  ```     Parameters     ----------     joint_degrees :  dictionary of dictionary of integers         A joint degree dictionary in which entry ``joint_degrees[k][l]``         is the number of edges joining nodes of degree *k* with nodes of         degree *l*.      Returns     -------     bool         Whether the given joint degree dictionary is realizable as a         simple graph.      References     ----------     .. [1] M. Gjoka, M. Kurant, A. Markopoulou, "2.5K Graphs: from Sampling        to Generation", IEEE Infocom, 2013.      """ ```  Similar changes can be made to the other functions as well. 
+comment
+Implementation of these functions looks great to me! 
+comment
+So in other words, this algorithm takes a graph _G_ and a subset of nodes _S_ as input and outputs the Voronoi cells of _G_ (a partition of the nodes of _G_) centered at the nodes of _S_, with respect to the shortest path distance metric?  Is this related to the [metric dimension](https://en.wikipedia.org/wiki/Metric_dimension_%28graph_theory%29) of a graph? 
+comment
+Is this implementation more efficient than just doing this:  ``` python from collections import defaultdict from functools import partial  import networkx as nx   def groups(many_to_one):     """Converts a many-to-one mapping into a one-to-many mapping.      For example::          >>> many_to_one = {'a': 1, 'b': 1, 'c': 2, 'd': 3, 'e': 3}         >>> groups(many_to_one)         {1: {'a', 'b'}, 2: {'c'}, 3: {'d', 'e'}}      """     one_to_many = defaultdict(set)     for v, k in many_to_one.items():         one_to_many[k].add(v)     return dict(one_to_many)   def voronoi_cells(G, center_nodes, weight='weight', reverse=False):     spl = partial(nx.shortest_path_length, G, weight=weight)     if reverse:         closest_center = {v: min(center_nodes,                                  key=lambda s: spl(source=s, target=v))                           for v in G}     else:         closest_center = {v: min(center_nodes,                                  key=lambda s: spl(source=v, target=s))                           for v in G}     return groups(closest_center) ``` 
+comment
+It does exploit parallelism in the sense that standard all-pairs shortest paths can be implemented in parallel anyway. The referenced paper does seem to use that name. 
+comment
+All-pairs shortest path will still do too much work, especially if the set of "center nodes" is small. Plus, the implementation of all-pairs shortest paths in NetworkX seems to be just "do single source shortest path n times". Basically, this problem is a generalization of all-pairs shortest paths to "some-sources, all targets" shortest paths I believe.  Yes, a better name for the function would be `voronoi_cells(G, S)`, where `G` is the graph and `S` is the set of center nodes. 
+comment
+After looking at the code suggested by @woodElec, I think this is a simplified version of the `_dijkstra` function in `networkx/algorithms/shortest_paths/weighted.py` with two main differences: 1. for computing the "out-Voronoi cells", you consider the distances _from_ the center nodes, and for "in-Voronoi cells" you consider the distances _to_ the center nodes; this can be handled by simply calling `G.reverse()`, I believe. 2. the search starts from multiple sources instead of a single source; this just means pushing a few more nodes onto the priority queue at the beginning of the search, and I think the existing `_dijkstra` function could be easily modified to handle that.  So basically, I think this can be implemented as  ``` python from networkx.algorithms.shortest_paths.weighted import _weight_function from networkx.algorithms.shortest_paths.weighted import _dijkstra  def voronoi_cells(G, center_nodes, weight='weight'):     weight_func = _weight_function(weight)     paths = {}     _dijkstra(G, center_nodes, weight, paths=paths)     nearest = {v: p[0] for v, p in paths.items()}     return groups(nearest) ```  if `_dijkstra` is modified to accept an iterable of source nodes instead of a single source node. 
+comment
+I already made such a suggestion in #1347. It was rejected. 
+comment
+As in #1531, these should be `max([c_1, c_2], key=len)`. 
+comment
+This was fixed in pull request #1579. 
+comment
+I like to separate runtime dependencies from test dependencies and documentation dependencies. Three files: `requirements.txt`, `requirements-doc.txt`, and `requirements-test.txt`, with the last two recursively including the first one using `-r`. See https://github.com/jfinkels/flask-restless/ for example. This allows the user to only install a subset, plus it allows you to update documentation dependencies independently of runtime dependencies (like if you need to add a sphinx extension, for example). Is this sort of setup attractive to others? 
+comment
+Awesome! This will make it easier/more consistent to write docstrings. 
+comment
+I'll try to keep an eye out for this in new pull requests, as well as in rendered documentation. 
+comment
+I think at the very least there should be a documented standard for how to format function arguments. I prefer to follow the Python documentation's lead, which uses emphasis for function arguments. Since I think references to function arguments occur much more frequently than math mode, I prefer changing to have explicit math mode roles (i.e. require the use of `:math:` before LaTeX). It's a pain to change though... 
+comment
+That was an oversight on my part. I also messed up the documentation there on `dijkstra_path_length`. I'll make a pull request with a fix. 
+comment
+You could evaluate each pair individually in the docstring:  ``` >>> data['directed'] False >>> data['graph'] {} ... ``` 
+comment
+That's not really a bug, dictionaries are unordered in Python by design. Search "Python dictionary doctest" for some discussion/solutions. 
+comment
+Cool! 
+comment
+This can be implemented more easily if pull request #1740 gets merged. That pull request adds a method for getting an edge-induced subgraph. Then you can do  ``` H = G.edge_subgraph((u, v) for u, v, d in G.edges(data='color') if d == 'red') nx.shortest_path(H, x, y) ``` 
+comment
+You mean like `G.subgraph(node=..., edges=...)`? 
+comment
+I think we would like to see the code move _toward_ PEP8, not away from it. We should be _adding_ whitespace around operators where there is none. 
+comment
+@Michael-E-Rose Please, ignore the comment to reduce whitespace, just follow the guidelines. As for removing camel case, I always say yes to changing things like that for consistency, but let's see if anyone else has a suggestion. 
+comment
+This seems to be fixed in a newer version of NetworkX, in commit 1dc16026a654e6bca3f8d182a18e213b7fb31871. I'm creating a pull request now that adds a unit test for unorderable nodes. 
+comment
+That's probably on me, I introduced that function in pull request #1322. I modified the code from [PADS](http://www.ics.uci.edu/~eppstein/PADS/); you can see a copy of the original PADS code on GitHub here at [jfinkels/pads](https://github.com/jfinkels/PADS/blob/master/pads/bipartite_matching.py). Would you mind running your test with the original bipartite matching code from PADS to make sure there is no error in that code? 
+comment
+Awesome work. I'll take a look at this and leave some comments. 
+comment
+Great work. Is there a way of solving this problem without creating an entirely new graph object, which may be very costly in terms of space? In other words, can we use the bipartite node attributes to filter only those edges which are from left to right where needed in the algorithm? This would be more costly in time but potentially save a lot of space. 
+comment
+I think `pairwise([x])` should return the empty iterator and `pairwise([x], cycle=True)` should return an iterator that generates the single tuple `(x, x)`. This could be a problem if someone is trying to generate, say, the edges for a cycle in a graph but doesn't want to allow self-loops. However, the default behavior of a graph is to allow self-loops, so the responsibility is on the user to handle (i.e. remove) self-loops if necessary for the application; the behavior of this function matches that expectation, from a certain point of view.  Would `cyclic` be a better keyword argument name? I ask because there is `itertools.cycle` function, that endlessly cycles through elements of an iterable; `cycle=True` could be confused with producing an infinite cyclic iterator. I don't have strong feelings about this. 
+comment
+Probably better to call it `centrality/subgraph.py`, the `_alg` seems unnecessary. 
+comment
+@dschult wrote:  > Something like `G.add_edges_from(zip(nlist[:-1], nlist[1:]))`.  Or `G.add_edges_from(nx.utils.pairwise(nodes))`.  > add_star and add_cycle are used less in tests and doc_strings, but they are used. Suggestions for replacement idioms?  My suggestions are `G.add_edges_from((r, v) for v in leaves)` and `G.add_edges_from(pairwise(nodes, cycle=True))`, assuming we add the `cycle` keyword argument to pairwise. 
+comment
+@hagberg wrote:  > Should we add some functions like `make_path(nodes)`?  This seems reasonable to me. It would essentially just be a convenience function for the expression `pairwise(nodes)`. However, it has the benefit that its name indicates its function in graph theoretic terms, instead of the more generic `pairwise`.  > Or overload `path_graph(nodes)` to accept an iterable?  Then you get `G.add_edges_from(path_graph(nodes))` etc.  I don't think this is a good idea, since none of the other functions in the `generators` package accept a list of nodes as input. If I learned that `path_graph` accepted a list of nodes, I might expect `cycle_graph`, `complete_graph`, `grid_graph`, etc. to accept a list of nodes. 
+comment
+I like `add_path`, but will it always "add" edges? For example, if a (simple) graph already has edges (2, 3) and (3, 4)? Not sure if that's much of a problem (but it should be documented). 
+comment
+Haha thanks for the shout out. Yay user-centric documentation! 
+comment
+Wonderful, thank you for the clarifying documentation. 
+comment
+In #1876, I made changes to a handful of functions in the code that only required only the node and edge data, which would be termed a "fresh data" copy in this terminology. Does the merge of this pull request mean that in order to get the reduction in memory usage I was intending with my changes to those functions, I should change the appropriate lines to be  ``` H = G.__class__() H.add_nodes_from(G) H.add_edges_from(G.edges()) ```  ? 
+comment
+Oops, I didn't notice this pull request when I suggested #1876, sorry about that. 
+comment
+I can take a look at this. 
+comment
+Some comments. 1. The `chords()` function might be simpler with an edge-induced subgraph function (see #330). For example:        ```    chords = G.edge_subgraph(e for e in G.edges() if e not in T.edges())    ``` 2. There should be a `fundamental_cycles` function that takes a graph and a spanning tree, and returns the fundamental cycles of the graph with respect to that particular tree. Following the above example,        ```    fundamental_cycles = [[(u, v)] + nx.shortest_path(T, v, u) for u, v in chords]    ``` 3. These functions should allow the user to specify a spanning tree that has already been computed. For example, I may want to construct a low-stretch spanning tree, as suggested by @harrymvr, then get the set of fundamental cycles with respect to that spanning tree.  I'm about to open a new pull request that makes some style and documentation fixes, and partially implements item 3. Some tests are still missing. 
+comment
+I think your implementation is doing more work than is necessary, since "connectivity" is computing the number of nodes required to disconnect the graph, which is more information than you need; you only need reachability of pairs of nodes.  There are several options for implementing this. One option is to compute the density of the reachability graph, as described in the documentation for that R function. (`reachability_graph` could become its own function, there are various interesting implementations for it.)  ``` # Could alternately not compute H here, # and just call `G.has_path(u, v) or G.has_path(u, v)` below. H = nx.Graph(G) reachability_graph = nx.Graph((u, v) for u, v in combinations(H, 2) if H.has_path(u, v)) connectedness = nx.density(reachability_graph) ```  Another option is to compute the numerator and denominator directly.  ``` num_connected_diads = sum(1 for u, v in combinations(G, 2) if G.has_path(u, v) or G.has_path(v, u)) n = len(G) num_diads = (n * (n - 1)) // 2 connectedness = num_connected_diads / num_diads ``` 
+comment
+Yes you could also do that, but you'll have to make sure to get the arithmetic right for counting the number of undirected pairs that are connected/not connected :) 
+comment
+Can you provide your new implementation? It still may be valuable. 
+comment
+You still have not tried the implementation that @dschult suggested, which is likely to be much faster: compute the size of each (weakly) connected component in the graph, then compute the total number of pairs of nodes within the same component and the total number of pairs of nodes in different components. 
+comment
+In any case, it seems this function can be implemented as  ``` def connectedness(G):     n = len(G)     lengths = map(len, nx.weakly_connected_components(G))     # We are double counting both sets of dyads, but that's okay since both the numerator     # and the denominator have a factor of two.     num_connected_dyads = sum(m * (m - 1) for m in lengths)     num_dyads = n * (n - 1)     return num_connected_dyads / num_dyads ```  Someone double-check my math? 
+comment
+Interesting. How about `complete_multipartite_graph`? 
+comment
+Seems complicated for `complete_multipartite_graph`, does this work?  ```  def complete_multipartite_graph(*blocks):      # If blocks are given as integers, create the blocks ourselves.              if all(isinstance(block, int) for block in blocks):          extents = pairwise([0] + list(accumulate(block_sizes)))          blocks = [range(start, end) for start, end in extents]      # Otherwise, if blocks are given as iterables, just use those as             # nodes. The remaining code is the same as before, but you might add         # the check for a non-iterable object...                                ``` 
+comment
+I think this looks good. 
+comment
+This was added in pull request #1768. 
+comment
+The way I implemented it does not allow uniform attachment (and it fails if you try to provide `alpha=float('inf')`). I will work on a version that allows uniform attachment. 
+comment
+The double colons are intentional. It is how Sphinx recognizes code blocks, basically. I put them there so that in the case that NetworkX abandons numpydoc in the future, the documentation will still render correctly using Sphinx, the default documentation generator for Python projects. I believe numpydoc passes those double colons straight through to Sphinx, so leaving them in should do no harm. 
+comment
+Yep, the [blank lines are important](http://www.sphinx-doc.org/en/stable/rest.html#source-code) in the .rst format.  And yes, I meant "numpy-style docstrings", which are parsed by the Sphinx extension called "napoleon". 
+comment
+Here is GitHub's help on rebasing: https://help.github.com/articles/about-git-rebase/ 
+comment
+I suggest not allowing self-loops in maximal matchings. Consider the path graph on two nodes with self-loops on both nodes. If self-loops are allowed, the maximum matching would be the set of two self-loops, which is a little surprising. This may be desirable in certain situations, but I think we should leave that as an example in the documentation if necessary. 
+comment
+The way I've done this in the past is _minimum_ installation requirements in `setup.py` and _maximum_ installation requirements in `requirements.txt`. This way, when building the egg/wheel/whatever via `python setup.py ...` you get the minimum requirements, but when installing via pip, like in testing or development environments, you get all the optional dependencies as well. I don't know how other people do it or what the "best practice" is. 
+comment
+Here is [Wikipedia's definition of reciprocity](http://en.wikipedia.org/wiki/Reciprocity_%28network_science%29). 
+comment
+Imagine a graph with a single edge with a weight attribute equal to `2` (not `2.0`). Then the difference appears between Python 2 and 3:  ``` $ python3 -c "print(4 / 2)" 2.0 $ python2 -c "print(4 / 2)" 2 $ python2 -c "from __future__ import division; print(4 / 2)" 2.0 ```  The difference is that in Python2, division by two integers results in an integer whereas in Python 3, real division results in a float.  As for API design, I'm not sure. 
+comment
+Yes, I think this makes sense:  ``` from __future__ import division s = sum(d for v, d in self.degree(weight=weight)) # If `weight` is None, the sum of the degrees is guaranteed to be # even, so we can perform integer division and hence return an # integer. Otherwise, the sum of the weighted degrees is not # guaranteed to be an integer, so we perform "real" division. returns s // 2 if weight is None else s / 2 ```  In any case, it is important to document the type of the output in the docstring for this function: "If a weight keyword argument is provided, the output will be a float, regardless of whether all the weights are integers." 
+comment
+I believe so; fixed by pull request #1439. 
+comment
+Can you give a specific example that you found confusing in the documentation and would be clearer with a visual example? 
+comment
+This is a good idea. Can I take this opportunity to suggest ditching the `NetworkX` prefix on all of the exceptions? Just create a `NodeNotFound` and `EdgeNotFound` exception, the `NetworkX` part is redundant. 
+comment
+I assume the prefix is there as another leftover from C-like programming style. In Python, the traceback includes the package in which the exception lives, see the last line:  ``` $ python -c "import networkx as nx; nx.Graph().remove_edge(0, 0)" Traceback (most recent call last):   File "/home/foo/src/networkx/networkx/classes/graph.py", line 938, in remove_edge     del self.adj[u][v] KeyError: 0  During handling of the above exception, another exception occurred:  Traceback (most recent call last):   File "<string>", line 1, in <module>   File "/home/foo/src/networkx/networkx/classes/graph.py", line 942, in remove_edge     raise NetworkXError("The edge %s-%s is not in the graph" % (u, v)) networkx.exception.NetworkXError: The edge 0-0 is not in the graph ```  However, I will open a different issue for that. As for the current issue, I think not just `NetworkXNotFound` but more specific errors like `NodeNotFound` and `EdgeNotFound` are appropriate. 
+comment
+This GitHub help page has some links describing how to create a pull request: https://help.github.com/articles/proposing-changes-to-a-project-with-pull-requests/ 
+comment
+Could change [this line](https://github.com/networkx/networkx/blob/master/networkx/algorithms/flow/networksimplex.py#L239) from `if sum(D) != 0:` to `if abs(sum(D)) < tolerance:`, where tolerance is a small positive floating point number.  
+comment
+A better solution would be `from __future__ import division`, then remove the cast to `float` entirely. It seems that the cast to `float` is introduced so that you get real division in `_choose_node()` when dividing by `psum`, is that correct? 
+comment
+> I'm not worried about future divisions [...]  Ok, well here is my justification anyway for why I make this suggestion in any module with division. - future division is defensive programming in projects that support both Python 2 and Python 3: in case a contributor happens to forget that Python 3 has real division, having the future division prevents an issue. - `1 / 3` is preferable to `1. / 3` (or even worse, `float(1) / 3`) for readability, and for the former, future division is required: the former is closer to how we communicate when we write fractions on paper or on a blackboard.  > [...] the range(-n,0) gives only the last n values.  Oh, because `x` may be longer than `n`.  As for the numerical issues, I don't know about solving those problems. 
+comment
+This was fixed by pull request #1578. 
+comment
+This is not a problem with the code; the calling code has the responsibility of creating a new `list` object for each node. I assume you are doing something like  ``` G.set_node_attributes('cliques', []) ```  but intended  ``` G.set_node_attributes('cliques', {v: [] for v in G}) ```  but the [documentation for `set_node_attributes`](networkx.github.io/documentation/development/reference/generated/networkx.classes.function.set_node_attributes.html#networkx.classes.function.set_node_attributes) already states this behavior:  > If _values_ is not a dictionary, then it is treated as a single attribute value that is then applied to every node in _G_. 
+comment
+Is there a way the documentation could be clearer? Maybe an example? 
+comment
+Can you add a note in the documentation explaining the difference between this and the caveman graph? Also add a `See also` section with a link to caveman graph, since they are similar, right? 
+comment
+Yes. 
+comment
+Needs a matching unit test as well. The example from the commit message, I guess. 
+comment
+Yes, try making your changes in a new branch. See information on collaborating in the [GitHub help](https://help.github.com/articles/creating-a-pull-request/).  Also, you should add `from __future__ import division` to the head of the file, since the `float`/`int` difference appears when using (real) division. 
+comment
+> So, I did the changes you suggested on a new branch https://github.com/emilienkofman/nx. [...] May I ask for a new PR on this new branch?  That's a new _repository_, which is different from a new _branch_ of an existing repository. Read some of the [GitHub help pages](https://help.github.com/categories/collaborating/) for working with forks and branches.  > But I don't get why `from __future__ import division` is necessary, can you explain? A number of edges is an integer anyway.  In Python 2, `2 / 3` is `1` but in Python 3, `2 / 3` is `0.666`. Since you are using the `weight` attribute to compute the "degree", the result there might not be an even number. 
+comment
+Maybe it wouldn't hurt to document this distinction with a brief note in the relevant methods. 
+comment
+To implement this you would essentially have to rewrite the `Graph` class and require the neighbors function as an initial argument. A lot of the existing methods wouldn't make sense (`add_edge`, for example). 
+comment
+This was fixed in pull request #1714. 
+comment
+In Python 2.7 you need to use, for example, [`dict.viewkeys()`](https://docs.python.org/2.7/library/stdtypes.html#dict.viewkeys) to get a view. In Python 3, `dict.keys()` does the same thing. 
+comment
+Looks good. I restarted the build just to double check this passes all the tests. I will merge this after the build finishes. 
+comment
+Merged in f608df87bbfe8779323f88d26db157b8fa2b2fd8. 
+comment
+Can you please add the example as a unit test in the file `networkx/algorithms/operators/test/test_binary.py`? 
+comment
+FYI this discussion also appears in issue #261. 
+comment
+How about this, which only makes a single call to the all-pairs shortest path algorithm, instead of multiple calls to the single-source shortest path algorithm:  ``` def collective_influence(G, u=None, distance=2, _paths=None):     if u is None:         if _paths is None:             _paths = nx.all_pairs_shortest_path(G)         # TODO This can be trivially parallelized.         return {v: collective_influence(G, v, distance, _paths[v]) for v in G}     if _paths is None:         _paths = nx.single_source_shortest_path(G, source=u, cutoff=distance)     return _collective_influence(G, u, distance, _paths)   # Pre-condition: `paths` is not empty. def _collective_influence(G, u, distance, paths):     reduced_degree = lambda node: G.degree(node) - 1     frontier = (v for v, path in paths.items() if len(path) - 1 == distance)     return reduced_degree(u) * sum(map(reduced_degree, frontier)) ``` 
+comment
+> Also, helper functions that only get used once are usually better in-line.  Oops, you're right of course, I originally had a slightly different implementation in mind, then changed my mind halfway through writing it.  > Finally the original code is closer to the paper's explanation.  Makes sense to me, I was mostly just concerned about the cost of repeatedly calling single-source shortest paths when a single call to all-pairs shortest paths would suffice. 
+comment
+How does this relate to #1522? 
+comment
+I merged the implementation in #1522 instead of this implementation. 
+comment
+This is a good idea. Two more things: 1. The `sum(1 for x in l)` idiom already appears in the code somewhere, I remember writing it once I think. If you can find it, replace it. 2. Helper functions should not be unit tested. This is a viewpoint I've argued elsewhere but I'm not sure if people buy it. Only _behavior_ of public API functions should be tested, not their implementation. 
+comment
+The attributes should be called `is_frozen` because they are Booleans. 
+comment
+Having a module named "community" under a package called "community" seems redundant.  I think it might be better to place `k_clique_communities` and the function introduced by this pull request into a single file called `community.py`, replacing the `community` subpackage. This change would be backward compatible. 
+comment
+How does this relate to #1265? 
+comment
+Okay I see now, thanks.  I prefer this implementation over the one in #1265. However, can you change the name of the module from `community` to `girvan_newman`, or maybe `centrality`, since the algorithm repeatedly removes the most central edges in the graph?, and there could conceivably be other community-finding algorithms using centrality measures?  After that, if someone seconds a preference for this implementation over the other one, I will merge it. 
+comment
+Cool. Squash the commits on this branch and I will merge it. 
+comment
+Hmm GitHub seems to think there are merge conflicts. Can you `git rebase -i master`? 
+comment
+Not sure whether it's good or bad, but here's how [Flask](https://github.com/mitsuhiko/flask) does it: http://flask.pocoo.org/docs/0.10/extensiondev/#extension-import-transition  Essentially, when "addons" are created, they live in a Python package or module named `flask_xxx`, then when they are imported by the end user, they are imported as `import flask.ext.xxx`. 
+comment
+Note: by "the new `greedy_color()` algorithm", @jakevdp is referring to the changes I proposed in #1680. 
+comment
+Oh! Sorry about that, I made an incorrect assumption!  I think this change should be merged first, then I can update my (more complicated) pull request. 
+comment
+@dschult `G.degree(v)` should return a single value, the degree of the node `v`. Anything else would be extremely surprising. 
+comment
+```                 yield (len(nbrs) + (n in nbrs))                 return ```  is a silly thing to do.  If you want to consider two separate functions, I would do `G.degree(v)` for a single node, `G.degrees([v1, v2, v3])` for multiple nodes. 
+comment
+`G.degree(v)` would check if `v in G`, and if not, raise an exception, suggesting to the user the possibility that perhaps they meant to use `G.degrees()` instead. 
+comment
+While you're making changes here, using the Boolean-valued expression `(v in self.adj[v])` as a 0 or 1 is a little non-obvious to those who don't come from a C background and fragile in case `True` and `False` are no longer interpreted as 0 and 1 in the future. I like something like  ``` neighbors = self.adj[v] return len(neighbors) + 1 if v in neighbors else len(neighbors) ``` 
+comment
+Or closer to what you have, I guess: `return len(neighbors) + (0 if v in neighbors else 1)`. 
+comment
+If there are only two options, the keyword argument should be a boolean, for example, `minimum=True`. 
+comment
+Seems fine to me! 
+comment
+Seems fine to me. 
+comment
+One way to retrigger a Travis build if necessary is to close and reopen the pull request.  On Sun, May 31, 2015 at 6:34 AM, Mridul Seth notifications@github.com wrote:  > The latest commit has passed all tests on travis but it is not showing the > green tick. Please someone restart it. @dschult > https://github.com/dschult @ysitu https://github.com/ysitu >  > — > Reply to this email directly or view it on GitHub > https://github.com/networkx/networkx/pull/1546#issuecomment-107152376. 
+comment
+Yes, this is a documentation bug. The documentation for `networkx.algorithms.matching` should indicate that bipartite graphs can be matched via the `networkx.algorithms.bipartite.matching` functions. 
+comment
+If you are able, can you [create a pull request](https://help.github.com/articles/using-pull-requests/) with the code changes and the test case you presented in your previous comments? If you are unable, let us know and someone else can do it. 
+comment
+I made the change suggested by @bbphd in pull request #1566. 
+comment
+Well, I've seen both names used. Apparently so has Wikipedia, "[Vertex identification](https://en.wikipedia.org/wiki/Edge_contraction#Vertex_identification) (sometimes called vertex contraction) [...]". I don't have a strong opinion about this, so I proposed allowing both names. 
+comment
+Just a heads-up, watch out for copyright licenses when distributing source code from two different projects in a single new project (for example in a GitHub repository). NetworkX is [licensed under a BSD license](https://github.com/networkx/networkx/blob/master/LICENSE.txt), [METIS under an Apache License](http://glaros.dtc.umn.edu/gkhome/metis/metis/faq?q=metis/metis/faq#distribute). I believe they are compatible, just make sure the license requirements are met. 
+comment
+Right, but any new code (that is, the wrapper code) must be licensed under a compatible license. I assumed you would require a BSD license to match the NetworkX core. 
+comment
+As usual, the answer is "it depends". If you publish a repository, say "networkx-metis", that includes both the METIS source code licensed under Apache and additional wrapper code licensed under BSD, then you might be considered to be distributing a derivative work of METIS. If the repository "networkx-metis" includes only the wrapper code, then it is probably not considered a derivative work. (Although the jury's still out on [whether an API itself is copyrightable](https://en.wikipedia.org/wiki/Oracle_America,_Inc._v._Google,_Inc.) :\ .)  On Tue, May 19, 2015 at 11:06 AM, chebee7i notifications@github.com wrote:  > Is it actually necessary for the addons to have a compatible license? > Honest question. >  > If these addons were separately installed and not officially part of > NetworkX, it seems no different than if NetworkX had imported NumPy which, > on some particular computer, had been compiled to make use of Intel's MKL. > In principle, users can put whatever they want in the package that NetworkX > will try to import. It just has to implement an interface that the NetworkX > code has been written to expect. >  > — > Reply to this email directly or view it on GitHub > https://github.com/networkx/networkx/issues/1528#issuecomment-103540013. 
+comment
+That's true, but I assumed you might want everything distributed under the "NetworkX" brand to have the same license, for consistency.  On Tue, May 19, 2015 at 11:33 AM, chebee7i notifications@github.com wrote:  > If we are talking about the wrapper code, then sure. What I meant was that > the wrapper code need not have the same license as NetworkX itself. So if > necessary, the wrapper code could be Apache licensed to match METIS, and > NetworkX could still import it. Right? >  > — > Reply to this email directly or view it on GitHub > https://github.com/networkx/networkx/issues/1528#issuecomment-103554778. 
+comment
+@ysitu That's fine, this was basically just a heads up that there are copyright issues at play here. 
+comment
+Please add a test case with the example you gave in the referenced issue. 
+comment
+I'm not sure what the issue is here. Are you requesting something specific? 
+comment
+This pull request seems to be superceded by #1438, which is now merged. 
+comment
+After a quick look at the code for `all_shortest_paths`, I think this is because `all_shortest_paths` runs an implementation of Dijkstra's algorithm, an algorithm that does not correctly handle negative weights. 
+comment
+Now rebase and squash your changes so they appear as one commit: `git rebase -i master`. 
+comment
+@chebee7i Could also do something like this: in the constructor of the graph class, do  ``` self.neighbors_view = G.adj.values()  # or G.adj.viewvalues() in Python 2.7. ```  then define  ``` def is_empty(G):     return any(self.neighbors_view) ``` 
+comment
+@chebee7i This should be closed due to merging of #1475. 
+comment
+This should now be fixed by pull request #1339, with the only caveat that (following a discussion by the maintainers) you will have to explicitly state if you want to interpret the array entries as parallel edges in a multigraph as opposed to a single weighted edge:  ``` >>> import numpy as np >>> import networkx as nx >>> >>> A = np.matrix([[0, 2], [1, 0]]) >>> G = nx.from_numpy_matrix(A, create_using=nx.MultiGraph()) >>> H = nx.from_numpy_matrix(A, parallel_edges=True, ...                          create_using=nx.MultiDiGraph()) >>>  >>> print(G.edges()) [(0, 1)]     >>> print(H.edges()) [(0, 1), (0, 1), (1, 0)] ``` 
+comment
+That's my bad, sorry: I guess the single backticks means "math mode" for NetworkX documentation! 

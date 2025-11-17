@@ -1,0 +1,2 @@
+issue
+add support for normalizing node values with matplotlib normalization…#TITLE_END#… functions  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

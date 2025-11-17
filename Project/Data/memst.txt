@@ -1,0 +1,4 @@
+comment
+Is there a reason why the PR has gone cold? I would be interested in rebasing the proposed changes onto the current version if someone would review them. It seems like there was a good discussion for a while, but the maintainers then forgot to respond.
+comment
+style/format check can be fixed by running ``` pip install black==21.5b1 black . ``` in the project directory

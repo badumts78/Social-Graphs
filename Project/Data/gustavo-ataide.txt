@@ -1,0 +1,2 @@
+issue
+Improved documentation for boundary_expansion function#TITLE_END# This PR improves the documentation for the `boundary_expansion` function by: - Adding practical examples. - Clarifying the calculation and the concept of node boundary. - Adding a note about the potential generalization for two sets (related to the TODO). - Formatting the documentation to follow NetworkX standards.

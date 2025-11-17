@@ -1,0 +1,2 @@
+issue
+algorithms.components.number_weakly_connected_components returns 1  always#TITLE_END#creating MultiDiGraph() algorithms.components.number_weakly_connected_components returns 1  always while  nx.algorithms.components.number_strongly_connected_components returns a "valid" (and different) number depending on the graph.  Please can you check

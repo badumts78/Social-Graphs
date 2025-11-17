@@ -1,0 +1,4 @@
+issue
+3.2 backends: maxflow backend kwargs vs flow_func kwargs#TITLE_END#There is an abstraction collision between the system for providing kwargs to a backend vs the system for providing kwargs to the provided flow_func. I have not tested this, but I suspect that this means that you can't both explicitly specify a backend with kwargs _and_ provide kwargs to the flow func. A potential solution could include passing flow_func kwargs not as actual kwargs, but as an explicit dictionary.  For context, I am preparing type stubs for networkx for typeshed, and this popped out as an issue while trying to describe the public interfaces.
+comment
+That's a very interesting pull request. I'll attempt to redo types on top of HEAD when I have time. I am also interested in learning about _dispatch. 

@@ -1,0 +1,2 @@
+issue
+Documentation example on read_edgelist for directed graph has missing parentheses#TITLE_END#While trying to read a digraph from a list of edges, as suggested in the documentation examples for this function: G = nx.read_edgelist("network.txt", create_using=nx.DiGraph) generates an error  TypeError: clear() missing 1 required positional argument: 'self'  The correction was: G = nx.read_edgelist("network.txt", create_using=nx.DiGraph()) 

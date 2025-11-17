@@ -1,0 +1,6 @@
+issue
+Estimating the Average Clustering Coefficient of a Graph#TITLE_END#This algorithm computes the average clustering coefficient for a graph, using an established algorithm from network analysis.  Here, I've added only one file, networkx/algorithms/approximation/clustering_coefficient.py. In it, I have defined the function "approx_clustering_coeff", which takes two arguments:   G: The graph whose average clustering coefficient we want estimated.   numTrials: The number of times to test to find triangles.  Please let me know if my code is "up to snuff", or if there is anything I can do to make it better! 
+comment
+Looks great! 
+comment
+Aric,  Your change looks fine, but you're still using random.sample. What is the speedup here?  -Fred 

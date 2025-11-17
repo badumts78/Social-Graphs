@@ -1,0 +1,10 @@
+issue
+CI BUG: it probably shouldn't run on branches of forks#TITLE_END#CI has been triggered on my fork while opening #7503 which is very much not standard behaviour. Is that intentional, or the workflows need an audit to ensure they are not triggered on forks?
+issue
+CI: update action that got moved org#TITLE_END#Minor update to redirect action after its move 
+issue
+Add testing with the development version of dependencies#TITLE_END#Nightly wheels of development version of core scientific python libraries are built and distributed, and downstream is strongly encouraged to use these as part of their standard CI, and then report issues upstream.  more context (the content of the SPEC is still work in progress though) https://scientific-python.org/specs/spec-0005/ as well as here https://numpy.org/devdocs/dev/depending_on_numpy.html#testing-against-the-numpy-main-branch-or-pre-releases
+issue
+Produce nightly wheels#TITLE_END#We're working on [CI recommendations for projects](https://scientific-python.org/specs/spec-0005/) recommended for projects. One of these is to test against the developer version of their dependencies. In order to do this efficiently, widely-used projects, like networkX,  should build and upload nightly wheels to a [somewhat central location](https://anaconda.org/scientific-python-nightly-wheels).    
+comment
+Hints would be really nice, combined with the `doctest_global_setup` would address both the testing and confusion issues. (And the convenience part may not be addressed by adding the imports anyway as even then not all snippets would be fully self-contained (and the main offenders are SO and github issue snippets anyway rather than the official docs)).

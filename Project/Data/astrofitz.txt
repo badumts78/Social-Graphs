@@ -1,0 +1,2 @@
+issue
+added ability to check node attributes for labels#TITLE_END#This is a small feature that allows the nodes' labels to be set as attributes. `G.add_node(mynode, label='mylabel')` `nx.draw(G, with_labels=True)`  The only addition is to search the node attributes for the `label` key and update the default if it exists.

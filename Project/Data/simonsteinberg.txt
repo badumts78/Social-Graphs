@@ -1,0 +1,2 @@
+issue
+Increased efficiency of UnionFind.__getitem__ slightly.#TITLE_END#The last element in `path` is the `root` itself.

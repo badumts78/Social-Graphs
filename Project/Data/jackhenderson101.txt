@@ -1,0 +1,2 @@
+issue
+draw_networkx_edges ignores connectionstyle parameter#TITLE_END#If you call `draw_networkx_edges` with an undirected graph with no self loops, the `connectionstyle` parameter is ignored unless `arrows=True`. This is not clear from the documentation. Either the documentation could be changed to clarify this, or the code could be changed to use the FancyArrowPatch when the connectionstyle parameter is included.

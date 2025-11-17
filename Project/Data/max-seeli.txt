@@ -1,0 +1,6 @@
+issue
+Added feature modular graph product#TITLE_END#Hi all,  I added the [Modular Graph Product](https://en.wikipedia.org/wiki/Modular_product_of_graphs), an interesting product providing an equivalence of cliques to isomorphic subgraphs.  Thank you
+issue
+Fixed typo in tensor product documentation (Fixes #7228)#TITLE_END#Hi,  A very quick PR for a type in the tensor product documentation. This Fixes #7228  Thanks
+issue
+Typo in Tensor Product Documentation#TITLE_END#### Current Behavior Currently, in the documentation, the definition of the node set of the product says, it is the **tensor** product of the node sets. This is incorrect, as the tensor product is not applicable to sets and does not correspond to the sci. definition.   ### Expected Behavior The **Cartesian** product of the node set provides the correct (and implemented) mathematical operation.   

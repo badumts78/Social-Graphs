@@ -1,0 +1,2 @@
+issue
+Update vertex_cover.py#TITLE_END#Fixed Bug executing MWVC for only unstructured to both directed and unstructured. The existing algorithm holds valid for both. 

@@ -1,0 +1,4 @@
+issue
+Duplicate remove_node call should be handled by finally#TITLE_END#Before, there was a duplicate call to remove_node which should have been handled by a finally clause. Also added a test to verify that the size of the graph remains unchanged before and after the call to `negative_edge_cycle()` 
+issue
+Returning the minimum weight from a multigraph was inefficient#TITLE_END#In the previous code, you would essentially iterate through the `edge_dict.values()` values twice. First would be running the list comprehension to produce a list of weights, and then again to find the minimum value for the list produced. Passing the generator expression to `min()` produces what you're looking for in one full iteration. I also included a little code beautification à la pep8 as well but will revert it if necessary.  

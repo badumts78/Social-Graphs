@@ -1,0 +1,16 @@
+issue
+Bridging centrality implementation#TITLE_END#As mentioned in discussion #4808 and issue #4973, there are several novel centrality measures that are not present yet in NetworkX. One of these is 'bridging centrality', a product of betweenness and a coefficient.  This is a draft implementation of the algorithm, which uses a call to `betweenness_centrality`.  I will work on implementing relevant tests. 
+issue
+Add weight to distance_measures#TITLE_END### Motivation As talked about in issue #5257 we want distance measurements to work for weighted graphs too. This is a draft I am working on.  ## Explanation Most distance measurements in `distance_measures.py` rely on the `eccentricity` method and the `extrema_bounding` method. Thus, the key is to incorporate weights into these methods. I have currently added weights to `eccentricity`.   ## Considerations  - Currently, I am using Bellman Ford for calculating weighted shortest paths to allow negative weights. Do we want to allow negative weights? Otherwise Dijkstra's is faster. - The `weight` argument should be a string as the Bellman Ford method requires a string. However, if I am not mistaken, it can also take a weight function, as Dijkstra's method implementation can, but this is not documented. Could you take a look at this, otherwise I can fix that as well. - There is not much type checking happening for `weights` anywhere in the `single_source_bellman_ford_path_length` method, should we incorporate it? If so, can someone explain or send me a link to read on how NetworkXErrors work?  ## Plan I want to get weights working for `eccentricity `first, and then add that to all the functions that use `eccentricity`. Afterwards, I will work on `extrema_bounding`
+comment
+Hi guys,  Are you still working actively on this? Otherwise I can also take over some work.
+comment
+Alright, so most of the functions actually just use the `eccentricity` function, or the `extrema_bounding` method in the case of `usebounds=True` (BTW this isn't in the documentation or the docstring). So I'm going to start with the `diameter` function just to see how everything works if no one objects.
+comment
+I opened a draft PR #5298 
+comment
+I didn't realise you were still working on this issue as I didn't get a response @lucasmccabe , so I added weights for eccentricity and extrema bounding and thus for most distance measures. The weight argument can be a string or a function like in the shortest paths algorithms.  It's PR #5298, could you take a look?
+comment
+Would someone have time to review #5298?
+comment
+Hi,  I recently started looking into NetworkX and saw that there was this open project to implement this VF2++ algorithm for subgraph isomorphism and briefly spoke to @MridulS about it. To my knowledge, it hasn't been implemented yet in Python, nor has it been offloaded to the C++ LEMON library. I think it would be a great challenge for me as a computer science student to actually implement the algorithm, so I would be interested in taking it on me. I will look more into both NetworkX and the VF2++ algorithm over the next two/three weeks, and prepare a short write-up on my thoughts and ideas on the project as well as things I might be stuck with. I will send that here, and hope to hear from the community any relevant thoughts on this. Thanks!

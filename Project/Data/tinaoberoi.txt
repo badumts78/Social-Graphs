@@ -1,0 +1,16 @@
+issue
+doc:improve doc of possible values of nodes and expected behaviour#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> Closes #6274
+issue
+Fix typo in readme file#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> Closes Issue #6217   Changes made: - Fix typo in readme.txt for missing file force.py
+comment
+Hi @MridulS is this issue still open? If yes I would like to take this up if no one is working on it.
+comment
+Hi @danieleades,  this looks like an interesting issue to solve. I would like to work on this if nobody else is working on it.
+comment
+Hi everyone, is anyone working on this? If not would go ahead and create a PR for the fix.
+comment
+@diogobaltazar I will start working on it, sorry for the dealy.
+comment
+@rossbar @Qudirah I believe this issue is resolved now, can we go ahead and close this?
+comment
+Hi @paulitapb  Are you working on this? If not would love to contribute.

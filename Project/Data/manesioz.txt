@@ -1,0 +1,18 @@
+issue
+Speed-up of graph/multi-graph methods #TITLE_END#Addresses #3687  
+issue
+Updated String Formatting and Error Messages #TITLE_END#Updated error messages, accomplishes the following:   - Uses proper string formatting conventions consistently (i.e. "{}".format(var) instead of "%s" % var)  - Uses the actual graph alias instead of the default "G", which makes the error more clear and easier to trace back if you are dealing with multiple graphs  
+issue
+Issue with the separation of dijkstra_path and dijkstra_path_length functions #TITLE_END#Hello,  I was wondering if there was any reason to separate `dijkstra_path()` and `dijkstra_path_length()` into separate functions? Since we can see from the [source code](https://github.com/networkx/networkx/blob/master/networkx/algorithms/shortest_paths/weighted.py#L162) that we are only returning part of the information in `dijkstra_path()`:   ```python  (length, path) = single_source_dijkstra(G, source, target=target,weight=weight) return path ``` Which means that if the user wants to find the path length in addition to the path itself, one would have to call the other function `dijkstra_path_length()`, thereby increasing the computational overhead unnecessarily.   Wouldn't it be easier to return a NamedTuple of both path and length and let the user parse the information accordingly? 
+comment
+Can you give a specific case when the function would be stuck in an infinite loop? 
+comment
+To generalize this you essentially want a function to calcluate the cost of *any* arbitrary path, not necessarily the shortest one (relative to your weight).  Surprisingly there doesn't seem to be any general function for this (`all_simple_paths()` is close but it generates paths unnecessarily, we already have a single one in mind), but it seems like it would be easy to implement (using the available `traversal` methods). What do you think? 
+comment
+I was thinking of also implementing some error checking to determine if the sequence of nodes is valid before we blindly compute the cost but I noticed that I don't think there's a function that accepts a sequence of nodes and a graph ([here](https://networkx.github.io/documentation/networkx-1.9.1/_modules/networkx/algorithms/shortest_paths/generic.html#has_path) we see `has_path()` which accepts a start and end node, but in this case we care about the intermediary nodes) so do you think it would be helpful to implement that as well? 
+comment
+I'm not sure what you're asking, but there is an implementation of the [GN algorithm](https://networkx.github.io/documentation/latest/reference/algorithms/generated/networkx.algorithms.community.centrality.girvan_newman.html) if you were looking for that.   
+comment
+Would it be possible to show us the actual list of nodes and edges connected to the above points (the 9, 7, and 6 ones respectively)? It's possible that the visualization is not perfectly reflective of the actual graph relationships (depending on how you rendered/coloured it). For example, in OSM, some Ways span multiple Nodes which could account for the greater-than-anticipated degree centrality for some nodes. 
+comment
+print(type(H))

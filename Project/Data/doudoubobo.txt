@@ -1,0 +1,2 @@
+issue
+Questions about transitivity computation#TITLE_END#When I saw the [code](https://networkx.github.io/documentation/stable/_modules/networkx/algorithms/cluster.html#transitivity) for computing transitivity of a graph, I found that the `_triangles_and_degree_iter` function is called to compute the triangle number for both directed and undirected graph. I am wondering if the `_directed_triangles_and_degree_iter` function should be used for directed graphs?

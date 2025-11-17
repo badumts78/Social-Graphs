@@ -1,0 +1,24 @@
+issue
+Cycle space algorithms#TITLE_END#Hi,  Some time I wrote some functions that are useful to derive Kirchhof laws from given graphs. I followed the algorithm in Modern Graph theory by Bollobás.  I would like to receive comment on how to improve them to match the level and quality of current algorithms in networkx.  The file can be found here https://github.com/kakila/cycle_space 
+issue
+Two new algorithms for cycles and extension of cycle_basis#TITLE_END#I have merged my algorithms with networkx. I tried to follow coding standards by looking at other files. I have added tests.  I would like to know how to create demos to show the use of cycle_basis and cycle_basis_matrix to generate Kirchhof equations for a given circuit (directed multigraph).  Thanks 
+issue
+difference fails when applied to MultiDiGraph and Graph#TITLE_END#Take G as a MultiDiGraph  Get a spanning tree assuming it is undirected  ``` python T = nx.minimum_spanning_tree (nx.MultiGraph (G)) ```  Take the difference to (almost) get the chords of G  ``` python nx.difference (G,T) ```  The following error is produced  ``` python --------------------------------------------------------------------------- TypeError                                 Traceback (most recent call last) <ipython-input-77-8d39870ba2cc> in <module>() ----> 1 nx.difference(G,T)  /usr/lib/pymodules/python2.7/networkx/algorithms/operators/binary.pyc in difference(G, H)     223         edges=G.edges_iter()     224     for e in edges: --> 225         if not H.has_edge(*e):     226             R.add_edge(*e)     227     return R  TypeError: has_edge() takes exactly 3 arguments (4 given) ```  This is due to the fact that the iterator edges is created with key=True, but since T is just a Graph (should be MultiGraph) the method has_edge fails. 
+comment
+Dear Developers, I am one of the original authors of the pull request and I was wondering if this was finally included or not in the software. As far as I can tell, the conversion to cycle matrix and the examples are not released, is this correct? Please let me know if I can assist.  Regards,  
+comment
+I think the change to add the optional argument to the spanning trees (commit 1d4e7dd) could be integrated right away. This is a useful enhancement independent of the cycle basis topic  
+comment
+Thank you for your answer @dschult, I hit the same issue when trying to reproduce an "edge ordered graph" ```python3     g = nx.MultiDiGraph()     for e in [(1,0), (2,0), (3,0), (1,4), (1,5), (4,2)]:         g.add_edge(*e)     print('g: ', g.edges)      # doesn't conserve edge order     g2 = nx.MultiDiGraph()     for e in g.edges:         g2.add_edge(*e)     print('g2:', g2.edges)  g:  [(1, 0, 0), (1, 4, 0), (1, 5, 0), (2, 0, 0), (3, 0, 0), (4, 2, 0)] g2: [(1, 0, 0), (1, 4, 0), (1, 5, 0), (4, 2, 0), (2, 0, 0), (3, 0, 0)]  ``` Is there a recipe to create anew graph with the same edge order? I couldn't find anything.
+comment
+and as I wrote the answer I came up with the solution! ```python3     g = nx.MultiDiGraph()     for e in [(1,0), (2,0), (3,0), (1,4), (1,5), (4,2)]:         g.add_edge(e[0], e[1])     print('g: ', g.edges)      # conserve edge order     g2 = nx.MultiDiGraph()     g2.add_nodes_from(g.nodes)     for e in g.edges:         g2.add_edge(e[0], e[1])     print('g2:', g2.edges)  g:  [(1, 0, 0), (1, 4, 0), (1, 5, 0), (2, 0, 0), (3, 0, 0), (4, 2, 0)] g2: [(1, 0, 0), (1, 4, 0), (1, 5, 0), (2, 0, 0), (3, 0, 0), (4, 2, 0)] ```
+comment
+Thanks for all the work. In #1067 you gave two suggestions for `chords()` and `fundamental_cycles()` are those still in force?  Is #330 being resolved? making `chords()` simpler would be great. What code should I clone to work on your latest version? 
+comment
+Regarding your suggestions. 1. I am working on this. 2. Isn't `cycle_basis` doing this? 3. Since `cycle_basis` calls `chords` when the input is a multigraph. It makes sense to accept an optional tree (I've done this). The other functions, in their current implementation do not seem to rely on a tree of the graph.  There is a TODO asking whether `chords` should return a graph of a list of edges. My logic was that on the chords graph one would like to have graph methods available, like edges_iter in `cycle_basis_matrix`. It also allows the user to directly operate on graphs, instead of first creating it from the edges. So if you are not against it I would remove that TODO.  I sent a pull request to add these minimal changes. 
+comment
+It seems that #1740 covers comment 1.  
+comment
+@jfinkels if you merge branch edge-subgraph with this branch I can reduce chords to a simpler function. Provided there is no negative impact in performance (which I think it wont). 
+comment
+@dschult where would you use #1740. In the function chords to return the subgraph?  

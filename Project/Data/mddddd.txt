@@ -1,0 +1,14 @@
+issue
+Reading graphs with certain node/edge properties#TITLE_END#There is a common pattern in functions designed to read/parse various fileformats to use `G.add_node(n, **attrs)` or `G.add_edge(u, v, **attrs)`. Usually `**attrs` is a dictionary with properties of currently processed node/edge. Unfortunately this approach breaks when node/edge has an `'n'` or `'v'` attribute. Here is a minimal example:      #!/usr/bin/env python     import networkx as nx      d = {'nodes': [{'id': 0, 'n': 'foo'}], 'links': []}     G = nx.node_link_graph(d)  This leads to:      TypeError: add_node() got multiple values for keyword argument 'n'  I've experimented with some parsing functions and this issue show up in `read_shp`, `node_link_graph`, `read_multiline_adjlist` and probaby some other file-reading functions. As `n`, `v` or `u` attributes are quite possible in real world data therefore I think this issue can cause some troubles to users. What is your opinion on this? 
+issue
+Fix for inter_community_edges#TITLE_END#inter_community_edges sometimes returned wrong answer when working with digraphs. This patch should also fix #2600.
+issue
+Fix shortest_simple_paths. Issue #2427#TITLE_END#Bug was in deviation finding part of algorithm.  Instead of ignoring first (i - 1) vertices in path, algorithm ignored i-th vertex in path.
+issue
+nx_shp fixes#TITLE_END#Hi, This PR fixes some minor bugs in nx_shp: - Updates read_shp to raise RuntimeError when file cant be open or read. - Adds new keyword `strict` to read_shp and implements suggestion #2451 , read_shp now raises NetworkXError when feature lacks geometry and `strict=True`. Conversely `strict=False` can be used to silently ignore features without geometry. - Adds small change to write_shp, should fix #2432 . - Some new tests which check this updates.  Update: Some builds were failing because of no ogr module. Fixed testcase which was causing problems.
+issue
+Add support for incomplete partitions in quotient_graph.#TITLE_END#Hi, this PR adds support for incomplete partitions as discussed in #2529 . 
+comment
+I would be happy to contribute PR for this issue but have some questions. As I see `blockmodel` was replaced by more general `quotient_graph`, taking this into acount is this issue still valid? (some math oriented people may argue that there is no quotient graph without proper partition, so this should be error)  If it is still valid then what is the expected behaviour when partition is incomplete? I see 2 possibilities: - Return a quotient graph of a subgraph induced by nodes from partition. - Update partition with singletons made from nodes not present in original partiton.  what do you think?
+comment
+From what i can see you are using `GraphMatcher` with `MultiDiGraphs`. Changing `GraphMatcher` to `DiGraphMatcher` seems to fix this bug.

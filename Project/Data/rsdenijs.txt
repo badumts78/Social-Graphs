@@ -1,0 +1,2 @@
+issue
+dfs_tree behaviour#TITLE_END#Is it correct that dfs_tree returns an empty graph when running it on graph with a single node?  import networkx as nx im = nx.DiGraph() im.add_node(1) print nx.dfs_tree(im,1).nodes()  > > []  On the other hand, it DOES return the source node when it is connected to other nodes.  dfs_tree is what is supposed to be used to get the reachable part of the graph starting at a given point, right?  

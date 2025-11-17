@@ -1,0 +1,2 @@
+issue
+pydot includes#TITLE_END#networkx.drawing.nx_pydot.read_dot needs pydot installed however, this package is not necessarily included in networkx and no corresponding exception is thrown 

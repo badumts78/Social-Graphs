@@ -1,0 +1,2 @@
+comment
+Reviving this. Is there any way of doing this in current networkx? Maybe some version of TSP?

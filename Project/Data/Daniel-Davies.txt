@@ -1,0 +1,6 @@
+issue
+Allow custom keys for multiedges in from_pandas_edgelist#TITLE_END#Adding PR for feature stated in issue #4065, regarding the ability to provide a custom key for multigraphs in the from_pandas_edgelist function. Code currently (as stated in issue) deals with duplicate keys by overwriting them, and I will look into better mechanisms in future PRs. Tests have been added and code was run through black.  
+comment
+I think this issue could be useful for a project I am currently doing- may I investigate this?   As you've described, one logical thing to do with multiedges/ duplicates is to overwrite the existing data- but perhaps there could be some user configurable options. For example, a default would be to overwrite, another method could be a 'log' approach (where each G[source_node][edge_node] is a list of the found edge attributes per key), or perhaps another option could be to take the most occuring element?
+comment
+Raised a PR for the basic version at the moment, but I suppose some discussion is needed on how to deal with duplicates. I will take a closer look tomorrow and propose an option as a new issue?

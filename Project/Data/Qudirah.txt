@@ -1,0 +1,192 @@
+issue
+Added docstrings examples for clique.py#TITLE_END##6575 @MridulS have a look :)
+issue
+Adding is_tounament to main namespace#TITLE_END#fixes for #5542   @MridulS did I do it right? Also, this change will lead to little changes in docs. Would I need to open new PRs for that?
+issue
+Added tests to test_correlation.py#TITLE_END#fixes for #6588 @MridulS Have a look! I am not so certain I did the right thing.
+issue
+Improve test coverage for neighbor_degree.py#TITLE_END#fixes for #6588 
+issue
+added tests to euler.py#TITLE_END#fixes for #6607 
+issue
+Improve test coverage for mst.py#TITLE_END#fixes for #6539 @paulitapb @MridulS please have a look.   I also have issues understanding what to do from line 337 to line 341 in https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/tree/mst.py
+issue
+equitable_coloring file is not properly documented#TITLE_END#The functions in networkx/algorithms/coloring/equitable_coloring.py are not properly documented. It needs docstring improvement. @MridulS @rossbar is this something I can go ahead with?
+issue
+Added tests for summarization.py#TITLE_END#fixes for #6609 
+issue
+Added test cases to equitable_coloring.py#TITLE_END#fixes for #6604 
+issue
+improve test coverage for steinertree.py#TITLE_END#fixes for #6585
+issue
+added doc examples for vertex_cover.py#TITLE_END#fixes for #6575 
+issue
+added a doc example to treewidth.py#TITLE_END#fixes for #6575 
+issue
+Doc examples for ramsey.py#TITLE_END#fixes for #6575 
+issue
+added examples for maxcut.py#TITLE_END#fixes for #6575 
+issue
+added doc examples for matching.py#TITLE_END#fixes for #6575 
+issue
+add doc examples to dominating_sets.py#TITLE_END#fixes for #6575 
+issue
+added doc examples for distance_measures#TITLE_END#fixes for #6575 
+issue
+Improving test coverage for reportviews.py#TITLE_END#fixes for #6332 @MridulS @rossbar Please check this out. I also don't know how to go about lines 860,861, the same as the remaining uncovered errors. I will be needing your help and input :(
+issue
+Improve test coverage for percolation centrality algorithm#TITLE_END#I discovered there are still some red spots in this link https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/centrality/percolation.py  I will like to work on it.  The tests will be added in https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/centrality/tests/test_percolation_centrality.py  Current Behavior We don't test all the paths the code can take us.  Expected Behavior We should be testing everything so there aren't any surprises.  Steps to Reproduce https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/centrality/percolation.py
+issue
+Improve test coverage for multidigraph class #TITLE_END#I discovered there are still some red spots in this link https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/classes/multidigraph.py I will like to work on it.  The tests will be added in https://github.com/networkx/networkx/blob/main/networkx/classes/tests/test_multidigraph.py  Current Behavior We don't test all the paths the code can take us.  Expected Behavior We should be testing everything so there aren't any surprises.  Steps to Reproduce Visit https://app.codecov.io/gh/networkx/networkx/blob/main//networkx/classes/multidigraph.py
+issue
+Improve test coverage for connected.py#TITLE_END#There are a few red lines I want to work on in https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/approximation/connectivity.py.  My issue is I can't import the modified bidirectional_shortest_path function in the connectivity.py file. The one in the shortest_path/unweighted.py does not have the exclude argument. To write the test cases, I need to access the function somehow. What am I missing? @MridulS @dschult @rossbar Also I don't know if that is why the doc examples of the function are missing in the doc, but I will like to work on that too.
+issue
+Improve test coverage for clique.py#TITLE_END#There is a line left uncovered in https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/approximation/clique.py and I am looking into it. There is a bit of an issue though when I try G = None. An attribute error is raised not a value error.   Steps to Reproduce  from networkx.algorithms.approximation.clique import maximum_independent_set,max_clique G=nx.Graph() G.add_nodes_from([(2,3),(5,6),(3,6)]) max_clique(G=None)  output:  AttributeError                            Traceback (most recent call last) Cell In[84], line 1 ----> 1 max_clique(G)  File <class 'networkx.utils.decorators.argmap'> compilation 32:3, in argmap_max_clique_28(G)       1 import bz2       2 import collections ----> 3 import gzip       4 import inspect       5 import itertools  File ~\anaconda3\lib\site-packages\networkx\utils\decorators.py:83, in not_implemented_for.<locals>._not_implemented_for(g)      82 def _not_implemented_for(g): ---> 83     if (mval is None or mval == g.is_multigraph()) and (      84         dval is None or dval == g.is_directed()      85     ):      86         raise nx.NetworkXNotImplemented(errmsg)      88     return g  AttributeError: 'NoneType' object has no attribute 'is_multigraph'
+issue
+The greedy_coloring function strategy_connected_sequential is not behaving well#TITLE_END#I was trying to work on improving the test coverage of the greedy_coloring algorithm but something weird is happening. This code is running just fine without raising the NetworXError eve though the traversal argument isn't "bfs" or "dfs". What did I do wrong? Is this a bug?  `G = nx.Graph()` `G.add_edges_from([(0, 1), (0, 2), (0, 3)])` `coloring = {0: 0, 1: 1, 2: 2, 3: 3}` `strategy_connected_sequential(G,traversal="lol",colors=coloring)`
+issue
+Updating dict.get default = 1#TITLE_END#fixes for #6443 
+issue
+Improve test coverage for summarization.py#TITLE_END#There are a few red lines in https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/summarization.py and I want to get rid of those lines. :)  will attach a PR soon. 
+issue
+Add docstring examples to approximations algorithms#TITLE_END#I want to add docstring examples to algorithms under networkx/algorithms/approximations. I will add the PRs below. 
+issue
+Improve test coverage for mst.py#TITLE_END#The [coverage on mst.py](https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/tree/mst.py) is 94.39 and I want to work on it to improve it.
+issue
+Improve test coverage for steinertree.py#TITLE_END#I discovered there are a few lines that are red in https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/approximation/steinertree.py and I want to work on them. Linking a PR soon!
+issue
+Improve test coverage for algorithms in assortativity #TITLE_END#The neighbor_degree algorithm needs its coverage of 100% from https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/assortativity/neighbor_degree.py and also correlation.py has some yellow lines in https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/assortativity/correlation.py. I will link a PR soon solving both. 
+issue
+Improve test coverage for matching.py#TITLE_END#There are some red lines in https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/bipartite/matching.py and I want to work on getting rid of them. :)
+issue
+Improve test coverage for equitable_coloring.py#TITLE_END#I want to get rid of red lines in https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/coloring/equitable_coloring.py. I will link a PR soon. 
+issue
+Improve test coverage for euler.py#TITLE_END#There are a few red lines in https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/euler.py. Will link a PR to get rid of them. 
+issue
+improve test coverage for branchings.py#TITLE_END#Fixes #6520  @MridulS @rossbar @paulitapb Please have a look
+issue
+Improve test coverage for Eigenvector centrality #TITLE_END#fixes #6226 
+issue
+Document PageRank algo convergence condition #TITLE_END#Adding documentation for #4792 
+issue
+Improve test coverage for percolation centrality algorithm#TITLE_END#fixes #6170 
+issue
+Improve test coverage for voterank algorithm#TITLE_END#fixes for #6154 
+issue
+Improve test coverage for branchings.py#TITLE_END#The [coverage on branchings.py](https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/tree/branchings.py) is 92.37 and I want to work on it to improve it.   
+issue
+Making get.dict default =1 #TITLE_END#fixes for #6443 @dschult. Please have a look here.
+issue
+Removing Alpha value Specification#TITLE_END#fixes for #6443   @dschult and @rossbar please take a look at the PR. Have I done the right thing?
+issue
+Improve test coverage for Eigenvector centrality#TITLE_END#I discovered there are still some red spots in this link https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/centrality/eigenvector.py  I will like to work on it.  The tests will be added in https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/centrality/tests/test_eigevector_centrality.py  Current Behavior We don't test all the paths the code can take us.  Expected Behavior We should be testing everything so there aren't any surprises.  Steps to Reproduce Visit https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/centrality/eigenvector.py
+issue
+Improve test coverage for voterank algorithm#TITLE_END#I discovered there are still some red spots in this link  https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/centrality/voterank_alg.py  I will like to work on it.  The tests will be added in https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/centrality/tests/test_voterank.py  Current Behavior We don't test all the paths the code can take us.  Expected Behavior We should be testing everything so there aren't any surprises.  Steps to Reproduce Visit https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/centrality/voterank_alg.py
+issue
+Improve coverage for current flow betweenness subset#TITLE_END#fixes for #6213 
+issue
+Improve coverage for current flow betweenness subset#TITLE_END#I discovered there are still some red spots in this link  https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/centrality/current_flow_betweenness_subset.py I will like to work on it.  The tests will be added in https://github.com/networkx/networkx/blob/main/networkx/algorithms/centrality/tests/test_current_flow_betweenness_centrality_subset.py  Current Behavior We don't test all the paths the code can take us.  Expected Behavior We should be testing everything so there aren't any surprises.  Steps to Reproduce https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/centrality/current_flow_betweenness_subset.py
+issue
+Undocumented parameters in dispersion#TITLE_END#fixes for #6111 
+issue
+Amount of nodes and edges have mistakes when reading adjlist file#TITLE_END#fixes #5911 
+issue
+Improve test coverage for graph class#TITLE_END#fixes #6102 
+issue
+Improve test coverage for multigraph class#TITLE_END#fixes #6088 
+issue
+Improve test coverage for algorithms in dispersion.py#TITLE_END#fixes #6092 
+issue
+Improve test coverage for multidigraph class#TITLE_END#Bugfix for #6118
+issue
+Improve test coverage for digraph class#TITLE_END#fixes #6109 
+issue
+Improve test coverage for algorithms in dispersion.py#TITLE_END#I discovered there are still some red spots in this link https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/centrality/dispersion.py and will like to work on it.  The tests will be added in https://github.com/networkx/networkx/blob/main/networkx/algoritms/centrality/tests/test_dispersion.py  Current Behavior We don't test all the paths the code can take us.  Expected Behavior We should be testing everything so there aren't any surprises.  Steps to Reproduce Visit https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/centrality/dispersion.py
+issue
+Improve test coverage for digraph class#TITLE_END#I discovered there are still some red spots in this link https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/classes/digraph.py I will like to work on it.  The tests will be added in https://github.com/networkx/networkx/blob/main/networkx/classes/tests/test_digraph.py  Current Behavior We don't test all the paths the code can take us.  Expected Behavior We should be testing everything so there aren't any surprises.  Steps to Reproduce Visit https://app.codecov.io/gh/networkx/networkx/blob/main//networkx/classes/digraph.py
+issue
+Improve test coverage for multidigraph class#TITLE_END#Bugfix for issue #6118 
+issue
+Improve test coverage for digraph class#TITLE_END#Bugfix for issue #6109
+issue
+Improve test coverage for graph class#TITLE_END#I discovered there are still some red spots in this link https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/classes/graph.py and will like to work on it.  The tests will be added in https://github.com/networkx/networkx/blob/main/networkx/classes/tests/test_graph.py  Current Behavior We don't test all the paths the code can take us.  Expected Behavior We should be testing everything so there aren't any surprises.  Steps to Reproduce Visit https://app.codecov.io/gh/networkx/networkx/blob/main//networkx/classes/graph.py
+issue
+Improve test coverage for multigraph class#TITLE_END#I discovered there are still some red spots in this link https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/classes/multigraph.py and will like to work on it.   The tests will be added in https://github.com/networkx/networkx/blob/main/networkx/classes/tests/test_multigraph.py  Current Behavior We don't test all the paths the code can take us.  Expected Behavior We should be testing everything so there aren't any surprises.  Steps to Reproduce Visit https://app.codecov.io/gh/networkx/networkx/blob/main//networkx/classes/multigraph.py 
+issue
+Improve test coverage for algorithms in dispersion.py #TITLE_END#Hello @MridulS, Please review it.   fixes #6092 
+issue
+Improve test coverage for load centrality#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+test_load_centrality_normalize#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --
+issue
+fixed #6035#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+comment
+I just checked the function and it is understandable. The docstrings are well explanatory and it should work well. Is there anything, in particular, you'll like me to try?
+comment
+>   Can I make this correction?
+comment
+@BrunoBaldissera are you done with this issue?
+comment
+>  This function requires that the graph be connected. In the case where graph G only contains a single node (as in the example you provided, where we only added node 0 to G), the Laplacian centrality cannot be computed because the Laplacian matrix of the graph is not well-defined. This is all I can think of @rossbar 
+comment
+> Hi, yes you're absolutely right @Qudirah However, in normal cases laplacian centrality _should_ be defined for matrices with singular nodes. We'll have to come up with a way for that. That's what was covered in the discussion with @dschult and @rossbar.  oh! Thanks for the explanation. 
+comment
+@rossbar I want to work on this but I do not understand the conclusion much. Can you help with it?
+comment
+> You need to add `is_tournament` to the main namespace. That means if someone does `import networkx as nx`, and then they do `nx.is_` and hit a tab for autocomplete, `nx.is_tournament` should show up. >  > Currently someone needs to first import the `tournament` subpackage and then they will be able to use the `is_tournament` function. To fix this you need to go look at the `__init__.py` files in `networkx/__init__.py` and `tournament/__init__.py`  Thank you @MridulS. will get on that rn.
+comment
+@sirichandana-v are you working on this?
+comment
+@MridulS Should I work on catching the error?
+comment
+@jarrodmillman Can I add your hint suggestion to the doc?
+comment
+@dschult this issue should be closed then?
+comment
+@MridulS this is solved. The issue should be closed.
+comment
+Hello @MridulS, I think this issue is either resolved or not necessary. The error is in line 158 of https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/flow/maxflow.py and the function test_kwargs_default_flow_func() solves it. This is because if the flow_func is none, it becomes default and the kwargs is supplied in this function which summarizes that line. Please let me know what you think.
+comment
+@rossbar please help check this out?
+comment
+@MridulS I think this needs to be closed. Seems like a deadlock.
+comment
+@michihenninger Are you still doing this or I should get on it?
+comment
+> Hi @dschult @michihenninger @MridulS If no one's working on this issue, I'd like to take it up!  Working on it. Will soon link a pr ;)
+comment
+> > > Hi @dschult @michihenninger @MridulS If no one's working on this issue, I'd like to take it up! > >  > >  > > Working on it. Will soon link a pr ;) >  > @Qudirah Thanks a lot. I'm a bit busy these days. It's still on my TODO list ;-)  Anytime!
+comment
+@rossbar the pr linked to it is meant to close it. #6496 
+comment
+This issue should be closed. @dschult   Sorry I keep tagging you everywhere. I just want to keep things tidy so people can work on issues that haven't been worked on. :)
+comment
+> > This issue should be closed. >  > Hi @Qudirah - no need to keep pinging about issues like this: this issue will automatically be closed if/when #6459 is merged. Other developers can see that there's an open PR to fix this issue, which means they should direct their effort to reviewing that PR rather than submitting a new one.  Oh. Makes a lot of sense. Sorry about that.
+comment
+@MridulS @paulitapb @rossbar @jarrodmillman you guys should look at this issue
+comment
+@dschult what do you think? this should be closed?
+comment
+@rossbar this issue should be closed?
+comment
+@dschult This issue is solved, right?
+comment
+@MridulS @dschult please close the issue
+comment
+will do that now!
+comment
+@rossbar @MridulS from what I gather, alpha,b, and c are optimal values for obtaining maximum performance. Would that suffice?
+comment
+hello @rossbar @MridulS @jarrodmillman I need your help with this
+comment
+> > from what I gather, alpha,b, and c are optimal values for obtaining maximum performance. Would that suffice? >  > According to the implementation, these three parameters are used in the normalization procedure where the dispersion is normalized by embeddedness. Probably the best way to get a clear description of the normalization procedure is to investigate the paper referenced in the docstring.  Alright. I'll look into that.
+comment
+@dschult can I work on this?
+comment
+That is understandable. Thanks for the reply On Tue, 18 Oct 2022 at 16:54, Dan Schult ***@***.***> wrote:  > I think it would be fine to work on this -- but you should realize that > the final API decisions haven't been made. It might be helpful to see what > could work though. > > It looks like arrows is only used to help set a variable called > use_lineCollection. Maybe that should be the name of the input variable > instead of arrows or fancy_edges. Whatever we call it, it should have 3 > possible inputs: None, True and False. None means we determine a default > from G.is_directed() and based on whether connectionstyle or arrowstyle > are set. True or False mean we use those values (but should check whether > connectionstyle and arrowstyle make sense in these cases and raise a > warning (or exception?) in those cases. > > Changing the code is not too hard, but making those decisions might be. :) > > — > Reply to this email directly, view it on GitHub > <https://github.com/networkx/networkx/issues/5694#issuecomment-1282621722>, > or unsubscribe > <https://github.com/notifications/unsubscribe-auth/AWRSFHL46DUQRJ2DKVOKFGTWD3B3HANCNFSM5YBAW6QA> > . > You are receiving this because you commented.Message ID: > ***@***.***> > 
+comment
+@rossbar Can I work on what you have suggested? 
+comment
+> > Can I work on what you have suggested? >  > Absolutely, please do!  Just to be clear I go to the doc/readwrite/adjlist.rst and indicate a note under read_adjlist and generate_adjlist. Please correct me if I am wrong @rossbar 
+comment
+Hello, I want to try working on this issue but I'm confused as to which test needs assertion. Would I have to run each of them?

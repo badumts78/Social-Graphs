@@ -1,0 +1,2 @@
+issue
+dijkstar path vs path length#TITLE_END#sorry but what is the difference between a function that is:  dijkstar shortest path vs dijkstar shortest path length   and which function could one use to get the weight of a specific path if   ``` A-B is with weight=1.5 B-C is with weight=2.5 ```  then if querying for:  ``` A-B-C returns 4 ``` 

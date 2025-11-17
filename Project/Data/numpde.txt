@@ -1,0 +1,2 @@
+issue
+Simpler version of digitsrep(..) function#TITLE_END#Test the function with the attached code. [test_digitsrep.txt](https://github.com/networkx/networkx/files/646152/test_digitsrep.txt) 

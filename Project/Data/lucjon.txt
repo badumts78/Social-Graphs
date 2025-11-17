@@ -1,0 +1,2 @@
+issue
+Add generator function for circulant graphs#TITLE_END#This pull request adds a simple function for generating [circulant graphs](http://mathworld.wolfram.com/CirculantGraph.html), where every vertex is connected to those vertices with labels ±_j_ of its own label, for all _j_ in some set of 'jumps' _J_. A unit test is included which checks some common cases where well-known circulant graphs (such as the complete and cycle graphs) are generated. 

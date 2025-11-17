@@ -1,0 +1,6 @@
+comment
+If I understand correctly, the canonical labeling of a graph is the same as the coarsest equitable partition, as @jfinkels suggested. If this is still a desired enhancement, I have an implementation of the color refinement algorithm which produces the coarsest equitable partition in m log(n) time (based on http://match.pmf.kg.ac.rs/electronic_versions/Match40/match40_265-272.pdf).
+comment
+Okay, great. I have a couple questions/requests for guidance.  1. I am entirely unfamiliar with the networkx organization, so I'm not really sure where I should put the code or how to integrate it into the networkx ecosystem properly.  2. Currently my implementation returns a dictionary mapping partition numbers to a list of its members (more precisely, integer labels of the members, not the vertex/node objects themselves). Does this seem like a reasonable thing to return, or should we change it?  Thanks for the help!
+comment
+Thanks for the feedback.  I will go ahead and proceed as suggested, though it may take a little while (I have some relatively significant research demands at the moment). 

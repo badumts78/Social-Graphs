@@ -1,0 +1,2 @@
+issue
+Are there any functions to find longes 'n' paths in Networkx?#TITLE_END#Hi,  I have posted a question in Stackoverflow (with a bounty of 50 expiring on 20-Apr-2019) on finding longest 'n' paths in a Networkx Digraph? Please suggest your solutions.  https://stackoverflow.com/questions/55261803/how-to-find-the-longest-10-paths-in-a-digraph-with-python-networkx  Thanks

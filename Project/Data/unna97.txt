@@ -1,0 +1,2 @@
+issue
+added a new centrality: decay centrality#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> Related to issue: #4973 

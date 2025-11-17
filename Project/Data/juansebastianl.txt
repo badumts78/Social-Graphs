@@ -1,0 +1,2 @@
+issue
+`to_numpy_recarray` throws `KeyError: weight`#TITLE_END#Hello! I am running into trouble with `networkx` version 2.6.3 running an extremely simple script:        import networkx as nx      c_50 = nx.complete_graph(50)      nx.to_numpy_recarray(c_50)  Which throws a `KeyError: weight` in `convert_matrix.py`. 

@@ -1,0 +1,8 @@
+issue
+temporal networks#TITLE_END#whether are there some implementations about temporal networks? if i hava a temporal networks' data looks like this: ![image](https://cloud.githubusercontent.com/assets/16913304/16193316/fccf12a0-3720-11e6-984f-6ba4a880d7cb.png) how to read it to a  temporal networks graph? if there is a weighted networks data, i can do it look like this: ![adqlkz okme9 p0smip7 t0](https://cloud.githubusercontent.com/assets/16913304/16193292/d4f18e7a-3720-11e6-8978-3d7780fcf8b7.png) I failed to found whether the networkx has the same methods if not, My idea is  to with edge attributes stored timestamp, it's ok? 
+issue
+weighted directed Graph to undirected Graph#TITLE_END#I want to convert an weighted directed Graph to an weighted undirected Graph,looks like that my weighted directed Graph is: 1 2 2.0 3 2 1.0 2 3 2.0 3 4 1.0 I would get weighted undirected Graph: 2 3 1.5 which means  edges in both directions (u,v) and (v,u) exist in the graph, weight for the new undirected edge will be mean of the two directed edges. however if either (u,v,data) or (v,u,data) is not in the digraph,the new undirected edge will not be existing 
+issue
+函数average_shortest_path_length()考虑欠缺点#TITLE_END#调用该函数计算由单个节点构成的网络（经判定该网络是联通网络）的平均最短路径长度，则会报错。 原因是，该情况未被考虑在内。 如： 网络G中仅有一个节点0，用nx.is_connected(G)判定结果为Ture.故G为联通网络。 而该网络的节点为1，故1-1=0，average_shortest_path_length()函数计算中分母为0，出错 
+comment
+it looks like temporal networks 

@@ -1,0 +1,2 @@
+issue
+Add tree isomorphism#TITLE_END#Add an algorithm for finding if two undirected trees are isomorphic, and if so returns an isomorphism between the two sets of nodes.  This algorithm uses a routine to tell if two rooted trees (trees with a specified root node) are isomorphic, which may be independently useful.  Includes tests with 100% coverage that show correctness for all trees up to a certain size (assuming the nx.nonisomorphic_trees routine is correct) 

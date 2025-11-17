@@ -1,0 +1,2 @@
+issue
+s_metric normalized parameter defaults to true resulting in error#TITLE_END#If I understand correctly, the following three lines always result in an error being raised unless the user changes the default value of the normalized parameter. Does someone know why this was never implemented? https://github.com/networkx/networkx/blob/0c503e31ba0062dc9a4ed47c380481aa8d6978c8/networkx/algorithms/smetric.py#L6  https://github.com/networkx/networkx/blob/0c503e31ba0062dc9a4ed47c380481aa8d6978c8/networkx/algorithms/smetric.py#L33-L34  

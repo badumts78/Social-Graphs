@@ -1,0 +1,2 @@
+issue
+Fix closeness centrality doc equation summation.#TITLE_END#n to n-1 (do not count u) 

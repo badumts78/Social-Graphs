@@ -1,0 +1,2 @@
+issue
+Allow for different arrow sizes#TITLE_END#In directed graph drawing, it's much clearer to tell edge weights with different arrow sizes.  In nx_pylab.py, line 676, arrowsize can easily be input as a list if just a few lines are added:  `if len(arrowsize) > 1:     mutation_scale = arrowsize[i] else:     mutation_scale = arrowsize[0]`

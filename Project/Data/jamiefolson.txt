@@ -1,0 +1,14 @@
+issue
+Consistent way to retrieve edges/pairs between Graph and MultiGraph classes#TITLE_END#Current edge retrieval functions that return a single edge for a Graph or DiGraph return a dict of edges for MultiGraph or MultiDiGraph (e.g. `get_edge_data`, `__getitem__`).  It would be convenient to have some methods that _always_ return a list/dict/iterator of edges, even for Graph/DiGraph, to make Graph and MultiGraph instances more interchangeable. 
+comment
+I just wanted to chime in and say that something like this would go a long way towards making graphs and multigraphs play nicely together.  Has there been any progress on this? 
+comment
+Are you sure this fixed the issue?  `__getitem__` simply returns `adj[n]`, which for multigraphs, is not a dict of edges but a dict of dicts of edges.  So when the "weight" is retrieved by `_single_source_dijkstra_path_basic` it instead retrieves the edge data for the edge add with key `weight`. 
+comment
+In `_single_source_dijkstra_path_basic`, I see:  ```         for w,edgedata in G[v].items():             vw_dist = dist + edgedata.get(weight,1) ```  With no alternative for multigraphs.  What am I missing? 
+comment
+Ahhh.  Thanks for clarifying.  I didn't see anywhere in the API to convert multigraphs to graphs, though.  Did I miss something? 
+comment
+It seems like in most cases, that wouldn't be desirable.  For most "weight" semantics you'd want to either sum weights or take the max or min.  It'd be great to convert to Graph/DiGraph with some kind of "reduce" function that combines all edges into one. 
+comment
+I think something like that would be great.  I'm not sure what exactly that function should do.  It could take a list/iteratable of edges, a dict of edge, or be `function(previous_return_value, next_edge){}` a la map/reduce concepts. 

@@ -1,0 +1,4 @@
+issue
+Issue in sample code to create subgraph#TITLE_END#In https://github.com/networkx/networkx/blob/master/networkx/classes/graph.py#L1653 , i think it should say `if SG.is_multigraph():` , not `if SG.is_multigraph:`. I can also create a pull request if this simplifies things.
+issue
+Sample code for subgraph copy: add parenthesis to is_multigraph#TITLE_END#issue https://github.com/networkx/networkx/issues/3733 not sure which branch to merge to, please correct if wrong

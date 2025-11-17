@@ -1,0 +1,2 @@
+issue
+adding periodic moore neighbourhood generator#TITLE_END#Adding to lattice generators one that produces a periodic moore neighbourhood  

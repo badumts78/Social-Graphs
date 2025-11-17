@@ -1,0 +1,2 @@
+issue
+Unable to read "Pajek" file#TITLE_END#I am getting the following error. I have raised the issue on Orange3-Network Github (https://github.com/biolab/orange3-network/issues/81), they suggested me to raise it here  ![image](https://user-images.githubusercontent.com/6037028/44170628-f11c1e80-a0a5-11e8-98ba-ab553b4add9c.png)  

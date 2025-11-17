@@ -1,0 +1,2 @@
+issue
+spam link in the testing version documentation#TITLE_END#Hi! There's a spam link in the testing [package documentation](https://networkx.github.io/documentation/networkx-1.10/test.html#testing-an-installed-package).  The somethingaboutorange site is not a documentation page. Thanks.

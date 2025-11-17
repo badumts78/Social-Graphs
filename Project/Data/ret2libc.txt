@@ -1,0 +1,2 @@
+issue
+Clearer documentation about readwrite usage#TITLE_END#I see networkx.readwrite allows you dump graphs to a file in different formats and loads them, however functions used to parse the input files may allow a user to do a Denial Of Service or execute arbitrary code in the case of YAML or pickle.  I think it should be made clearer in the documentation that those functions that parse a graph should work on trusted input only, as they may allow arbitrary command execution in the worst case, if a user has control over the input data.

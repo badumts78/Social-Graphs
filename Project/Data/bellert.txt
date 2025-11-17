@@ -1,0 +1,2 @@
+issue
+Correct docstring for weight parameter#TITLE_END#Change weight to refer to nodes (instead of edges)

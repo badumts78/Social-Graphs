@@ -1,0 +1,2 @@
+issue
+Feature request: n-best paths#TITLE_END#As far as I can tell, there's currently no way with networkx to get the n best/shortest paths between two nodes in networkx. I've tried to implement it myself, but it has proved difficult to do efficiently (and in such a way that I could make it allow for ties like all_shortest_paths currently does).  Is there a simple/efficient way to do this I'm just not aware of? 

@@ -1,0 +1,2 @@
+comment
+Agree with @ysitu . Topological sort is for dags (thank god I just learnt this algorithm from unlocked algorithm LOL) 

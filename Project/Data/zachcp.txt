@@ -1,0 +1,2 @@
+issue
+add D3.js co-occurence matrix example#TITLE_END#in the networkx example folder there is an example of how to use networkx to create a force-directed graph (http://mbostock.github.com/d3/ex/force.html). I would like to request another example in the javascript documentation set of the D3.js plotting of an adjacency matrix in a shuffing-matrix format.  The D3.js  example, based off of the Les Miserables Co-Occurence dataset is here  (http://bost.ocks.org/mike/miserables/). 

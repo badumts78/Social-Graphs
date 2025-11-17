@@ -1,0 +1,2 @@
+issue
+Fix listing of release notes on Releases page#TITLE_END#This was inadvertently broken in #7005, by omitting the :glob: flag. However since globbing in sphinx currently only supports lexicographical ordering (https://github.com/sphinx-doc/sphinx/issues/3828), this is not really suited for version numbers anyways. Thus, revert back to manually listing versions. 

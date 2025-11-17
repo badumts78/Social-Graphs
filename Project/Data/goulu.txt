@@ -1,0 +1,4 @@
+issue
+removed requirement of lib2to3#TITLE_END#gml.py doesn't use lib2to3 anymore,  so lib2to3 isn't required anymore in networkx so programs using networkx can be "compiled" using py2exe  see https://github.com/networkx/networkx/issues/1775 
+issue
+Import of lib2to3 in gml.py prevents to use Py2exe or PyInstaller#TITLE_END#Since updating to 1.10 I cannot "compile" my application anymore because gml.py (which I don't use) imports lib2to3 .  Tried several workarounds (exclusion, mockups ...) but couldn't fix this. I think networkx should use six instead of lib2to3 ... 

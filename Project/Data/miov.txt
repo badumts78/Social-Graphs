@@ -1,0 +1,2 @@
+issue
+NetworkX Failing 57 Tests#TITLE_END#Running on: Linux Ubuntu 16.04     and   Windows 10 Pyzo 4.4.1  using conda Python 3.6.1  When I run import networkx as nx; nx.test()  it results in 57 failed tests on both LInux and windows. I am running pyzo 32bit on the windows parition and the 64bit version on my linux os.  here is the logfile test() produces: [testlog_57failures.txt](https://github.com/networkx/networkx/files/1200882/testlog_57failures.txt)  I also have a post to this problem on [stack overflow](https://stackoverflow.com/questions/45509149/networkx-test-failure)

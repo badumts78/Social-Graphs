@@ -1,0 +1,4 @@
+issue
+3d layouts#TITLE_END#nx_agraph does not process 3d coordinates when setting `dimen=3` in graph before layout
+issue
+#3575 return coordinates of 3d layouts#TITLE_END#Now parsing and returning any number of coordinates.

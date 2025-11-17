@@ -1,0 +1,2 @@
+issue
+resistance_distance is not available#TITLE_END#I get the following error while trying to access any method decorated with @not_implemented_for('directed') in distance_measures package:  `AttributeError: module 'networkx.algorithms.distance_measures' has no attribute 'resistance_distance'`  

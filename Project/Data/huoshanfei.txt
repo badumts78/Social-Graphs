@@ -1,0 +1,2 @@
+issue
+all_simple_paths #TITLE_END#the all_simple_paths func is slow speed, how to improve operation speed

@@ -1,0 +1,2 @@
+issue
+junction_tree for #1012#TITLE_END#I have implemented the junction tree algorithm to get the junction tree of a directed or undirected graph. This feature was somewhat already discussed in #1012.

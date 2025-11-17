@@ -1,0 +1,40 @@
+issue
+PEP 484 type hints#TITLE_END#PEP 484 type hints would be useful. If I sent a PR, would you accept it? 
+issue
+Graph representing complete graph whose edges are the euclidean distance of the coordinates of two nodes#TITLE_END#Yeah, it's a mouthful. (Just like Objective-C class names! Heh.)  This arises often in problems such as the Traveling salesman problem, often phrased as such:  Given a list of nodes with (x, y) pairs representing a complete graph in which each edge connecting two nodes is the euclidean distance between such two nodes.   Obviously, it would be too costly to compute the distance between every node and add it as an edge, rather it would be simpler (and easier) to simply dynamically compute the edge length as a property.  I think a graph along the lines of my description would be useful for many graph algorithms. 
+issue
+Updated formatting for __init__.py#TITLE_END#Updated formatting to conform with PEP 8 .  `Using` -> `Usage`; grammar (?) correction.  Helps fix #2189  
+issue
+Update formatting for relabel.py#TITLE_END#Helps fix #2189  
+issue
+Formatting doesn't comply with PEP 8#TITLE_END#I'll try to submit some PR's for this. It's fine if you don't accept them. 
+issue
+Simple shortcut method to get in edges/out edges of one vertex for DiGraph#TITLE_END#right now we have to do `graph.in_edges((vertex, ))` and likewise for `out_edges`.  
+issue
+[Improvement] Graph subscript notation - creating a custom dict-like object?#TITLE_END#For example, the subscript notation could return a wrapper class like this:  ``` class WrapperDict(object):     def __init__(self, basedict):         self.basedict = basedict         self.__getitem__ = basedict.__getitem__ ```  This way, when programmers mistakenly assign to the resulting dictionary, `TypeError: 'int' object does not support item assignment` is raised instead of messing up the graph's internal state. Another fix would be copying the dictionary, but that might use unnecessary computation. A helper method could be defined to easily copy the wrapper dictionary. 
+comment
+@jac2130 even if they did accept your code, the checks have failed. 
+comment
+@NareshPeshwe I have reformatted your code and I have put the resulting file [here](https://gist.github.com/CrazyPython/60bf33fdcb33865af75109d8e1ed7b38). - I replaced all the identation with spaces (PEP 8 convention)  - I renamed your method to use underscores instead of CamelCase (PEP 8 convention)   - Note: this is a major issue unlike the other ones I listed here, people will hate reading your code if it's uses CamelCase - I changed `... == None` to `... is None` (PEP 8 convention) - I added new lines according to PEP 8. - I renamed `G` to `graph` - it's PEP 8  convention to use lowercase names and it will be clearer in your your code, the client's code, and the docs if you use "graph" instead of "G" - You have an unused import statement - `import networkx as nx`. I removed this.  I think you should get a proper IDE - something like [PyCharm](https://www.jetbrains.com/pycharm/). It can automatically reformat your code, rename functions/variables/classes/files, etc., detect bad formatting, and do autocomplete. My IDE highlighted all the problems noted above and fixed them for me too (after my agreement, of course).  If you didn't know, [PEP 8](https://gist.github.com/CrazyPython/60bf33fdcb33865af75109d8e1ed7b38) is the official Python document dictating standard formatting for python.  I hope I saved you some time from having to fix the changes manually, and helped you avoid future mistakes with the editor. PyCharm - by the way - is free.  
+comment
+@NareshPeshwe I hope you can make/copy the changes that you feel are appropriate from my gist. Also, by the way please capitalize your "i"'s. :) 
+comment
+@NareshPeshwe I agree. You haven't applied any of my other suggestions though. 
+comment
+@NareshPeshwe From what I can tell, before you were either using Notepad/TextEdit or IDLE to do your editing. I sincerely hope you've switched. 
+comment
+@NareshPeshwe Great to hear! Always love to help out a fellow developer! BTW, you can press Alt+Enter to bring up the lightbulb/inspection menu. 
+comment
+Checks passed and no updates - just poking some people to make sure they haven't forgotten @mcognetta   Pinging a (random) project owner to remind them - @alexbrc  
+comment
+@mcognetta Ugh. Google groups is so old. networkx should have a more modern forum 
+comment
+@lamprini-koutsokera @hagberg close or what? Just reminding in case. 
+comment
+I think this should be closed - as @hagberg it's simple to test a graph's completeness. 
+comment
+This should be included in a recipes section. 
+comment
+Why not merge? @dschult  
+comment
+This issue tracker is for bugs and improvements - not help.  As @dschult said, you can message the google group or alternatively go to stackoverflow.com. You can use the tag networkx.  

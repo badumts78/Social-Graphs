@@ -1,0 +1,6 @@
+issue
+Fix #2880: Allow line_graph to apply to multigraph#TITLE_END#Removed not_implemented_for decorator from line_graph function. See #2814 and #2880.
+issue
+Set default value for alpha channel in viz:color elements#TITLE_END#When trying to read an gexf file created with Gephi, I got the following error.  ``` File "/usr/local/lib/python2.7/dist-packages/networkx/readwrite/gexf.py", line 693, in add_viz 'a':float(color.get('a')), TypeError: float() argument must be a string or a number ```  The alpha channel value was not set by Gephi and according to the [gexf 1.2 schema](http://gexf.net/1.2draft/viz.xsd) it is not required. Thus I suggest setting the default to 100. 
+comment
+I tried to call the ``line_graph`` method on a ``multigraph`` object which caused the exception that this method is not implemented for this type. I found that the `@not_implemented_for('multigraph')` was added in commit https://github.com/networkx/networkx/pull/2814/commits/0e215715bd295f76f14c648b1dae458fcfebe093. The commit message does not indicate this change and the doc string of the ``line_graph`` method says that it can be called with a multigraph object. The function works for multigraphs when the decorator is removed. Is this is a deliberate change?

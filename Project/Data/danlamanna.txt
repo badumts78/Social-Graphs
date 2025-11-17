@@ -1,0 +1,2 @@
+issue
+Allow GraphML to infer numeric types#TITLE_END#Fixes #1487  This addresses the issue of the GraphML writer creating separate attribute tags for named data with different numeric types.  This does everything in "one pass" by keeping the values it's encountered for a `name` **and** `scope`, and generalizing at the end. Doing so is noted [here](https://github.com/networkx/networkx/compare/master...danlamanna:fix-graphml-properties-1487?expand=1#diff-aca9577a5a85cf350216d863b25cf1d6R271) and was a judgment call by me, let me know what you think. 
