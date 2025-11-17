@@ -1,0 +1,2 @@
+issue
+Why doesn't all_simple_paths check that a path exists?#TITLE_END#Experimenting with a certain undirected graph, I stumbled upon an issue: `all_simple_path` was hanging and not yielding any paths. I checked if the path exists between the nodes I was interested in (`has_path`), and surprisingly it didn't. I would assume that the first thing the `all_simple_path` would do internally would be to check if any paths exist, and if not, return an empty generator right away. Why is this not the case?

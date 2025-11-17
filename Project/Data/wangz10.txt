@@ -1,0 +1,2 @@
+issue
+Added new network generator duplication_divergence_graph#TITLE_END#Hi networkx admins,  I added a new network generator `duplication_divergence_graph` to the package. Reference can be found here: http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2092385/.  I think that might be useful for people studying protein interaction network.  Thanks, Zichen 

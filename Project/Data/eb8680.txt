@@ -1,0 +1,12 @@
+comment
+> my understanding is that they only impact garbage collection and that special linkage should work fine across pickling  Are there any networkx unit tests that would fail if this weren't true and the proposed change was made?
+comment
+> We do have unit tests for pickling and un-pickling. So that side of it should be tested by travis-CI automatically  Thanks, this is what I meant.
+comment
+FYI @dschult we are no longer planning on pushing a fix for this.
+comment
+@dschult will take a look today, thanks!
+comment
+@dschult hmm, I'm still seeing memory leaks with the `master` branch of `networkx`.  Here are the tests that we use to detect leaks: https://github.com/eb8680/pyro/blob/reinstate-networkx/tests/test_memory.py  If I `git clone https://github.com/eb8680/pyro && cd pyro` and run those test (`pytest tests/test_memory.py`) on the `reinstate-networkx` branch, the tests fail.  If I run it on the `dev` branch (which is tracking the main repository), they pass.  The only difference is in this commit: https://github.com/eb8680/pyro/commit/733f1634ee60f7a043e21553c1b4345123a29e60  The `dev` branch wraps the subclass of `networkx.DiGraph` so that it can be manually deleted, and the `reinstate-networkx` branch does not.  Maybe I'm misunderstanding the semantics of `nx.DiGraph.copy` - the documentation is somewhat unclear.  cc @fritzo 
+comment
+@dschult #3014 seems to have fixed it - the tests linked above pass now.  Thanks for fixing this!  Is there a rough timeline for the next minor release of `networkx`?

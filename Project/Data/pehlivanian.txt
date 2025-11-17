@@ -1,0 +1,4 @@
+comment
+This works with a DiGraph (Python 3.6), not sure what `nx.MultiGraph()` means as an argument here: ``` nodes = ['A','B','C','D'] df = pd.DataFrame([[0,0.5,0.5,0],[1,0,0,0],[0.8,0,0,0.2],[0,0,1,0]], index=nodes,columns=nodes) G = nx.from_pandas_adjacency(df, create_using=nx.DiGraph()) ``` then list(G.edges.data()) gives:  ```[('C', 'D', {'weight': 0.2}),  ('C', 'A', {'weight': 0.8}),  ('D', 'C', {'weight': 1.0}),  ('A', 'C', {'weight': 0.5}),  ('A', 'B', {'weight': 0.5}),  ('B', 'A', {'weight': 1.0})] ```
+comment
+I edited my post - change `vals` to `nodes`. I get the above output for `create_using=DiGraph())`, not for the `Graph` and `MultiGraph` types. What is your output?

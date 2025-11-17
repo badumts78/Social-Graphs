@@ -1,0 +1,2 @@
+issue
+Collect label propagation communities in one go#TITLE_END#This change makes sure that we collect communities in one go, instead of performing `len(communities)` iterations over `labeling` list. It reduces the complexity from `O(nodes^2)` to `O(nodes)` at the expense of memory, since we us a dict to collect results.  I've discovered this by running label propagation on a big graph (1M nodes), which took 8h. Applying this change reduced the runtime to 6 minutes.  If this is not an acceptable tradeoff, please tell me, I have other ideas how to make it faster.

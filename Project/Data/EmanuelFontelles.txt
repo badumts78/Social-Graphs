@@ -1,0 +1,2 @@
+issue
+How can I create multilayer networks with networkx?#TITLE_END#I'm looking how to create multilayer networks on `networkx` but I think it's not possible because node index are dictionaries and I can't merge two different  graphs. What should I try?

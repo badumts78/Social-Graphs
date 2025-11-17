@@ -1,0 +1,2 @@
+issue
+Find_cycle returns an edge in a DiGraph#TITLE_END#Here is an example: ``` >>> import networkx as nx >>> G = nx.DiGraph() >>> G.add_edge(1, 2) >>> G.add_edge(2, 0) >>> G.add_edge(3, 1) >>> G.add_edge(3, 2) >>> nx.find_cycle(G) [(3, 2)] ```

@@ -1,0 +1,2 @@
+issue
+generate_random_paths() function is not recognized#TITLE_END#Hi,  I run the following code copied from the [docs](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.similarity.generate_random_paths.html)  ``` G = nx.star_graph(3) random_path = nx.generate_random_paths(G, 2) print(random_path) ``` This results in the following error:  > AttributeError: module 'networkx' has no attribute 'generate_random_paths'   My specifications are as follows Python version: 3.8 NetworkX version: 3.3   What's going wrong? 

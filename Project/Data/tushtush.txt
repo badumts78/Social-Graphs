@@ -1,0 +1,2 @@
+issue
+ZeroDivisionError in bipartite.degree_centrality#TITLE_END#Hello, Getting the following error: File "/usr/lib/pymodules/python2.7/networkx/algorithms/bipartite/centrality.py", line 75, in degree_centrality     s = 1.0/len(top)  Anything to be done in order to get results or does this mean that centrality can not be calculated for all of the given graph nodes? 

@@ -1,0 +1,2 @@
+issue
+cannot import name 'LFR_benchmark_graph'#TITLE_END#I cannot import the LFR_benchmark  `from networkx.generators.community import LFR_benchmark_graph`  The code is no longer contained in the site-packages/networkx/generators/community.py file.  Could someone help where can I find the LFR benchmark code?  

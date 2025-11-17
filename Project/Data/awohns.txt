@@ -1,0 +1,2 @@
+issue
+quotient_graph doc fix#TITLE_END#Small fix to the documentation of `networkx.algorithms.minors.quotient_graph` which I think makes it a bit clearer. The docs refer to `node_relation` which isn't a parameter and isn't referred to elsewhere. Basically it should just be referring to the partition.

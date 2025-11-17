@@ -1,0 +1,2 @@
+comment
+I am still observing this issue in networkx version 3.4.2, has anyone looked into this since 2023?

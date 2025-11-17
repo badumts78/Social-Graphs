@@ -1,0 +1,6 @@
+issue
+Add a drawing example regarding the solution of traveling salesman problem#TITLE_END#Me and @Mdontas created this pull request in order to add a drawing example for the tsp. It's been tested locally and it follows the Black code format. 
+comment
+Me and my colleague (@mdontas) are willing to contribute to this issue and we haven't understood what's the purpose of this issue. Could you give us a short explanation of what problem this issue is refering to @dschult ? We are new to contributing to Open Source Projects.
+comment
+Hey @dschult, Yes we were planning to make the Pull Request tomorrow, but there is a possibility that the tests won't be ready, almost everything is ready. One more thing, we should make the pull request on networkx main branch, right? Can we make the PR and before you merge it we add the additional commits referred to the tests? 

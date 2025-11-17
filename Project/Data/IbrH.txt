@@ -1,0 +1,2 @@
+issue
+Warning comment for float weights in betweenness.py#TITLE_END#Both equality and unequality comparison of distances in at least `_single_source_dijkstra_path_basic` produce wrong results on some graphs because limited machine precision might produce overflow and roundoff errors.  I have added a warning comment for this.  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

@@ -1,0 +1,2 @@
+comment
+Looks like someone is working on stubs independent of official sources https://github.com/eggplants/networkx-stubs/tree/master/networkx-stubs  Maybe consider a PR to bring these in if they work with 3.0? (Haven't had a chance to test)

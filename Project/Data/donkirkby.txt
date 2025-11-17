@@ -1,0 +1,2 @@
+issue
+Fix typo: Laplacion -> Laplacian#TITLE_END#Thanks for the great library! Here's a little typo fix.

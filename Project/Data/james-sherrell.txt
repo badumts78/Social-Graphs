@@ -1,0 +1,2 @@
+issue
+Adjust the behavior of the remove_edges_from function for multigraphs…#TITLE_END#… and introduce the same function to multidigraphs  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

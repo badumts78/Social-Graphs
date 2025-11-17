@@ -1,0 +1,2 @@
+issue
+Small-world analysis#TITLE_END#This implements algorithms for quantifying the "small-wordness" of a graph. There is commonly two metrics used to do that, sigma and omega. Both are documented on the wikipedia page on small-world network: https://en.wikipedia.org/wiki/Small-world_network

@@ -1,0 +1,2 @@
+issue
+How PageRank for directed weighted graph works?#TITLE_END#Hai,   I would like to know how PageRank for directed weighted graph works. The NetworkX PageRank can be used to calculate PageRank of a node in directed weighted graph. I am working on a project in which I give weighted graph to the algorithm, I would like to know, **based on which paper you guys do it.** Because it’s not mentioned in “Page, Lawrence; Brin, Sergey; Motwani, Rajeev and Winograd, Terry, The PageRank citation ranking: Bringing order to the Web. 1999”  Thanks 

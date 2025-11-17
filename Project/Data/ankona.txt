@@ -1,0 +1,2 @@
+issue
+Page number for Katz centrality reference#TITLE_END#Minor fix for Katz centrality documentation. Page referenced in `Networks, An Introduction` appears wrong when I went to read the reference:  ![image](https://user-images.githubusercontent.com/3595025/123522067-fb99f780-d688-11eb-9b3b-707542aa22ee.png) 

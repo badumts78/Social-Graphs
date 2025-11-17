@@ -1,0 +1,2 @@
+issue
+Graphviz subgraphs?#TITLE_END#Hi,  I've recently found this post on generating Graphviz subgraphs using networkx. However in the newest version, there is no `name` attribute in `subgraph(...)`.   Are there any other ways to generate (graphviz) subgraphs? Thx in advance.  Cheers,  Victor  

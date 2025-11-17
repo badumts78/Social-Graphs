@@ -1,0 +1,2 @@
+issue
+Katz raise nx.PowerIterationFailedConvergence(max_iter)#TITLE_END#i generated a Barabasi Albert graph with 5000 nodes and m = 3 when i call Katz centrality on graph it raises error :   ``` raise nx.PowerIterationFailedConvergence(max_iter) networkx.exception.PowerIterationFailedConvergence: (PowerIterationFailedConvergence(...), 'power iteration failed to converge within 1000 iterations') ```  any note will be useful thankyou!  

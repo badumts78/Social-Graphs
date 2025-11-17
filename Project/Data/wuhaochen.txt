@@ -1,0 +1,74 @@
+issue
+Require strongly connected to compute average shortest path length.#TITLE_END#As mentioned in #3266 
+issue
+Add Floyd-Warshall for average_shortest_path_length#TITLE_END#I just find that the function `average_shortest_path_length` by default is using the Dijkstra's algorithm to computer all pairs of shortest path, which is inefficient for dense graph. It doesn't support using Floyd-Warshall algorithm. I'm no sure if we should make this as the default as well.  I can send a PR if you think this change is reasonable.
+issue
+Add method floyd-warshall to average_shortest_path_length#TITLE_END#Per #3266. Also changed the interface a bit so that unweighted network can use specific method.
+issue
+make filter view work for unicode node name in py2.#TITLE_END#This fixes #3180.  However I'm worrying there might be other places that trying to format a unicode character may cause problems. I did a quick search for `format` and didn't find other spots like this but I might no be thorough.
+issue
+Subgraph failure over unicode node names on python 2.#TITLE_END#Minimal failure example on python 2.7:  ``` import networkx as nx  G = nx.Graph()  a = u"甲" b = u"乙" c = u"丙"  G.add_nodes_from([a,b,c]) G.add_edge(a,b) S = G.subgraph([a,b]) S.number_of_edges() ```  Got: <details> <summary>Traceback</summary>  ``` --------------------------------------------------------------------------- UnicodeEncodeError                        Traceback (most recent call last) <ipython-input-1-3d3a0780213e> in <module>()      10 G.add_edge(a,b)      11 S = G.subgraph([a,b]) ---> 12 S.number_of_edges()  /home/hcwu/.local/lib/python2.7/site-packages/networkx/classes/graph.pyc in number_of_edges(self, u, v)    1706         """    1707         if u is None: -> 1708             return int(self.size())    1709         if v in self._adj[u]:    1710             return 1  /home/hcwu/.local/lib/python2.7/site-packages/networkx/classes/graph.pyc in size(self, weight)    1652         6.0    1653         """ -> 1654         s = sum(d for v, d in self.degree(weight=weight))    1655         # If `weight` is None, the sum of the degrees is guaranteed to be    1656         # even, so we can perform integer division and hence return an  /home/hcwu/.local/lib/python2.7/site-packages/networkx/classes/graph.pyc in <genexpr>(***failed resolving arguments***)    1652         6.0    1653         """ -> 1654         s = sum(d for v, d in self.degree(weight=weight))    1655         # If `weight` is None, the sum of the degrees is guaranteed to be    1656         # even, so we can perform integer division and hence return an  /home/hcwu/.local/lib/python2.7/site-packages/networkx/classes/reportviews.pyc in __iter__(self)     445             for n in self._nodes:     446                 nbrs = self._succ[n] --> 447                 yield (n, len(nbrs) + (n in nbrs))     448         else:     449             for n in self._nodes:  /usr/lib64/python2.7/_abcoll.pyc in __contains__(self, key)     386     def __contains__(self, key):     387         try: --> 388             self[key]     389         except KeyError:     390             return False  /home/hcwu/.local/lib/python2.7/site-packages/networkx/classes/coreviews.pyc in __getitem__(self, key)     297         if key in self._atlas and self.NODE_OK(key):     298             return self._atlas[key] --> 299         raise KeyError("Key {} not found".format(key))     300      301     def copy(self):  UnicodeEncodeError: 'ascii' codec can't encode character u'\u4e59' in position 0: ordinal not in range(128) ``` </details>
+issue
+Make to_pandas_edgelist behave consistent across py2 and py3#TITLE_END#Address #2977. Using OrderedDict here might be an overkill though.
+issue
+Fix bugs in all_node_cuts, address #3025#TITLE_END#Address #3025.  I made quite some changes to the original implementation and this probably need to be carefully reviewed.  The code correctly find much more cuts from `torrents_and_ferraro_graph` and doesn't need to deal with cycle graph separately. However it's also significantly slower than before, so I turned off a few tests for now.  I will explain a bit about the changes later and probably add more comments, but I'd like to get some feedback.
+issue
+Handle negatively weighted edges in bellman-ford, fixes #3130#TITLE_END#When negatively weighted edges are present, skipping nodes with longer distance than destination could miss better path. See example added in test case.  This should fix #3130.
+issue
+Add missing files to distribution.#TITLE_END#This PR adds all missing docs and examples to distribution. Fixes #2954.  However I noticed that in `setup.py` we are also installing all examples to the `share/` folder and i believe that the original intention also include installing all the content in `doc/` to the `share/` folder. Currently only txt files are installed to the `share/` folder though.  These piece of code originates from 10 years ago and I'm not sure if we still want to do this. I kept what it was for now but we may want to review it.
+issue
+Add bipartite layout#TITLE_END#Add a simple layout for bipartite graph.  I also noticed that all the functions in layout.py used numpy but some checked if numpy is installed while others didn't. Shall we make them more consistent? Personally I don't think checking and raise a new error is necessary. If we remove all the checks we can bring up the code coverage a bit as well.
+issue
+Check if attribute is str like in writing to Pajek Fixes #2933#TITLE_END#Fixes #2933
+issue
+change in pandas breaks doctest in python 3.6#TITLE_END#It looks like that the recent change in pandas: https://github.com/pandas-dev/pandas/pull/19884 is breaking one of the doctest in python 3.6.  I'm not sure what would be the best solution here since py2 and py3 behave differently and the difference is not crucial at all. One way to fix this would be use an `OrderedDict` but it feels like an overkill.  ``` ====================================================================== FAIL: to_pandas_edgelist (networkx.convert_matrix) ---------------------------------------------------------------------- Traceback (most recent call last):   File "/opt/python/3.6.3/lib/python3.6/doctest.py", line 2199, in runTest     raise self.failureException(self.format_failure(new.getvalue())) AssertionError: Failed doctest test for networkx.convert_matrix.to_pandas_edgelist   File "/home/travis/venv/lib/python3.6/site-packages/networkx/convert_matrix.py", line 192, in to_pandas_edgelist ---------------------------------------------------------------------- File "/home/travis/venv/lib/python3.6/site-packages/networkx/convert_matrix.py", line 221, in networkx.convert_matrix.to_pandas_edgelist Failed example:     df Expected:        cost source target  weight     0     1      A      B       7     1     9      C      E      10 Got:       source target  weight  cost     0      A      B       7     1     1      C      E      10     9 ```
+issue
+Fix a few bugs to allow bipartite generators accept empty lists.#TITLE_END#Sorry I just realized a few other models have the same bug.
+issue
+Add test case for not complete random bipartite graph.#TITLE_END#Add test to cover not complete random bipartite graph.
+issue
+Allow bipartite configuration model for empty graph#TITLE_END#Fix a bug when run bipartite configuration model with empty degree sequence.
+issue
+Implement directed clustering.#TITLE_END#Pure python implementation for #1331.
+issue
+Add example/README.txt to distribution.#TITLE_END#Fixes #2949.
+issue
+Fix compatibility issue with new version of scipy.#TITLE_END#From Scipy 1.1.0, `asformat` will throw a ValueError instead of an AttributeError if the format if not recognized. For backward compatibility, both are captured now.
+issue
+Gml read fix.#TITLE_END#Deal with the issue #1783. Also change the variable name from type to category to avoid confusion. 
+issue
+fix compatible issue with new numpy#TITLE_END#fix a casting issue. 
+issue
+nodes() performance issue in Python2.#TITLE_END#nodes() function calls dict.items() and in Python 2 dict.items() returns a list instead of an iterator which could cause significant overhead compare to Python 3 especially when the graph is large. It seems it's not so easy to have an elegant solution to this. Should we do something about this? Any suggestions? 
+issue
+Implement reciprocity for directed graph.#TITLE_END#Implemented Issue #731   This Issue has been there for a while and it seems no one want to touch it so I just did it by myself. The styles of the file are based on other similar modules. 
+comment
+I remember we had some discussions about the `rescale_layout` function when I introduced a layout for bipartite networks. You might find #2976 and #2986 helpful.
+comment
+What I'm doing with my research is basically adding labels containing layer information to nodes and edges. I'm also working on an extension for multiplex network but it's still very preliminary and it may not work well with more general multi-layer networks.
+comment
+The third one is not a proper Japanese character, it's a [Translingual Symbol](https://en.wiktionary.org/wiki/%E2%BF%B1) indicating that two CJK ideographs are to be arranged together vertically to form a new ideograph, therefore it might not be supported by some fonts.
+comment
+The problem is trickier than that. It seems that there is something to do with the step   > Find k vertices with the largest degrees.  in the algorithm.  The graph is 1-separating therefore k=1. However we have three different choices of largest degree nodes namely 'b', 'c' and 'd'. The output is correct if 'c' is chosen and incorrect otherwise. I'll read the original paper a bit more and see how this should be solved.
+comment
+I have read the paper and code carefully and I'm not sure the implementation follows the algorithm described in the paper closely.  In particular, I don't understand why antichains map to closed sets in: https://github.com/networkx/networkx/blob/master/networkx/algorithms/connectivity/kcutsets.py#L153  I'm also not sure why the cycle graph need to be addressed separately. https://github.com/networkx/networkx/blob/master/networkx/algorithms/connectivity/kcutsets.py#L92  It seems that @jtorrents wrote the code originally. Could you take a look? Thanks.
+comment
+It also seems that we don't have a function for [Closure](https://en.wikipedia.org/wiki/Closure_problem). It might be a good time to implement it if it's the case.
+comment
+Thank you. I found several places that need to be fixed and I'm finalizing them now.  We do have a function to compute the transitive closure so I don't think we need another function for  closures.
+comment
+The attributes of a node is not a positional arguments. You might want to use ** to unpack the dict. ``` G = nx.DiGraph()  G.add_node((-77.3068519635211, 38.846374513181665), **{'id': 1, 'ShpName': 'nodes'}) ``` This would work.
+comment
+#2936 should have fixed this.
+comment
+I run a diff on pypi release and github release and found more missing files, which may also be the cause of #2941. I'll send a PR later.
+comment
+I think this is because pypi release doesn't have a README.txt in examples/advanced and therefore sphinx is not building there.  #2950 should have fixed this.
+comment
+I can't reproduce this error. How did you get the networkx? Does it come with the example dir and is there a README.txt in it?
+comment
+Thank you. It looks like a distribution issue.
+comment
+You can just pull in it now. Alternatively you can download source from this repo(dev-version) or github release page(Release version https://github.com/networkx/networkx/releases).
+comment
+@hagberg I just read the code, it seems the problem is in the filter_lines function in gml.py (L206-207, also L274-275), the '\n' in the end of a line is explicitly deleted there. Is it necessary?(Probably yes since len(line) is used later, but I'm not sure, alternately we can change the pattern to r'[A-Za-z][0-9A-Za-z_]*(\s+|$)') The lines before(L204-205) are also suspicious, L205 probably should be line = str(line).  Update: There is another error regarding to Unicode and I've already spent enough time and I'll work on this. 

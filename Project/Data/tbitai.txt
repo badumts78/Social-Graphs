@@ -1,0 +1,4 @@
+issue
+Fix dfs_preorder_nodes docstring saying "edges" instead of "nodes"#TITLE_END#Fixes #3483
+issue
+dfs_preorder_nodes docstring says "edges" instead of "nodes"#TITLE_END#https://github.com/networkx/networkx/blob/09c3da707d12aec42f3c0b2f91b60007bb436d37/networkx/algorithms/traversal/depth_first_search.py#L284

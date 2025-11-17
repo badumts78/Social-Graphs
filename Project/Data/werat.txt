@@ -1,0 +1,2 @@
+comment
+I've just encountered this problem and in my case `label` was actually an object with `__repr__` defined, which returned a unicode string. So `cb.is_string_like(label)` was `False` and everything went wrong. Well, I know that `__repr__` should not return unicode, so this is my own fault.  But what do you think of this fix: `label = unicode(label)` ?  This will allow using any object as a label. It'll also change current behaviour a bit, but do we care? 

@@ -1,0 +1,2 @@
+comment
+I'm just spotting this issue now - the idea of two types of bibliographies sounds quite appealing to me, and I think it would cover a lot of use cases. I'm not sure yet of the implementation (particularly if we want both global as well as local bibliographies), but you can track the issue here: https://github.com/mcmtroffaes/sphinxcontrib-bibtex/issues/87 

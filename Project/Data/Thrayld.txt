@@ -1,0 +1,2 @@
+issue
+Pickling Networkx's edge_subgraph raises an error#TITLE_END#Hi,  a few months ago I posted a [question](https://stackoverflow.com/questions/63801297/pickling-networkxs-edge-subgraph-raises-an-error) on stackoverflow about an error I received when I tried to pickle an edge_subgraph.  The question was not answered and I feel, it is time to bring it closer to the authors.  Thanks

@@ -1,0 +1,4 @@
+issue
+strong product docs update#TITLE_END#Fixes #7510   I added the adjacency description as well, since that's how I remember learning it in school
+comment
+@Schefflera-Arboricola are you able to review #7511? should be clearer

@@ -1,0 +1,2 @@
+issue
+spring_layout extreme points#TITLE_END#I'm using spring_layout from networkx (python 2.7) to embed multidimensional array into 2D. My question is why almost always I'm left with two extreme points? ![iquique](https://user-images.githubusercontent.com/21236547/55398871-e1285080-5549-11e9-9a52-13b1652f8907.png)   

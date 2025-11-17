@@ -1,0 +1,4 @@
+comment
+We ran into this issue as well when setting node attributes using a dictionary generated from a pandas dataframe.   I'd imagine scenario comes up not infrequently: If there are missing values in the dataframe, this can result in features with mixed types which breaks `nx.write_graphml`. 
+comment
+@dschult That's certainly an acceptable way to handle missing values, but you're right, it's a bit of a pain.   I think raising an error if the edge attribute type is not consistent is a good solution, since this does break `write_graphml`. Ideally, edge attributes would be able to handle multiple types (pandas does this by specifying the type of the column as `object`), but I'm not sure how feasible this solution is to implement,.   Another possible idea might be to have a method `set_edge_attributes_from_pandas_dataframe` which could appropriately deal with scenarios of mixed types and nans? 

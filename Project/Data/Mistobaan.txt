@@ -1,0 +1,2 @@
+comment
+I spent an hour figuring out why the graph didn't have self loops, until I discovered that the matplotlib backend of networkx does not draw them at all, it does not even give a warning. What is the status of this PR seems stale. Any comments on how to add this feature to the library? see also #1672

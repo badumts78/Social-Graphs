@@ -1,0 +1,2 @@
+issue
+`networkx.MultiDiGraph.remove_edges_from` has inconsistent documentation (v2.6.2)#TITLE_END#In [this doc page](https://networkx.org/documentation/stable/reference/classes/generated/networkx.MultiDiGraph.remove_edges_from.html) the parameters list reads that if the elements of `ebunch` are  > 2-tuples (u, v) All edges between u and v are removed.  However,  both in the second example below and in my tests, it seems that only one edge between u and v is removed. The functionality described in the parameters list would be useful to have.

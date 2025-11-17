@@ -1,0 +1,36 @@
+issue
+Rooted Product for two graphs#TITLE_END#I could not find an operator for [Rooted product of two graphs](https://en.wikipedia.org/wiki/Rooted_product_of_graphs). Would it be nice to add this operator ? 
+issue
+edge_load not documented in comments in load.py#TITLE_END#algorithms/centrality/load.py does not describe the use of edge_load(). Only warning message is present in the comments.  
+issue
+Power function is not described in documentation#TITLE_END#https://networkx.github.io/documentation/development/reference/algorithms.operators.html ![l](https://cloud.githubusercontent.com/assets/9817962/13389628/72679e54-deef-11e5-8439-ea6820d53043.png) 
+issue
+edge_load not documented in comments in load.py #TITLE_END#Fixes https://github.com/networkx/networkx/issues/2015 
+issue
+Hybrid Algorithms not described in Documentation #TITLE_END#Fixes https://github.com/networkx/networkx/issues/2020 
+issue
+Hybrid Algorithms not described in Documentation#TITLE_END#https://networkx.github.io/documentation/development/reference/algorithms.hybrid.html  ![c](https://cloud.githubusercontent.com/assets/9817962/13391317/c785ce38-def9-11e5-895d-5fff547fd537.png) 
+issue
+Unable to find PDF versions of Tutorial and Reference#TITLE_END#Fixes https://github.com/networkx/networkx/issues/1990 
+issue
+Readme.rst should mention Decorator package is required.#TITLE_END#Pip installation shows error if the command `pip install networkx` is put directly as Decorator is a required package. It should be mentioned as it can be troublesome for new-comers.  
+issue
+Readme.rst should mention Decorator package is required.#TITLE_END#Fixes https://github.com/networkx/networkx/issues/2008 
+issue
+GSoC participation 2016?#TITLE_END#Hi there. It is not related to an issue. I wanted to know if networkX is going to participate in GSoC this year? 
+issue
+Link on networkx account not working#TITLE_END#https://github.com/networkx has a link :  [http://networkx.lanl.gov/](url) It does not work.  
+comment
+I will like to take this up. :) 
+comment
+I am on it. :) 
+comment
+Please check the PR. 
+comment
+On it.  
+comment
+What to put in the references section for this? 
+comment
+I want to work on this. Please give me the file reference where to edit this.  Thanks. 
+comment
+PR for Issue #2015 

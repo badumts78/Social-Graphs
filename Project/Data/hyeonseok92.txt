@@ -1,0 +1,2 @@
+issue
+random graph generator performance improvement using multiprocessing#TITLE_END#I'm a novice about networkX. so I'm just using some random graph generating functions in networkX, but it sometimes takes too long time. I think that it can be done faster when we use multiprocessing techniques. If you don't mind, how about implement some functions with multiprocessing techniques? 

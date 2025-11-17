@@ -1,0 +1,34 @@
+issue
+update anceestor&descendent doc#TITLE_END#Closes #4191
+issue
+updated cutoff def in weighted.py#TITLE_END#The changes were made to the definition of cutoff param in the weighted.py file <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+comment
+Hey, I recently saw #4432 has already been closed. I am also a new comer and wanted to fix this issue. Can I now take this or is there any other that I can work on?
+comment
+Hey, maybe adding this feature might help. I guess just having a check should help ease out right? Correct me if I am wrong
+comment
+And where should we add it? Like this note
+comment
+Hey @jarrodmillman, I am starting out and trying to contribute to open source. Can I do this task?
+comment
+Hey, maybe I could take this task next? 
+comment
+Hey, I was looking into this and was trying to understand the kind of change that would be needed? I would like to take on this task.  
+comment
+Agreed. Right now it is : G : NetworkX DiGraph A directed acyclic graph (DAG) I feel it should say: G : NetworkX DiGraph A directed graph  Would that be correct ? @dschult  
+comment
+Just created a PR for this
+comment
+Hey @rossbar , Could I work on this issue? I am just starting to contribute in Open Source and wanted to this. 
+comment
+Thanks @rossbar. Could you tell me which document should I make the change to?
+comment
+I had a similar qs, I was also trying yo figure out where to make the changes
+comment
+I have changed the documentation for cutoff from length <= cutoff to summed weight <= cutoff. @dschult could you tell me where do have to change the parameter description. It is not present in the weighted.py file. Is there any other file where it is present?
+comment
+Length (sum of edge weights) at which the search is stopped.         If given a value, we only process paths shorter than `cutoff`.        Only return paths with summed weight <= cutoff.  Would this be a correct representation of what it is supposed to do? 
+comment
+Looks good.
+comment
+Hey, is this issue still needed, and if so what is to be done? I guess we can find max path cost in an undirected graph maybe using a set that checks we not getting into any cycles?

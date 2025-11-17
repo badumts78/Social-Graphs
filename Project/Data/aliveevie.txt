@@ -1,0 +1,6 @@
+issue
+Structured labelled array 4217#TITLE_END#**Construction of adjacency-like matrices** Now, we explore how we can construct the adjacency-like matrices.  It's possible to construct a wide range of adjacency matrices on which message passing can be performed. For example, one might want to do message passing on the 1-degree adjacency matrix, or do it on a 2-degree adjacency matrix where anything within two degrees of separation are given a "1". One may want to leverage the graph Laplacian matrix too. As such, more than just a matrix, we might want to generate an adjacency tensor. A proposed function we could include in the library, or propose to the NetworkX library, is as follows  `def generate_adjacency_tensor(     G: nx.Graph, funcs: List[Callable], return_array=False ) -> xr.DataArray:     mats = []     for func in funcs:         mats.append(func(G))     da = xr.concat(mats, dim="name")     if return_array:         return da.data     return da ` 
+issue
+JSON graph documentation#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> From Networkx documentation this was they wrote on the issues: https://networkx.org/documentation/latest/developer/contribute.html 
+comment
+#5449

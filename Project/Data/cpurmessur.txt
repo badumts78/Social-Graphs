@@ -1,0 +1,20 @@
+issue
+Improve code coverage for cuts.py#TITLE_END#Here I added some tests to test_cuts.py to improve code coverage. It should be at 100% now. I also change the term "sequence" to"container" in cuts.py. This is because the documentation refers to the inputs of the functions as sets and sets are unordered and therefore are not sequences.
+issue
+Code coverage nonrandomness#TITLE_END#Added two tests to improve code coverage of nonrandomness.py 
+issue
+Increase code coverage of regular#TITLE_END#Added a test to increase code coverage 
+issue
+Adding an iterative version of prefix tree#TITLE_END#I added an iterative version of prefix tree to improve performance and reduce ram usage as compared to when the recursive version is used. I also added some tests to confirm that both versions output the same directed prefix tree graph.  Note: I initially made changes to cliques.py by mistake but I undid those changes in a commit and now only 2 files have been changed (trees.py and test_trees.py)  Thanks, @dschult for your help with this
+issue
+Increase code coverage tournament#TITLE_END#Added tests to increase code coverage of tournament.py
+issue
+Improving code coverage of chordal.py#TITLE_END#Here I added some additional tests to test_chordal.py to improve the code coverage. These include tests for self-loops and graphs which are not chordal. I also improved the efficiency of a couple of functions in chordal.py such as is_chordal() and _chordal_graph_cliques(). Thanks, @dschult for your help with this! 
+issue
+Improve code coverage of swap.py#TITLE_END#Here, I added some tests to tests_swap.py to improve code coverage.
+issue
+Update test euler#TITLE_END#Parameterized tests in test_euler and updated improvement section in the release notes. Also, updated docstring for has_eulerian_path to include the source. @rossbar 
+issue
+Eulerian path fix#TITLE_END#Fixes #3976   The example outlined in issue #3976 gives incorrect answers for different source values. After analyzing the source code, I found several reasons for this. First, eulerian_path calls has_eulerian_path to check if the graph has an eulerian path before proceeding. However, this initial check did not take the source into account. In this pull request, I updated has_eulerian_path so that it has a source input.  Second, if a graph has an eulerian path starting at a particular source, doing eulerian_path (G, source) gives us an incorrect pathing because reverse() changes the source of the resultant graph. To counter this, I had to re-find the source if the graph was not an eulerian circuit, and even if the source was given.  Finally, if the graph was undirected, reverse() was replaced by copy() and thus, the pathing I was getting from simple graph eulerian circuit or multigraph eulerian circuit was not in the right order. I had to change the order in the yield function.  I added several tests to test_euler to check if everything was fixed by the new commits. 
+issue
+Updated has_eulerian_path #TITLE_END#Fixes #4244  As @rossbar said, the description does not match the implementation for a directed graph. This pull request fixes this issue. The new implementation adequately checks if   > "every other vertex has equal in_degree and out_degree". It also addresses another issue about isolated points. The definition states > "and all of its vertices with nonzero degree belong to a single connected component of the underlying undirected graph."  The previous implementation ignored vertices that had "nonzero degree". In this one, I created a copy of the graph and removed the isolated points before checking if it was weakly connected.  The code works on the test case that @tlarock brought up. However, this test case has not yet been added to test_euler.py  

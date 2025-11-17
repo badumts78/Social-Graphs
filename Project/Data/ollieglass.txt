@@ -1,0 +1,2 @@
+issue
+JIT JSON writer#TITLE_END#Adds a JavaScript InfoVis Toolkit (JIT) writer  See http://philogb.github.io/jit/ for details of the JIT library  http://philogb.github.io/jit/static/v20/Docs/files/Loader/Loader-js.html for details of the JIT JSON format 

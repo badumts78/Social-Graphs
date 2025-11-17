@@ -1,0 +1,12 @@
+issue
+Bug fix for issue #5023 :  corner-case bug in single_source_dijkstra#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> Fixes issue #5023 and similar issue `single_source_dijkstra` and `single_source_bellmanford` now raise exception when source and target are same but they are not in graph, which previously was returning 0. 
+comment
+Hey @MridulS , I am very new. The topic seems something I have studied in college. Could I work on this?
+comment
+Thanks a lot, ill go through this and ask if I get stuck somewhere.
+comment
+Hey @MridulS, what error message or behavior should I add for the mentioned edge case.
+comment
+Hey @MridulS and @dschult can you review my PR.
+comment
+Hey @MridulS and @dschult I have made the changes suggested and added the required test cases, can you check if every thing is fin e now and review my PR

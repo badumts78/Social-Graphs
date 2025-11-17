@@ -1,0 +1,2 @@
+issue
+Add support for empty line of adjlist graph #TITLE_END#Hey,  While trying to load a graph I get an exception for trying to a parse an isolated node. The problem is in networkx/readwrite/adjlist.py -> parse_adjlist           if not len(line): ->  This check does nothing when line is \n             continue         vlist = line.strip().split(delimiter)         u = vlist.pop(0)   I want to add a PR for replacing line with line.strip(), but I dont have permission. Thank you very much. 

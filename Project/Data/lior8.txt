@@ -1,0 +1,4 @@
+issue
+Break astar ties using heuristic value#TITLE_END#I changed A* tiebreaking to rely on the heuristic value of a node, and only then on the counter. This makes it significantly faster when dealing with searches where the path is "clear" to the algorithm, upwards of X10 faster than the current tiebreaker.  An alternative could be to allow the user to choose the tiebreaking via an additional optional parameter specifying if to tiebreak via heuristic value or not. Or even give the user the option to list a function which will recieve the current node, the target node, and will return a tuple specifying the tiebreaking value (while still using the counter to make sure no two elements are the same).  
+issue
+Updated astar docstring#TITLE_END#The astar docstring now reflects on heuristic admissibility and heuristic value caching following [this discussion](https://github.com/networkx/networkx/discussions/5674). 

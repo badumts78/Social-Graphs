@@ -1,0 +1,2 @@
+issue
+Implement basic connectivity algorithms for directed graphs#TITLE_END#* Changed functions in `networkx.algorithms.components.connected.py` to work with directed graphs and updated docstrings. * Adapted tests for undirected graphs to also test directed ones. * Cleaned up test code a bit, fixed broken test for `connected_component_subgraphs` that contained code that looks like it belonged to `test_weakly_connected.py`.

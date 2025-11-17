@@ -1,0 +1,2 @@
+issue
+Draw edges that start and end on the same node#TITLE_END#The following example does not draw a loop edge: ```Python import networkx as nx import matplotlib.pyplot as plt  G = nx.Graph() G.add_node(1) G.add_edge(1, 1) nx.draw(G) plt.show() ```  Would it not make sense to add an option to draw self loops?

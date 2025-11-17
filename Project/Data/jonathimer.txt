@@ -1,0 +1,2 @@
+issue
+Add Linux Foundation health score badge to README#TITLE_END#Congrats! We have onboarded networkx as one of a few selected non-LF projects to LFX Insights, the Linux Foundation's platform for monitoring the world's most critical open-source projects.  https://insights.linuxfoundation.org/project/networkx  Please feel free to share your project's health status with your community! 

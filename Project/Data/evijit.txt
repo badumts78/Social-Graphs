@@ -1,0 +1,2 @@
+comment
+This was a problem I genuinely faced in my research project, as I had a task of finding the path with the highest product of weights. Taking negative log and then applying shortest path was giving me incorrect answers.   Will be great if this is solved. 

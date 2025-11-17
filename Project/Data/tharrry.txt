@@ -1,0 +1,2 @@
+issue
+Test coverage for issue 6028#TITLE_END#Improves issue 6028 by adding a test case for edgeless graphs for the function inverse_line_graph().  

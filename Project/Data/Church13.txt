@@ -1,0 +1,2 @@
+comment
+What's the status of this? Security concerns are not small, especially with how widely deployed the NetworkX package is.

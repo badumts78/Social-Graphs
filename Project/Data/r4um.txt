@@ -1,0 +1,2 @@
+issue
+Add percolation centrality#TITLE_END#Percolation centrality for a given node, at a given time, as the proportion of ‘percolated paths’ that go through that node. A ‘percolated path’ is a shortest path between a pair of nodes, where the source node is percolated (e.g., infected).  Ref. http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0053095

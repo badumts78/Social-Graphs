@@ -1,0 +1,2 @@
+issue
+ENH : Provide non-normalized and normalized directed laplacian matrix calculation#TITLE_END#This pull request addresses Issue #7148   Here, I provide both normalized and non-normalized graph Laplacian as well as improve the documentation for them.  I welcome any comments or questions

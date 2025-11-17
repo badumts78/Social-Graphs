@@ -1,0 +1,2 @@
+issue
+Enable edge attributes in tree format "nested_tuple"#TITLE_END#Changes:  Extended Nested Tuple Format: The `from_nested_tuple` function now expects each node in the sequence to be a tuple or list `node_name`, `edge_attributes`,   2. New Parameter edge_attribute: Added an optional parameter `edge_attribute` to specify the key name for the edge attributes   3.Recursive Helper Function `_make_tree` It extracts `node_name` and `edge_attr,` adds the node to the graph, and connects it to its parent with the specified edge attributes.  

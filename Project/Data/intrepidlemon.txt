@@ -1,0 +1,2 @@
+issue
+Remove http server example#TITLE_END#The HTTP Server script in the examples does not demonstrate any `networkx` functionality and seems irrelevant and confusing in the context of the rest of the package. This PR simply removes the script and edits the one other script that depends on it.  

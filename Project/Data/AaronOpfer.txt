@@ -1,0 +1,2 @@
+issue
+remove cyclical references from OutEdgeDataView#TITLE_END#We noticed that our garbage collection runs were frequently sweeping OutEdgeDataView objects. Turns out this was because `self._nodes_nbrs`, being stored on `self`, was also referring to `self` inside of its lambda, creating a cycle that required garbage collection to clear.  Fix this by instead holding onto the relevant dictionary object inside the lambda.

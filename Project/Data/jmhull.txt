@@ -1,0 +1,2 @@
+issue
+Hide edges with a weight of None in simple_paths#TITLE_END#Commit d82815dba6 for issue #5945 added the ability for A* weight functions to return None, in which case that edge is ignored. This was done for consistency with Dijkstra.  The simple_paths() algorithms would benefit from the same ability. 

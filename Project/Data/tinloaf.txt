@@ -1,0 +1,4 @@
+issue
+Adds planar graph class#TITLE_END#As mentioned in https://groups.google.com/forum/#!topic/networkx-discuss/YpulBDPTBls I currently work on supporting some operations that are only defined on planar graphs (stuff about faces, dual graphs, ...) in NetworkX.  This pull requests adds the first version of the graph data structure that I would like to use. Some comments: - Anwering the question from Google Groups: Yes, I need a class for this, since lots of internal data must be computed, invalidated on changes and updated when requests are made. - I'm not sure yet whether I like the fact that faces are computed whenever neighbors are accessed. This way, neighbors will be traversed in order of the embedding, but actually, faces are not needed for this. - Obviously, all the methods that were only slightly modified from the base Graph need to inherit documentation.. 
+issue
+Fix wrong comment#TITLE_END#This comment obviously only applies to directed graphs.. 

@@ -1,0 +1,2 @@
+comment
+Potentially interesting https://github.com/tardis-sn/tardis/blob/master/tardis/plasma/base.py#L354

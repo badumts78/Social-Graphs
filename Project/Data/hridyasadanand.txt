@@ -1,0 +1,4 @@
+issue
+Fix documentation error in hypercube_graph function#TITLE_END#Fixes #7942  This pull request corrects a documentation inconsistency in the hypercube_graph function in NetworkX.  Changes Made:  Clarified the description of node indexing to accurately reflect the function’s implementation.  Ensured the explanation of the number of nodes (2 ** n) is correctly aligned with the function’s behavior.   This improves the accuracy and readability of the function’s docstring.
+comment
+I would like to work on this. Can I take it?

@@ -1,0 +1,2 @@
+issue
+add a check before del operation#TITLE_END#Hi, I'm using angr-management, a cross-platform binary analysis platform which uses networkx and found sometimes the `DiGraph.remove_node()` runs into errors. I added a check before `del self._pred[u][n]` to fix this.

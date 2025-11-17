@@ -1,0 +1,10 @@
+issue
+Independence number of graph and the maximum independent set of nodes of a graph.#TITLE_END#Finds the independence number and iterator over all the independent set of nodes in the graph. 
+issue
+Steiner tree and metric closure.#TITLE_END#Added methods to calculate Steiner tree and the metric closure. Added tests for the same. Addresses issue #2195 . 
+comment
+https://gist.github.com/NareshPeshwe/7f1300103982ad7967d4f03c5eed7f2d Hey, could you please take a look at this.  
+comment
+Thank you. I understood the flaws in my algorithm. For approximation guarantee I think I will have to find a minimum spanning tree on the sub-graph induced by the vertices obtained. But I think the algorithm in the Wikipedia article is clearer. https://gist.github.com/NareshPeshwe/28e50861ed1d591ef0d72fc5e497afc7 Does this look good?  
+comment
+Thanks a lot @jfinkels . Will do it. I just had one doubt. Shouldn't the steiner_tree function take in a set of terminal nodes as an input and return a steiner tree induced by only those nodes ?  And how do I undo the commit to the other pull request ? 

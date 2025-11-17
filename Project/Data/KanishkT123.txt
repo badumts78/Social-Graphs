@@ -1,0 +1,20 @@
+issue
+`contracted_nodes` copy flag added#TITLE_END#Added a copy switch to the function contracted_nodes that allows the passed in graph G to be changed in place as compared to having it be copied into a new graph first.   This should significantly allow for some more efficient memory utilization with larger graphs, the caveat being that contracted_nodes now needs to store the edge values from the graph as a list in case of the original graph being changed in place, as the generators reflect the current state of the graph at all times.
+issue
+Bugfix: Added flexibility in reading values for label and id#TITLE_END#As per issue #3157   Added in support for string convertible objects to be used as ID's and labels, as well as source and targets for the GML reader. This adds increased flexibility in reading, even if the file is technically out of spec.
+issue
+Handle k==n within the Watts-Strogatz graph generator#TITLE_END#It is now compatible with k==n scenario additionally changed the unit tests for the same effect  This is my first pull request, relating to issue #3522  Please let me know if I need to make any changes!
+issue
+Added k==n support for Watts-Strogatz generator#TITLE_END#I added support for k==n arguments within the Watts-Strogatz Generator: `watts_strogatz_graph`  As stated in #3522 the function explicitly checks for `k==n` and then calls the `nx.complete_graph()` function instead of throwing an error.  This is my first PR, so if I need to change anything let me know!
+comment
+@dschult @nanodan is anyone working on this? I have some downtime this week and could probably give it a shot if not.
+comment
+Would it be alright for me to take a look at this? It seems to still be open and something I could probably handle as a first PR. 
+comment
+It actually seems like the second issue that @mdeff brings up was resolved, and the first isn't something that requires a fix (according to the same comment). Would that constitute closing this issue? 
+comment
+Could I take a look at this issue then, if nobody else appears to be working on it?  ETA: After looking closer at the Wikipedia page, it seems like the Wikipedia article had an out of spec GML example in September 2018. It has since been changed, as can be seen in the history [here](https://en.wikipedia.org/w/index.php?title=Graph_Modelling_Language&action=history).  In light of that, I feel like the original posting is unreasonable, since it doesn't make sense to support a mistake that Wikipedia made originally, unless this is just considered a feature request.
+comment
+ > It is certainly true that we can't read in the GML file available on Mark Newman's webpage. That file may be invalid GML, but we could probably read it anyway if we create our reader to be sufficiently flexible.   I'm still working on this, had some personal stuff come up. I just wanted to point out that `nx.read_gml("karate.gml", label="id")` can correctly read Mark Newman's karate GML. Do you mean that the reader should read the GML file without having to be told that label="id"?  
+comment
+I made a PR for this issue here #3579  Let me know if it needs any changes or if I've misunderstood the issue, since it's my first PR!

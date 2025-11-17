@@ -1,0 +1,2 @@
+issue
+LaTeX rendering problem#TITLE_END#I'm not sure about this. [Link](https://github.com/networkx/networkx/blob/master/doc/source/tutorial/tutorial.rst#id1) Is `:class: Graph` not rendered properly as LaTeX? Shouldn't it be just displayed as `Graph`? I know this done for the corresponding generated webpage. Can we improve its readability for the `rst` file? 

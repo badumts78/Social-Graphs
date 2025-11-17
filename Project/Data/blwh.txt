@@ -1,0 +1,2 @@
+issue
+Doc update; Newman-watts is almost correct#TITLE_END#I noted that the Newman-Watts-Strogatz algorithm isn't completely true to the original paper that introduces it. However, it's arguable that for large enough networks, and small `p` and `k`, this should not be a problem. Added this to the docs.  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

@@ -1,0 +1,2 @@
+issue
+Conflict With flask_cors#TITLE_END#If install flask_cors 3.0.1 and networkx 2.5.1 It will raise exception Flask_cors/decorator.py line 14  From .core import * ImportError: attempted relative import with no known parent package

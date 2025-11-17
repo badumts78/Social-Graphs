@@ -1,0 +1,4 @@
+issue
+Missing `f` prefix on f-strings fix#TITLE_END#Fixes #5573
+issue
+Missing `f` prefix on f-strings#TITLE_END#Some strings looks like they're meant to be f-strings but are missing the `f` prefix meaning variable interpolation won't happen.  https://github.com/networkx/networkx/blob/e48d5f27e7026c5d104d3042dbd9b4d603c062bf/networkx/utils/decorators.py#L248 https://github.com/networkx/networkx/blob/e48d5f27e7026c5d104d3042dbd9b4d603c062bf/networkx/readwrite/gml.py#L594  I found this issue automatically. I'm a bot. Beep Boop 🦊. See other issues I found in your repo [here](https://codereview.doctor/networkx/networkx)

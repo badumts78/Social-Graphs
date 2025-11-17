@@ -1,0 +1,2 @@
+issue
+Generating layout with some coordinates fixed#TITLE_END#It would be great to have the ability to fix one of the coordinates while generating the layouts of the graphs. That would be useful to produce, for example, a layout with the nodes ordered along one dimension following a given property, while minimising energy along the other dimensions.

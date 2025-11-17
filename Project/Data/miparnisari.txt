@@ -1,0 +1,2 @@
+issue
+networkx.drawing.nx_pydot.write_dot creates empty file if pydot wasn't installed#TITLE_END#Problem: this code  https://github.com/networkx/networkx/blob/02a1721276b3a84d3be8558e479a9cb6b0715488/networkx/drawing/nx_pydot.py#L24-L25  Is creating the DOT file even before checking if `pydot` has been installed. If it hasn't, then the resulting DOT file will be an empty file.

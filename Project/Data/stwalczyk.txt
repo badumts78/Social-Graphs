@@ -1,0 +1,2 @@
+issue
+Reading Adjacency Lists are not Directed#TITLE_END#The documentation https://networkx.github.io/documentation/development/reference/readwrite.adjlist.html  states there are source and target nodes. NetworkX does not honor the directed edges and doubles everything back, so when you write the adjacency list to file it is now no longer directed, there more edges.

@@ -1,0 +1,2 @@
+issue
+Update degree_alg.py for weight support#TITLE_END#I want to propose adding weights for degree centralities, since the functionality exists. Thank you! 

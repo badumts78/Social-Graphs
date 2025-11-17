@@ -1,0 +1,2 @@
+comment
+Supporting this enhancement, I'm currently trying to find a means to do this and would find it useful if built into NetworkX.  Is this still being considered for 2.4?

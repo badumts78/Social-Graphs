@@ -1,0 +1,10 @@
+issue
+fix typo#TITLE_END#I think there is at least one typo.  The first one is `path_for_yaml_output` should be substituted as `fh` for sure.  The second one is `**kwds` could be removed, but I`m not so sure, someone can decide on it.  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+fix urllib import#TITLE_END#This PR originally fixed `examples/drawing/plot_custom_node_icons.py` import *urllib* issue in #4790.  What find in discussion below is following,  1. That `examples/drawing/plot_custom_node_icons.py` will work in ipython, but if run with vanilla python, there will be an error `AttributeError: module 'urllib' has no attribute 'request'.`  2. `examples/graph/plot_football.py` also import *urllib*, but with a different workaround.  So now this PR is updated to cover both `examples/drawing/plot_custom_node_icons.py` and `examples/graph/plot_football.py`, regarding import *urllib*.   <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+typo: swap source and target#TITLE_END#Match with below  https://github.com/networkx/networkx/blob/b74d4bcc5a14263d562c045e84c39f2ec02962ba/networkx/algorithms/shortest_paths/weighted.py#L237
+comment
+Thanks, and I have tested it and no more deprecation warning.
+comment
+It is a deprecation warning, which should only show once, you could ignore it for now. and #3458 fix it, after merge, you won't see it.

@@ -1,0 +1,4 @@
+issue
+Fix Topological Sort#TITLE_END#This PR tries to fix https://github.com/networkx/networkx/issues/4194 .  The root cause: `zero_indegree.pop()` pops out the last element, while `zero_indegree.append(child)` appends the next layer `child` to the last. These two operation together makes `zero_indegree` a stack instead of a queue.   The fix: simply use `zero_indegree.pop(0)` to pop out the first element, and then it becomes a queue.  
+issue
+Incorrect Topological Sort#TITLE_END#Currently `networkx` gives this suprisingly incorrect topological sort result:  ```python >>> import networkx as nx >>> DG = nx.DiGraph([(1, 3), (2, 4), (3, 5), (4, 5)]) >>> list(nx.topological_sort(DG)) [2, 4, 1, 3, 5] ```  The correct result should at least be something like `[2, 1, 4, 3, 5]`.

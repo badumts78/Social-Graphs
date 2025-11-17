@@ -1,0 +1,2 @@
+issue
+used queue instead of ordinary list#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. -->  I noticed that you are using an ordinary list when performing BFS. If you pop(0) from a list, it takes O(N) time complexity since all the element in the list have to move 1 step to the left. However, if you use Queue module, pop() operation is done in O(1) time complexity, and it's going to be faster.

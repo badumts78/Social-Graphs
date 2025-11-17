@@ -1,0 +1,2 @@
+issue
+Add minimum source and target margin to draw_networkx_edges.#TITLE_END#When the node sizes are especially small, and they have text labels, the base and the head of the arrows/edges can interfere with the text, thereby making reading the node labels hard. I have added a simple option to specify the minimum margin the edges would maintain from their source and target nodes.

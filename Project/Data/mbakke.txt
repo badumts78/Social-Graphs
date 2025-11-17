@@ -1,0 +1,2 @@
+issue
+Where is the PGP public key used to sign the PyPi archive?#TITLE_END#Hello!  I downloaded networkx 2.1 and the associated PGP signature from PyPi, but haven't been able to find key `0x50FB62F32D9E3174` on any of my usual keyservers. Is it available somewhere?

@@ -1,0 +1,2 @@
+issue
+The iterable function was deprecated in matplotlib 3.1 Warning#TITLE_END#Apologies if this has already been mentioned - I did try a search. The issues is discussed [here.](https://www.holadevs.com/pregunta/68375/deprecatedwarning-cbiterable-when-using-networkx)   `MatplotlibDeprecationWarning: The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.   if not cb.iterable(width):`

@@ -1,0 +1,2 @@
+issue
+Feature request: Better description of draw_spectral and spectral_layout#TITLE_END#It would be nice if draw_spectral (`networkx.drawing.nx_pylab.draw_spectral` and spectral_layout (`networkx.drawing.layout.spectral_layout`) had better description about what spectral coordinates are. Quite good source could be the blog post [Spectral coordinates in Python](https://www.johndcook.com/blog/2016/01/15/spectral-coordinates-in-python/) and related posts by John D. Cook

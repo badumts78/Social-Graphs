@@ -1,0 +1,2 @@
+issue
+All simple paths having weight less than a given weight in a directed graph#TITLE_END#Hi,  I need a variant of `all_simple_paths` where I need all paths between two nodes of a directed weighted graph which has a path-weight less than given weight `k`. I think this must have been already implemented in Networkx but I'm not able to find that.  Please let me know if this functionality is built or do I need to write this on my own. Thanks.

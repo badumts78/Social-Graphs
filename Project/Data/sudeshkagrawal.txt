@@ -1,0 +1,2 @@
+issue
+Speed-up of Graph.__getitem__#TITLE_END#The documentation (at  https://networkx.github.io/documentation/stable/reference/classes/generated/networkx.Graph.neighbors.html) says:   "It is usually more convenient (and faster) to access the adjacency dictionary as G[n]".  However, my testing using %timeit showed that is not true.  ```python %timeit G[2] %timeit list(G.neighbors(2)) ```  ``` 1.08 µs ± 42.6 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each) 685 ns ± 37.2 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each) ```

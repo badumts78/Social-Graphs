@@ -1,0 +1,2 @@
+issue
+node_link_graph is broken#TITLE_END#NetworkX 2.3  The example taken from the docs,  ```import networkx as nx from networkx.readwrite import json_graph  G = nx.Graph([(1, 2)]) data = json_graph.node_link_data(G) H = json_graph.node_link_graph(data) print(H) ``` H Is 'None' instead of a graph object. 

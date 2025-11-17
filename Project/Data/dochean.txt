@@ -1,0 +1,2 @@
+issue
+neighbors(n) return n itself after contraction nodes#TITLE_END#``` >>> g = nx.Graph() >>> g.add_edge('a', 'b') >>> g.add_edge('c', 'b') >>> g.add_edge('c', 'a') >>> [n for n in g.neighbors('a')] ['c', 'b'] >>> g = nx.contracted_nodes(g, 'a', 'b') >>> [n for n in g.neighbors('a')] ['a', 'c'] >>> ```  i think it should only return ['c']? i found this when using skimage.

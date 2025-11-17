@@ -1,0 +1,12 @@
+issue
+typo#TITLE_END#Found typo.
+issue
+Minimum Edge Cover#TITLE_END#I was sifting through the networkx docs and didn't find functionality for [minimum edge cover](https://en.wikipedia.org/wiki/Edge_cover).  Is this functionality available?  If not, would there be any interest in adding this to networkx? 
+issue
+BUG: network simplex algorithm cannot handle floating points#TITLE_END#I've been messing around with the networkx simplex algorithm and just realized that it cannot handle floating points.  Below is an example.  ``` python >>> import networkx as nx >>> G = nx.Graph() >>> G.add_nodes_from(['i', 'j', 'k', 'l']) >>> G.node['i']['demand'] = -1 >>> G.node['j']['demand'] = 1. / 3 >>> G.node['k']['demand'] = 1. / 3 >>> G.node['l']['demand'] = 1. / 3 >>> G.add_edge('i','j', {'weight': 1}) >>> G.add_edge('j','k', {'weight': 11}) >>> G.add_edge('k','l', {'weight': 21}) >>> nx.network_simplex(G.to_directed()) NetworkXUnfeasible: total node demand is not zero ```  And this is silly, because the sum of the demands is clearly zero. But if you actually sum up the demands, there is some floating point rounding errors occurring  ``` python >>> -1 + 1. / 3 + 1. / 3 + 1. / 3 -1.1102230246251565e-16 ```  Is it possible to modify the algorithm to handle these sorts of floating point errors? If not, mind if I submit a PR to throw an exception, stating that this algorithm can only handle integer demands?  This could really save users time debugging. 
+issue
+DOC: Updating docstring to mention issues about demands.#TITLE_END#Small change to the docstring to mention that the demands also should not be floating point. 
+issue
+Infinite loop in network simplex#TITLE_END#When I run the following code  ``` python G = nx.Graph() G.add_nodes_from(['i', 'j', 'k']) G.node['i']['demand'] = 1 G.node['j']['demand'] = 1 G.node['k']['demand'] = -2 G.add_edge('i','j', {'weight': 0.9}) G.add_edge('j', 'k', {'weight': 0.9}) nx.network_simplex(G.to_directed()) ```  It never completes.  Is this expected? 
+issue
+Handling floating points in network simplex algorithm#TITLE_END#This is to address #1846.  Let me know if the documentation/tests are sufficient.  Also realized that my editor removed extra whitespace - hope that is ok. 

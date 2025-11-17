@@ -1,0 +1,2 @@
+issue
+Remove unused variable in mycielski.py#TITLE_END#Removed unused variable in mycielski.py (prev line 55). Thanks for the opportunity to make my first pull request - great project! 

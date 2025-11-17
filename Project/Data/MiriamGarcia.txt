@@ -1,0 +1,2 @@
+issue
+Error in importing decorator#TITLE_END#networkx/utils/decorators.py in <module>()       5        6 import NetworkX as nx ----> 7 from decorator import decorator       8 from NetworkX.utils import is_string_like       9   ImportError: No module named decorator 

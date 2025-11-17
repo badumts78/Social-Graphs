@@ -1,0 +1,2 @@
+issue
+recursive dispersion algorithm implemented#TITLE_END#Implement the recursive dispersion algorithm following Lars Backstrom and Jon Kleinberg [1]. Using the idea of "identifying nodes `v` for which the `u-v` link achieves a high normalized dispersion based on a set of common neighbors `C_uv` who, in turn, also have high normalized dispersion in their links with `u`."[1]  [1] Romantic Partnerships and the Dispersion of Social Ties: A Network Analysis of Relationship Status on Facebook. Lars Backstrom, Jon Kleinberg. https://arxiv.org/pdf/1310.6753v1.pdf 

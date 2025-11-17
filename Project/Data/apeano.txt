@@ -1,0 +1,4 @@
+issue
+Passing arguments to graphviz_layout#TITLE_END#It seems there is no way to pass arguments to the graphviz's programs, e.g.: `pos = graphviz_layout(G, prog='dot', args='-Grankdir=LR')` where G is a networkx graph.  I tried in different ways, like "args='-Grankdir=LR'" but "dot" is never affected by this.  Any idea?
+comment
+It should be here, in the section "Roadmap" https://www.graphviz.org/

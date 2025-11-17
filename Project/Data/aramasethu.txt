@@ -1,0 +1,8 @@
+issue
+Docstrings for the small.py module#TITLE_END#Added docstrings in small.py with `Description`, `Parameters`, `Returns`, `References`  sections explaining the graphs.  Fixes #5213 
+comment
+Hi,   I have started working on this issue. I noticed that the `LCF_graph` function's docstring has all the details that you have specified in the issue. Can use the same format for rest of the functions? 
+comment
+Hi this is an example of the doc string for bull graph: ``` """     Creates a bull graph with 5 nodes and 5 edges.     "... the bull graph is a planar undirected graph with 5 vertices and 5 edges,           in the form of a triangle with two disjoint pendant edges" [1]      Parameters     ----------     create_using : NetworkX graph constructor, optional (default=nx.Graph)        Graph type to create. If graph instance, then cleared before populated.      Returns     -------     G : networkx Graph         A bull graph with 5 nodes      References     ----------     .. [1] https://en.wikipedia.org/wiki/Bull_graph.      """ ```  Let me know if this looks okay. 
+comment
+Hi,   I have added the docstrings to all the graphs (starting from bull graph). I have linked the PR to this issue. Please let me know what your feedback is.   Thanks for your help   

@@ -1,0 +1,6 @@
+comment
+On Fri, May 10, 2013 at 10:11:54AM -0700, Alex Roper wrote:  > @paurullan I would appreciate your comments as well.  First, great work on the whole module!  Since in my user case I only get the LCA once before modifying the graph, the code will look something like:  > > > from networkx.algorithms.lowest_common_ancestor import all_pairs_lowest_common_ancestor as LCA > > > node_pair = [left_node, right_node] > > > _, lca = LCA(G, pairs=node_pair)[0] 1. So an alias might be a good idea.    all_plairs… → LCA    tree_all_pairs… → t_LCA 2. If not, no problem, I wil do a helper on my program 3. the itertools.product is finally not used 4. there are a couple trailing whitespaces that need not to be there  (you may want to configure your editor to alert these kind of things) 
+comment
+> this could get expensive on big graphs  Yes, I saw it was n^3.  Since this is for my master's thesis, if it feels slow enought my director will say, so do not worry for now.  Good work and thanks for your time! 
+comment
+On Sat, May 11, 2013 at 10:46:06AM -0700, Alex Roper wrote:  > It'll be something like n log n for a single pair; the n^3 was for all pairs.  It will be just fine then!  > Good luck with your thesis!  Thank you! :D 

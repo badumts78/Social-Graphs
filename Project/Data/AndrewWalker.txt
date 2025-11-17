@@ -1,0 +1,2 @@
+issue
+More Pythonic behaviour for the grid_graph generator#TITLE_END#The current implementation of `networkx.grid_graph` mutates the `dim`  input parameter, requiring calling code to copy the list prior. The current behaviour certainly isn't wrong, it might just be surprising in some circumstances.   This pull request alters this functionality to allow:  ``` python dim=[3,4] G=grid_graph(dim) ```  Rather than:  ``` python dim=[3,4] G=grid_graph(list(dim)) ``` 

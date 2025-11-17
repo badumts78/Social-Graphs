@@ -1,0 +1,4 @@
+issue
+BibTeX link broken in the docs#TITLE_END#The following bibtex citation link on [this page of the docs](https://networkx.github.io/documentation/stable/citing.html) is broken: http://math.lanl.gov/~hagberg/Publications/hagberg-2008-exploring.shtml  I tried to fix it, but Aric Hagberg's website now uses some JS magic to display the BibTeX entries for publications, I don't really know how to turn them into links. I'd be willing to fix this if someone were to give me pointers on how :)
+issue
+fix citation links#TITLE_END#Fix for #3740. Thanks @MridulS for the pointer!

@@ -1,0 +1,2 @@
+issue
+Fix: Update louvain_partitions for threshold (update mod to new_mod in each level)#TITLE_END#Currently `threshold` in `louvain_partitions` does not work. This is because `mod` in the while loop (lines 181-191) is not updated since it is initialized with the modularity of the first partition (where each node is in a community that only has the node).

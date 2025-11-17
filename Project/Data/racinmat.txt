@@ -1,0 +1,2 @@
+issue
+Usage of pygraphviz library which is not compatible with Windows 10, 64bit#TITLE_END#Methods for drawing graphs use pygraphviz library, which is compatible with windows, 64bit library.  Wouldn't be better to use e.g. pydot library,which is multiplatform?

@@ -1,0 +1,2 @@
+issue
+Slightly Incorrect Documentation for convert_matrix.py from_numpy_matrix#TITLE_END#The documentation for this function reads:  ```     For directed graphs, explicitly mention create_using=nx.Digraph,     and entry i,j of A corresponds to an edge from i to j.  ```  but networkx has no class `nx.Digraph`. The correct suggestion should be `nx.DiGraph`.

@@ -1,0 +1,2 @@
+issue
+Can we make the graph data structure persistent?#TITLE_END#Recently I really got into functional programming, was wondering if we can make the graph data-structure functional persistent.

@@ -1,0 +1,2 @@
+issue
+ENH: Add relaxed bipartition bicoloring support#TITLE_END#- Add relaxed parameter for partial bicoloring - Improve documentation consistency - Add type annotations - Enhance error handling - Add comprehensive tests

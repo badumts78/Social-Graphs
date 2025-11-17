@@ -1,0 +1,2 @@
+issue
+DiGraph.clear() is not clearing the graph content#TITLE_END#  Hi,  DiGraph.clear() is not clearing content of graph as expected. It should return an empty graph as per specification but this function is just returning the whole graph content.  For now I am initialising using nx.DiGraph().    I get this error on Google Collab notebook. I encountered this error in my recent project where I am converting a XML tree into Networkx graph using python and extracting/re-constructing subtrees from the graph.  Thanks and Cheers, Kala 

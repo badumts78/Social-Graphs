@@ -1,0 +1,18 @@
+issue
+mention `doc.txt` in `requirements/README.md`#TITLE_END#The file `requirements/doc.txt` was recently added, and was not described in the README file of that directory.
+issue
+rm arg `strict` from function `networkx.drawing.nx_pydot.to_pydot`#TITLE_END#This keyword argument is unused, because the value is overwritten in the function's body.
+issue
+bugfix: reinplace self-loop node with 0 fails#TITLE_END#In-place node replacement uses a Boolean formula instead of the ternary operator to check whether the edge being replaced is a self-loop. As a result, if the new node is 0, then the replacement fails partially, because it adds an edge from the old to the new node, instead of self-loop on the new node. Thus both the old and new node remain in the graph returned from `networkx.replace_nodes` with `copy=False`.  For more details, please see the commit messages. 
+comment
+`pydot` is again maintained (I am the maintainer), over here: https://github.com/erocarrera/pydot. `pydot == 1.2.2` has been released [on PyPI](https://pypi.python.org/pypi/pydot/1.2.2) and runs in both python 2 and 3, and all tests are passing on Travis CI.  I am planning to open a pull request to `networkx` to use `pydot` again, reverting #1898 and #1924. @johntconklin, the pull requests to `pydotplus` can be reviewed to be applied upstream.  `pydotplus` is at e06552ea3989bfb998ef6920a07d6c966ff9b01b, from Dec 2014, so it may be unmaintained. Upstream `pydot` has merged (or replaced) almost all the changes from [this fork](https://github.com/nlhepler), on which `pydotplus` was based. 
+comment
+#2272 has been merged, so upstream `pydot` changes will affect `networkx`. 
+comment
+This modification relates to parsing with `pydot`. It may be a `pydot` issue (specifically an issue in the [module `dot_parser`](https://github.com/erocarrera/pydot/blob/d6ac9e9244d1a882103422ac2b35ceef96f5dfe3/dot_parser.py)), instead of a `networkx` issue.
+comment
+Indeed, this issue is likely related to those `pydot` issues; I will try to address it within `pydot`.
+comment
+To answer the questions [above](https://github.com/networkx/networkx/issues/2235#issuecomment-243125481) about the backstory and inclusions of existing improvements scattered among `pydot` forks: 1. The current `pydot` maintainer is me. I asked the author of `pydot`, who allowed me to take maintenance responsibilities. 2. Yes, I have included most changes worth including from the main forks. Fortunately, the forks with most work in them were mostly linearly related in terms of history. I have carefully read through the histories of those forks, as I was reviewing and rewriting changes (usually as several more commits, and some of them different, for various reasons). 
+comment
+Relevant: I happened to implement [edge contraction](https://github.com/johnyf/promela/blob/34f7d3fb5a1d609e260f26eedb187ea45df4acb4/promela/ast.py#L111) for `MultiDiGraph` during manipulation of program graphs in a parser. 

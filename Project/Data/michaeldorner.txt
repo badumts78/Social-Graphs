@@ -1,0 +1,2 @@
+issue
+`descendants_at_distance` also for non-DiGraphs#TITLE_END#I think there is no reason to limit `descendants_at_distance` to DiGraphs. My change affects the documentation only.  If I am wrong, maybe a check would make sense.

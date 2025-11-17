@@ -1,0 +1,18 @@
+issue
+Enhancement for voterank#TITLE_END#1. Implemented the VoteRank algorithm for directed graphs as described in the reference paper. 2. Removed the max_iter parameter. In each iteration, a new node is selected as an influential spreader. The max_iter parameter should be the same as the number of nodes to extract. 3. The code returns only nodes with positive votes as per the previous author. Updated the document for the same. 4. Added unit test for voterank algorithm on directed graphs. 
+issue
+Keep VoteRank ability nonnegative (issue #3826)#TITLE_END#As mentioned in Issue #3826, in the current implementation of VoteRank, the voting ability of a few nodes could become negative. This was because step 4 of the reference paper was wrongly implemented. Step 4 states that the voting ability is updated only if the new value doesn't become negative. This is fixed in the pull request.
+issue
+Fixes documentation issue #3811 #TITLE_END#Fix defination of communicability as mentioned in #3811
+comment
+I can see several issues in the code and unit tests:   1) The previous author finds a Euler path/circuit in a reversed directed graph in order to avoid reversing the final Euler path output below: https://github.com/networkx/networkx/blob/04e1ef2598fa494fc4b0889ef69a71b83ff32493/networkx/algorithms/euler.py#L279-L282   This works fine if the source is not provided as seen by the first example. In case a source is provided, the source is actually the end of the Euler path in the reversed graph and therefore the code fails in the second example.  2) There are no checks-in "_simplegraph_eulerian_circuit" and "_multigraph_eulerian_circuit" functions whether a Euler path exists at the provided source and therefore the third example fails.  3) Euler path is not properly tested in unit tests : https://github.com/networkx/networkx/blob/04e1ef2598fa494fc4b0889ef69a71b83ff32493/networkx/algorithms/tests/test_euler.py#L150-L155  @dschult May I take this as a bug fix?
+comment
+Seems like a task for function "simple_cycles". 
+comment
+The elected node's voterank set was updated to [0,0] in the snippet : https://github.com/networkx/networkx/blob/04e1ef2598fa494fc4b0889ef69a71b83ff32493/networkx/algorithms/centrality/voterank_alg.py#L72  Step 4 of reference paper below wasn't correctly implemented. The voting ability is updated only if the new value doesn't become negative. : https://github.com/networkx/networkx/blob/04e1ef2598fa494fc4b0889ef69a71b83ff32493/networkx/algorithms/centrality/voterank_alg.py#L75  I have created a PR #3970 to fix the bug. Please have a look at it.  
+comment
+This was already corrected in the latest versions.
+comment
+Issue seems to be with your "get_edge" function.  I believe this :  `return(max(test.items(), key=operator.itemgetter(1))[0])`   should be changed to :  `return(max(centrality.items(), key=operator.itemgetter(1))[0])`    Girvan-Newman iteratively removes edges to discover communities in it. The case might be that the edge 4704-4693 is present in your actual graph but was removed in one of the iterations. In the next iteration, an edge from the remaining graph must be chosen but your "get_edge" function doesn't seem to use the input "graph"
+comment
+Works fine with the current master. Please check again  Output using Python 3.8.2, nx version 2.5rc1.dev_20200527015108  `(1.0000000023000002, [-1,124,125,274,275,424,425,576,577,728,729,880,881,1032,1033,1184,1185,1336,1337,1490,1491,1644,1645,1798,1799,1954,1955,2110,2111,2266,2267,2424,2425,2584,2585,2744,2745,2904,2905,3064,3065,3224,3225,3384,3385,3544,3545,3704,3705,-2])`

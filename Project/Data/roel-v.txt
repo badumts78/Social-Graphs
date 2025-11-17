@@ -1,0 +1,2 @@
+comment
+On Windows, it's really hard to get pygraphviz to work. I very much prefer a lightweight tool that only outputs a Graphviz dotfile and then lets me run the Graphviz binary from a script to render diagrams from it myself. I'm not sure what the issues with pydot are, but from my perspective as a user, pygraphviz and pydot may overlap somewhat but still fulfill two different needs. If pydot support actually gets removed I'd be SOL wrt network visualization.

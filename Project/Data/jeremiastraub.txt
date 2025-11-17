@@ -1,0 +1,2 @@
+issue
+Handle kwds explicitly in draw_networkx#TITLE_END#- [x] **Implementation**:   - [x] in `draw_networkx`, list all available additional arguments for `draw_networkx_nodes`, `draw_networkx_edges`, and `draw_networkx_labels`; check for invalid `kwds` and pass them on to the respective plotting routine   - [x] remove `**kwds` in draw_networkx_nodes/edges/labels/edge_labels   - [x] fix (previously unused) kwds in examples - [x] **Tests**:   - [x] Added test on invalid kwd - [x] **Documentation**:   - [x] Adjusted the function docstrings

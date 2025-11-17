@@ -1,0 +1,2 @@
+issue
+doc folder in tarball @ pypi absent of .inc files; networkx-1.9.1#TITLE_END#The doc build (in release 1.9.1 is huge, however there are many warnings reporting absence if files of suffix .inc in folder doc/source/developer/gitwash.   InputError: [Errno 2] No such file or directory: 'source/developer/gitwash/links.inc'.  Sure enough in MANIFEST.in  recursive-include doc *.py *.rst Makefile *.html *.png *.txt *.css  Please add *.inc to MANIFEST.in 

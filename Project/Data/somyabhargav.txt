@@ -1,0 +1,2 @@
+comment
+Hello! I would like to contribute to networkx and wanted to know if there is something still unresolved here that I can help with. Thanks.

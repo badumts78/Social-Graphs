@@ -1,0 +1,4 @@
+issue
+Idea for implementing the Orienteering Problem.#TITLE_END#I am interested in implementing the Orienteering Problem (OP) for networkx.   OP is something like a Prize-Collecting Travelling Salesman Problem (PC-TSP). In the orienteering problem, start and end points are specified along with other locations which have associated scores. Given a fixed amount of time, the goal is to determine a path from the start point to the end point through a subset of locations in order to maximize the total path score.  Should I proceed with the implementation?  
+issue
+Orienteering #TITLE_END#This pull request implements simulated annealing for solving the Orienteering Problem. For more information see: #2056  

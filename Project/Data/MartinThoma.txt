@@ -1,0 +1,2 @@
+issue
+maximal_matching was wrong in 1.8.1#TITLE_END#I have Linux Mint (based on Ubuntu 14.04 LTS). They have networkx 1.8.1 in their repository (http://packages.ubuntu.com/trusty/python-networkx).  The [`maximal_matching`](https://networkx.github.io/documentation/latest/reference/generated/networkx.algorithms.matching.maximal_matching.html) in 1.8.1 gave obviously wrong maximal matchings (they were not matchings at all).  This seems to be fixed in 1.9.1. However, this should be noted in the documentation as long as there is no major version change (to 2.x) 

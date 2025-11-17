@@ -1,0 +1,2 @@
+issue
+Burt's constraint of a triad gives 1.125 instead of the expected 1.0#TITLE_END#### Current Behavior  When calculating Burt's constraint on a triad, the result is 1.125 for all nodes in the triad.  ### Expected Behavior  The expected constraint should be 1.0.   ### Steps to Reproduce  ```{python} triad = nx.Graph([(1,2), (2,3), (1,3)]) nx.constraint(triad) ```  `{1: 1.125, 2: 1.125, 3: 1.125}`  ### Environment  <!--- Please provide details about your local environment -->  Python version: 3.12.4 NetworkX version:  3.4.2    

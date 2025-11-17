@@ -1,0 +1,2 @@
+issue
+Lifetime to edge#TITLE_END#Hello.   Does anyone know if it is possible to determine lifetime for edges in that package? For example, there is a time passing and each edge has a life span [a, b], where the edge only exists if time is in that interval.  thank you  

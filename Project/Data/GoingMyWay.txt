@@ -1,0 +1,2 @@
+issue
+draw relative distance of Graph#TITLE_END#In networkx, how can I draw a plot showing the relative distance of edges?  The test code is  ``` G = nx.Graph() G.add_edge(0, 1, length=2) G.add_edge(1, 2, length=9) G.add_edge(0, 2, length=15) pos = nx.spring_layout(G) length = nx.get_node_attributes(G, 'length') ```  

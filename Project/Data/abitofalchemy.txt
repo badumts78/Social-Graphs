@@ -1,0 +1,6 @@
+comment
+this issue is still there with version 10.11 and with the developer version: `2.1rc1.dev_20171013143330` are there work arounds to read and write  `.dot` files?
+comment
+I'm trying to install on a macOS system using the notes in this page: `networkx/examples/pygraphviz/pygraphviz_simple.py`  After I do:  ``` git clone https://github.com/pygraphviz/pygraphviz.git cd pygraphviz/ python setup.py install  ``` this is the error msg: `subprocess.CalledProcessError: Command '['pkg-config', '--libs-only-L', 'libcgraph']' returned non-zero exit status`
+comment
+pydot works:   > `from networkx.drawing.nx_pydot import read_dot` if you have pydot installed.

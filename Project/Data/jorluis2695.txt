@@ -1,0 +1,2 @@
+issue
+I am not able to get the list of selfloop_edges#TITLE_END#g.selfloop_edges(), this give me an error in version 2.4.  (worked fine in version 2.3)

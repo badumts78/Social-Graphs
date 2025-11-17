@@ -1,0 +1,2 @@
+issue
+Support for disjunctive graph?#TITLE_END#I am about to solve FJSSP using oriented disjunctive graph with conjunctive/disjuncted graph arcs. The way I see it, MultiDiGraph structure would be suitable: is the simplex method (Dantzig) - I presume _network_simplex_ method - applyable in this case? Thanks.

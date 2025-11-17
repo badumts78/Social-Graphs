@@ -1,0 +1,2 @@
+issue
+Fix weakly_connected docstring#TITLE_END#Fixed incorrect usage of "if and only if". IFF would imply that a graph is not weakly connected if it strongly connected, which is not true and contradicted by the following sentence in the docstring. Changed to "if" for clarity.

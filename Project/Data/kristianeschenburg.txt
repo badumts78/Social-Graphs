@@ -1,0 +1,2 @@
+issue
+Question regarding all_pairs_shortest_path_length#TITLE_END#In previous versions, all_pairs_shortest_path_length (among other methods) would return a dictionary mapping a source node to target nodes as such {source: {target: distance}}.   The newest version of Networkx, 2.1, returns an iterator, which can be converted to a dictionary via dict(iterator object).  Why has this functionality changed in the newest release?  

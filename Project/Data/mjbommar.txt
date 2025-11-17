@@ -1,0 +1,2 @@
+issue
+ford_fulkerson not deprecated from 1.9.1 documentation#TITLE_END#Hello,  Even though 66d67489f221b7142165a55f474fdb4a46e4ce7a removed the Ford-Fulkerson method from `algorithm.flow`, the documentation (as of 1.9.1) still contains references to the method. 

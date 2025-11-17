@@ -1,0 +1,6 @@
+comment
+Hi folks, sharing a comment from #3988   wanted to share a small library I made for typehinting (and checking!) attributed graphs: https://github.com/a-r-j/graphtype  If there’s interest I’d be happy to help build this in to NetworkX
+comment
+Hi folks, wanted to share a small library I made for typehinting (and checking!) attributed graphs: https://github.com/a-r-j/graphtype  If there’s interest I’d be happy to help build this in to NetworkX 
+comment
+@danieleades   I see, it's certainly a lively discussion 😁   I think this suggestion flies slightly under that radar - it seems that the concerns are primarily about readability of nx source code. I think that the feature I suggest is primarily for the benefit of users building on top of nx. If they don't like annotations they simply don't have to use them. Whilst I am in favour of annotations more broadly as they improve readability imo, this feature doesn't have to add any internal annotations if the maintainers are not convinced.

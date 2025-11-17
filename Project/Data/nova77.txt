@@ -1,0 +1,2 @@
+issue
+Indentation is off in all_shortest_paths code#TITLE_END#Small but relevant (it's python, after all): https://github.com/networkx/networkx/blob/master/networkx/algorithms/shortest_paths/generic.py#L383 

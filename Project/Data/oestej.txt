@@ -1,0 +1,2 @@
+issue
+Fixed a divide by zero error in forceatlas2#TITLE_END#When pos_arr includes a node at 0, 0, after normalization, a NaN occurs in the gravity calculation for that node, which propagates through the code to return NaNs for most values.

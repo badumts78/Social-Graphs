@@ -1,0 +1,2 @@
+issue
+Time dependent module#TITLE_END#After our discussion #6629 me and @evgepab have implemented the cd index method. Although we were not very sure on how to handle the weight matrix as an argument.  

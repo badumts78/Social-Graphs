@@ -1,0 +1,2 @@
+issue
+fixing the width argument description of the function draw_networkx#TITLE_END#It's a simple correction in the docstring description in the draw_networkx. 

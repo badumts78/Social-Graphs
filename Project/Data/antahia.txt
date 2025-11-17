@@ -1,0 +1,2 @@
+issue
+common_neighbor_centrality#TITLE_END#I wonder why in this algorithm in each loop the number of the G edges is changing?  When I replaced the one line code, `return ((u, v, func(u, v)) for u, v in ebunch)`  to a for loop, this is not happening. Is this supposed to be like this?

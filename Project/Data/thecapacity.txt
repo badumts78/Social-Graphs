@@ -1,0 +1,4 @@
+issue
+MAYBE INCORRECT: fix links#TITLE_END#Sorry I'm not familiar with the docutils syntax but the links to the PDF's and downloads are broken / inactive when I view them from the main site: https://networkx.readthedocs.io/en/stable/  They do work from this page; https://github.com/networkx/networkx/blob/v1.11/doc/source/download.rst  However, that syntax is different / maybe-auto-generated ... 
+issue
+PDF Documentation Links are broken#TITLE_END#As an example: http://networkx.github.io/documentation/latest/_downloads/networkx_tutorial.pdf  Both (a) on the home page: https://networkx.readthedocs.io/en/stable/index.html  and (b) on the download page: https://networkx.readthedocs.io/en/stable/download.html 

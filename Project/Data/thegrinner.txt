@@ -1,0 +1,2 @@
+issue
+Website link to license is dead#TITLE_END#Apologies if this should be on the mailing list instead, I wasn't sure where this should be reported. The main [NetworkX](http://networkx.github.com/) site has a link to license on the main page under features - this link (`http://networkx.github.com/reference/legal.html`) 404's.   It's obviously possible to find the license here, but the dead link might confuse / put off some people. 

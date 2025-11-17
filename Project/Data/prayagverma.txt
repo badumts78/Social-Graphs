@@ -1,0 +1,2 @@
+issue
+Fix a typo in install.rst#TITLE_END#`repostitory` → `repository` 

@@ -1,0 +1,2 @@
+issue
+Issue with weight value in minimum spanning edges#TITLE_END#I think I've picked up a bug in the minimum spanning edges function. It doesn't sort the edges properly by weight. I'm not terribly familiar with the sorted function, but If I'm correct, then:  edges = sorted(G.edges(data=True),key=lambda t: t[2].get(weight,1))  should be: edges = sorted(G.edges(data=True),key=lambda t: t[2][weight], reverse=True)  Kind regards,  Tim 

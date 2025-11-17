@@ -1,0 +1,2 @@
+comment
+I have the same issue.   In both my case and the example above, the `while` loop hangs because `beta` becomes `inf` [here](https://github.com/networkx/networkx/blob/master/networkx/linalg/algebraicconnectivity.py#L81) and as a consequence _"everything else"_ becomes `nan` which results in the failure of the exit condition [here](https://github.com/networkx/networkx/blob/master/networkx/linalg/algebraicconnectivity.py#L78).

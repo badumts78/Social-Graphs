@@ -1,0 +1,2 @@
+comment
+@dschult can we apply the same solution internally as well for finding multigraph's `lowest_common_ancestor`, if so then I can create a PR for that.

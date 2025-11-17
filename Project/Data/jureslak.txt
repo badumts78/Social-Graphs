@@ -1,0 +1,2 @@
+issue
+Documetation formatting nitpick#TITLE_END#I believe a code block is missling just above references: https://networkx.github.io/documentation/latest/reference/generated/networkx.algorithms.cycles.simple_cycles.html. 

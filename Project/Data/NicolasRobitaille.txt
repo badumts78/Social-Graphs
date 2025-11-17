@@ -1,0 +1,2 @@
+issue
+inter_community_non_edges ignore directionality#TITLE_END#Hi,  I think the function:  nx.algorithms.community.quality.inter_community_non_edges()  does not work properly for directed graph. It always return the non-edge of a undirected graph, basically halving the number of edges. This mean that the performance function (nx.algorithms.community.performance) will never by higher than 50% for a directed graph.  I'm using version '2.0.dev_20170801111157', python 3.5.1  Best,  Nicolas 

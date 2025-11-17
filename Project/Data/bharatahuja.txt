@@ -1,0 +1,4 @@
+issue
+drawing a list with 3 nodes#TITLE_END#Try giving the draw function a list with 3 nodes and a 3-array of normalized float values (RGB) and the draw function thinks I'm giving it each value for a seperate node. Design flaw. 
+comment
+http://bfy.tw/7vw0  First link to SO. 

@@ -1,0 +1,2 @@
+issue
+type: Generating paley graphs more efficiently#TITLE_END#There is no need checking that (x**2)%p == 0 when p is prime and x is not zero, as it would means that x is a zero divisor, contradicting the fact that  z/zp is a field.

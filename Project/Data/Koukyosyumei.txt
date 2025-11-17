@@ -1,0 +1,2 @@
+issue
+"from_pandas_dataframe", small but possible enhancement #TITLE_END#This function iterates df.columns now.              for i, col in enumerate(df.columns):                 if col is not source and col is not target:                     edge_i.append((col, i))  I think using df.columns.values is more efficient because its type is np.array, although I know the difference is small.

@@ -1,0 +1,2 @@
+issue
+Remove unused imports#TITLE_END#Thank you for creating and maintaining this excellent module! I've really enjoyed using `networkx` so far. I wanted to learn more about the package so I spent some time looking through the source code tonight.  I found a few unused imports and decided that, to thank you, I'd try to root out more of them. Please consider this PR to remove unused imports. If you are worried that this PR is touching too much code, please let me know and I'd be happy to break it up into smaller, more targeted sets of changes.

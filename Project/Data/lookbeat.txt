@@ -1,0 +1,2 @@
+issue
+add a custom default serializer for jit_data#TITLE_END#it will enable export JIT Json when using custom objects in Nodes/Edges

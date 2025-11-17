@@ -1,0 +1,2 @@
+issue
+Install documentation has error for zsh, easily fixed#TITLE_END#With zsh, `pip install networkx[all]` says  > zsh: no matches found: networkx[all]  This is easily fixed by quoting the package to be installed, which also works on bash.  `pip install 'networkx[all]'`  (Also while I'm here, consider putting a link to the source code more prominently in the documentation. I could only find it from the git command in the install section)

@@ -1,0 +1,4 @@
+issue
+doc: hash size are in bytes#TITLE_END#Just a minor fix of the documentation of `weisfeiler_lehman_graph_hash`: it takes a number of **bytes**, passed to blake2b, as size parameter. I also added an explicit mention of how this translates to the size of the output, for anyone no familiar with `hashlib`.
+issue
+doc: hash size are in bytes#TITLE_END#Just a minor fix of the documentation of `weisfeiler_lehman_graph_hash`: it takes a number of **bytes**, passed to blake2b, as size parameter. I also added an explicit mention of how this translates to the size of the output, for anyone no familiar with `hashlib`.

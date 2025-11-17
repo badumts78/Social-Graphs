@@ -1,0 +1,6 @@
+comment
+I also misunderstood the sentence in the documentation. Could we make it clearer like below?   cutoff (integer or float, optional) – Depth to stop the search. Only paths of length <= cutoff are returned. (cutoff for weighted paths is the weighted length of the path -- not the number of "hops")
+comment
+OK, that's my bad. In this commit https://github.com/networkx/networkx/commit/f63e90ba4676fcb4ef74c5bd7ddda56be50d4c90 cutoff definitions were revised.   I see that `pip install networkx` installed version 2.5.1 on my Ubuntu. That's why I still see the old version of documentation in my IDE.  Thanks for your interest!  Edit: How can we install 2.8 via pip command? pip gives the following message:  ERROR: Could not find a version that satisfies the requirement networkx==2.8 (from versions: 0.34, 0.35, 0.35.1, 0.36, 0.37, 0.99, 1.0rc1, 1.0, 1.0.1, 1.1, 1.2rc1, 1.2, 1.3rc1, 1.3, 1.4rc1, 1.4, 1.5rc1, 1.5, 1.6rc1, 1.6, 1.7rc1, 1.7, 1.8rc1, 1.8, 1.8.1, 1.9rc1, 1.9, 1.9.1, 1.10rc2, 1.10, 1.11rc1, 1.11rc2, 1.11, 2.0, 2.1, 2.2rc1, 2.2, 2.3rc3, 2.3rc4, 2.3, 2.4rc1, 2.4rc2, 2.4, 2.5rc1, 2.5, 2.5.1) 
+comment
+Thanks for clarification, probably it's related to my pip indexes. 

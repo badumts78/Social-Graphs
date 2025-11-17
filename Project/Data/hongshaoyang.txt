@@ -1,0 +1,2 @@
+issue
+Clarify NetworkXNoPath exception in all_shortest_paths()#TITLE_END#Clarify error message raised in all_shortest_paths() to user.

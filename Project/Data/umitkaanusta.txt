@@ -1,0 +1,2 @@
+issue
+Getting triad census for a node#TITLE_END#Seems like there is a function for getting overall triad census. However, in the case when I want to see censuses for each node I have to manually implement that function. Would you consider adding a function that creates a triadic census table showing triad census of each node?

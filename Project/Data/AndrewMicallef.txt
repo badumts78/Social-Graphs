@@ -1,0 +1,2 @@
+issue
+use mpl arrows on digraph plot#TITLE_END#This is a small change to the `draw_networkx_edges` function in `nx_pylab.py`. I have rewritten the mpl function to use matplotlib arrows instead of thickened lines. I've tested it on a 5x5 graph and it seems to work okay, And looks a lot nicer in my opinion. I noticed that the **kwds argument was going unused, so I have redirected this to the arrow function. 

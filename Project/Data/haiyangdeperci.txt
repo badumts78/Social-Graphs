@@ -1,0 +1,2 @@
+issue
+Enables altering alpha of specific nodes and edges#TITLE_END#Matplotlib bugs related to alpha channels have been resolved, thus I see no point in keeping code pertaining to that. It is currently quite difficult to affect the alpha of particular nodes and edges. Currently, when passing rgba or 8-digit hex values for nodes and edges, alpha is forced to be uniform (1, if not stated otherwise). This pull requests changes this annoying behaviour and lets the user set it up himself or herself.

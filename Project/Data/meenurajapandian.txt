@@ -1,0 +1,2 @@
+comment
+The documentation still shows three different functions - communicability_centrality, communicability_centrality_exp and communicability_betweenness_centrality

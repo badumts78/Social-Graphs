@@ -1,0 +1,2 @@
+comment
+For what it's worth - its 37kb for me on Ubuntu 18.04 WSL in Windows 10 Python 3.9 / networkx 2.5.1 ```bash $ /usr/bin/time python -c 'import networkx' 0.39user 0.40system 0:00.43elapsed 181%CPU (0avgtext+0avgdata 37928maxresident)k 24376inputs+0outputs (67major+6273minor)pagefaults 0swaps ```

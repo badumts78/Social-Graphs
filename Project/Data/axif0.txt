@@ -1,0 +1,4 @@
+issue
+Add new function `generate_peo` to the chordal module#TITLE_END### Description This PR adds a new function `generate_peo` to the `networkx.algorithms.chordal` module. Additionally, it includes corresponding unit tests for the function.  ## Changes Made - Added the `generate_peo` function to calculate a Perfect Elimination Ordering (PEO) of a graph. - Included unit tests for the `generate_peo` function.  ## Related Issues #6873 
+issue
+Add Contributor Guide link in README#TITLE_END#<!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> 

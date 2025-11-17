@@ -1,0 +1,2 @@
+issue
+Typo Hand should be Hans#TITLE_END#Hello,  This is my first time contributing to networkx. I hope I'm following the contributing guidelines.  I just spotted a small typo. A first name isn't spelled properly. Is it worth fixing?  Thanks :)

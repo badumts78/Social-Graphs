@@ -1,0 +1,8 @@
+issue
+intersection_graph#TITLE_END#This PR contains an implementation of intersection_graph(https://en.wikipedia.org/wiki/Intersection_graph) and its unit tests. The term is confusing, but it is totally different as existing module of networkx.generators.intersection which is about uniform random intersection graph. Please give me any comments about the PR so that it can be merged to main branch smoothly.
+issue
+Add functions to compute Schultz and Gutman Index#TITLE_END#It contains implementations of first, second kinds of Schultz index and their unit cases. Please give me any comments so that it will be merged to the main branch. Thanks.
+issue
+Szeged index#TITLE_END#It contains an implementation of Szeged index(https://en.wikipedia.org/wiki/Szeged_index) and its unit tests. 
+issue
+Add an implementation for interval_graph and its unit tests#TITLE_END#I add an implementation for interval_graph(https://en.wikipedia.org/wiki/Interval_graph) and its unit tests. Please review the code and give me any comments for that it will be merged to main branch. Thanks.

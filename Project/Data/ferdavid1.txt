@@ -1,0 +1,4 @@
+issue
+Curved lines in loops for digraphs#TITLE_END#added the boolean parameter 'draw_loop' to nx.draw() that uses simple_cycles() to find cycles in a directed graph, then makes curves the edges that make up the cycle, for aesthetic purposes. first PR, let me know how I can improve!  Example: ![circ](https://user-images.githubusercontent.com/4976877/36095975-3391179a-0fa9-11e8-8a7a-4b26da88330e.png)
+issue
+Implementing Betti numbers of Graphs#TITLE_END#Function found in algorithms.components.connected.py In Topological Graph Theory: the 0th betti number = # of edges the 1st betti number = # of edges - # of nodes + # of connected components  function betti(Graph object): returns (0th, 1st) betti numbers

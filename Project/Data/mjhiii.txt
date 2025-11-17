@@ -1,0 +1,2 @@
+issue
+Ex testing for covering py#TITLE_END#Added an exception test in test_covering.py

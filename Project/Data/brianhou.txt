@@ -1,0 +1,2 @@
+issue
+Hide edges with a weight of None in A*.#TITLE_END#This matches the Dijkstra's weight interface, which ignores edges with a weight of `None`.  https://github.com/networkx/networkx/blob/d2ceeb69ab0580a84a3b13266e6bd32e99da0232/networkx/algorithms/shortest_paths/weighted.py#L838  Documentation for this feature is copied from `dijkstra_path`.  https://github.com/networkx/networkx/blob/d2ceeb69ab0580a84a3b13266e6bd32e99da0232/networkx/algorithms/shortest_paths/weighted.py#L134

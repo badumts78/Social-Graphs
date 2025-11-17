@@ -1,0 +1,2 @@
+issue
+traverse_face returning incorrect result?#TITLE_END#Hi there, I'm not sure if this is my error or a bug for planar graphs, I posted it here:  https://stackoverflow.com/questions/65743049/why-does-networkx-show-incorrect-faces-for-traverse-face  It has steps to reproduce.

@@ -1,0 +1,2 @@
+issue
+AttributeError: module 'networkx' has no attribute 'weisfeiler_lehman_subgraph_hashes'#TITLE_END# ### Current Behavior AttributeError: module 'networkx' has no attribute 'weisfeiler_lehman_subgraph_hashes'  ### Steps to Reproduce ''' import networkx as nx nx.weisfeiler_lehman_subgraph_hashes(graph1nx, iterations=3, digest_size=8) ''' ### Environment Ubuntu 20.04 (x86/64) Python version: 3.9.12 NetworkX version: 2.5 

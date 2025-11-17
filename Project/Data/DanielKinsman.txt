@@ -1,0 +1,2 @@
+issue
+timeformat undefined in gexf writing#TITLE_END#See the code [here](https://github.com/networkx/networkx/blob/networkx-1.11/networkx/readwrite/gexf.py#L567). There is no final `else`, meaning that if the type of the object isn't one of those listed (e.g. it is instead something like `unicode` in python 2.7.x), `timeformat` is undefined and things blow up.  Might submit a PR if I get some time.

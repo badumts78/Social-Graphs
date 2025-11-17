@@ -1,0 +1,6 @@
+issue
+Bug in algebraic_connectivity() implementation#TITLE_END#Hi all and @ysitu ,  I have the following block of code calculating the algebraic connectivity of random regular graphs.  `import networkx as nx  for i in range(10):     g = nx.random_regular_graph(5,100)     ac=nx.algebraic_connectivity(g)     print(ac)`  The code is successful on some of the graphs, but it will mostly halt one one of the graphs. According to my experiments, this error only happens on random regular graphs, not other types of graphs. So I think there is a bug in algebraic_connectivity() implementation in handling this particular situation. Please advise. Thanks.
+issue
+Add the reference for the Harary graph generators#TITLE_END#This was forgotten when contributing the source code of the Harary graph generators
+issue
+Add two generators for Harary graph#TITLE_END#This pull request implements two generators for the Harary graph, which achieves the maximum node connectivity among all graphs of the same number of nodes and number of edges. The way of constructing Harary graph is described by the famous mathematician Frank Harary in his 1962 work "The Maximum Connectivity of a Graph."   The two generators use different parameters to generate Harary graph. For more details about them, please refer to the comments for the code. Please review and feedback. Thank you.

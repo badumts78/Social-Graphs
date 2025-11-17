@@ -1,0 +1,2 @@
+issue
+Unsupported operand using pagerank()#TITLE_END#I have been trying to troubleshoot this issue, but cannot seem to figure out the problem.  While trying to create a list of pageranks using a for loop, I receive a TypeError for unsupported operand.  The issue can be found in step 7 of the file.  The notebook is loaded on GitHub @  https://github.com/himanshubeniwal/A-Network-analysis-of-Game-of-Thrones     

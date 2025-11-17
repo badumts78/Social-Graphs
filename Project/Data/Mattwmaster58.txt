@@ -1,0 +1,4 @@
+issue
+allow set of edge nodes#TITLE_END#Fixes #3884
+issue
+Add support for sets of graph edges#TITLE_END#Currently it looks like only tuples and lists of graph edgeds are supported, however with a small change I think it would be easy to add support for any Iterable, providing greater flexibilty to users of the library. Are there any considerations I'd need to take before submitting a PR?

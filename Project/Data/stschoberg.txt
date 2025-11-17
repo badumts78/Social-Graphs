@@ -1,0 +1,2 @@
+comment
+@ericmjl Still looking for that newcomer to bring on board? I'd love to take a stab at this. Just started using networkx this summer and would love to contribute.

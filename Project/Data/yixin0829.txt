@@ -1,0 +1,4 @@
+comment
+Hi @MridulS, I'm working on this right now and wondering do we need to write tests for testing private functions as well? I saw on CodeCov in `line.py` for example `_triangle()` is not fully covered. 
+comment
+Hi @MridulS, me and my friends would like to add more tests to this issue if possible. Can we still work on this issue since I saw there's already one PR being merged? 

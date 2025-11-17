@@ -1,0 +1,12 @@
+issue
+Fix reference in line.py-inverse_line_graph#TITLE_END#This is a pull request with the changes in the documentation to resolve "Reference for inverse_line_graph #6428   "  Closes #6428
+issue
+DocumentationFixed-in-line.py-inverse_line_graph#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. -->  This is a pull request with the changes in the documentation to resolve "Reference for inverse_line_graph #6428 " 
+comment
+Could you assign to me this issue?
+comment
+great thanks!
+comment
+I'm sorry @barbireau I have a question with your dio link. It redirects me to a DOI not found when I click on it. I'm doing something wrong or the link is wrong ?
+comment
+> I'm sorry @barbireau I have a question with your dio link. It redirects me to a DOI not found when I click on it. I'm doing something wrong or the link is wrong ?  ooh I got it, it took a square bracket as part of the link

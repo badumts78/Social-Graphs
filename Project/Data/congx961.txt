@@ -1,0 +1,2 @@
+issue
+add_edges_from() method missing some edges#TITLE_END#I'm using add_weighted_edges_from() method which is actually calling add_edges_from() to generate a graph from a list contain 303535 edges, but the graph object returned by this method only have 303190 edges.   I've checked the source code and find it called the Graph.update() so i check my edgelist if there are some duplicate edges but the result is NO.   Another interesting thing is when I use the nx.read_edgelist() everything is OK, but I just don't know why and it's really confusing. 

@@ -1,0 +1,2 @@
+issue
+PyPI has the development version#TITLE_END#2.0b1 was uploaded to PyPI: https://pypi.python.org/pypi/networkx/  It breaks compatibility with the libraries that still assume that the latest stable version is 1.11. Also, the [website's](http://networkx.github.io/) link under "networkx-1.11" points to the beta as well.  I'm wondering if the stable version can be re-uploaded back to PyPI?

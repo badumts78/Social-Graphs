@@ -1,0 +1,2 @@
+issue
+[Question] Does any of the isomorphism algorithms work with directed weighted multigraphs?#TITLE_END#It is not entirely clear from the documentation. Thanks!

@@ -1,0 +1,2 @@
+issue
+Direct use of `spdiags`'s argument for matrix types in PageRank computation#TITLE_END#The `spdiags` supports "format" argument specifying wanted matrix type - specifying it to `csr` simplifies the cast. 

@@ -1,0 +1,2 @@
+issue
+returning information on edges for simple path on a multigraph#TITLE_END#This is a simple implementation to show edges information on simple paths for a multidigraph. There is an important difference: it is returning now two lists, one with path as nodes and one with path as edges. I have combined them in a global list, such that it has the form [list_of_nodes, list_of_edges].  I am open to suggestions.

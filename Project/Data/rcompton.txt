@@ -1,0 +1,2 @@
+issue
+Exporting dynamic .gexf format#TITLE_END#When I try to read/write the example dynamic .gexf format at http://gexf.net/data/dynamics.gexf I end up with a file that Gephi can't read. This code will reproduce the error:  ``` import networkx as nx  def main():      G=nx.read_gexf("/home/ryan/Documents/dynamics.gexf")      nx.write_gexf(G,"/home/ryan/Documents/dynamics_out.gexf")      return   if __name__ == '__main__':     main() ``` 

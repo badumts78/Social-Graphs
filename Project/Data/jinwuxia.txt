@@ -1,0 +1,2 @@
+comment
+Hi,  Does the Networkx  group consider adding type annotations to source code?  Prefer to use inline type or separate stub files (*pyi )?

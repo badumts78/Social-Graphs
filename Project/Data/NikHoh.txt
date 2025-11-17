@@ -1,0 +1,2 @@
+issue
+Allowing None edges in weight function of bidirectional Dijkstra#TITLE_END#added following feature also to bidirectional Dijkstra: The weight function can be used to hide edges by returning None.  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

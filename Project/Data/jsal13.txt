@@ -1,0 +1,4 @@
+issue
+gaussian_random_partition_graph "directed" issue.#TITLE_END#There is a mismatch in the function for `gaussian_random_partition_graph` where `directed` is being sent to `seed` and vice versa.  This makes the default version of the graph directed instead of undirected.
+issue
+fix: gaussian_random_partition_graph kwargs fix [#3871];#TITLE_END#Description: Previously, there was a mismatch where `directed` was being sent to `seed` and vice versa on this line.  This makes it explicit which arg is passed where.  Tested locally and passes.

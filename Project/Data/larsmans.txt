@@ -1,0 +1,2 @@
+issue
+A*: pep8 code and fix documentation#TITLE_END#Hi,  I noticed that the docstring for `astar_path_length` wasn't correct, it seems to have been copy-pasted off `astar_path`. I took the opportunity to also clean up the source code so that it conforms to PEP8. 

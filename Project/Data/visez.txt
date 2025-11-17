@@ -1,0 +1,2 @@
+issue
+Parallel betweenness#TITLE_END#Hi, I was looking at the parallel betweenness example as it is the only one in the repo that gives an idea of how to parallelize the networkx functions.   In line 50, node_divisor is defined as  `    node_divisor = len(p._pool) * 4`  Is there any reason for that 4x multiplication? It means that it creates 4 times as many groups as there are cores available, which I cannot see a reason for.  Can anyone explain its function?  

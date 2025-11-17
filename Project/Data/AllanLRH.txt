@@ -1,0 +1,4 @@
+comment
+Should this be part of the Networkx 2 milestone? As @harryscholes mentions, Python 3-5+ have the @-operator, and the Numpy Matrix class is all but deprecated... Networkx 2 is a release for the future, so it should be convenient to use the more modern array-class instead of the Matrix. 
+comment
+Haven't tried it yet, but have a look at this repo: https://github.com/paulbrodersen/netgraph   If you try it out, would you mind to report what you think of the functionality?

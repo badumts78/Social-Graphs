@@ -1,0 +1,6 @@
+comment
+Nice, I just need this API. When I finally understand the Yen's algorithm, and was planning to implement it, I come here!  Thanks for your awesome work!@Wind4Greg 
+comment
+But we can not find any information of this API in https://networkx.github.io/documentation/latest/reference/algorithms.shortest_paths.html  Look forward to add relative information.  @jtorrents 
+comment
+Thank you for your help @dschult @MridulS  

@@ -1,0 +1,2 @@
+comment
+It's pretty old question and probably no longer relevant for you. But for documentation purposes, you can do it this way: `nx.draw_networkx_edges(G, pos, width=edge_width, connectionstyle='arc3,rad=0.1', ...)`

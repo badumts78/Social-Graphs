@@ -1,0 +1,2 @@
+issue
+Don't work both links to download the tutorial and reference on PDF.#TITLE_END#In this web (http://networkx.readthedocs.io/en/stable/download.html) there are links that allow you to download the tutorial and the references, don't work both. Please fix 

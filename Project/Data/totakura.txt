@@ -1,0 +1,2 @@
+issue
+Documentation download link is broken#TITLE_END#The link at https://networkx.readthedocs.io/en/stable/download.html to download the docs as zip file is currently broken. 

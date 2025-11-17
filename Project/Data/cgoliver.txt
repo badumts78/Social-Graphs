@@ -1,0 +1,6 @@
+issue
+rooted GED#TITLE_END#Added an option to graph_edit_distance called `roots` which is a tuple of nodes, one from each graph.  If specified, the GED computation starts with those nodes matched. This can be used to compare rooted graphs where GED should be compared with respect to the roots. Also leads to faster computation since the roots no longer need to be matched.
+issue
+hashing#TITLE_END#Implemented Weisfeiler Lehman graph hashing. (http://jmlr.org/papers/volume12/shervashidze11a/shervashidze11a.pdf) Given a graph (with/without node and/or edge attributes) produces identical string encodings for isomorphic graphs and has strong guarantees for the converse.  
+comment
+Looks really nice @aaronzo ! Let me know if there is anything I can help with.

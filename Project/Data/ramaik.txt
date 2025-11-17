@@ -1,0 +1,2 @@
+issue
+networkx/readwrite/gml.py stringize() does not implement an action to 'tuple' basic type.#TITLE_END#stringize() function in generate_gml(), line 579,  implements all actions for basic types, such as str, unicode, int, long, float, dict, and list, but not for 'tuple'. Optional function stringizer() is not provided with the full recursion context, thus its use is limited. It has been observed in networkx version 1.10, 1.11 and 2.0 (Python 3.4.3, Anaconda 2.3.0 (64-bit). 

@@ -1,0 +1,2 @@
+issue
+question about Graph Isomorphism with function "nx.vf2pp_is_isomorphic"#TITLE_END#I want to check two below graphs G1 and G2 are isomorphic?  My expected result for "nx.vf2pp_is_isomorphic(G1, G2 ,node_label=None)"  is  "False" while the code result is "true".  import networkx as nx G1 = nx.Graph() G1.add_edges_from([(1, 1), (1, 1), (1, 1), (2, 2)]) G2 = nx.Graph() G2.add_edges_from([(1, 1), (1, 1), (2, 2), (2, 2)]) nx.vf2pp_is_isomorphic(G1, G2 ,node_label=None)  Environment: Python version: 3.11.4 NetworkX version: 3.1 

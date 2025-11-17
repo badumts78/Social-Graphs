@@ -1,0 +1,6 @@
+issue
+zip(range(len(x)),x) -> enumerate(x) for pythonism#TITLE_END#trivial change, but slightly cleaner? 
+comment
+FYI, I've been looking for the `blockmodel` function (which I remember from a previous version) for about 20 minutes and wasn't able to determine what happened to it until I found this issue.  I was not able to find a reference to the function with the deprecation warning in the current documentation, and the deprecation notice isn't in the previous version docs either.  https://networkx.github.io/documentation/networkx-1.9.1/reference/generated/networkx.algorithms.block.blockmodel.html  Also, though I searched for it, I wasn't able to find a reference to this deprecation in any of the release notes.
+comment
+You are right, it's fairly well covered. If you could point me to the right doc, I would make a PR with the edit.

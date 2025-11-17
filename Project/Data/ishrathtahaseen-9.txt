@@ -1,0 +1,6 @@
+issue
+doc: improve docstring for hypercube_graph.#TITLE_END#Closes #7942  improving docstring for hypercube graph
+issue
+Updated docstring for hypercube_graph function#TITLE_END#fixing hypercube docstring
+issue
+improve clarity in README.rst intro#TITLE_END#upated README

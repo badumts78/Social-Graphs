@@ -1,0 +1,2 @@
+comment
+Bumping this issue.   Somewhere in June or July a next Python 3.5 maintenance release will be made available, after which 3.5 goes into "security fixes only" mode. That means most distributions will also change their default (3.x) interpreter to 3.6. With networkx 1.11 we get 17 failures on 3.6. Now, I've seen commits fixing them so we could take those patches, however, networkx is used widely so I strongly recommend creating a release that works on 3.6 and passes its test suite.

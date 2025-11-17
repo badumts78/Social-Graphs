@@ -1,0 +1,2 @@
+issue
+Fix to_vertex_cover#TITLE_END#The issue is well-described in #3306.  This code change consists of: - style change from lazy to eager - Test addition for reproduction  I tried not to invade original intention of code.  Closes #3306 

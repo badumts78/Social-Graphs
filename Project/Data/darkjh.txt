@@ -1,0 +1,2 @@
+issue
+Question: PageRank algo convergence condition#TITLE_END#Hi, just a question when reading the code of PageRank algorithm. I found this:  https://github.com/networkx/networkx/blob/master/networkx/algorithms/link_analysis/pagerank_alg.py#L155  So the `tol` param is normalized by the graph size by multiplying. Can you explain a little bit why?   Thanks. 

@@ -1,0 +1,2 @@
+issue
+Correct all_simple_paths docstring #2762#TITLE_END#As mentioned in #2762  > Please update the documentation to state explicitly that the function by default searches for paths with cutoff=(number of nodes in graph -1). You must inspect the source code in order to find that, which may lead, as in my case, to a couple of hours of debugging.  This is the behaviour in the example:  ``` >>> paths = nx.all_simple_paths(G, source=0, target=3, cutoff=2) >>> print(list(paths)) [[0, 1, 3], [0, 2, 3], [0, 3]] ```

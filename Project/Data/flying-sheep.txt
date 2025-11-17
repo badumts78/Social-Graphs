@@ -1,0 +1,6 @@
+comment
+As someone with a very strong understanding of all parts of Python (except for the C API), I concur: Type annotations make code much easier to read.  They're basically automatically enforceable documentation that never gets out of sync with the code (when tested for). 
+comment
+> so far there have been no contributions that solve the general arrow drawing problem.  that’s incorrect, except if you mean something different with that: https://groups.google.com/d/msg/networkx-discuss/uV_amBP65n0/7nVubHNyBNMJ
+comment
+this would be a really nice feature to have :)  since the code is here, how about integrating it? 

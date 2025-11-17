@@ -1,0 +1,6 @@
+issue
+Max cycle weight packing#TITLE_END#This is a fork for max cycle weight packing
+issue
+Pull request unknown lint fail#TITLE_END#Hi i wanted to open a pull request but except 1 all of my tests pass , however i do not understand the problem or why its failing , im adding a screenshot here of the said test ![Capture](https://user-images.githubusercontent.com/73115681/217521333-3f638721-b9a3-429c-8732-08c62c7303a4.PNG) any help is welcome
+issue
+pull request for maximum weight cycle packing#TITLE_END#This is a pull request for maximum weight cycle packing

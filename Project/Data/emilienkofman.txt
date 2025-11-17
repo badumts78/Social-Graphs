@@ -1,0 +1,6 @@
+issue
+Bugfix (or simplification) of the size method in the Graph class#TITLE_END#Although I am still not a Git master, I think this one is correct. 
+issue
+Bugfix (or simplification) of the size method in the Graph class#TITLE_END#Hi,  I was wondering if it makes sense to simplify the size method like this: - In the case no weight argument is passed, it returns an int anyway - In the case a weight argument is passed, it returns its sum (as long as `__add__` is defined for the weight). By the way it's not always possible to convert weights to floats, which makes this fix convenient in that situation. 
+issue
+Drawing arrow heads when drawing digraphs.#TITLE_END#Fixed the arrow hack when displaying directed graphs (or it's at least a better hack). It might be necessary to get the edge radius to adjust the arrowhead. 

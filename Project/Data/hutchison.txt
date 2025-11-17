@@ -1,0 +1,4 @@
+issue
+Fixes some edge cases for inverse_line_graph().#TITLE_END#As previously discussed.  The edge cases are L(K_1) = K_0 and L(K_2) = K_1. Now `inverse_line_graph` correctly inverts K_0 and K_1.
+issue
+Fix inverse_line_graph.#TITLE_END#Tests included.

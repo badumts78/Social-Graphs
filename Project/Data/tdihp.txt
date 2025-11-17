@@ -1,0 +1,4 @@
+issue
+single_source_dijkstra_path passes cutoff#TITLE_END#added cutoff to single_source_dijkstra_path's call of single_source_dijkstra 
+issue
+add weight to astar_path_length's call to astar_path#TITLE_END#I think this causes astar_path_length return incorrect length. 

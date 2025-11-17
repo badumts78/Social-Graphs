@@ -1,0 +1,6 @@
+issue
+Add generator for a ring of cliques graph#TITLE_END#This pull request adds the  `ring of cliques` function which generates a ring of cliques graph. It takes two parameters, the number of cliques and the size of cliques. 
+issue
+Add Girvan-Newman algorithm for communities detection#TITLE_END#This pull request implements Girvan-Newman algorithm which detects communities by progressively removing edges from the original graph. For this reason, we created a new module named `community.py` and there added the `girvan_newman` function 
+issue
+Functions to test if a graph is weighted (or negatively weighted)#TITLE_END#This pull request adds two functions which are related with the weights of a graph.  The **weighted_edges** function checks if all graph's edges or a specific edge is weighted. The **negative_weights** function  checks if the graph has a negatively weighted edge or if a specific edge of the graph has negative weight.  Also, test functions are added, with 100% code coverage. 

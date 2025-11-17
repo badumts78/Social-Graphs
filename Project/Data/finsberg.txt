@@ -1,0 +1,2 @@
+issue
+Add better error message when trying to get edge that is not present#TITLE_END#When trying to get an edge that is not present in the graph it will give a `KeyError`, but I think it would be better to have an error message saying that the edge is not present in the graph.

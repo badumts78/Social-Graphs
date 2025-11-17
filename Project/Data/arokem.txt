@@ -1,0 +1,2 @@
+issue
+BF: propagate `kwds` to MPL call#TITLE_END#See: https://github.com/nipy/nitime/issues/153, https://github.com/nipy/nitime/pull/157

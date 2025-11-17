@@ -1,0 +1,6 @@
+issue
+Add Feature from_node_dataframe in convert_matrix issue#4225#TITLE_END#Hi @ericmjl  I Solve The Issue #4225  Thank You For Helping Me To Send First PR 
+comment
+I want to work this issue Please help me. Thank you
+comment
+> Are there any expectations regarding how edges are specified inside DataFrame?  this method create Graph by Node . input Edges after graph creation .

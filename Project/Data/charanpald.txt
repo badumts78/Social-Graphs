@@ -1,0 +1,2 @@
+comment
+I just wanted to add that I am potentially open to changing the license of APGL. I just need a little time to read about what the implications of that would be (probably I won't mind).  

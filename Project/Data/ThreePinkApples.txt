@@ -1,0 +1,4 @@
+issue
+Deprecationwarning in digraph.py 'ReverseView is deprecated. Use reverse_view instead'#TITLE_END#```   /usr/local/lib/python3.7/site-packages/networkx/classes/digraph.py:1186: DeprecationWarning: ReverseView is deprecated. Use reverse_view instead     return nx.graphviews.ReverseView(self) ```  This is from networkx 2.2, I checked the current source and I see the issue is still in master, now on line [1201](https://github.com/networkx/networkx/blob/master/networkx/classes/digraph.py#L1201) 
+issue
+Replaced deprecated usage of ReverseView with reverse_view, fixes #3252#TITLE_END#Fixes issue #3252 

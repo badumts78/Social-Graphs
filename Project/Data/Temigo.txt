@@ -1,0 +1,4 @@
+issue
+Read/write/generate a basic graph using UCINET DL format#TITLE_END#Functions and tests for UCINET DL format.  (Currently supports only 'fullmatrix' format for data. There are many variants for UCINET DL format, this implementation only covers the basic one for now.)  This is related to issue  #2051. Thanks ! 
+issue
+Feature proposal - Graph Read/write formats#TITLE_END#Hi,  I realized that Networkx cannot handle graphs in formats such as Ucinet DL, which is handy because of the datasets available in this format. In comparison with Gephi (https://gephi.org/users/supported-graph-formats/) several formats are missing, if I'm not mistaken.   Would this be a feature that you would appreciate to be added to Networkx ? If it is the case, I would be glad to implement it.  Thanks ! 

@@ -1,0 +1,2 @@
+issue
+Python 3 incompatability: nx.read_shp uses xrange#TITLE_END#Python 3 eliminated xrange() but making range() an interator.  The nx.read_shp shapefile reader uses xrange() which is the only item in this module preventing Python 3.x compatibility.  Using range() should work reasonably well in Python 2.  The issue can be worked around in code with:   ``` nx.read_shp.xrange = range ``` 

@@ -1,0 +1,2 @@
+issue
+Typo: `networx.readwrite`#TITLE_END#Not sure how to handle it, so I thought I'd just point it out: `networx.readwrite`  https://github.com/search?q=org%3Anetworkx+networx&type=code

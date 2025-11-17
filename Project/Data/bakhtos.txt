@@ -1,0 +1,4 @@
+issue
+Add `edges` keyword/deprecate `link` keyword arguments in `JSON` input-output#TITLE_END#Following the discussion in #7532, this PR does the following:  - New keyword argument `edges` is introduced to JSON reading/writing functions - Previous keyword argument `link` is deprecated - Functions raise `ValueError` if both are provided - Functions raise `DeprecationWarning` if `link` is provided  In the second commit, the actual default value for `edges` is set to `"edges"` instead of `"links"`. I am not sure if the idea was to chage it now or maintain backwards compatibility of scripts that might use default values. 
+issue
+add: nodes attribute is modifiable#TITLE_END#Fixes #7531   It is now possible to provide a keyword to replace the default `nodes` key for reading/writing `json`. 

@@ -1,0 +1,2 @@
+issue
+Fix typo in forceatlas2_layout#TITLE_END#As the docstring suggests, the argument should be `distributed_attraction` instead of `distributed_action`.

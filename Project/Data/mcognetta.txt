@@ -1,0 +1,34 @@
+issue
+Rooted product of graphs#TITLE_END#Addresses issue https://github.com/networkx/networkx/issues/2017  Implements code to construct the rooted product of two graphs. Relevant information can be found at https://en.wikipedia.org/wiki/Rooted_product_of_graphs  This is my first pull request to this product so please let me know if there is anything I should fix. 
+issue
+Mycielski Operator#TITLE_END#Adding the Mycielski Operator to the operators/unary.py file. Supports a single Mycielski step as well as multiple, iterative Mycielski operations. 
+issue
+Erroneous results in cluster._weighted_triangles_and_degree_iter#TITLE_END#I was working on #2243 (my branch is https://github.com/mcognetta/networkx/blob/weighted_transitivity/networkx/algorithms/cluster.py) and I think that there is some issue with the cluster._weighted_triangles_and_degree_iter helper function. The function signature is: ``` def _weighted_triangles_and_degree_iter(G, nodes=None, weight='weight') ``` In it, there is an if statement to set the max_weight  ```     if weight is None or G.number_of_edges() == 0:         max_weight = 1     else:         max_weight = max(d.get(weight, 1) for u, v, d in G.edges(data=True)) ```  The problem here is, consider the case that we are using a normalized weighted graph (all edges have weight 0 <= w <= 1). The maximum weight of the graph may not be 1. However, later in the method, the geometric mean of triangles around vertex _v_ is computed with: ```     def wt(u, v):         return G[u][v].get(weight, 1) / max_weight ``` and ```             wij = wt(i, j) # Note: I am not sure why this is computed here             weighted_triangles += sum((wij * wt(j, k) * wt(k, i)) ** (1 / 3)                                       for k in inbrs & jnbrs) ```  This will give erroneous results when using the iterator for the weighted transitivity function since we could have a max_weight of less than 1.  For example, using my branch, consider the case:  ``` >>> G=nx.Graph() >>> G.add_edge('a','b',weight=0.6) >>> G.add_edge('a','c',weight=0.2) >>> G.add_edge('c','d',weight=0.1) >>> G.add_edge('c','e',weight=0.7) >>> G.add_edge('c','f',weight=0.9) >>> G.add_edge('a','d',weight=0.3) >>> nx.transitivity(G,weight='weight') 0.030285343213868998 ``` when the actual weighted transitivity is ~0.0272568.  Anyway, maybe there should be something in the parameters that determines if max_weight should ever be considered in computations.
+issue
+removed list conversion from _triangles_and_degree_iter#TITLE_END#removed the explicit conversion to a list from the cluster._triangles_and_degree_iter function.
+issue
+removed reference to create_using from union docs#TITLE_END#The doc string for union had a reference to "create_using" which is not an actual parameter.
+issue
+Changed classic generators to use generators instead of lists#TITLE_END#Updated barbell_graph and ladder_graph to use generators only instead of creating a list and storing it in memory to generate the vertices and edges. Previously, barbell_graph and ladder_graph constructed lists of vertices or edges and then passed them into add_nodes/edges_from. 
+issue
+Turan docs#TITLE_END#The Turan Graph generator does not appear in the docs (it was not in the generator.rst file).  This pr also removes some unnecessary type checking from the Turan Graph code and fixes its documentation to include the :math: tag. It also fixes some spacing issues to comply with PEP8. 
+issue
+Complete multipartite graph docs#TITLE_END#The current docs for the complete multipartite graph generator uses the word 'block' to describe the subsets in the partition. This is confusing because the word block could also refer to the notion of maximally connected subgraphs (see [http://mathworld.wolfram.com/Block.html](http://mathworld.wolfram.com/Block.html))  This PR changes the language in the complete multipartite graph docs to use subset instead of block. This change brings the docs into agreement with the language used in the Turan Graph Docs PR (see #2218).  One foreseeable problem is the breaking of backwards compatibility for people that have code that accesses the 'block' attribute of a node in a complete multipartite graph. This attribute is now named 'subset'. One possible fix for this is to include both attribute names via something like ` for n in G.node:     G.node[n]['block'] = G.node[n]['subset'] ` while also having a deprecation warning in the docs then removing 'block' entirely when a new release is put out. 
+issue
+Turan graph#TITLE_END#Adding a generator for the Turan Graph to generators/classic.py  https://en.wikipedia.org/wiki/Tur%C3%A1n_graph 
+comment
+Thanks for fixing the conflicts. I didn't see that message  on the other thread until now.
+comment
+I know that this pr is basically done, but I have a quick question. Shouldn't the metric closure code be in something like the unary operators or weighted graph shortest path modules? Computing the metric closure is not unique to Steiner Trees, so it seems weird for it to be in a Steiner Tree specific module. 
+comment
+Is it acceptable to just do it now instead of waiting until it gets merged and then opening it again? 
+comment
+I am implementing this and will submit a pull request in the near future.  
+comment
+I had the same question. https://groups.google.com/forum/m/?source=mog&gl=us#!topic/networkx-discuss/hI_yLRDBc04 
+comment
+> @mcognetta I managed to build the docs, but the latex hasn't been parsed to images, so the html pages just have raw latex. The build process returned some warning, is there any place I can find a log?  The log should be somewhere in the build or doc directory but I don't know exactly where. Did the error not say where the log could be f?  I'm not sure if sphinx supports full LaTeX but you can do some math markup with the :math: tag. You can see my changes in #2218 where I use it. 
+comment
+This is cool, but it is failing because you are using python2 print statements. Maybe also consider using fstrings instead of the old string formatting stuff as well.
+comment
+Whats up with Travis here?

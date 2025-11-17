@@ -1,0 +1,4 @@
+issue
+PR to find a proportional cake allocation#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> Hello, I am a student at Ariel University under Dr Erel Segal.(https://github.com/erelsgl) As a part of Research Algorithms course I have implemented an algorithm for finding a proportional cake allocation in a almost bridgeless graph. The Implementation is based on the article: (https://arxiv.org/abs/1910.14129).  
+issue
+Dividing A Graphical Cake#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

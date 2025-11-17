@@ -1,0 +1,2 @@
+issue
+How to cluster graphs using networkx#TITLE_END#I presently find only a function which finds the clustering coefficient of a graph. However I would like to see the graph divided into strongly connected clusters. Is there a way to do that? 

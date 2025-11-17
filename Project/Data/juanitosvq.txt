@@ -1,0 +1,2 @@
+comment
+Hi folks!  I was wondering if this should this be considered a breaking change and therefore be released as a new major version?   `cfn-lint` is breaking after 2.6rc1 made it to the repos when installing development packages: https://github.com/aws-cloudformation/cfn-lint/blob/main/src/cfnlint/graph.py#L10  Thanks in advance. 

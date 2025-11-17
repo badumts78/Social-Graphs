@@ -1,0 +1,4 @@
+comment
+Wouldn’t that complicate the composition operation? It is defined as “the simple union of the node sets and edge sets” in [binary operations](https://github.com/networkx/networkx/blob/master/networkx/algorithms/operators/binary.py).
+comment
+While I would agree the ability to perform any binary operation on the weights of two like edges would be useful, I also think edge weight operations don’t belong in the same algorithm that takes their union.  A union of two sets not disjoint would behave like they do in this function (“losing” elements from one set or the other), so I would argue this operation behaves as expected. `Compose` produces a sort of non-commutative union but then that is something that should be handled outside of the operation in my opinion (e.g. making an isomorphic graph for preserving vertices/edges before calling).

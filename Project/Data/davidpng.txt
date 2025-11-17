@@ -1,0 +1,2 @@
+issue
+spring_layout is not spread out#TITLE_END#spring_layout appears to have some issues with trying to circularize some loops.  This minimal spanning tree should be quite spread out.       T=nx.balanced_tree(r=2,h=3)     nx.draw_spring(T) ![mst](https://cloud.githubusercontent.com/assets/8229501/3651949/11e49ca4-1131-11e4-8fa0-87160babd54b.png)  but using graphviz     pos=nx.graphviz_layout(T)     nx.draw(T,pos=pos) ![mst 2](https://cloud.githubusercontent.com/assets/8229501/3651956/4af08b52-1131-11e4-952d-2a501db3ff22.png)  Anyone know if spring_layout works correctly? 

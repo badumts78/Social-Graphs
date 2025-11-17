@@ -1,0 +1,56 @@
+issue
+added more examples on graphical degree sequence#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Updating removing explicit import for communities#TITLE_END##6304 
+issue
+Adding Example for chain decomposition.#TITLE_END#Adding example to chain decomposition.
+issue
+added examples to degree_alg.py#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+added examples to efficiency_measures.py#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+added examples to regular.py#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+added examples to chains.py#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Added Example on Degree Centrality#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Added example on efficiency measure#TITLE_END#Added example under efficiency measure
+issue
+distance_measures#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Added examples on Regular#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Example under chain decomposition.#TITLE_END#https://github.com/networkx/networkx/issues/5484
+issue
+added example to closeness.py#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+added examples to covering.py#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Added examples on matching#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Added example under unary operators#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Improving Contribution Guidelines#TITLE_END#Hello everyone, I am a newbie to the networkx repository, when following the contribution guidelines I stepped on `pre-commit install` when I ran this command it returned an error because I never had it installed on my computer since I never knew how important it was I did not immediately research on how to install it, but later on I used `pip install pre-commit` before going ahead with `pre-commit install`. I was suggesting that we add `pip install pre-commit` or `conda install -c conda-forge pre-commit`  before adding the command `pre-commit install` @MridulS @rossbar @dschult I will love to get your thoughts on this.  I am using Ubuntu and I don't know if this error was faced by anyone else or not.
+issue
+Add Examples under distance measures #TITLE_END#The distance measures algorithm currently lacks some examples to show how it works. I will love to work on this by adding examples and also reference an explanatory notebook on `distance measures`.
+issue
+added example on moral graph#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Distance measures example#TITLE_END#Added examples under distance measures algorithms. 
+issue
+added examples for covering#TITLE_END#https://github.com/networkx/networkx/issues/5472 
+issue
+Improving guideline on pre-commit#TITLE_END#https://github.com/networkx/networkx/issues/5492
+issue
+Fix for issue 5212#TITLE_END#This pull request aims at resolving two issues addressed in issue https://github.com/networkx/networkx/issues/5212
+comment
+Hello, @MridulS I will love to work on this issue. I am a newbie here too and I am also willing to learn more, how should the illustration be; should it be something like a jupyter notebook file or how?
+comment
+Hello, please I will love to update the current documentation for `communities`. To demonstrate how we can use communities in networkx without importing it explicitly. 
+comment
+Hello, @rossbar @MridulS I am an outreachy applicant and I will love to work on this issue. I have checked out the documentation on `spiral_layout` I will love to work on this issue with your guidance where necessary
+comment
+Hello sir, I have difficulties drawing the spiral layout. IWhen I use ``` G = nx.path_graph(15) daig = nx.spiral_layout(G) nx.drawing.spiral_layout(daig) ```  it does not return an error message but I can't see the diagram, and when I use the next line of code it returns an error. Please sir I need your help. ``` G = nx.path_graph(15) daig = nx.spiral_layout(G) nx.draw_networkx(daig)  ```
+comment
+Okay sir thanks

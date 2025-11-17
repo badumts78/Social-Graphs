@@ -1,0 +1,2 @@
+issue
+drawing breaks on unicode label#TITLE_END#https://github.com/networkx/networkx/blob/master/networkx/drawing/nx_pylab.py#L849  breaks for unicode.  ``` for n, label in labels.items():     (x, y) = pos[n]     if not cb.is_string_like(label):         label = str(label)  # this will cause "1" and 1 to be labeled the same ```  where label="Édouard" 

@@ -1,0 +1,2 @@
+comment
+Amazing!  This is going to be super useful for [Ink/Stitch](https://github.com/inkstitch/inkstitch).  Thanks for your work!  Do you folks have any idea when this might make it into a stable release?

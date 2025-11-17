@@ -1,0 +1,2 @@
+issue
+[tests] move tests out of packaged tree#TITLE_END#Hi, this is a proposal for moving all tests outside of the packaged tree. The rationale is 1. it is often cleaner 2. it makes the package lighter: from 8.3MB to 5.0MB (this is interesting in some use cases).  I may have missed to hook some tests after the move. Feedbacks are welcome!  Best regards, 

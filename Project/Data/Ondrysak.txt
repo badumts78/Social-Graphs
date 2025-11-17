@@ -1,0 +1,2 @@
+issue
+Huge memory usage  when using simple_cycles#TITLE_END#hello I am using `simple_cycles` on a directed graph with string nodes,  ~~ 1000 nodes and 1700 edges, at the moment the script already consumed 70GB of memory and is running for more than 4 hours, is this graph really that huge?

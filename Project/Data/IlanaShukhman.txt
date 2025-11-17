@@ -1,0 +1,4 @@
+issue
+Rainbow matching#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> University project.
+issue
+Add algorithm for rainbow matching#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. -->  Final project for university class. Added class for which, given a colored path, returns a matching such that every edge is in different color. 

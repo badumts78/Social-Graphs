@@ -1,0 +1,2 @@
+issue
+Minimum spanning tree doesn't return all of the nodes #TITLE_END#Hello, I am having an issue with an undirected connected graph. When I get the MST, the function returns less nodes than the original graph:  ``` mst = nx.minimum_spanning_tree(q) print  mst.number_of_nodes(), q.number_of_nodes() ```  This returns: `30831 30833`  Any idea of why is this happening, and how I can fix it?   Thanks, Jose 

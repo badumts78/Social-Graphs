@@ -1,0 +1,2 @@
+issue
+Fixed raise error in `algorithms/centrality/flow_matrix.py`#TITLE_END#There were two erroneous raise statements `raise("Implement solver")` in `algorithms/centrality/flow_matrix.py`. I've fixed these errors by raising the `nx.NetworkXError` exception but I'm not sure if this is the desirable behavior, perhaps raising a `Warning` would be more appropriate.  I work for Semmle and I noticed these issues with out LGTM code analyzer https://lgtm.com/projects/g/networkx/networkx/alerts/?mode=tree&ruleFocus=3980085

@@ -1,0 +1,2 @@
+issue
+maximal_matching algorithm is incorrect#TITLE_END#maximum matching found by the algorithm: {(0, 1), (2, 3)} ![original](https://cloud.githubusercontent.com/assets/7781819/5384938/bd910bf2-80b5-11e4-94b7-dde4057feb8d.png) 

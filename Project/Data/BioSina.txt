@@ -1,0 +1,2 @@
+issue
+TypeError: set_node_attributes() takes exactly 3 arguments (2 given)#TITLE_END#I understand through the reference that set_node_attribute can take three arguments, but what I am trying to do is this:  w = G.node[c]['weight'] + 1 attrs = {c: {'weight': w}} nx.set_node_attributes(G, attrs)  which should work fine, compared to the last example from the reference on the function: >>>G = nx.path_graph(3) >>> attrs = {0: {'attr1': 20, 'attr2': 'nothing'}, 1: {'attr2': 3}} >>> nx.set_node_attributes(G, attrs)  

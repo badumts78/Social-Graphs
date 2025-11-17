@@ -1,0 +1,4 @@
+issue
+High memory usage while reading graphml file?#TITLE_END#I'm reading a large GraphML file with a lot of metadata: 49k nodes and 8.9m edges. The file is 540MB on disk. While reading the file in with `nx.readwrite.read_graphml` Python's memory usage is climbing to about 10-11GB.  Is this normal or is there a bug somewhere here? I'm running Python via WSL on Windows 10.
+issue
+Way of adding graph attributes?#TITLE_END#Is there a way to add attributes at the level of the graph itself (not nodes or edges). My usecase is wanting to add comments about my graph that will be written out with `write_graphml`

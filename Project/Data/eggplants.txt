@@ -1,0 +1,2 @@
+comment
+@danieleades networkx-stubs is a previously generated stubgen file. It is not maintained now, but I would like to update it if necessary.

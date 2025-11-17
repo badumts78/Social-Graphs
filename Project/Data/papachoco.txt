@@ -1,0 +1,2 @@
+issue
+linesman issue#TITLE_END#Hello  https://github.com/amcfague/linesman/issues/37 it is claimed that the cause of it is a change in network 1.11. The code works fine in  1.7 release.  I wonder if any one was reported this before  Thanks  Carlos

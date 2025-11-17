@@ -1,0 +1,2 @@
+issue
+write_graphml doesn't like custom object #TITLE_END#I'm using the attributes of my graph to store custom object that i need for my software.  I'd like to be able to export it in graphml without removing this object, but i understand that graphml cannot compose the xml for a custom object.  However I expected to be able, by defining the __str__ or __repr__ method, to allow the graphml method to use its string representation in the graphml.   By looking at the code I don't think this has been implemente, but would it be possible?

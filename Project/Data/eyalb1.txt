@@ -1,0 +1,2 @@
+issue
+fix frozen function#TITLE_END#frozen should have kwargs otherwise when calling a frozen graph method with a keyword you get a TypeError : frozen() got an unexpected keyword argument ..

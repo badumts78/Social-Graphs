@@ -1,0 +1,4 @@
+comment
+I think that the right thing to do here is different; if source and target are the same, then a unique path should be yielded, the path [source] (consisting of a single vertex and no edges).
+comment
+Try, on your command line, executing the following line: ```sh python -c "import networkx; print networkx.__version__" ```  If you get an `ImportError` then you don't have the module installed.  Look [here](https://networkx.github.io/documentation/development/install.html) for instructions.

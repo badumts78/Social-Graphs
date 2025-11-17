@@ -1,0 +1,2 @@
+issue
+Capacity in Simplex Method#TITLE_END#Hi,  I am trying to use the simplex method, but the simplex solution doesn't seem right. I have 4 groups of edges, and each edge has a different capacity. The method seems to ignore the defined capacities. The problem is in the two groups of edges in the middle, although they are defined correctly. I am importing the data from a CSV file. I can attach the code if you would like. 

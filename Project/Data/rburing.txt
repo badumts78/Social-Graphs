@@ -1,0 +1,2 @@
+issue
+Add method to contract edges#TITLE_END#It would be nice to be able to do [edge contraction](http://en.wikipedia.org/wiki/Edge_contraction) out of the box. The following gist I found implements this: https://gist.github.com/aanastasiou/7639465 

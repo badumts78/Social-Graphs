@@ -1,0 +1,4 @@
+issue
+Improve test coverage for cycles.py#TITLE_END#Added test for cycle_basis for graphs with self loops.
+issue
+Additional tests for #5988#TITLE_END#Has suggested by @rossbar i added the `test_multigraph_weighted_default_wegiht` and a similar test for `dag_longest_path_length`.

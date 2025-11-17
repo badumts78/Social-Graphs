@@ -1,0 +1,2 @@
+issue
+Missing parameter description in docs for snap_aggregation#TITLE_END#On the documentation page for `nx.snap_aggregation`, as seen here: https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.summarization.snap_aggregation.html  In the parameters list, the parameter `node_attributes` is missing from the parameter list, even though it's required to call the function. It's relatively easy to infer the usage from the extended description so this is not a high priority to fix. 

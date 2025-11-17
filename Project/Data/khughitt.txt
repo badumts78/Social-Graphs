@@ -1,0 +1,4 @@
+issue
+Added "initial_node" param to generate_random_paths() to allow a starting node to be specified for generated walks#TITLE_END#Small modification to allow the user to specify an initial node to begin all walks from.
+issue
+index_map not populated by nx.generate_random_paths()#TITLE_END#### Current Behavior  index_map is an empty dict after calling `nx.generate_random_paths(..., index_map=index_map)`  ### Expected Behavior  node -> path mapping created.  ### Steps to Reproduce  This can be reproduced with the example code from the docs:  ```py import networkx as nx  G = nx.star_graph(3)  index_map = {}  random_path = nx.generate_random_paths(G, 3, index_map=index_map)  paths_containing_node_0 = [      random_path[path_idx] for path_idx in index_map.get(0, [])  ] ```  ### Environment   Python version: 3.13.3 NetworkX version: nightly (b3f38c3) and stable (3.4.2)

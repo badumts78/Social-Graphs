@@ -1,0 +1,2 @@
+issue
+networkx as interactive flowchart designer#TITLE_END#Can networkx  be used as interactive flowchart designer without dependancy of Graphviz?  Kindly provide basic example like PyQt4\examples\graphicsview\diagramscene.py ? If possible 

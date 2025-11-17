@@ -1,0 +1,2 @@
+issue
+How to find example of path that achieves diameter?#TITLE_END#I calculated the diameter of my graph using the diameter function. How can I find an example of a pair of points that are diameter apart and a path between them?  http://networkx.github.io/documentation/latest/reference/generated/networkx.algorithms.distance_measures.diameter.html#networkx.algorithms.distance_measures.diameter 

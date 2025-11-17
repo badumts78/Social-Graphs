@@ -1,0 +1,2 @@
+issue
+Any way to write graph attributes to dot files?#TITLE_END#I'm trying to set the `rankdir=LR` graph attribute to get my graphviz file to layout horizontally. I tried both the pygraphviz and pydot writers but neither seems to preserve the attribute. I'm trying to get the resulting file to look like this:  ``` digraph G {     graph [rankdir=LR]; ... ```  I'm setting it like this:  ``` python g = nx.DiGraph(rankdir='LR') ```   Is that the wrong way for the desired effect? 

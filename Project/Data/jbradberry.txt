@@ -1,0 +1,6 @@
+issue
+Implement the algorithm to find the centroid(s) of a tree#TITLE_END#This is a measure of centrality specific to trees that is based on balancing the number of nodes around the chosen node or nodes.  I believe I have successfully implemented the algorithm with O(N) time complexity.  https://en.wikipedia.org/wiki/Tree_(graph_theory)#Properties  I waffled a bit whether to put it in the `networkx/algorithms/tree/` directory, but there isn't much that it really fits with over there, and it feels like it belongs near the graph `center` algorithm.  I see that there had previously been a ticket #3525 opened, that was subsequently closed without a PR.
+issue
+Fix UnionFind.union to actually select the heaviest root as the new root#TITLE_END#Previous versions in this area of code used `max()` to select the root of the heaviest set, but a fix for a different issue changed this to pull the first element from the sorted set of roots, i.e. the _lightest_ root, not the heaviest.
+comment
+Hey @Peiffap , I just noticed this PR related to #8089.  Is there anything that you all need me to do to finish up on my PR?

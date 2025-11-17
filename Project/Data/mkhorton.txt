@@ -1,0 +1,2 @@
+issue
+Bug in `to_agraph` losing edges with MultiGraphs#TITLE_END#I wanted to bring attention to https://github.com/pygraphviz/pygraphviz/issues/133  I don't think this is a bug in networkx itself, but since it affects networkx users I wanted to report it here too. Is there a work-around that could be applied to `to_agraph` until the original bug is fixed? 

@@ -1,0 +1,14 @@
+issue
+Probably wrong implementation of nx.effective_size() for directed graph#TITLE_END#https://github.com/networkx/networkx/blob/0ab38ce6c46ce678bda23c1d26494683ef93e40f/networkx/algorithms/structuralholes.py#L157-L163  As you see, a node is tested if it is isolated by the number of **outgoing** edges (`G[v]`) while the effective size of a node is computed by summing up the redundancy of the node and all the neighbor nodes, which are **both ingoing and outgoing** edges. (`nx.all_neighbors(G, v)`) I think these targets should be matched.
+issue
+[WIP] Fix nx.effective_size() for nodes w/o outgoing ties#TITLE_END#This PR is to fix the bug discussed in #2661. However, new test cases should be added that test against a directed graph which contains some nodes with no outgoing ties.
+issue
+argument create_using of nx.from_pandas_adjacency() is used in a wrong place#TITLE_END#https://github.com/networkx/networkx/blob/6bdf9810667bedd2712cb7ad73ebee34a8abb8bd/networkx/convert_matrix.py#L191  Since `from_numpy_matrix()` in the same file accepts argument `create_using` as the third argument, the function call above should be fixed.
+issue
+Fix create_using of nx.from_pandas_adjacency()#TITLE_END#* See #2689.
+issue
+Cannot create a reversed copy of a reverse view#TITLE_END#In version 2.0b1, creating a reversed copy of a reverse view like  ```python G: nx.DiGraph G_rev = nx.reverse(G, copy=False) G_rev_rev = nx.reverse(G_rev, copy=True) ```  raises an exception as follows:  ```   File ".../python3.6/site-packages/networkx/classes/digraph.py", line 1255, in reverse     H = self.__class__(name="Reverse of (%s)" % self.name) TypeError: __init__() got an unexpected keyword argument 'name' ```  It seems that referring to `self.__class__` on the reverse view object `G_rev` is resolved to class `ReverseView`, which does not have argument `name`. To enable creating a reversed copy of a reverse view, I think this should be resolved to a directed graph class instead of the reversed view class.
+issue
+Make parameter nodes effective in effective_size()#TITLE_END#* Fixes #2631.
+issue
+Parameter 'nodes' is not effective in nx.effective_size()#TITLE_END#https://github.com/networkx/networkx/blob/ca839ad24da9ec72abf920eaa33d3fce0a888f4a/networkx/algorithms/structuralholes.py#L144-L162  Parameter variable `nodes` is not used anymore after assigning the default value, which is `G`, at line 145. As another function `nx.constraint()` does in the same file, it seems that for-loops in this code snippet should iterate over `nodes`, not `G`.

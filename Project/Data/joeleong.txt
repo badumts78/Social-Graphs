@@ -1,0 +1,2 @@
+issue
+Add dominator tree#TITLE_END#Hi,  This adds dominator trees using the already implemented immediate dominators  Addresses #1941   This is my first contribution here so let me know if anything needs to be fixed.  Also, out of curiosity what's the consensus opinion on adding very small functions such as explicitly supporting post-dominator trees and immediate post-dominators which are handy, but trivial (too?) to add. In fact, they are already tested with the non-post functions.  Thanks! 

@@ -1,0 +1,2 @@
+issue
+README mentions unexisting force.py file#TITLE_END#The [README](https://github.com/networkx/networkx/blob/main/examples/external/force/README.txt) mentions the unexisting ``force.py`` file to generate the necessary data for the example. 

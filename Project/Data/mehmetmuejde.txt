@@ -1,0 +1,2 @@
+issue
+Improves Bethe_Hessian_matrix. so it fixes issue #5192 partially#TITLE_END#Fixes some of the ideas for doc improvements from #5192 

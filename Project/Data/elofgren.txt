@@ -1,0 +1,2 @@
+comment
+I have to agree that this feels more like something that should go into the extended "using NetworkX" universe, rather than a part of the package itself. To use an example from another part of Python, I wouldn't expect an ODE solver package to have functions to solve compartmental epidemic models. 

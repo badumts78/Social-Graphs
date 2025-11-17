@@ -1,0 +1,2 @@
+issue
+[QUESTION] Straightness Centrality#TITLE_END#I'm wondering to know if is there any intention to implement Latora's Straightness Centrality in NetworkX library?  > Crucitti, P., Latora, V. and Porta, S., 2006. Centrality in networks of urban streets. Chaos: an interdisciplinary journal of nonlinear science, 16(1), p.015113.

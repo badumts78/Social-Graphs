@@ -1,0 +1,2 @@
+comment
+> ![network-X-bug-fix](https://camo.githubusercontent.com/516f1d1d879fc0fdf4bd9ec2f33e85465f9cd7fb/68747470733a2f2f692e6962622e636f2f5250375a64714c2f6e6574776f726b2d582d6275672d6669782e706e67) >  > generate_gml(G, stringizer=None) function used by write_gml(G, path, stringizer=None) >  > raise NetworkXError('%r is not a valid key' % (key,)) >  > This error is caused when key contains "_" underscore character. Like "first_name" will raise this error. >  > Fix: updatd the regular expression to allow "_"  Thanks for the update I was facing the same issue @Abhi5h3k 

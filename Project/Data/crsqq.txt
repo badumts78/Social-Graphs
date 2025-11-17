@@ -1,0 +1,6 @@
+issue
+Fix parse_edgelist behavior with multiple attributes#TITLE_END#Fixes #4116   Multiple edge attributes are now parsed correctly. Additional test cases have been added.
+issue
+Improve execution time of eigenvector centrality.#TITLE_END#Precompute sum for the normalization of the initial vector. Only make dict lookup if there are edge weights, otherweise dict lookups are prevented.   These changes make the computation of the eigenvector centrality significantly faster if  edge weights are not used. In other cases it is a little bit faster (especially for larger networks) since there are $number_of_nodes fewer calls to the sum function.  Quick benchmarks:  current stable version:  ``` ~> python3 -m timeit -n 10 -r 5 -s "import networkx as nx; g = nx.barabasi_albert_graph(1000, 10)" -u msec "x = nx.eigenvector_centrality(g)" 10 loops, best of 5: 298 msec per loop ```  this commit ``` ~> python3 -m timeit -n 10 -r 5 -s "import networkx as nx; g = nx.barabasi_albert_graph(1000, 10)" -u msec "x = nx.eigenvector_centrality(g)" 10 loops, best of 5: 44.9 msec per loop ```  
+comment
+Proposed a fix with #4125 

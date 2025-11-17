@@ -1,0 +1,2 @@
+issue
+Added cytoscape JSON handling#TITLE_END#Adds functions allowing manipulation of Cytoscape JSON format (.cyjs).

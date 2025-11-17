@@ -1,0 +1,2 @@
+issue
+Cycle detection in very large graph kills process#TITLE_END#Not sure if here is the right place to ask, but I'll give it a go. I am working with a very large directed graph, 1 000 000 nodes and 2 700 000 edges.  I'm looking for cycles using: `cycles = list(nx.simple_cycles(graph))`  After about 20 hours of the above code running I get the error **Process finished with exit code 137**  I've tried using a subset of the data, 1 000 000 nodes and 1 500 000 edges. This works and, in that case, 2 500 000 cycles are found.  Any ideas? 

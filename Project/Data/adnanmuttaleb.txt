@@ -1,0 +1,12 @@
+issue
+Initial implementation of weight function wherever edge weight is used#TITLE_END#Add support for either direct access or computable attributes such as, `weight`, `capacity`, ..etc. For more info check a #4085. This PR is in draft phase.  
+issue
+add the option of sorting node's neighbors during bfs traversal #TITLE_END#Allow client to pass a function that customize the order in which neighboring nodes are queued.
+comment
+@stefanv one alternative to the `multiprocessing` module is [Ray ](https://github.com/ray-project/ray), also there is promising benchmarks [here  ](https://towardsdatascience.com/10x-faster-parallel-python-without-python-multiprocessing-e5017c93cce1).
+comment
+@stefanv also I think if there will be multiple persons working on paralleling different parts, then some implementation guide will be helpful. 
+comment
+@dschult  I can work on this feature, is there anything I should take into consideration before I start?
+comment
+#4029 

@@ -1,0 +1,2 @@
+issue
+Remove mentioning of gdal#TITLE_END#It doesn't seem to be used anywhere now. Also 2.5's changelog says it was removed.  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

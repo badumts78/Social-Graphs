@@ -1,0 +1,2 @@
+issue
+read_dot hangs when loading dot graph#TITLE_END#Hi, there.  Networkx is super cool for graph analysis.  However, recently when I try to analyze a [dot graph](https://drive.google.com/file/d/17YEmdkjoDzlpBXr21RQDU-SS_J6-3eNk/view?usp=sharing), networkx is stuck after more than 24 hours loading this dot with `read_dot` function.  The full code is like this: ~~~~ import networkx.drawing.nx_pydot as pdot g = pdot.read_dot(dot_file) ~~~~  My python version is 3.7.4 and the version of networkx is 2.5.  I would like to hear your advice on this issue.  Thank you.   

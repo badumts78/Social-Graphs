@@ -1,0 +1,2 @@
+issue
+A table in the documentation is broken.#TITLE_END#Corruption of automatically generated documents. A table in the documentation is broken.  ![image](https://user-images.githubusercontent.com/30371920/120138351-4737bd80-c211-11eb-934f-7d2385a73df1.png)  https://networkx.org/documentation/stable/reference/generators.html#module-networkx.generators.sudoku

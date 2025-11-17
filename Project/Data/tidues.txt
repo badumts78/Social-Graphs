@@ -1,0 +1,2 @@
+issue
+DiGraph.in_edges and out_edges has different behaviour#TITLE_END#When call both functions with data equal to a string, the in_edges method returns a dict as the third element in tuple, but the out_edges method returns the value in that dict.

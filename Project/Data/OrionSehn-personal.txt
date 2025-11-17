@@ -1,0 +1,4 @@
+issue
+Add to Contributor List#TITLE_END#Adding self to contributor list  #7422
+issue
+Implementing iterative removal of non_terminal_leaves in Steiner Tree approximation#TITLE_END#This should resolve #6881   Might not be the fastest possible solution, it checks the neighbors of non-terminal leaves, and removes them in bunches of sets using set comprehension and differences.   I added a relatively simple test to ensure that this function acts as intended, and trims down any non-terminal leaves, but any consequential non-terminal leaves created by that trimming.   This might slow down the approximation significantly however, I didn't do speed testing on this, and I'm not sure if we should consider adding an optional flag in the Steiner tree approximation to perform this additional optimization. 

@@ -1,0 +1,4 @@
+comment
+Thank you @MridulS for the quick response!
+comment
+I believe the bug is that this line: https://github.com/networkx/networkx/blob/main/networkx/drawing/nx_pydot.py#L281: `for k, v in edgedata.items()`  should be using `str_edgedata` instead of `edgedata`

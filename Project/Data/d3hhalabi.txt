@@ -1,0 +1,2 @@
+issue
+multi-digraph#TITLE_END#I have a weighted multi-directed graph and want to calculate the maximum spanning tree. Is there a way using the networkX package?

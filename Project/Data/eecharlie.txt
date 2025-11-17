@@ -1,0 +1,4 @@
+issue
+cutoff argument improperly disallowed when calling `minimum_cut` with `shortest_augmenting_path`#TITLE_END#It should be possible to call `minimum_cut(G, s, t, flow_func=shortest_augmenting_path, cutoff=3)` however this raises an exception.  From `maxflow.py`, `minium_cut()` definition: ```     if kwargs.get("cutoff") is not None and flow_func in flow_funcs:         raise nx.NetworkXError("cutoff should not be specified.") ``` where ``` # Functions that don't support cutoff for minimum cut computations. flow_funcs = [     boykov_kolmogorov,     dinitz,     edmonds_karp,     preflow_push,     shortest_augmenting_path, ] ``` however the docstring and source for `shortestaugmentingpath.py` do allow the `cutoff` argument. 
+comment
+I'm happy to approve this but want to make clear I haven't previously contributed or been an approver on the `networkx` project. Would it be good to add @dschult ?

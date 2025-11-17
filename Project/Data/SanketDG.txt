@@ -1,0 +1,178 @@
+issue
+use dict comprehensions instead of dict()#TITLE_END##1640 
+issue
+improve function signatures in drawing/layout.py#TITLE_END##1749 
+issue
+Raise InvalidNode when source node not present in graph#TITLE_END#Supercedes #1445  
+issue
+add algorithms.reciprocity to reference documentation#TITLE_END##731 
+issue
+add documentation for exception for directed graphs#TITLE_END#closes #1850 
+issue
+add test for error message in eccentricity function#TITLE_END#For #1820, this is to be first merged in `error-message-eccentricity` branch. 
+issue
+add support for python 3.5 and remove 3.2 in .travis.yml#TITLE_END#python 3.5 is now released and the package can be tested on it. support for 3.2 is removed as per discussion in #1775. 
+issue
+Export threshold functions.#TITLE_END##1503  This moves the previously unexported `threshold.py` in `generators` to `algorithms/threshold.py`. It also exports some common threshold algorithms to the top level.  @jfinkels I am not sure what functions should I include in `__all__`. I think basic functions like `is_threshold_graph`, `find_threshold_graph` should be included.  Also, I am not sure about the docstrings. I think they have to be revamped. 
+issue
+Fixes docs of algorithms.tree.mst#TITLE_END#This fixes the docs of `algorithms.tree.mst`, by putting the refs in the correct place. 
+issue
+Prim's algorithms are not documented.#TITLE_END#The function names are missing from `algorithms.mst.rst.` The algorithms are in `algorithms/mst.py`. 
+issue
+Maximum spanning tree#TITLE_END##1563 and #1575 
+issue
+Docstring fix for adjlist and multiline_adjlist.#TITLE_END##1604  Also fixes pep8 and uses the newer str.format. 
+issue
+add arrows parameter in draw_networkx#TITLE_END##1557  TODO - code refactoring and pep8 
+issue
+fix documentation for write_gml()#TITLE_END#As discussed in #1449 and then stated in #1454. 
+issue
+make identified_nodes an alias for contracted_nodes#TITLE_END##1541 
+issue
+Docstring fix for strongly_connected_components_recursive()#TITLE_END#Reported in #1473  Removed line 156.  Also a pep8 fix. 
+issue
+average_degree_connectivity formatting fix.#TITLE_END#Just a simple formatting fix and also some pep8 formatting.  BTW I was wondering how much of pep8 does networkx follow? I find a lot of pep8 errors in the codebase here and then. I was wondering if pep8 is compromised a little. I would love to get some feedback. 
+issue
+Move bipartite generators.#TITLE_END#This is from #1383   Thanks. 
+issue
+Can't import networkx package in PyCharm.#TITLE_END#I have been trying to get started with networkx in pyCharm v4.0.4. But whenever i try to import the `networkx` package, I get this error message:  ![](http://i.imgur.com/hclsvU2.png)  Help would be appreciated. Thanks. 
+comment
+The writer should work with `numpy.float` variables, since `numpy.float` is just an alias to python's `float` type:  ``` python >>> import numpy as np >>> x = np.float(32.45) >>> type(x) <type 'float'> ```  Are you talking about `float32` and `float64` in numpy? Worth noting that they are single and double precision datatypes respectively. 
+comment
+This really looks professional. Since the X and N are already being shown in the logo, may be tone down the size of the last x to size of the rest of the text? Would love to see this implemented. 
+comment
+Um, yeah, the one with the large X looks better. But still the large X just looks a little more prominent than it should. Just a thought. 
+comment
+So this would just return the new constructed key for `MultiDiGraph` and `MultiGraph` when `key` parameter is not specified?  
+comment
+Was this resolved? As per as the discussion in #1486, this needs more work. 
+comment
+@chebee7i said that it was best to link to user documentation. I think using the [cross referencing feature](http://sphinx-doc.org/domains.html#cross-referencing-python-objects) from sphinx will be a good way to link to the documentation, in this case [`readwrite.gml.html`](http://networkx.github.io/documentation/latest/reference/readwrite.gml.html)  We write the issues involved with the stringizers along with examples in the module level docstring of `networkx.readwrite.gml`. Then using `:mod:`~networkx.readwrite.gml`` (cross referencing) in the docstring of `write_gml()` should create a link to `readwrite.gml.html`. This will be version independent.  I think the only downside is that I can't name the link so the link will just look like this: [gml](#). With a proper message, this shouldn't be a problem. 
+comment
+Yes, creating the examples for this will require a discussion, so it's best if we keep it out of `1.10` if its release is near. 
+comment
+The networkx documentation explains lot on the workflow, as I see it. [http://networkx.github.io/documentation/development/developer/index.html](http://networkx.github.io/documentation/development/developer/index.html) 
+comment
+@OrkoHunter Well, what I meant was it covers a major part of the workflow. But yes, we need a `CONTRIBUTING.md` for beginners to get acquainted with the codebase quickly.  The contents of this file could probably to added to [Developer Guide](http://networkx.github.io/documentation/development/developer/index.html) as well later. 
+comment
+Any other easy issues to be fixed? Its really hard to start contributing without any difficulty tags in issues. 
+comment
+@alexnikleo You have to rebase with the master branch. We don't have an `api_2.0.rst`, now its `release_2.0.rst` 
+comment
+@hernandcb Do:  ``` shell pip install git+https://github.com/networkx/networkx.git ```  This will install the `master` (latest) branch as a python package. 
+comment
+Yes, unweighted undirected graphs. 
+comment
+@hagberg You could install their theme and all (not sure about this), but the best possible experience would be to create a readthedocs site from your own fork https://github.com/networkx/networkx/wiki/readthedocs 
+comment
+`html` module is built in. `ogr` is an internal module from `osgeo`. By scikits, its probably [`scikits.sparse`](http://scikits.appspot.com/scikits.sparse) 
+comment
+> I don't think html is a builtin package. It's not available in sys.builtin_module_names or pkgutil.iter_modules.  If I `grep` for `import html` in the codebase:  ``` networkx/readwrite/gml.py:53:    import htmlentitydefs networkx/readwrite/gml.py:56:    import html.entities as htmlentitydefs ```  `import htmlentitydefs` is from python2 and `import html.entities as htmlentitydefs` is for python3. They have the same functionality. The package you linked to is different, I think. 
+comment
+Also for documentation, add `Sphinx` and `sphinx-rtd-theme` 
+comment
+> Also pyparsing needs to be a version before 2.0 for pydot to work. (not sure why neither of these came up in your search). pyparsing=1.5 seems to work.  @dschult wasn't the `pyparsing` dependency removed?  > Note: pydot on pypi was last updated for python 2.6.  @MridulS `pydotplus` supports python3, which is used if `pydot` is not found. 
+comment
+pip has a `-r` flag which takes any file as a argument.  The standard practice I have seen is having `py2-requirements.txt` and `py3-requirements.txt` along with proper documentation of using these separately with separate python versions.  On a sidenote, do we have to use `pydot`, given its not updated in a few years? If yes, will it possible to have a maintained fork?(I realize this calls for some extra work) 
+comment
+> However, we can ignore that issue entirely for this pull request, and just raise NetworkXPointlessConcept  It would be great if we could adhere to #1705. This has already started, so new exceptions then should not contain`NetworkX` prefix, otherwise the progress to removal will slow down. 
+comment
+> we dont have pydotplus in debian (yet, I'll package it), so I cant install it  Can you use [`pip`](https://pip.pypa.io/en/stable/): `pip install pydotplus`?  > looking at 1.11rc1 code, it doesnt look like pydotplus is a strong dependency,  You are right. But you are using python3 and pydot does not support it.  > for any python version, and it's only specified in doc/requirements.txt (so if you want to migrate to it, maybe you can consider adding some docs/notice about this move)  It will be done. This change is not official (yet) 
+comment
+@Michael-E-Rose The release notes file is `api_2.0.rst` and credits is in `credits.rst`. Both of the files are present in `doc/source/reference/` 
+comment
+Slack will be overkill for a repository. It does have some "cool" features that IRC doesn't have, but IRC will suffice for most of the time. 
+comment
+Just putting my opinion here about Slack: (been in 3 channels)  First of all, you have to add members by invite, specifically by email address. There are tools out there that help you automate this process, but still each and everyone who wants to join the discussion will have to request an invite and then wait for an approval (also create an account if he does not have one). It's overkill because there are channels, integrations(with Github, Travis CI) and whatnot, half of which we will never use. (all of these features are also available in Gitter too) It's great for project based stuff, but just not for a repository. Just my personal opinion.  I am with Gitter too, if IRC is too old school. I am okay with either. 
+comment
+Where do you think they should be placed? A new module probably, `algorithms.threshold`? 
+comment
+@jfinkels I think the NetworkX prefix is used on all the exceptions so that the error can be instantly recognized as something related to NetworkX. @hagberg could fill in why was the NetworkX prefix used in all of them.  On the other hand, I find the names `CycleNotFound` and `PathNotFound` much more appropriate and intuitive than `NetworkXNoPath` and `NetworkXNoCycle`. But then again, what if those exceptions are of some other graph package? You could go through the trace back and find out the real reason, but having a prefix like that makes it fast to recognize the issue. 
+comment
+@jfinkels, thanks for clearing that up. The prefix is indeed redundant. 
+comment
+Looks like [this](http://networkx.readthedocs.org/en/stable/) should be the link. 
+comment
+Can't you just escape that double quote:  ``` python import networkx as nx G = nx.Graph() G.add_nodes_from(["first", 'sec\"ond']) nx.draw_graphviz(G, node_size=1000, with_labels=True, arrows=True) ``` 
+comment
+`pydot` itself does not support py3 but [pydot2](https://github.com/davidvilla/pydot) and [pydotplus](https://github.com/carlos-jenkins/pydotplus) does, as it seems. Maybe we could switch. 
+comment
+The documentation in the link is a little bit unclear. It needs to be fixed. You have to use the `girvan_newman` as part of the `networkx` package (which you previously imported as `nx`). So:  ``` python >>> import networkx as nx >>> G = nx.path_graph(10) >>> comp = nx.girvan_newman(G) >>> comp [([0, 1, 2, 3, 4], [8, 9, 5, 6, 7]), ([0, 1], [2], [3, 4], [5, 6], [7], [8, 9]), ([0], [1], [2], [3], [4], [5], [6], [7], [8], [9])] >>>  ``` 
+comment
+Looks like `girvan_newman` was added recently, and isn't on pypi yet. You are welcome to upgrade to the latest master branch:  ``` pip install git+https://github.com/networkx/networkx.git --upgrade ```  then you can use `girvan_newman` 
+comment
+> How to eventually downgrade to official dist ?  I am not sure, what you mean by this. NetworkX has a new iterator-based [api](http://networkx.readthedocs.org/en/latest/reference/release_2.0.html#api-changes), which works on both Python2 and Python3.  An [iterator](http://www.diveintopython3.net/iterators.html) just throws values sequentially until there are no more values left. For your case, casting `G.nodes()` into a list works just fine:  ``` python len(list(G.nodes())) ``` 
+comment
+> g.nodes() was returning by itself a list  Yes, but that is only upto `v1.*` In NetworkX `v2.0`, everything will be iterator-based.  > Maybe the tutorial should be updated because there are here and there mismatching examples. > However thanks for the hint!  The tutorials have been updated at the right places. What you were seeing is documentation of `v1.10`. Since, you are using the development branch, you should refer to the development docs [here](http://networkx.github.io/documentation/development/index.html) and [here](http://networkx.readthedocs.org/en/latest/index.html) 
+comment
+Hi, it looks like you will somehow your fork pulled things from `v1.11` branch. I looked at your fork and it looks like if you reset back 15 commits, your upstream fork should be all right.  I don't really think there was any kind of history rewriting. 
+comment
+Yup, looks like no changes were made to the docs in d053488b1331e6f0205fafe4db198f6a815816fe where `NetworkXNoCycle` was implemented. 
+comment
+Your code needs to account for `python3` too. 
+comment
+Judging by the files where the errors are occuring...this is the probable reason for #1642 
+comment
+Looks like it fails to load the [gallery](http://networkx.readthedocs.org/en/latest/examples/drawing/ego_graph.html) as well. 
+comment
+Yeah, this really needs to be automated, or for the meantime passed onto someone who has time to make and push it frequently. 
+comment
+Yeah, using `napolean` and readthedocs will minimize documentation related issues. I built the docs using napolean, it really renders nicely with the default theme, and everything is automated. 
+comment
+Thank you for letting me know about this.  Unfortunately, I wont be taking part in GSoc 2015 as I am having difficulties with my university enrollment form. I believe @OrkoHunter will implement a very good system and I wish him luck.  But I am willing to contribute to this project. In a non-GSoC way. Thanks for the detailed information. I am now clear about the project objectives. 
+comment
+This can be closed. Merged in #1716  
+comment
+@dschult, this was a [decision](https://github.com/networkx/networkx/pull/1577#issuecomment-113298497) taken by @chebee7i during #1577. I think this makes much more sense, because "release notes" is much more broad than just "api changes", although this could be argued, based on what has been done until now. 
+comment
+@MridulS  We could use [nbconvert](http://ipython.org/ipython-doc/1/interactive/nbconvert.html) if having this on readthedocs is preferrable. But that could be overkill.  Also, probably remove all the Sphinx reference stuff for method and class references and add some links to external stuff(like `see Matplotlib FAQ`) 
+comment
+I think it is not implemented yet, same reason on why parallel edges can't be drawn. Its probably very hard to implement these in matplotlib. 
+comment
+The nodes in any `networkx` graph is fundamentally a python dict, and dictionary keys are arbitrary as stated [here](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict).  Also, adding to @MridulS's suggestion, you can also use the standard library's [`OrderedDict`](https://docs.python.org/3/library/collections.html#collections.OrderedDict) to retain key order (and then pass it to `add_nodes_from()`) 
+comment
+To load the pickle from `python3` try this:  ``` python import pickle pickle.load(open(filename, "rb"), encoding='bytes') ```  where `filename` is the name of your saved pickle file enclosed in double quotes. 
+comment
+What will the optimum_spanning_edges() function do? And will it be faster than reversing the weights and then perform Kruskal's MST on it? 
+comment
+Will `optimum_spanning_edges` be part of the package? Will it be imported into the namespace? I think not importing it should be okay. This is what I have in mind: - Define `_optimum_spanning_edges`:  ``` python def _optimum_spanning_edges(G, weight='weight', data=True, min):    # add if else checking for min or max value of min ``` - Then define `minimum_spanning_edges` and `maximum_spanning_edges` like this:  ``` python def minimum_spanning_edges(G, weight='weight', data=True):     return _optimum_spanning_edges(G, weight='weight', data=True, min=True) ```  ``` python def maximum_spanning_edges(G, weight='weight', data=True):    return  _optimum_spanning_edges(G, weight='weight', data=True, min=False)  ```  Is this the right approach? 
+comment
+Yes, that makes sense. I'll submit a pull request. 
+comment
+This can be closed. Implemented in #1577. 
+comment
+I don't know why but the [assortavity](http://networkx.readthedocs.org/en/docdraft/reference/algorithms.assortativity.html) page is blank. I think this has something to do with napolean, because when I built the docs locally using napolean, the same thing happened. 
+comment
+@chebee7i I see that they break with `numpydoc` too. Then how are the latest doc builds on the website not displaying them? How is it fixed? Sorry, if I'm asking too many questions. 
+comment
+@OrkoHunter You should use `napolean`. This pull request does that. To do that, just insert `sphinx.ext.napoleon` in your conf.py file . Look at the conf.py diff in the pull request and change accordingly. This is how your extensions should look,  ``` python extensions = [     'sphinx.ext.autosummary',     'sphinx.ext.autodoc',     'sphinx.ext.coverage',     'sphinx.ext.doctest',     'sphinx.ext.intersphinx',     'sphinx.ext.mathjax',     'sphinx.ext.napoleon',     'sphinx.ext.pngmath',     'sphinx.ext.todo',     'sphinx.ext.viewcode',     #'sphinxcontrib.bibtex',     #'IPython.sphinxext.ipython_console_highlighting',     #'IPython.sphinxext.ipython_directive', ] ```  You can also use numpydoc, but then you have to specify `numpydoc` in your requirements.txt. 
+comment
+I am really not sure, but I think they can't match the folder stucture. Strange this doesn't even have a traceback. It fails immediately. 
+comment
+Currently, the `arrows` parameter of `draw_networkx` is handled by `**kwds` which then gets passed on to `draw_networkx_edges`. I think that there should be a explicit definition of the `arrows` parameter in `draw_networkx` since it should be upon the user to choose the whether arrows should be drawn or not.  But if it's already being handled properly in all the cases, then adding an extra `arrows` parameter would be trivial. Just adding the documentation should be enough if that is the case.  I'll send in a PR with the former change. 
+comment
+Disjoint nodes are not removed in the lastest build of `networkx`. 
+comment
+Can I take this up? I could use some help about where to add the `largest_connected_component` function. 
+comment
+@OrkoHunter will `networkx-metis` be a python wrapper for the `METIS` library? 
+comment
+The repo is up at [networkx-metis](https://github.com/networkx/networkx-metis). 
+comment
+@avgl-sstraub   If you want to get the latest development trunk of NetworkX, then do this in the command line: `pip install git+https://github.com/networkx/networkx.git` 
+comment
+I believe this can be closed. 
+comment
+I guess this can be closed. 
+comment
+I would be happy to take this up. I am a beginner, so it would be really helpful if someone could lay down the steps involved.  I am guessing I should first create a `generators.py` in `algorithms/bipartite` and then move the functions from `generators/bipartite.py`? I have no idea what to do next.  Thanks. 
+comment
+Thank you @jtorrents for the detailed instructions.  I have been able to do all of them except for 5. Should I just add a note about this line `from networkx.algorithms import bipartite as bp`. Also, I couldn't understand what you meant about adapting the examples in the docstrings.  Since I have done most of the work, will it be okay if I submit a pull request? So that you can check the code?  I will edit the `doc/source/reference/api_2.0.rst` after everything else is okay and ready to be merged. 
+comment
+Done. `nosetests` show `Ran 2566 tests in 40.545s OK (SKIP=10)`  Please review the diffs. 
+comment
+[These](https://github.com/networkx/networkx/blob/c92f43c40e5a6d1682ae4157ef5255c84ec47f49/networkx/drawing/nx_pylab.py#L505-508) lines of code check if the `width` parameter is iterable or not, so yeah as of now it's supported. The documentation probably needs to be changed. 
+comment
+You will need to change the documentation `doc/source/reference/drawing.rst`. It needs to be moved or changed to fit yours. 
+comment
+Um, shouldn't the line under Matplotlib section `.. automodule:: networkx.drawing.nx_pylab` changed since it's moved to `networkx_matplotlib.py`? Correct me if I'm wrong. 

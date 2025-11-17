@@ -1,0 +1,4 @@
+issue
+replace example in bfs_tree with a correct one#TITLE_END#The current one is copy-pasted from bfs_edges. 
+issue
+there should be stable_topological_sort()#TITLE_END#Currently the topological_sort is unstable, I think there should be a stable one -- when doing recursion, sort the nodes first.  I made a small change on topological_sort() and it worked.  ``` 1c1 < def stable_topological_sort(G,nbunch=None):  --- > def topological_sort(G,nbunch=None): 50c50 <         nbunch = sorted(G.nodes())  --- >         nbunch = G.nodes_iter() 63c63 <             for n in sorted(G[w]):  --- >             for n in G[w]: 74a75 > _ ```  However, I noticed that nodes can be any hashable objects, so when sorted() is not available, it should raise error or do something else. 

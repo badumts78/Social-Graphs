@@ -1,0 +1,2 @@
+issue
+Do I need pygexf if I've already used networkx?#TITLE_END#Hi  I just started my Gephi journey, and to deal with gexf file I need a package like networkx or pygexf. I skim through Gephi's forum and found that pygexf's author Paul has considered merging pygexf with networkx many years ago. Just want to double check with you if the merging was successful.  i.e. If I need to deal with gexf file for Gephi, do I need to install pygexf and networkx both or networkx itself is enough. Thanks. 

@@ -1,0 +1,2 @@
+comment
+When will this be implemented? I am actually quite keen on using this for an interval graph problem I have. Could this be a `strategy` that is then also available in the `greedy_coloring` algorithm?

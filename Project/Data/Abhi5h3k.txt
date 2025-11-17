@@ -1,0 +1,2 @@
+issue
+Fixed Bug in generate_gml(G, stringizer=None)#TITLE_END#<img src="https://i.ibb.co/RP7ZdqL/network-X-bug-fix.png" alt="network-X-bug-fix" border="0">  generate_gml(G, stringizer=None) function used by write_gml(G, path, stringizer=None)  raise NetworkXError('%r is not a valid key' % (key,))  This error is caused when key contains "_" underscore character. Like "first_name" will raise this error.  Fix: updatd the regular expression to allow "_"   

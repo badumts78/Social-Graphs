@@ -1,0 +1,2 @@
+issue
+Problem with nx.from_nested_tuple()#TITLE_END#When I trying reading in a nested tuple into a tree as follows:  nx.from_nested_tuple((((('9502008-A', 'DREW'), ('CFX 26', 'WELLS')), ('CPRS', ('CFX 29', ('AR 1142', 'LA 2031')))), 'CL 161'))   I get  RecursionError: maximum recursion depth exceeded while calling a Python object  Is there something wrong with my input tuple that would be causing this? 

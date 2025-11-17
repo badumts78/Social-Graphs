@@ -1,0 +1,2 @@
+issue
+Consider removing dependency on __file__#TITLE_END#I'm trying to use networkx in a [PyOxidizer](https://pyoxidizer.readthedocs.io/en/stable/) project. Unfortunately networkx relies on `__file__`, which is an optional attribute and should not be relied upon.  See https://github.com/indygreg/PyOxidizer/issues/69 for more information.  I see that there are a few references to `__file__ ` in networkx, so it might not be straight forward to remove them all. But it would already be a great help if `networkx.release` would not require this attribute.  Cheers!

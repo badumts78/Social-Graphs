@@ -1,0 +1,2 @@
+issue
+Provide a function arg to contracted_nodes to prevent copying#TITLE_END#For large graphs, with a lot of contraction steps, the `H = G.copy()` step is by far the bottleneck in speed. It would be nice to have an option to pass an argument like copy=False to the function to operate directly on G instead of making a copy for each contract step.

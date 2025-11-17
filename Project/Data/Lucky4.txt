@@ -1,0 +1,2 @@
+issue
+In the tutorial "list(G.nodes)" not work#TITLE_END#Bottom is not work, and show that "TypeError: 'instancemethod' object is not iterable". ~~~py >>> list(G.nodes) ['a', 1, 2, 3, 'spam', 'm', 'p', 's'] ~~~ <br>  Maybe it it will be bottom example: ~~~py >>> list(G.nodes()) ['a', 1, 2, 3, 'spam', 'm', 'p', 's'] ~~~

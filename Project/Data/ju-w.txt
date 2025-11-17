@@ -1,0 +1,2 @@
+issue
+Reduction of memory footprint possible?#TITLE_END#I am working on a project with a graph that has multiple millions of edges.  (Around 5 mill nodes, 60 mill. edges.)  I am already using the Thin Graph:  ```python class ThinGraph(nx.Graph):     all_edge_dict = {'weight': 1}     def single_edge_dict(self):         return self.all_edge_dict     edge_attr_dict_factory = single_edge_dict ```  and my graph is using around 10 GB of memory.  Is there a way to further reduce the memory consumption?

@@ -1,0 +1,2 @@
+issue
+include analytics to hits and pagerank #4178#TITLE_END##4178  In some cases it is useful for me to analyze the development of the pagerank and hits algorithm. Thats why I created the `HitsResult()` and the `PageRankResult()` to return analytics information of the algorithm. By deriving theses return objects from `tuple` respectivly `dict` the implementation should be compatible to the current version.  The tests and docstrings are also adapted. 

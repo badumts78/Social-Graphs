@@ -1,0 +1,2 @@
+issue
+networkx problem with reading in gml files#TITLE_END#Hello --  The "read_gml" function/method in networkx doesn't seem to work with files containing large-ish graphs.  It was tested with a couple of different gml files (one from Gephi enclosed), & only the very simple graph worked (also enclosed).  Would you please correct this issue as soon as possible?  Many thanks!    Best,  AJP [lesmiserables.txt](https://github.com/networkx/networkx/files/243169/lesmiserables.txt) [test_1.txt](https://github.com/networkx/networkx/files/243170/test_1.txt) 

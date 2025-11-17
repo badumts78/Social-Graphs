@@ -1,0 +1,2 @@
+issue
+Drag and drop support - Enhancement?#TITLE_END#I've been using NetworkX to diagram networks based on LLDP output. I'd like to know if it's possible for NetworkX to support drag & drop for nodes. Based on my research the answer appears to be no, but it could be possible to output to a JSON or GEXF file and manipulate the diagram using a 3rd party tool.   I'm hoping there's a way to support drag & drop using pyplot from matplotlib or find an alternative method. Any help would be greatly appreciated. 

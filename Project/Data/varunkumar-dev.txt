@@ -1,0 +1,4 @@
+issue
+copy node and graph data in create_empty_copy()#TITLE_END#Why is there no option to copy node and graph data to the new graph? . I think it would be better if create_empty_copy() takes copy_data as a boolean parameter .  If it sounds a good feature then I can do a PR. 
+issue
+#1849 add with_data to create_empty_copy#TITLE_END#Please review.  

@@ -1,0 +1,2 @@
+issue
+tree to prufer#TITLE_END#Hello,  How could I use this sequence (2 (6 (7)) (3) (5 (1) (4)) (8))?  And because only he solves nodes tree that must have node labels {0, ..., n - 1}?  ![image](https://user-images.githubusercontent.com/29874574/59038632-b5775e80-8849-11e9-81e1-5f395e894a62.png) 

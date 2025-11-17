@@ -1,0 +1,2 @@
+issue
+Mistake importing and exporting graphs :(#TITLE_END#Hi networkx developers,  There seems to be a problem with the write_edgelist and read_edgelist function.  For me, sometimes the graph I export and import are different.   Can anyone check if there is a bug in your code? Thanks! Shuai

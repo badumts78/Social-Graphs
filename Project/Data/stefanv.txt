@@ -1,0 +1,254 @@
+issue
+POC: Use dependency groups instead of requirement.txt files#TITLE_END#This shows how we could potentially use dependency groups, a new feature in pip, which allows replacing:  ``` pip install -r requirements/dev.txt ```  with  ``` pip install --group dev ```  (where `dev` is defined in `pyproject.toml`).  TODO:  - [ ] Update CI, if team decides to use this feature - [ ] Figure out what to do with conda; probably easiest to generate multiple `environment.yml` files
+issue
+Lazy load top-level namespace#TITLE_END#@dschult This removes the vendored version of `lazy_loader` in preference of the package.  I can also refactor deeper levels of imports, but I thought I'd get some feedback first.
+issue
+Refactor _AntiGraph to `nx.classes`?#TITLE_END#`_AntiGraph` is defined in `kcomponents.py` and used in `k_components`. Is this the right place for that class to live?  The same exact class definition also appears [in the examples](https://github.com/networkx/networkx/blob/main/examples/subclass/plot_antigraph.py#L23).
+issue
+Cache `nodes` property on Graph#TITLE_END#Closes https://github.com/ComplexGroupInteractions/xgi/issues/103
+issue
+Simplify DelayedImportErrorModule#TITLE_END#Closes #5367
+issue
+Avoid building previews of docs unless docs were modified#TITLE_END#The motivation here is to speed up our testing pipeline by not scheduling unnecessary builds (in this case, previews of docs when they weren't modified).  It can be argued that the docs should always be built, because (rarely) you may want to see how gallery examples changed in response to code.  If so, the change to the GitHub Action may still be useful: do not re-run the *test suite* unless something outside the docs got changed.
+issue
+Upgrade GDAL to 3.3 in GitHub Actions#TITLE_END#GDAL < 3.3 calls the `use_2to3` from setuptools, which is no longer available (since setuptools 58.0.2). 
+issue
+Remove mktemp usage#TITLE_END#Closes gh-4564
+issue
+Naming of drawing routines#TITLE_END#Currently, drawing routines are named `nx.draw_networkx_X` with X being `nodes`, `edges`, `labels`, etc.  The `networkx` part seems superfluous.  Also, would it make sense to move these into a submodule, `nx.draw`?
+issue
+Add NumFOCUS CoC#TITLE_END#/cc @dschult @jarrodmillman @hagberg   To bring NetworkX in line with requirements for NumFOCUS affiliation.  I'm busy publishing a formal markdown translation of the NumFOCUS CoC [here](https://github.com/numfocus/numfocus/pull/31) that we can use once it has been merged.
+issue
+pytest port#TITLE_END#Fix #3102 and fix #3245.  We could probably use more idiomatic pytest fixtures etc., but for now just trying to get it to run.
+issue
+`pyplot.hold` is deprecated#TITLE_END#``` networkx/drawing/nx_pylab.py:126: MatplotlibDeprecationWarning: pyplot.hold is deprecated.     Future behavior will be consistent with the long-time default:     plot commands add elements without first clearing the     Axes and/or Figure. ```
+comment
+In case anyone else was wondering, from https://devblogs.microsoft.com/python/idiomatic-python-eafp-versus-lbyl/:  > EAFP: “it’s easier to ask for forgiveness than permission”. Quickly, EAFP means that you should just do what you expect to work and if an exception might be thrown from the operation then catch it and deal with that fact. What people are traditionally used to is LBYL: “look before you leap”. Compared to EAFP, LBYL is when you first check whether something will succeed and only proceed if you know it will work.
+comment
+@NeilGirdhar I'm also getting up to speed with typing.  Could you explain to me the following:  > I made Graph a generic class of Node so that a user has the option to specify Graph[str] for example and the type checking will ensure that all methods that accept nodes are passed strings.  Is this what allows you to do `Graph[Node]`.  Is Graph a class or a type or both?  It would be good to add a test target to our Travis-CI config to run mypy.  I think we can probably simplify the internal implementation of `*_dict_factory` to avoid this odd assignment:  ```         self.graph_attr_dict_factory = self.graph_attr_dict_factory         self.node_dict_factory = self.node_dict_factory         self.node_attr_dict_factory = self.node_attr_dict_factory         self.adjlist_outer_dict_factory = self.adjlist_outer_dict_factory         self.adjlist_inner_dict_factory = self.adjlist_inner_dict_factory         self.edge_attr_dict_factory = self.edge_attr_dict_factory ```  But as @dschult mentioned, these are not defaults, they *are* the factories, and sounds like the way to specify them is to make a subclass and to override.  That's probably a design we can investigate a bit more later.
+comment
+For other following along, Generics are [documented by MyPy](https://mypy.readthedocs.io/en/stable/generics.html) (this is not a Python concept, for now).  EDIT: No, this *does* seem to be a Python concept: https://docs.python.org/3.8/library/typing.html#typing.Generic
+comment
+The way it is right now seems to be:  ``` In [22]: class X:       ...:    ...:     x = dict       ...:    ...:            ...:    ...:     def __init__(self):       ...:    ...:         self.y = self.x      ...:    ...:            ...:    ...:     def z(self, **kwargs):       ...:    ...:         return dict(**kwargs)  ```  (for x and y).  ``` In [26]: %timeit x.x()                                                                                                                                                    79.9 ns ± 0.837 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)  In [27]: %timeit x.y()                                                                                                                                                    76.7 ns ± 0.35 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)  In [29]: %timeit x.z()                                                                                                                                                    141 ns ± 3.02 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each) ```  So, no negligible difference under Python 3.8 between the x and y versions.  Thanks for explaining the origin, @dschult!
+comment
+Edited comment above to show that Generics are from Python: https://docs.python.org/3.8/library/typing.html#typing.Generic
+comment
+Here's a nice example I modified from the [mypy docs](https://mypy.readthedocs.io/en/stable/generics.html):  ```python from typing import TypeVar, Generic, List  T = TypeVar('T')  class Stack(Generic[T]):     def __init__(self) -> None:         # Create an empty list with items of type T         self.items: List[T] = []      def push(self, item: T) -> None:         self.items.append(item)      def pop(self) -> T:         return self.items.pop()      def empty(self) -> bool:         return not self.items   s : Stack = Stack() s.push(123) s.push('asd')  s = Stack[int]() s.push(123) s.push('asd') ```  The top example is a general stack that can take any item, and the bottom one constrains entries to ints.  mypy can pick this up:  ``` $ mypy stack.py stack.py:26: error: Argument 1 to "push" of "Stack" has incompatible type "str"; expected "int" Found 1 error in 1 file (checked 1 source file) ```
+comment
+It's great to have so much experienced input here; thank you very much.  There are two advantages to the stubs approach that are influencing our thinking in scikit-image right now:  1. It does not clutter the code (otherwise, the function definitions get quite dense) 2. It can live and be developed separately, potentially with much faster turnaround  I wonder if a good solution here could be for the stubs to move under the networkx github org.  The networkx team could make a commitment to release the stubs along with every nx release, to keep things in sync.  We could potentially even build it into networkx, but through a mechanism such as a submodule or a dependency.  That would be a "soft" option 3 @fmagin.
+comment
+> Consider that the inline annotations can be added incrementally. So any user that adds annotations for code that they happened to need can submit a PR that adds only annotations for their specific need. Like I did for DiGraph and @gjulianm did for MultiGraph. The only thing needed to get this going is the CI setup itself.  Given all I've read, then, I'd lean towards inline annotations.  We can use a GitHub action to do the types checking, so that we don't use up one of our Travis-CI workers.  I am happy to set this up.  Importantly, we need several experienced eyes on the typing proposed to make sure that it is "optimal".  With @fmagin and @gjulianm around, I feel much more comfortable moving forward.
+comment
+> NetworkX doesn't really need this kind of complicated logic, though there are still same cases where Python's typing logic will not suffice to properly type it. > E.g. a `compose` takes two Graphs and returns a Graph, or two DiGraphs and returns a DiGraph, or two MultiGraphs and returns a MultiGraph, etc. But Python (IIRC) doesn't support a TypeVar for the Graph that is generic over some TypeVar again  Do you mind explaining this last sentence, and why that is necessary?
+comment
+@NeilGirdhar If you mean repair mistakes, then I am sure the team will be all for it.  If there are minor adjustments that make MyPy happy without significantly altering the code, that should also be fine.  If it means including type-specific alterations, we'd need to review it and decide.  Which I am happy to do.
+comment
+@fmagin I read more about HKTs, and until those are officially supported we won't be able to do that level of type annotation.  Something more general may be suitable for the stubs, for now.
+comment
+> These damn kids and their inline annotations!  Proof-of-value, when suggestions are made in a community-developed open source project, lies with the proposer. The idea of typing is not an annoyance; the value proposition is just not convincing to the core team yet.  > > But I think the reluctance is also deeper than that. For many years a selling point and design choice for python packages has been "duck-typing", where you don't check types. You try to make it quack and if it does, then you treat it like a duck. If Python code starts to look like C or Java code then we might as well be programming in C or Java -- which are often faster anyway because they are compiled. So there is a long history of phrases like "use hasattr, not isinstance". And the goal of writing code to accept any reasonable input is a reasonable goal. >  > see ['Protocols'](https://peps.python.org/pep-0544/)  FWIW, my personal sense is that duck-typing is a nice idea in principle, but is not used frequently and often leads to unpredictable behavior.  > > The code I have seen with inline annotations requires a novice to learn a huge amount -- or else just try to ignore all the annotations at first. I'm hopeful that Python can find a way to ease the learning curve required to read code with annotations. >  > please try to understand that type annotations make it easier to read code you are not familiar with. They are not a burden to tolerate simply because of the static analysis benefits- they are actively helpful in creating understanding. As Guido Van Rossum has noted: "Code is read more often than it is written". That's probably why he's on the core `mypy` team.  I don't find this convincing. We see in practice that type annotations can make it hard, even for experienced Python developers, to follow code. This situation will improve as type syntax is simplified, but currently typing can quickly get hairy for, e.g., Callables, as well as most other non-trivial examples.  > Having stubs in separate files makes it difficult to reason about how to edit or improve stub files. Tooling to check for consistency does exist, but that'll run in CI, and won't have IDE support. In short, this will have a chilling effect on typing contributions  I am also more in favor of inline than stub annotations, but given that the core team is willing to do stubs, why not start there?  > this is the wrong approach. Annotations _replace_ type information in doc-strings. You absolutely don't want two sources of truth. Modern python documentation generators will generate the same html. If you _must_ do this, you have [darglint](https://github.com/terrencepreilly/darglint).  It's not a matter of right or wrong, but rather how it currently is: we have been including type information in docstrings since 2008. The numpydoc team has not examined this issue closely to figure out how to best de-duplicate docstring & type annotations.  I don't think darglint parses numpydoc either, but perhaps I've missed something.  > This is a disappointing outcome.  It's a process/conversation, not an outcome. 
+comment
+We've started work on a tool called [docstub](https://github.com/scientific-python/docstub) that will make it easier to keep numpydoc docstrings and type annotations in sync. Perhaps this will be helpful for the NetworkX case (we're prototyping it in scikit-image for now).
+comment
+@adnanmuttaleb Yes, we would like to work the higher level patterns for implementing parallelism before jumping in. Ray, dask, etc. are all suitable implementations of execution engines. The hope is that we can make task generation agnostic to the engine, but we haven't put much thought into it yet. 
+comment
+@Erotemic I am curious whether xdoctest perhaps has a solution for the  ``` In [15]: x                                                                                                                                                                Out[15]: <__main__.X at 0x7f4249790790> ```  doctest problem, i.e., it would be nice to print the actual output but to have memory addresses ignored.  Also, a useful feature (likely not for this project) would be if we can copy and paste straight from IPython, strings like:  ``` In [1]: class X:    ...:     x = 1    ...: In [2]: x = X() ```
+comment
+@jarrodmillman Looks like we have to filter out cases without names.  I can take a look at that.
+comment
+I pushed a fix to https://github.com/scikit-image/scikit-image-web/pull/69
+comment
+I merged the changes from skimage in here too.
+comment
+Hi Ross :wave:   The call is supposed to look something like this:  ```     <script data-domain="networkx.org" defer="defer" src="https://views.scientific-python.org/js/script.js"></script> ```  From https://www.w3schools.com/tags/att_script_defer.asp:  > If defer is present (and not async): The script is downloaded in parallel to parsing the page, and executed after the page has finished parsing  So, the analytics script *should* not interfere with the rest of the page. I cannot reproduce on my side, but that doesn't say much: we have different DNS, firewall, etc.  In the Javascript itself, it does:  ``` var request = new XMLHttpRequest(); request.open("POST", apiUrl, true); ```  which, with the `true` flag, should be an async request.  So, I really cannot see why this should block anything :/
+comment
+Are you able to dig in a little bit to see what freezes it up? I can send you some un-smallified Javascript, if that helps.
+comment
+I think Ross is suggesting it *does* have something to do with the lab network; the question is why async JS code would block the browser in the case where a connection cannot be made.  Questions I would ask: (1) is the JS code downloaded from views.sp.org (2) is the code being executed the correct version, or did it get corrupted in some central university proxy (3) if that is the JS code being generated, why is the code blocking. We should be able to replicate each step manually. 
+comment
+Ah, neat, this saves a lot of trouble. Can propagate the same pattern to skimage. 
+comment
+As @lagru mentioned at https://github.com/scikit-image/scikit-image/pull/7435#pullrequestreview-2097490328 this approach is not equivalent because it *also* installs the library in question.
+comment
+@dschult I've received a bit of education on this topic the last week :), so I can help review if you're going ahead with this PR.
+comment
+ref #6758 
+comment
+Collaborative sketch from community meeting:  <img src="https://github.com/networkx/networkx/assets/45071/4cf38ce1-f5a7-4800-905e-bc742df8ee49" alt="RNG mechanisms in NetworkX" width="600px"/> 
+comment
+> But I guess they are currently being prompted to move the import inside their functions. So that's likely to be about the same maintenance burden. The CI will check it either way too. :}  True :)  I commented on the other PR that slightly nicer syntax may be something like `nx.lazy_import(x)` or `nx.lazy_load(x)`.
+comment
+We went through various discussions on naming and that is what we settled on, but I don't think there's any particularly good reason for it other to distinguish it from a traditional import. `lazy_import` should be fine. 
+comment
+Hey, that's a neat idea!  It's like some Linux distributions that tells you "You probably want `apt install foo-package`".  I'd use similar phrasing, since the recommendation might be wrong:  ``` Hint: If you are using NetworkX, try `import networkx as nx` first ```
+comment
+If the tests become as difficult to assemble as the original code, it always gives pause :) If the code is actively being used in the project, it's probably implicitly tested all over the place, so not sure if this is necessary. So :man_shrugging:, I'm ambivalent about adding this unless it catches observed bad behavior.
+comment
+#4593 provides a minimal patch; but we should probably remove all uses of `mkstemp` as well (and replace with `tempfile.NamedTemporaryFile` or `tempfile.TemporaryFile`).
+comment
+Well, scratch all that; Windows doesn't allow you to use the `name` attribute of a `NamedTemporaryFile` object more than once!  PR updated accordingly.
+comment
+I think we can write our own context manager and be fine.  It's not clear to me why the built-in one doesn't work correctly.
+comment
+NumPy side resolved by @dschult in https://github.com/numpy/numpy/pull/22045
+comment
+@dschult Just double checking: I assumed when I made my original PR that the AdjacencyViews update themselves dynamically (they are called views, after all!).  Is that assumption correct?
+comment
+Thanks @dschult!
+comment
+This will work, but feels a bit fragile: you'd need to remember to reset the cache whenever modifying certain internal attributes. Is that not perhaps something we'd like to have happen automatically on assignment to those members?  I hope I'm understanding the issue correctly; please disregard if not! 
+comment
+Could settable properties do the trick (fset for the internal data storage, that clears the cache)? It seems a bit roundabout to have both a property and cached property, but should do the trick.   
+comment
+I like the centralized approach! 
+comment
+It feels like the current approach abuses Data Descriptors ever so slightly (thanks for teaching me about those, though, didn't know about them!). The timings here are not so different that it should make much of a practical difference, so then I wonder if it wouldn't be better to take a clear, intuitive approach. Why, then, not use the Data Descriptors as they are intended and store values on the DD itself, and add a `__get__` method to reach them (i.e. stop using cached_property, which essentially does the same)?  I see there are some places where `_adj` is explicitly accessed internally; is there a reason, once Data Descriptors are used, to still access that attribute apart from for deletion?
+comment
+Maybe I should gather one other piece of information before I respond: why do we need adj to refer to _adj. Could we make them one and the same using a descriptor class? 
+comment
+OK, that makes perfect sense, thank @dschult!  Properties and Data Descriptors are very similar, in that you can define how these attributes are set and read. The differences are outlined in [this S/O answer](https://stackoverflow.com/a/15466055/214686). Mainly, can store data outside on the descriptor itself, and can be used in a slot.  In our case, IIUC we want the following: a public read-only view of `adj` that is cached depending on the content of `_adj`. Hence the need for two layers of properties/descriptors.  I think the simplest prototype of that idea looks like this:  ```python class CachedAdjacencyMatrix:     _cached_computed_adj = None      def __set__(self, obj, value):         print("Caching adjacency matrix")         self._cached_computed_adj = str(value) + '_cached'      def __get__(self, obj, objtype=None):         return self._cached_computed_adj  class Graph:     _adj = CachedAdjacencyMatrix()      @property  # read-only attribute     def adj(self):         return self._adj   g = Graph() g._adj = [1, 2, 3] print(g.adj)  # This will fail: # g.adj = [1, 2, 3] ```
+comment
+Having to catch modifications to the dictionaries definitely complicates things, but I didn't see code for handling that in the PR. The only way to do that, AFAIK, is to have a custom dictionary in place.  Something like this:  ```python class EventOnUpdateDict(dict):     def __init__(self, d, hook):         self._hook = hook         super().__init__(d)      def __setitem__(self, key, val):         super().__setitem__(key, val)         self._hook()   class CachedAdjacencyView:     def __get__(self, obj, objtype=None):         if obj._adj_view is None:             print(f'Recalculating view for {obj._adj}')             obj._adj_view = str(obj._adj) + '__cached'         return obj._adj_view   class Graph:     # Storage for cached view of adjacency matrix     _adj_view = None      # Cached view of adjacency matrix, for user consumption     adj = CachedAdjacencyView()      @property     def _adj(self):         return self._adj_dict      @_adj.setter     def _adj(self, value):         self._adj_dict = EventOnUpdateDict(value, self.refresh_adj_view)         self.refresh_adj_view()      def refresh_adj_view(self):         self._adj_view = None      def __init__(self):         # Storage of adjacency matrix         self._adj_dict = EventOnUpdateDict({}, self.refresh_adj_view)   print('Creating graph') g = Graph() print(f'{g.adj=}', '\n')  print('Assigning g._adj') g._adj = {1: 2, 3: 4, 4: 5} print(f'{g.adj=}', '\n')  print('Setting value in adjacency storage') g._adj[1] = 4 print(f'{g.adj=}') ```  But, when this has to be tracked, I think your approach of storing the data on the parent class is the correct thing to do.
+comment
+This would work only if the computed quantity you need is tied to the internal storage dictionary (the example I provided above is for where you needed to make an arbitrary computation on a changed dictionary).  But if that is satisfactory, you can get away with properties:  ```python from functools import cached_property   class Graph:     _adj_storage = {}      @property     def _adj(self):         return self._adj_storage      @_adj.setter     def _adj(self, value):         del self.adj         self._adj_storage = value      @cached_property     def adj(self):         return self._adj.keys()  ```  
+comment
+Another spelling of the same thing:  ```python from functools import cached_property   class ClearAdjCacheOnSet:     value = {}      def __set__(self, obj, value):         self.value = value         del obj.adj      def __get__(self, obj, objclass=None):         return self.value   class Graph:     @cached_property     def adj(self):         return self._adj.keys()      _adj = ClearAdjCacheOnSet()  ```
+comment
+Isn't that what the second version above gives? And then there's no messing around with `__dict__`.  I'm always careful of cleverness, since I usually don't understand my own `__`-cleverness six months on :)
+comment
+You're absolutely right! Thanks for explaining that nuance. 
+comment
+Very nicely done, thank you @dschult! 
+comment
+We may have to add a manual notification step a-la https://github.com/marketplace/actions/send-email
+comment
+Thanks @horvatha, confirmed.  Also checked that graphviz handles `red` and `"red"` the same way, so the fix should simply be to add quotes in all cases.
+comment
+This is a bug in [pydot](https://github.com/pydot/pydot), not in NetworkX:  ``` import pydot n = pydot.Node('x', fillcolor='red:yellow') print(n) ```
+comment
+I've reported the issue upstream; let's see what they say.
+comment
+I'd like to propose https://github.com/networkx/networkx/pull/5371 as an alternative way to address the issue, but it would need @dschult's review—he wrote that piece of code.
+comment
+@rossbar I'm a bit late to the game here, but what is the reason for not using a sparse array here?  The new implementation is nice and clean and easy to follow; thanks!
+comment
+I think the object dtype is a nice addition! I admit, I didn't realize SciPy explicitly prevented construction of object sparse arrays—I imagined it would just not pass through the computation engines.  And noted about the scipy dependency, forgot about that.
+comment
+Ah, perfect timing as usual :joy: 
+comment
+Re: 81bbe5b, perhaps we can instantiate the defaultdict with keyword arguments:  > The first argument provides the initial value for the default_factory attribute; it defaults to None. All remaining arguments are treated the same as if they were passed to the dict constructor, including keyword arguments.  ``` d = defaultdict(default_factory=open, foo='bar') d['foo'] == 'bar' ```
+comment
+The error in `lukes.py` originates from it being partially, but not fully, annotated.  Removing the existing type annotations silences the `bp_buffer` error.
+comment
+The `kcomponents.py` error is because mypy cannot figure out that `single_edge_dict(self)` returns a dictionary, like that attribute does on the Graph base class.  Can be fixed by an inline type annotation of that function, or by an ignore like you have it.
+comment
+> > Re: [81bbe5b](https://github.com/networkx/networkx/commit/81bbe5be1a4d92ecc7944c3e9079e2bc23c3c948), perhaps we can instantiate the defaultdict with keyword arguments: >  > There's a gotcha here... it's a syntax error to have constructor kwargs with `.` in the name. Alternatively, you could do something like: >  > ```python > _dispatch_dict = defaultdict( >     lambda: open, **{".gz": gzip.open, ".bz2": bz2.BZ2File, ".gzip": gzip.open} > )  # type: ignore > ``` >  > While it reduces the amount of `# type: ignore` cruft, I'm not sure it improves readability - I'd lean towards leaving it as-is, but am open to other opinions/ideas!  Yes, probably fine as is.  I'd probably have written it as:  ``` fopeners = {     '.gz': gzip.open,     '.bz2': bz2.BZ2File,     '.gzip': gzip.open }  _dispatch_dict = defaultdict(default_factory=open, **fopeners) ```  But, whatever, that's mainly stylistic.
+comment
+> > I would definitely use a pyproject.toml configuration over the antiquated mypy.ini. The configuration is also much more selective with the ignore missing imports. >  > The reason I went with a mypy-specific configuration is that the pyproject.toml is a more general config file that deals with far more options than just mypy. If/when networkx adopts a pyproject.toml (a separate discussion) then I agree we can move the mypy configuration there; but for now I don't want to introduce general project-wide configuration files just for these changes. >  > I didn't notice anything in the mypy docs about any one configuration approach being preferred over another, but if there is such info it'd be great if you could link it here!  The docs say:  > Mypy supports reading configuration settings from a file. By default it uses the file mypy.ini with a fallback to .mypy.ini, then pyproject.toml, then setup.cfg in the current directory, then $XDG_CONFIG_HOME/mypy/config, then ~/.config/mypy/config, and finally .mypy.ini in the user home directory if none of them are found; the --config-file command-line flag can be used to read a different file instead (see Config file).  There's nothing in the [pyproject.toml section](https://mypy.readthedocs.io/en/stable/config_file.html#using-a-pyproject-toml-file) on that being preferred.
+comment
+I know from a few years ago that there are [implications to adding a pyproject file](https://github.com/scikit-image/scikit-image/pull/3020#issuecomment-382658539).  I have not read up on that recently, but it looks as though scikit-image and scipy have both added it since.  So, if it causes no problems, I'm ambivalent.  It may be best to add the pyproject.toml in a different PR that also handles our build dependencies etc. though.
+comment
+Also, the mypy.ini is 3 lines long, so no big issue to port it later :)
+comment
+Just noting for posterity: the issue MyPy has with `e` is when you reassign it after it was being used in `catch Exception as e`.
+comment
+@rossbar We can make the reverse_edge calls consistent as follows:  ```diff diff --git a/networkx/classes/graphviews.py b/networkx/classes/graphviews.py index 4b276292..fb5dd63b 100644 --- a/networkx/classes/graphviews.py +++ b/networkx/classes/graphviews.py @@ -153,13 +153,13 @@ def subgraph_view(G, filter_node=no_filter, filter_edge=no_filter):      if G.is_multigraph():          Adj = FilterMultiAdjacency   -        def reverse_edge(u, v, k): +        def reverse_edge(u, v, k=None):              return filter_edge(v, u, k)        else:          Adj = FilterAdjacency   -        def reverse_edge(u, v): +        def reverse_edge(u, v, k=None):              return filter_edge(v, u)        if G.is_directed(): ```
+comment
+I am going to take the liberty of merging this pull request.  I think @rossbar has done a stellar job at researching and addressing each individual issue. This PR satisfies MyPy, ensures that we don't breach MyPy typing rules in the future, and leaves us with the opportunity to more explicitly address typing at a time of our choosing.
+comment
+I notice now that creating a merge commit is disabled, so I'll go with "Squash and merge" since "Rebase and merge" feels like the wrong option.
+comment
+I always got the sense that MyPy is quite expensive to run, sometimes even when you only touch one file.  Otherwise feels OK; how about we just have it print problems on the terminal, then committers can choose whether to fix or not?
+comment
+@jarrodmillman With the lazy loader approach, we can also improve the error messages on SciPy import failure to guide users. So, I think this is a reasonable workaround for now.  We still have an open issue on pypa to deal with `networkx[min]` (i.e. *reduce* the dependency set), but until that feature is added this will have to do.
+comment
+Thanks @boothby @dschult!  Sorry for being slow to review; I plan to get to that tonight.
+comment
+Great work @boothby @dschult — thank you!
+comment
+Looks great, thanks @dschult!
+comment
+Even just renaming it to `next_element` may be helpful to avoid confusion.  There's nothing arbitrary about what it's doing!
+comment
+:wave: @dpfens, thanks for the fix!  I don't think we can pin to such a specific range of pyyaml, so could we rather address the error introduced?
+comment
+This seems to be an ongoing issue for PyYAML; [the issue](https://github.com/yaml/pyyaml/issues/266) @dpfens mentioned above is also the one that tracks this problem.  They sorted it out in 5.2 apparently, and now it is appearing again.  @dpfens Thanks for addressing, this seems like a fine workaround (strictly speaking unnecessary, but that's for PyYAML to address).
+comment
+Thank you, @ldelille!
+comment
+What happens to edge attributes?  Should whatever happens be explicitly mentioned?
+comment
+Great, thanks for clarifying!
+comment
+The only place I could find not mentioned above is `algorithms.link_analysis.pagerank_alg.py:google_matrix`.
+comment
+(`attr_matrix` can be solved as Jarrod suggested---by returning an array instead)
+comment
+We are currently seeing whether we should make the NEP release based, instead of time based. There is a proposal on the NumPy repo by Stephan Hoyer.    
+comment
+Test failures seem related.
+comment
+Instead of scatter, could a person use a PatchCollection of circles?  See e.g. [this S/O answer](https://stackoverflow.com/a/48174228/214686), which also shows how to compute point size in terms of viewport size.
+comment
+I'm happy to see this; I'd like to do the same for scikit-image.  I like the idea that we can all work together on one theme, instead of everyone struggling separately to figure out Sphinx's arcane CSS style structure.
+comment
+Awesome! I'm excited about this change!  Thank you, Ross.
+comment
+Current usage:  ``` networkx/generators/line.py 6:from networkx.utils import arbitrary_element, generate_unique_node 291:        a = generate_unique_node()  networkx/generators/trees.py 5:from networkx.utils import generate_unique_node 131:            new_head = generate_unique_node() 141:    root = generate_unique_node()  networkx/algorithms/flow/capacityscaling.py 11:from ...utils import generate_unique_node 18:    s = generate_unique_node()  networkx/algorithms/shortest_paths/weighted.py 9:from networkx.utils import generate_unique_node 1931:    newnode = generate_unique_node()  networkx/algorithms/lowest_common_ancestors.py 11:    generate_unique_node, 220:        super_root = root = generate_unique_node() ```
+comment
+What about:  ``` In [9]: def empty_generator():     ...:     """Return a generator with no members.     ...:     .. deprecated:: 2.6     ...:     """     ...:     warnings.warn(     ...:         "empty_generator is deprecated and will be removed in v3.0.",     ...:         DeprecationWarning,     ...:     )     ...:     return (i for i in ())  ```
+comment
+Looks like `return iter(())` also does the job.
+comment
+Hi @mariokostelac; thanks for this optimization.  I am curious what you mean by "trade-off"—this simply looks like the better way of calculating the same thing.  Here's another way of writing the inverse mapping (not sure if it has any impact on time):  ``` clusters = {}  for k, v in labeling.items():      clusters.setdefault(v, set()).add(k)  ```
+comment
+@dschult @jarrodmillman Do we have any guidelines on whether queries like the above should preferentially return generators? As Mario explains above, there is a big speed/memory trade-off here.
+comment
+@rossbar Dan's first paragraph is useful to know; maybe an item for our forthcoming core contributor guide?
+comment
+@dschult Since `dict_values` are iterable, I think this PR preserves API well enough.  Maybe we can merge this and open an issue to consider the suggested API change?
+comment
+@dschult The documentation currently states `generator` to describe the return parameter; if we change that to `iterable` we should be good to go.  I wonder if this pattern is more widespread.  I don't think we should ever guarantee that we'll return a generator: iterator gives us more freedom?
+comment
+`iterable` is exactly right—sorry!
+comment
+Thanks @mariokostelac!
+comment
+Nice work, thanks! 
+comment
+This is a very satisfying cleanup!  It would have been nice if we could have defined the `pip` command per platform, but that seems oddly hard to do on GHA.
+comment
+@jinwuxia Most of this discussion is now taking place on https://github.com/networkx/networkx/pull/4014
+comment
+CI configuration using pre-commit:  ```   - repo: https://github.com/pre-commit/mirrors-mypy     rev: 'v0.782'     hooks:     -   id: mypy ```
+comment
+Linking in another issue: https://github.com/networkx/networkx/issues/3988
+comment
+I like the choosing page too!  With bug templates, a lot of reporters will just delete it---but I guess it's helpful for people who are not used to filing bugs.  It's hard to set up a template that fits all scenarios: sometimes you need to know very little about a bug (yeap, that's a segfault) and other times you really need much more information.  I think Python and NX version are very reasonable to include, though.
+comment
+I don't think checking for `__iter__` or `isinstance(x, Iterable)` is enough.  Take, e.g.  ``` class MyInfiniteList:     def __getitem__(self, x):         return x ```  An instance of `MyInfiniteList` is iterable, but fails these tests.  The most robust way I know of is to try `iter(x)` and catch exceptions on failure.  That said, `isinstance(x, Iterable)` will AFAIK work, under Python 3, with all system and standard library iterables.
+comment
+I have a working prototype.  https://gist.github.com/stefanv/fde776cef7464b4e2cc0721bd37d51f4  Using this, I had to modify scikit-image's main `__init__.py` to include the following:  ```python from .lazy import require  def __getattr__(name):     return require(f'skimage.{name}') ```  Then, when you do:  ``` import skimage as ski ski.filters.window(...) ``` it lazy loads, and works!  The only problem I've noticed is that it makes IPython's auto-completer very angry, but I suspect we can work with that team to address it.
+comment
+@iosonofabio I think the matplotlib plotter is going to do the trick for us.  Thanks very much!
+comment
+@iosonofabio I am trying to compile igraph from source as per https://igraph.org/python/doc/tutorial/install.html#compiling-igraph-from-source, but the details are a bit lacking :)  Do you have a set of notes somewhere on how to build master?
+comment
+Alright!  I had to do `pacman -S igraph` on my Arch system, and then `pip install .` did the trick.  <img src="https://user-images.githubusercontent.com/45071/101272825-b4780380-3744-11eb-81cc-73fb0ccfa901.png" width="500px"/>  
+comment
+@iosonofabio I now see:  ``` Traceback (most recent call last):   File "/home/stefan/src/networkx/examples/external/plot_igraph.py", line 34, in <module>     ig.plot(g, layout=layout)   File "/home/stefan/envs/py38/lib/python3.8/site-packages/igraph/drawing/__init__.py", line 463, in plot     result = Plot(target, bbox, background=kwds.get("background", "white"))   File "/home/stefan/envs/py38/lib/python3.8/site-packages/igraph/drawing/__init__.py", line 121, in __init__     self._surface_was_created = not isinstance(target, cairo.Surface)   File "/home/stefan/envs/py38/lib/python3.8/site-packages/igraph/drawing/utils.py", line 396, in __getattr__     raise AttributeError("plotting not available") AttributeError: plotting not available ```  
+comment
+I'm trying:  ``` f, ax = plt.subplots()                                                                                                                                                    layout = g.layout()                                                                                                                                                       ig.plot(g, layout=layout, target=ax)   ```  And I'm getting a bit further:  ``` Traceback (most recent call last):   File "plot_igraph.py", line 35, in <module>     ig.plot(g, layout=layout, target=ax)   File "/home/stefan/envs/py38/lib/python3.8/site-packages/igraph/drawing/__init__.py", line 457, in plot     result.draw(obj, *args, **kwds)   File "/home/stefan/envs/py38/lib/python3.8/site-packages/igraph/drawing/graph.py", line 1147, in draw     start = shrink_vertex(ax, (x2, y2), (x1, y1), vsizes[src]) TypeError: 'NoneType' object is not subscriptable ```  Maybe I need to look into layout a bit deeper.
+comment
+That doesn't quite do it, but I'll wait for the fix and then try again.  Thanks!  ``` Traceback (most recent call last):   File "plot_igraph.py", line 35, in <module>     ig.plot(g, layout=layout, target=ax, vertex_size=[5] * g.vcount())   File "/home/stefan/envs/py38/lib/python3.8/site-packages/igraph/drawing/__init__.py", line 457, in plot     result.draw(obj, *args, **kwds)   File "/home/stefan/envs/py38/lib/python3.8/site-packages/igraph/drawing/graph.py", line 993, in draw     vsizes **= 2 TypeError: unsupported operand type(s) for ** or pow(): 'list' and 'int' ```
+comment
+No worries at all, we are very appreciative of the work you are putting in. :pray: 
+comment
+Yes, it works!
+comment
+Works with 90e56251af00b30540fd06951a7423de249b8fd0 of python-igraph.
+comment
+See also https://github.com/scikit-image/scikit-image.github.com/blob/master/robots.txt
+comment
+I don't think they "lose" links, but they prioritize newer results.  If you search for scikit-image, the website and the latest docs show up 1 and 2.  If you search for "skimage", you get all in the first item (not sure why Google chooses "skimage" instead of "scikit-image").  So, Googling scikit-image is a good test case to see if this does what you want!
+comment
+> It would be nice to also have version warnings on older documentation, something like https://github.com/humitos/sphinx-version-warning  Yes, that's a good idea!  Let's definitely add that.

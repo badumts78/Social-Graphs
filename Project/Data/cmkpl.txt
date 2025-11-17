@@ -1,0 +1,8 @@
+issue
+Feature request: pass weight functions in class algorithms.simple_paths like in class algorithms.shortest_paths - Code added, pending for merge#TITLE_END#For consistency, if weight function can be passed into the functions in the class algorithms.simple_paths like in the class algorithms.shortest_paths, it would be great.
+issue
+Add weight function for shortest simple paths for #3948#TITLE_END#Add this function for aligning the weight function in shortest paths class.
+issue
+The documentation of astar_path not updated for the commit #3799#TITLE_END#The updated code in  #3799 is not reflected in the following line  https://github.com/networkx/networkx/blob/7ae7f0146a33e340acbabe5a11d297e8187cb6d8/networkx/algorithms/shortest_paths/astar.py#L34-L35  It should also accept function as the parameter.
+issue
+Update astar.py to fix docstring for the commit  #3799#TITLE_END#Correct the docstring of the function astar_path for the commit  #3799

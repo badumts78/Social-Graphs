@@ -1,0 +1,4 @@
+issue
+heavy_metal_umlaut.py example has improper shebang line#TITLE_END# examples/advanced/heavy_metal_umlaut.py uses a hardcoded  # !/usr/bin/python as shebang-line.  This will lead to trouble on systems that do not install python binaries to /usr/bin. but to ${PREFIX}/bin, which could be /usr/local/bin or something completely different.  Trivially replacing it with #!/usr/bin/env python resolves this bug, as it lets the OS resolve the location of the python binary. 
+issue
+Fix shebang line for platform independency#TITLE_END#Resolves issue #1013 

@@ -1,0 +1,2 @@
+issue
+Clean up list comprehensions in bipartite/generators `configuration_model`#TITLE_END#In algorithms/bipartite/generators.py, `configuration_model` generates several unnecessary intermediate lists. This PR removes those and changes one list comprehension a to generator.  This is my first PR for NetworkX; any guidance/feedback is welcome and appreciated.

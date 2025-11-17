@@ -1,0 +1,56 @@
+issue
+added 3d and animation to plot_greedy_coloring.py#TITLE_END# added 3d and animation to plot_greedy_coloring.py gallery example following and enhancing examples in https://github.com/networkx/networkx/pull/7087
+issue
+comments on how to save animations locally plot_greedy_coloring.py#TITLE_END#Added comments on how to save animations locally in plot_greedy_coloring.py.   Originally tried to display GIF and MP4 files with animation in Sphinx auto-generated documentation for plot_greedy_coloring.py in https://github.com/networkx/networkx/pull/7142, but I do not know how to make Sphinx to show animated gif and mp4 in example's auto-generated documentation. And it takes a very long time to make the mp4. So I have closed that PR and make this new one, with just a comment how to create animated gif and mp4 rather than actually running it in Sphinx.
+issue
+Enable svg+xml or gif before png in HTML builder for Sphinx documentation#TITLE_END#Add ``` StandaloneHTMLBuilder.supported_image_types = [     'image/svg+xml',     'image/gif',  ``` to conf.py and add an example of an animated gif to the Gallery 
+issue
+Image (3D RGB data) segmentation by spectral clustering with 3D illustrations #TITLE_END#Motivated by https://github.com/networkx/networkx/pull/4643  If https://github.com/networkx/networkx/pull/7025 is merged first, I could add animation by rotating the 3D graphs.
+issue
+Create 3d_rotation_anime.py#TITLE_END#Make a new 3d example with rotating graph animation.   Motivated by @rossbar https://github.com/networkx/networkx/pull/6893#issuecomment-1765750056
+issue
+test sphinx plot generation by modifying plot_simple_path.py#TITLE_END#https://github.com/networkx/networkx/pull/7025  https://github.com/networkx/networkx/pull/7040 https://github.com/networkx/networkx/pull/7042 raise the suspicion that sphinx plot generation is currently broken. We test it by a trivial modification of a simple existing example.
+issue
+add to contributors#TITLE_END#Could someone please add me to https://networkx.org/documentation/stable/developer/about_us.html#contributors : Andrew Knyazev, https://github.com/lobpcg, https://www.linkedin.com/in/andrew-knyazev/
+issue
+[MRG] Create plot_subgraphs.py example#TITLE_END#Fixes https://github.com/networkx/networkx/issues/4220
+issue
+add an advanced example, already written elsewhere#TITLE_END#add an advanced example, already written in https://github.com/lobpcg/python_examples/blob/master/networkx_example.py
+comment
+Clicking on  `ci/circleci: documentation artifact — Link to 0/doc/build/html/index.html` [Details](https://output.circle-artifacts.com/output/job/860418aa-db79-4852-92bf-e2f7c356819f/artifacts/0/doc/build/html/index.html) I get  ``` {     "message": "not found" } ``` from https://[output.circle-artifacts.com/output/job/860418aa-db79-4852-92bf-e2f7c356819f/artifacts/0/doc/build/html/index.html](https://output.circle-artifacts.com/output/job/860418aa-db79-4852-92bf-e2f7c356819f/artifacts/0/doc/build/html/index.html)
+comment
+I am curious if the documentation here allows moving gifs in addition to static png images. It would be fun to see this 3d plot rotating like https://i.stack.imgur.com/HnH4C.gif
+comment
+> > I am curious if the documentation here allows moving gifs in addition to static png images. >  > Agreed - according to the sphinx gallery documentation, [animations are supported](https://sphinx-gallery.github.io/stable/auto_examples/plot_8_animations.html#sphx-glr-auto-examples-plot-8-animations-py) so this would be worth looking into!  @rossbar could you please review https://github.com/networkx/networkx/pull/7025 ? It opens a door to add a 3D animation here if @Florian2Richter would like to do it. 
+comment
+This is only a documentation of a demo, so it should be attractive, educational, and fast, but not necessarily realistic. You can limit the number of frames, e.g., to 10 or 5, and further scale down the graph, maybe to 500?, simply saying in comments what these parameters mean and affect.   Maybe read 5000, but than find a smart way to sample to down to 500 for the rotation? I have not checked if Networkx includes a smart sampling function of a graph.  If still too slow, you can comment out the line with the rotation function call. But I would first try to speed it up by scaling it down.
+comment
+I think that it is more important for users that the example shows a graph for panda dataset via from_pandas_edgelist than the fact that it represents  facebook. Maybe consider updating the title/name/description to reflect this?  Finally, maybe try spectral 2D and 3D layouts checking if they are visually better or faster?
+comment
+maybe try spectral 2D and 3D layouts checking if they are visually OK but faster. And reduce the number of frames?
+comment
+To my recollection, the spectral layout is much faster than the spring so worth just trying.
+comment
+@dschult   What is the right place for animations in the NetworkX docs?   Can the issue of long time generation be resolved by modifying the setup of documentation generation to update only the files that need to be updated rather than all the files?   Matplotlib team is uninterested to add NetworkX to their requirements in examples so Matplotlib animations for NetworkX can only appear in the NetworkX repo. 
+comment
+> I think the right place would be the `nx-guides` collection of notebooks that use larger datasets and are encouraged to explore topics in more depth. That allows us to have large-scale docs while keeping the shipped NetworkX relatively thin. >  > Take a look as let us know what do you think?  @dschult  Looking e.g., at  https://github.com/networkx/nx-guides/blob/main/content/algorithms/lca/LCA.md  I do not see its "plt.show()" display anything there so unsure if it is a suitable place for a graphics demo? 
+comment
+> The right place for the generated notebook is https://networkx.org/nx-guides/content/algorithms/lca/LCA.html :)  Yes, thanks! Indeed, sorry I forgot...  Yes, good suggestions. Maybe make a separate folder "gallery" and that would be a good place for heavy animations including this example with animations enabled and also extended to a larger graph as originally proposed, with cross-references.
+comment
+@rossbar maybe you could address my previous suggestions please: https://github.com/networkx/networkx/pull/7087#issuecomment-1793738680  >  A few suggestions: >  > - keep both references in the basic example; > - keep 3d spectral rather than spring in both examples - I would like to see it popularized. >  > Do you think that a frame redraw is never needed i.e. can always be avoided? >  > For a new follow up PR I would like to see a new hopefully similar example but which utilities > blit=True as in https://matplotlib.org/stable/api/animation_api.html
+comment
+> Follow-up to #7025  >  > The main things are: >  - Splits the original example into 2 examples: one for view updating and a second for the random walk  Sure, this is easy. It looks like you have done it already?  >  - Refactor the random walk example to use attribute setting instead redrawing everything each frame >  > What do you think @lobpcg ?  I don't know how. Let me study your code. 
+comment
+> This is a PR, so these are the things I've already done - I was hoping you could take a look and make sure I didn't butcher the original intent of your examples too much! Sorry for the confusion :)  Sorry for my confusion. I'll have a look tomorrow.
+comment
+> Follow-up to #7025   Looks better, thanks! A few suggestions: - keep both references in the basic example; - use 3d spectral rather than spring in both examples - I would like to see it popularized.  Do you think that a frame redraw is never needed i.e. can always be avoided?  For a new follow up PR I would like to see a new hopefully similar example but which utilities  blit=True as in https://matplotlib.org/stable/api/animation_api.html  
+comment
+Finally, rather than just deleting my original module you should rename it and edit to become one of your examples, to make your changs trackable and comparable with my original. 
+comment
+> Finally, rather than just deleting my original module you should rename it and edit to become one of your examples, to make your changes trackable and comparable with my original.  Also, it may not be the best practice for a contributor to mark a suggestion as "resolved" unless possibly in trivial cases as it makes the follow-up reviewing more difficult...
+comment
+The PR appears abandoned, and the code no longer runs on the current release. The code can be fixed using slightly edited lines 24-27: ```     cluster_affinity_matrix = clusters.affinity_matrix_.H      pred_labels = clusters.labels_.astype(int)     G = nx.from_scipy_sparse_array(cluster_affinity_matrix) ```
+comment
+@rossbar Yes, I agree that this PR could be closed as stalled. I like the idea, but the proposed implementation is still far from being acceptable unfortunately.   
+comment
+@rossbar I have made https://github.com/networkx/networkx/pull/7040 replacing this PR - could you please have a look?

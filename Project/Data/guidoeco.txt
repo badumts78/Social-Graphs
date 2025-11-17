@@ -1,0 +1,2 @@
+issue
+add connectionstyle parameter#TITLE_END#This is a cosmetic change to the `draw_networkx_edges()` to pass the `connectionstyle` parameter to `matplotlib.patches.FancyArrowPatch` to create curved arc of rounding radius `rad`. For example, connectionstyle='arc3,rad=0.2'.  The default is `None` which is ignored by `matplotlib.patches.FancyArrowPatch`  See :py:class: `matplotlib.patches.ConnectionStyle` and :py:class: `matplotlib.patches.FancyArrowPatch` for more info.

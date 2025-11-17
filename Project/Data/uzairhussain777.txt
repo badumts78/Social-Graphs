@@ -1,0 +1,2 @@
+issue
+Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-20bci10d/gdal/#TITLE_END#Setup.py is not running ![Screenshot from 2020-01-14 17-30-29](https://user-images.githubusercontent.com/25324889/72344849-132f2b80-36f4-11ea-943d-c2bed3786ac3.png) 

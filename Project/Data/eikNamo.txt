@@ -1,0 +1,6 @@
+comment
+We would like to contribute a scikit-learn example to the gallery @SA-networkx So far we are thinking of coming up with some clustering example or feature extraction from a graph.
+comment
+Is this issue still ongoing? Since I have never before contributed to an open-source project I thought that this issue might be a good place to start as well as to get acquainted with the workflow. 
+comment
+Ah I see, though I have already read through the FAQ and contribution.rst document.   Well, thanks for the quick response anyway! 

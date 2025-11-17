@@ -1,0 +1,2 @@
+issue
+2.3rc1 drops python 2.7 support in a minor version #TITLE_END#People using  `NetworkX~=2.2` as their version specifier to pip, but still on Python 2.7 will get this message now that 2.3rc1 is out:  ``` NetworkX requires Python 3.5 or later (2.7 detected). ```  This happens with no changes to their code.   Would dropping Python 2.7 support be enough of a change to necessitate a new major version of NetworkX?

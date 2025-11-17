@@ -1,0 +1,2 @@
+issue
+DOC: Fix typo in the code snippet provided in the docstring of nx_pydot.pydot_layout().#TITLE_END#Hi. Tiny PR to fix in the docstring of nx_pydot.pydot_layout().  Given Pydot recent breaking changes wrt to node names (https://github.com/pydot/pydot/pull/363), the provided code snippet to convert node name to integers was super useful. Thanks.

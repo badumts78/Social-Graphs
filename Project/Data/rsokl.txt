@@ -1,0 +1,4 @@
+issue
+connected_components should return frozensets#TITLE_END#`connected_components` yields sets in a way that requires that they not be mutated during iteration:  https://github.com/networkx/networkx/blob/aeeeef92f2229b0cc8ebbbbfcfc87128f546d55f/networkx/algorithms/components/connected.py#L60-L65  This can lead to silent-but-deadly behavior. E.g. If I were to pop from these sets during iteration, which is a very natural way to access a node from each connected component,  ```python # getting a node from each component [s.pop() for s in my_connected_components] ``` then the same connected component may be visited multiple times during the iteration.  This generator should yield `frozenset` objects instead so that the user cannot unwittingly produce such corrupt behavior.  
+comment
+Closes #3823 

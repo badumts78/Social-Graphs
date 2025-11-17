@@ -1,0 +1,2 @@
+issue
+Problem with nx.partial_duplication_graph#TITLE_END#Hi everyone, the operations on the partial_duplication_graph algorithm are out of order. One should first select a node to replicate and then include a new node.   Also, the edge connecting the original node and the replica should be added after the other edge. If you do it before, the replica is considered a neighbor of the original one and you won't have the desired result.

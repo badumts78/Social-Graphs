@@ -1,0 +1,2 @@
+issue
+Fixed the citation in `dominance.py` [Issue #7522]#TITLE_END#Fixes #7522

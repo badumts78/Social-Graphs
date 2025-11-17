@@ -1,0 +1,2 @@
+issue
+Invalid link weight when contracting#TITLE_END#https://github.com/networkx/networkx/blame/fbd96ecfb58b39d0265c6011504a00f1534eb727/networkx/algorithms/minors/contraction.py#L551C16-L551C69  It seems that when contracting, the link weight of added new edges is not calculated correctly.  It should be the sum of two edges. Instead the weight of the outgoing edge (from the vertex that is removed) is used.  This problem seems not unique for this code line. Functions contracted_edge and contracted_nodes have the same behavior.

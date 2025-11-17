@@ -1,0 +1,4 @@
+issue
+git-core package name is obsolete for any supported version of debian or ubuntu#TITLE_END#Solves issue #1135 
+issue
+git-core package obsolete in debian and ubuntu#TITLE_END#The [install git page](https://networkx.github.io/documentation/development/developer/gitwash/git_install.html) on the developer docs says to install `git-core` on debian or ubuntu. However, `git-core` package has been obsoleted by `git` since at least debian squeeze and ubuntu 12.04. 

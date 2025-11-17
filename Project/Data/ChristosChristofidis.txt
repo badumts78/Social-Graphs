@@ -1,0 +1,2 @@
+issue
+documentation#TITLE_END# personalization: dict, optional       The "personalization vector" consisting of a dictionary with a       key for every graph node and nonzero personalization value for each node.       By default, a uniform distribution is used.  can you give me an example of an accepted entry for personalisation ?  From: http://networkx.github.io/documentation/networkx-1.9.1/_modules/networkx/algorithms/link_analysis/pagerank_alg.html#pagerank 

@@ -1,0 +1,2 @@
+issue
+pajek#TITLE_END#write_pajek() cannot even recognize weight of links!! 

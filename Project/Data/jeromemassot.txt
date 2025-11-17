@@ -1,0 +1,4 @@
+issue
+k_crust(G, k) behavior is misleading when combined to k_core(G, k)#TITLE_END#With reference to the documentation, k_crust(G, k) returns in fact the complement of k_core(G, k+1). But this behavior is very misleading. What is the reason of such behavior for k_crust when k is specified? Thanks
+issue
+Inconsistent behavior when isolates is combined with remove_from_nodes#TITLE_END#remove_from_nodes() does not act the same when it is fed with the iterator or the list of isolated nodes. Case 2 is acting as expected. Case 1 seems failing to remove any node.  Case 1: G = nx.Graph() G.add_nodes_from("ABCD") my_isolates = nx.isolates(G) G.remove_nodes_from(my_isolates) list(G) >> ['A', 'B', 'C', 'D']  Case 2: G = nx.Graph() G.add_nodes_from("ABCD") G.remove_nodes_from(nx.isolates(G)) list(G) >> [ ]

@@ -1,0 +1,4 @@
+issue
+Extend harmonic centrality to include subset#TITLE_END#Integrated all changes in harmonic_centrality_subset into the original harmonic.py module and moved all tests for the harmonic_subset calculations into test_harmonic_centrality.py.   
+issue
+Added harmonic centrality subset extension and tests.#TITLE_END#Extension of the already existing method for for harmonic_centrality.  The new method allows the definition of subsets for both nodes 'u', for which harmonic centrality is to be calculated and  nodes 'v', which are the nodes with respect to which the calculation is performed.  The previous harmonic centrality method sets 'v' to cover all other nodes in the graph, following the classical definition of harmonic_centrality. 

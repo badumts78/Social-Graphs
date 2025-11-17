@@ -1,0 +1,8 @@
+issue
+Get chordal graph for #1054#TITLE_END#I have implemented the MCS-M algorithm to complete a given graph with chords to get a chordal graph.  It is on the wishlist #1054.
+issue
+Create moral graph#TITLE_END#I have written a function for calculating the moral graph of a given directed graph.  The moralization is often used for probabilistic learning and specifically when working with graphical models.  
+issue
+Error in is_chordal#TITLE_END#I currently working on an algorithm to make a complete a given graph to a chordal graph and unfortunately there is an error in `is_chordal` in [chordal.py](https://github.com/networkx/networkx/blob/master/networkx/algorithms/chordal.py).  Here is some code to reconstruct: ``import networkx as nx`` ``from networkx.algorithms.chordal import is_chordal`` ``G = nx.wheel_graph(10)`` ``print(nx.is_chordal(G)) # should print True (look at the graph, it is chordal), but prints False.``  Could someone review this? Maybe I am having some thinking error.
+comment
+I have written an algorithm to calculate the chordal enhancement of a graph. May you can have a review. I used the MCS-M algorithm which is one of the fastest algorithms. 

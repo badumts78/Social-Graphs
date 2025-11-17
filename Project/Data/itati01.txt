@@ -1,0 +1,2 @@
+issue
+Bug in write_shp when some edges miss attribute(s)#TITLE_END# When writing shapefiles with v1.11, `write_shp` uses the last valid values for attributes an edge doesn't have. The reason is that the values of missing `key`s in the dictionary `attributes` are not updated in the edge loop. A work-around is to make sure all attributes are set before using `write_shp` or to remove edges with missing attributes but this requires a separate edge loop. So, it would be nice to have a fix integrated in `write_shp`. Thanks!

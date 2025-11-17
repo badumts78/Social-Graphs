@@ -1,0 +1,2 @@
+issue
+Keep node properties of original graph when creating bipartite clique graph#TITLE_END#When calling `make_clique_bipartite`, the resulting graph does not contain the properties of the original graph in the bottom nodes. This trivial PR fixes this.

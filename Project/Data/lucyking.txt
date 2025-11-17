@@ -1,0 +1,2 @@
+comment
+I've wrote a simple python script that can generate 2D random map [-->script](https://github.com/lucyking/Vector-Map) 

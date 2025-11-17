@@ -1,0 +1,14 @@
+issue
+Reachability#TITLE_END#Should we add the functionality of [Reachability](https://en.wikipedia.org/wiki/Reachability) ? If yes, where ? 
+issue
+Added Minimum Edge Cover Functionality#TITLE_END#Addres: #1831  ping @jfinkels  
+issue
+Unexpected behaviour of eppstein_matching#TITLE_END#I saved this code as test.py:  ``` python import networkx as nx import networkx.algorithms.bipartite as bipartite G = nx.Graph() G.add_nodes_from([1, 2, 3, 4], bipartite=0) G.add_nodes_from(['a', 'b', 'c'], bipartite=1) G.add_edges_from([(1, 'a'), (1, 'b'), (2, 'b'), (2, 'c'), (3, 'c'), (4, 'a')] print ("eppstein: ") print (bipartite.eppstein_matching(G)) print ("hopcroft karp: ") print (bipartite.hopcroft_karp_matching(G)) ```  Sometimes it gives the right results:  ``` python $ python3 test.py #right result  eppstein:  {1: 'b', 2: 'c', 4: 'a', 'b': 1, 'c': 2, 'a': 4} hopcroft karp:  {1: 'b', 2: 'c', 4: 'a', 'b': 1, 'c': 2, 'a': 4} ```  But sometimes, it gives the wrong results:  ``` python $ python3 test.py #wrong result eppstein:  {'c': 3, 2: 'c', 4: 'a', 1: 'b', 'a': 1, 'b': 2} hopcroft karp:  {1: 'a', 2: 'b', 3: 'c', 'b': 2, 'a': 1, 'c': 3} ```  `hopcroft_karp` works perfectly fine. 
+issue
+Corrected eppstein matching#TITLE_END#Ref to #1927  I contacted Prof. Eppstein. There, problem is with the input format. From [PADS/BipartiteMatching](http://www.ics.uci.edu/~eppstein/PADS/BipartiteMatching.py)'s documentation: **The input format is a dictionary mapping members of U to lists of their neighbors in V.** This PR solves this issue. Along with it, I have implemented `is_max_cardinality_matching` and fixed some pep8 errors. Will modify #1915's test cases soon. 
+issue
+Issue #1831: Added Minimum Edge Cover function#TITLE_END#TODO: Add Test Cases Addres: #1831  
+comment
+I would like to work on it.  I think it will be categorized in approximation algorithms. As I am new, could you please guide me? 
+comment
+Fine! I will try to implement it. Thank you @jfinkels ! 

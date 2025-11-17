@@ -1,0 +1,12 @@
+issue
+Improve random graphs test suite for gnp generators (issue #5092)#TITLE_END#Following the suggestions by @rossbar in the issue #5092 and in the previously closed PR #5102, I improved the 'gnp' random graphs generators tests by splitting the outer class in smaller and more specific functions and adding stacked parametrization to improve tests granularity.  This PR is limited to the tests related to the 'gnp' generators and it consists just in a more readable reorganization of the test suite. It could be extended to all the others random generators as well.
+issue
+Replace the internal function _n_choose_k with new built-in math.comb#TITLE_END#This PR should solve the issue #5141 by @rossbar.  - [x] remove the definition of the internal `_n_choose_k` function - [x] replace all uses of `_n_choose_k` with appropriate calls to the new built-in function `math.comb` - [x] grep through the source to make sure all other instances of `_n_choose_k` are properly updated/removed. 
+issue
+Improve random graphs test suite for gnp and gnm generators (issue #5092)#TITLE_END#Following the suggestions by @rossbar in #5092, I improved a part of the random graphs test suite by splitting the outer class in smaller units and adding tests parametrization in some cases.  This PR is limited to the tests related to the 'gnp' and 'gnm' random graph generators but can be actually extended for all the other generators as well.  I think much more work could be done to improve the tests but hopefully this can be a good way to start. Any comments or suggestions are welcome!
+issue
+Get number of edges by calling the proper method (issue #5092)#TITLE_END#Minor improvement related to the issue #5092.  All the occurences of `sum(1 for _ in G.edges())` in ./networkx/generators/tests/test_random_graphs.py have been replaced with `G.number_of_edges()`.  
+comment
+Can I work on this issue? My idea would be to improve the test suite granularity and specificity splitting the big outer class in smaller specific classes for the following "types" of random generators: - gnp - gnm - watts strogatz - barabasi albert - powerlaw cluster - random regular - random shell - random lobster - random kernel  Each one of the above classes would contain its own test_* functions, one for each particular property to be checked.  Question: what do you mean exactly by "seeding review"?
+comment
+Ok thank your for your help and for the example... Very clear! I go ahead refactoring the file section by section.

@@ -1,0 +1,2 @@
+comment
+We made a 0.8.2 geopandas release that should be compatible with pygeos 0.9

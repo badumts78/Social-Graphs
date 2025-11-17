@@ -1,0 +1,12 @@
+issue
+Deleted tests that were hidden due to name clash.#TITLE_END#Second iteration of this clean-up. I noticed also this duplicated attribute:   ``` numpy = 1  # nosetests attribute, use nosetests -a 'not numpy' to skip test ```
+issue
+Removed the import star pattern.#TITLE_END#This is just a few files. If it's well-received, I don't mind working more on this.
+issue
+Removed a Python 2.6 fallback for OrderedDict in test_special.#TITLE_END#Travis only has 2.7+ in the matrix.
+issue
+Deleted a duplicated test_random_graph in bipartite.tests.test_genera…#TITLE_END#…tors  I've seen more of such duplicated methods in the test-suite, the problem is that they're not identical like this one.
+issue
+Replaced use of fractions.gcd with math.gcd.#TITLE_END#`generate_unique_node` and `defaultdict` are unused imports.
+issue
+Unused variables in list comprehensions replaced by a wildcard#TITLE_END#Variables initialized and immediately reassigned  Unused imports  PyCharm generates quite a lot of warnings with the introspection. This pull requests addresses a tiny fraction of them to determine. Would it be feasible to include something like `flake8` in the CI test suites? 

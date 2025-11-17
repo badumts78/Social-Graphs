@@ -1,0 +1,2 @@
+issue
+No module named matplotlib.pyplot#TITLE_END#Hi everyone,  I used easy_install to install networkx on python 2.7. I think everything went well but now that I am trying to use the module I am getting the folliwing error:   "ImportError: No module named matplotlib.pyplot"  Note that I am importing "import networkx as nx"  with now problem!   Any help is much appreciated here.  Thanks, 

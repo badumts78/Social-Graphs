@@ -1,0 +1,6 @@
+comment
+@hagberg  I would like to work on this. Do you find this document relevant. [[Link]](http://www.cs.utexas.edu/users/misra/scannedPdf.dir/KnotDetection.pdf) 
+comment
+While reading the codebase of `compose()`, I found the [notes](https://github.com/networkx/networkx/blob/master/networkx/algorithms/operators/binary.py#L315-L318). As its stated that `Attributes from H take precedence over attributed from G`, I think that the function is working properly.  I think we can add a new feature to choose the precedence which can be useful in such cases. I would like to work on it. 
+comment
+Okay, then. Shouldn't this issue be closed now ?  @dschult I have two points: - `compose(H, G)` is a nice way to work but I think adding a new argument to the function can make the `compose()` a bit clearer and user-friendly.  - Moreover, in the function `compose(G,H)` if a node in `G` has a unique attribute, and the same node in `H` does not, the attribute gets dropped. Since, the aim of the `compose()` function is to take a `union` of the two set of nodes(and edges), I think adding such unique attributes of `G` to the final nodes set would be good feature. 

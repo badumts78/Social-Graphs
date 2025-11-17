@@ -1,0 +1,4 @@
+issue
+is networkx available for getting the next `shortest_path`?? (the second or n-th shortest Path)#TITLE_END#is networkx available for getting the next `shortest_path`?? (the second or n-th shortest Path)
+issue
+question of which algorithm used in this example at Readme?#TITLE_END#```python >>> import networkx as nx >>> G = nx.Graph() >>> G.add_edge('A', 'B', weight=4) >>> G.add_edge('B', 'D', weight=2) >>> G.add_edge('A', 'C', weight=3) >>> G.add_edge('C', 'D', weight=4) >>> nx.shortest_path(G, 'A', 'D', weight='weight') ['A', 'B', 'D'] ```  Which algorithm does networkx use in `shortest_path` function?  does network x decides which algorithm to use after check how the graph is consists of? such as this graph is more appropriate with `cruscal algorithm` or this one is more appropriate for `dijkstra algorithm`?  Or `shortest_path` uses single algoritim? (and which one it use?) 

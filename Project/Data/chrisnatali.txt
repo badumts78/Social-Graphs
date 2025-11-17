@@ -1,0 +1,4 @@
+issue
+Needed MultiLineString support in reading Graph from shapefile#TITLE_END#Thought some other networkx might need this (there are definitely shapefiles out there with MultiLineStrings).    I also added a geom_attrs param to disable appending the geometry as attributes of the edge (since I may edit the underlying nodes, this info can get out of sync).    Tests for the new features are included.   
+issue
+parameterize simplification of line features in read_shp#TITLE_END#I needed the segments of multi-segment line features to be added as edges, so I added a simplify parameter to read_shp (defaults to True so it's back compatible).  A caveat is that attributes associated with the feature are repeated for each segment.  Thought someone else might find this useful.   

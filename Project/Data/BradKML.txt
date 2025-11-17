@@ -1,0 +1,6 @@
+comment
+Oh.
+comment
+noob question: ```python     if u is None:         nodes = G.nodes     else:         nodes = [u] ``` can be rewritten as `nodes = [u] if u is None else G.nodes`?
+comment
+Thank you for the clarification.

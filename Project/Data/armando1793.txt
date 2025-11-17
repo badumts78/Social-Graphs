@@ -1,0 +1,2 @@
+issue
+revise documentation on behavior when qcost <= ncost#TITLE_END#This PR addresses the documentation issue made by commit https://github.com/networkx/networkx/commit/2aa7e2edd6106993c5040ed7c8a16940935502a0 which was raised in https://github.com/networkx/networkx/issues/2683   Please let me know if there are any issues with my PR. I'm starting to get into contributing to open source and I'm looking forward to learn by contributing to projects like this one

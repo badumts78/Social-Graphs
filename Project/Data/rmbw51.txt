@@ -1,0 +1,8 @@
+issue
+Write pajek error#TITLE_END#When rewriting a network who has been read from pajek there is an error: 'float' object has no attribute 'strip' apparently coordinates (x,y) don't get translated back to string (Networkx 2.1)
+comment
+it happens with the "coordinates". actually the function seems to attempt a conversion to string, but x & y don't get converted... 
+comment
+yes, agree on only writing attributes that are strings.   coordinates: in Pajek the x and y are used to draw the network. they are the coordinates of the nodes in the drawing window, so typically useless when writing from Networkx (in Pajek one would redraw...) 
+comment
+wuhaochen , actually not totally true. this is ok with pajek (node number and ID only) *Vertices nn   1 "C1"    ...... *Edges (or *Arcs) ....  and even this: *Vertices nn *Edges (or *Arcs)  if you don't give  node IDs Pajek will create (v1,v2,...) 

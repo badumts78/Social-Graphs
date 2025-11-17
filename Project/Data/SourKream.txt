@@ -1,0 +1,2 @@
+issue
+Minor bug in multi_source_dijkstra#TITLE_END#MINOR BUG  When no target nodes are provided in multi_source_dijkstra, Line 657 (https://github.com/networkx/networkx/blob/master/networkx/algorithms/shortest_paths/weighted.py#L657) gives the following TypeError.  TypeError: 'in <string>' requires string as left operand, not NoneType  Checking if target is None, before checking for target in sources, prevents the issue. 

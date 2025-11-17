@@ -1,0 +1,2 @@
+issue
+Add a figure to every example of layout#TITLE_END#Problem: trying to decide what layout is better for a DAG graph  ### Current Behavior Going through tall the available layouts: https://networkx.org/documentation/stable/reference/drawing.html  ### Expected Behavior Having a collection of figures that help to decide what is better  

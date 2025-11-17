@@ -1,0 +1,12 @@
+issue
+return empty generator instead of empty list#TITLE_END#Fixes #3911 
+issue
+Return empty generator instead of empty list#TITLE_END#Fixes #3911 
+issue
+fix documentation #TITLE_END#Fixes #3937 
+issue
+fix documentation#TITLE_END#Fixes #3885
+issue
+Use keywords for positional arguments#TITLE_END#Fixes #3926 
+comment
+Looks like #3907 solves this issue for sets (but not for frozensets). I suspect the fix is as simple as adding the 'frozenset' to the is_instance check at the same spot.

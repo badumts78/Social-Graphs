@@ -1,0 +1,2 @@
+issue
+Laplace centrality for issue 4973#TITLE_END#### Reference Issues/PRs  - Related to issue https://github.com/networkx/networkx/issues/4973  ### What does this implement/fix? Explain your changes.  - Implementing Laplacian centrality  ### Comments?  - Need help with testing

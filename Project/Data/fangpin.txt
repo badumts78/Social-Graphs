@@ -1,0 +1,2 @@
+issue
+The number of minimal cuts#TITLE_END#Is there a way to calculate the number of minimal-cut sets. thanks

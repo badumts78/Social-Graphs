@@ -1,0 +1,6 @@
+comment
+The function is still not working
+comment
+The information I have is the function apparently generates one concrete cycle infinitely. A simple workaround I used for a directed graph: ``` def find_cycles(graph: DiGraph) -> list[tuple[str, ...]]:     cycles: set[tuple[str, ...]] = set()      def loop(node: str, path: tuple[str, ...]) -> None:         visited.add(node)         for successor in graph.successors(node):             if successor not in visited:                 loop(successor, (*path, successor))             elif successor in path:                 cycles.add(path[path.index(successor):])      for node in graph.nodes:         visited: set[str] = set()         loop(node, tuple(node))      return list(cycles) ```
+comment
+Sorry, it's a proprietary thing.

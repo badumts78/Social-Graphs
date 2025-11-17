@@ -1,0 +1,2 @@
+issue
+Selecting an edge in a MultiDiGraph is difficult#TITLE_END#If I have a MultiDiGraph, it is hard to select a particular edge. I would like to select by property (i.e. an ID that I assign), but there is no ergonomic way to do this.  There might be several edges between the same two nodes; I don't want to iterate over them to get the edge I want.

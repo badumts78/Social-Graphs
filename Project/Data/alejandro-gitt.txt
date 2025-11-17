@@ -1,0 +1,2 @@
+issue
+Error in MultiDiGraph.edges(nbunch)#TITLE_END#The documentation  for   > networkx.MultiDiGraph.edges   says:   > Parameters: > nbunch: single node, container, or all nodes (default= all nodes) > "The view will only report edges **incident** to these nodes."  Perhaps **incident** is incorrect, as it is the opposite behavior (as seen in the example in networkx): ``` list(G.edges([0, 2])) [(0, 1), (2, 3)] ``` Where G.edges([0,2]) returns the edges that comes **out** of the nodes 0 and 2.   

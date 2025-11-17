@@ -1,0 +1,2 @@
+comment
+Just trial and error, but it seems to happen with arbitrary combinations of nodes, so I don't think the problem is with individual nodes per se. This is just as minimal as I could get it. 

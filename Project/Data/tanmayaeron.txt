@@ -1,0 +1,2 @@
+issue
+update all_pairs_lca docstrings#TITLE_END#Fixes #5862  I have updated all_pairs_lca and naive_all_pairs_lca docstrings I am new to open source, so please tell if I am doing anything wrong.

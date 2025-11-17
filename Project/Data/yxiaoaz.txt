@@ -1,0 +1,4 @@
+comment
+Hi regarding the experiment on random graphs, should the code be tested be `list(nx.community.girvan_newman(nx.fast_gnp_random_graph(50, p=0.2, seed=1)))`, like what you did for complete graph,  instead of `nx.community.girvan_newman(nx.fast_gnp_random_graph(50, p=0.2, seed=1))`?
+comment
+> > Hi regarding the experiment on random graphs, should the code be tested be `list(nx.community.girvan_newman(nx.fast_gnp_random_graph(50, p=0.2, seed=1)))`, like what you did for complete graph,  instead of `nx.community.girvan_newman(nx.fast_gnp_random_graph(50, p=0.2, seed=1))`? >  > Method returns a generator so you need to convert it to list to fully exercise it  exactly, but the last few lines of the test code in the description only tests the construction of a generator object, is it?

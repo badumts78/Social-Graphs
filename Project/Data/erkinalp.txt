@@ -1,0 +1,2 @@
+comment
+Same issue on https://github.com/IronLanguages/ironpython3

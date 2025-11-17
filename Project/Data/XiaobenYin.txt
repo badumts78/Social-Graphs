@@ -1,0 +1,2 @@
+issue
+added examples to nodes(), edges() and neighbors()#TITLE_END#Hi, I'm happy to contribute as an Outreachy applicant. I added some basic examples to nodes(), edges and neighbors() under function. And I found the return type of neighbors() should be an iterator object rather than a list, as we need to use list() function to turn it as a list.  

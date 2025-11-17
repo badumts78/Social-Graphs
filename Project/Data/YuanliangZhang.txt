@@ -1,0 +1,2 @@
+issue
+How many nodes do networkx support?#TITLE_END#Hello, I have a grah which has 500,000 nodes, I want to get Shortest Path Algorithm with networkx in python, does networkx support? I read doc but haven't found max nodes support. Thanks a lot.

@@ -1,0 +1,2 @@
+issue
+Fixed wrong dict factory usage on MultiDiGraph#TITLE_END#Fixed the issue that the wrong dict factory on a MultiDiGraph was used for edge attributes (edge_key_dict_factory instead of edge_attr_dict_factory)  Extended tests to typecheck the dict factories and added a test that incorporates custom dict factories on a MultiDiGraph  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

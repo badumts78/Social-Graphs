@@ -1,0 +1,12 @@
+issue
+Fixed all_shortest_paths key error  #1433#TITLE_END#I decided to raise NetworkxNoPath exception. 
+issue
+Check of create_using type in __prep_create_using #TITLE_END#In this code part we make a conclusion of type based on having clear() method.  ``` python     try:         create_using.clear()     except:         raise TypeError("Input graph is not a networkx graph type") ```  It can lead to some bugs in future.  It would be better to check up type with some other ways. For example, by `inspect` module.  What do you think about it? 
+issue
+Fixed node attributes in compose function#TITLE_END#Details in #1377 issue 
+comment
+@SanketDG, Next you should find all entries of moved generators. It can be done using grep or your IDE. Change every entry by new naming, don't forget tests.  Then think about removing generators from the main namespace. I don't see any advantages, but may be I'm wrong.   Good luck! 
+comment
+@mcannamela, You're right. I've pushed fix. 
+comment
+Offtop: "The node sets of G and H need not be disjoint." There are examples of usage this function with not disjoint sets. So, I think it's better to delete this line from docs. 

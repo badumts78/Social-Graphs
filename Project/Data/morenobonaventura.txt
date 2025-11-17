@@ -1,0 +1,6 @@
+issue
+added paramether nbunch#TITLE_END#as described in this comment: networkx#1360 (comment) 
+comment
+@chebee7i I believe the first implementation by @Scinawa was better.  The option to compute the harmonic centrality for a single node was indeed a good choice because the user can limit the computation to a set of nodes. removing this option forces the computation on the entire graph, which requires more time.  I strongly recommend to roll back to the implementation that included also the single-node computation! this can be useful in a number of real-world scenarios 
+comment
+oh, you are right. I haven't notice @Scinawa used the function _all_pairs_dijkstra_path_length_ instead of _single_source_shortest_path_length._ Still I believe that new functions, such as harmonic(), should be coherent with the approach used in other networkx functions so far. It has to include an option for single-node computation  I will send a pull request 

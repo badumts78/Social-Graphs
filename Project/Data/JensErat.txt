@@ -1,0 +1,2 @@
+issue
+Typo in scale free network generator documentation#TITLE_END#Fixed documentation of the scale free network generator: "conecgted" should be "connected". 

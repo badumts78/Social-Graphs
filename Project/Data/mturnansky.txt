@@ -1,0 +1,4 @@
+issue
+Enhance biconnected components to avoid indexing#TITLE_END#Index costs the size of the stack, which is always greater than or equal to the size of the newly discovered biconnnected component, and in general much larger. Updated to use edge stack as a stack instead of indexing, which has a cost of the size of the newly discovered biconnencted component as opposed to the size of the entire stack . 
+issue
+fix braching#TITLE_END#updated as per comments fixed branch 

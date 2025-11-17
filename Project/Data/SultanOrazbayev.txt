@@ -1,0 +1,60 @@
+issue
+Patch view signature#TITLE_END#Resolves https://github.com/networkx/networkx/issues/6264  Ready for review.  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Update calculation of triangles#TITLE_END#This PR follows up on issue https://github.com/networkx/networkx/issues/5246, the key function is mostly as suggested by @dschult and @zephyr111 (minor variable renaming, hopefully for better clarity).  Note that the existing docs are missing the `int` return when a single node is provided (even though it is one of the examples), so the docs are modified to account for that also.  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+doc: improve doc of possible values of `nodes` and expected behaviour#TITLE_END#This is a note to update the documentation of functions that accept `nodes` kwarg, so that it's more explicit what the behaviour of the function is depending on the passed object.  Potentially, the docstrings would be adjusted with: ```     nodes : node, iterable of nodes, or None (default=None)         If a singleton node, return the number of triangles for that node.          If an iterable, compute the number of triangles for each of those nodes.         If `None` (the default) compute the number of triangles for all nodes in `G`. ```  _Originally posted by @dschult in https://github.com/networkx/networkx/pull/6258#discussion_r1045180012_
+issue
+Update simple_paths.py: consistent behaviour for `is_simple_path` when path contains nodes not in the graph.#TITLE_END#Current version of `is_simple_path` fails with `KeyError` if the first element of the node list is not in the graph.  Resolves https://github.com/networkx/networkx/issues/6271, by returning `False` if any node in the provided path is outside the graph.
+issue
+[DOC] Follow numpydoc standard in barbell_graph documentation#TITLE_END#Resolves https://github.com/networkx/networkx/issues/6285  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Current version of `is_simple_path` fails with `KeyError` if the first element of the node list is not in the graph.#TITLE_END#Current version of `is_simple_path` fails with `KeyError` if the first element of the node list is not in the graph.  ```python from networkx import is_simple_path, path_graph  G = path_graph(4)  print(is_simple_path(G, [1, 10])) # False  print(is_simple_path(G, [10, 1])) # KeyError: 10 ```  <!--- Provide a general summary of the issue in the Title above -->  ### Current Behavior  Currently, the behavior seems to be inconsistent depending on whether the node outside the graph is the first node in the node list or appears later.  ### Expected Behavior  If any node in the node list is not in the graph, the provide consistent response: - Either raise `KeyError` - or return `False`.  I am in favour of the latter.
+issue
+doc: update documentation when providing an iterator over current graph to add/remove_edges_from.#TITLE_END#Resolves https://github.com/networkx/networkx/issues/2717  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Update simple_paths.py to improve readability of the BFS.#TITLE_END#Improve readability of the BFS.  Resolves https://github.com/networkx/networkx/issues/3912.
+issue
+Add a contributor#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+doc: clarify allowed `alpha` when using nx.draw_networkx_edges#TITLE_END#This inconsistency between the docs and actual behaviour came up in two StackOverflow questions:  https://stackoverflow.com/a/74106862/20148180 https://stackoverflow.com/q/74622898/10693596  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Standardize call signatures#TITLE_END#Resolves https://github.com/networkx/networkx/issues/6264  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Update docs to include description of the `return_seen` kwarg#TITLE_END#Update docs to include description of the `return_seen` kwarg (previously not documented)
+issue
+Update relabel.py to preserve node order#TITLE_END#This preserves the original order of the nodes, as discussed in https://stackoverflow.com/a/70706215/10693596
+issue
+Correct typo in docstring (int -> float)#TITLE_END#This is based on https://stackoverflow.com/q/71494698/10693596  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Update minor doc issues with tex notation#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+comment
+For statistics that might be difficult/expensive to compute, they perhaps could be made optional, something like:  ```python   # this will launch more detailed, and potentially expensive, computations with a break down by components G.describe(detailed=True, components=True) ```  Building on top of the suggestion by @bagrow and with a quick sort into cheap/expensive computations (might be wrong on this):  Cheap:  - graph name - graph type (directed, weights/attributes) - number of nodes - numbers of edges - a list of node attributes (potentially truncated to top N) - a list of edge attributes (potentially truncated to top N) - degree (avg, median, min, max) - reciprocity  Expensive (possibly with a break down by components, possibly with dispatch to graphblas):  - number of components - number of nodes in top N components - diameters of the top N components - degree in top N components (avg, median, min, max) - triangles  There's been some discussion of this at `kglab` also: https://github.com/DerwenAI/kglab/issues/261#issuecomment-1238071304
+comment
+If there's going to be an off-GitHub discussion on this, could you kindly post a link here.
+comment
+Does your `analyze` function refer to `G`? If so, it might help to create a delayed version of G and pass it explicitly to the function, which should help as I suspect that passing around this large object is bottlenecking the execution (given what you described with long pauses between observed actions). Roughly:  ```python G = dask.delayed(G)  def analyze(n, G=G):    ... ``` edit: oops, just noticed that @MridulS gave the same advice above.
+comment
+>  for departureNode in G.nodes:  Also, if you are running this on every node in the graph that has 1+ mln nodes, you will overwhelm the dask scheduler (based on my experience it used to struggle with too many tasks), so you might want to execute a batch of 100-1K nodes at a time (something to fine-tune based on the experience).
+comment
+After experimenting locally with the actual file, I am confident that the issue is caused by passing around a fairly large object (graph). Below is a snippet using `future` API:  ```python from distributed import Client  from networkx import read_gexf  # !wget --no-check-certificate https://www.stat.berkeley.edu/~paciorek/transfer/graphSeason.xml G = read_gexf("graphSeason.xml")  ## Dummy function that uses G but without any real computation def analyze(departureNode, GG):     print(departureNode, flush=True)     return GG.name   # instantiate the client (can open the link to view computations) c = Client() print(c.dashboard_link)  # make sure every worker has a copy of the graph, note the loading speed GG = c.scatter(G, broadcast=True)  # submit tasks and compute on the fly, if the tasks are tiny, it's better to # chunk them futs = [] for n in range(12):     f = c.submit(analyze, n, GG)     futs.append(f)  # collect the final results res = c.gather(futs) ```
+comment
+The automatic import hinting would be cool.  As another alternative, and this is not everyone's preference, docs could specify exact imports to make:  ```python from networkx import Graph G = Graph() G.add_edge("A", "B") ```  This would be very explicit about what is being used in the specific doc example, and, hopefully, be self-contained.
+comment
+Perhaps this is something to pass to external implementation/libraries that can be dispatched to.
+comment
+> As for remove_edges, I can think of two docstrings which might need updating: configuration_model and directed_configuration_model. These include examples for getting rid of selfloops using the G.remove_edges(nx.selfloop_edges(G)) construction. These examples work as they stand right now, because the MultiGraph is converted to a Graph (G) before the selfloop edges are removed. However, if the user wants to keep the MultiGraph object while removing the selfoops they'll fail.  Interestingly, keeping the object as `MultiGraph` or `MultiDiGraph` does not change the status of the code, it still works for removing selfloops. Hence, the docstrings for `configuration_model` and `directed_configuration_model` were not altered.
+comment
+My understanding is this issue can be closed. The function referenced (`_all_simple_paths_graph`) is now using ordinary `dict` (https://github.com/networkx/networkx/blob/9c79d7d37cd6d464d0592fd9138d58b252f9b4be/networkx/algorithms/simple_paths.py#L259), which since Python 3.7 is guaranteed to preserve the insertion order (https://docs.python.org/3/library/collections.html#ordereddict-objects).
+comment
+I am in favour of the approach suggested by @stsouko , partly because it is a practice I am trying to follow in all of my coding. This is not without problems, e.g. in some cases `as` is unavoidable, for example (unrelated to `networkx`):  ```python from pandas import read_csv from dask.dataframe import read_csv as dask_read_csv ```  True, the benefits to end user might not be as noticeable (unless we also update documentation so examples use specific import, which I am in favour of). However, it might have benefits in terms of code readability (knowing from the import structure what is being imported), though it's probably mostly a question of style.  If there is support/go-ahead for this from the maintainers I don't mind starting a PR, though I understand it will probably be a long-running one.
+comment
+That is reasonable. Perhaps we can close this issue?
+comment
+Thank you for flagging this @patrick-nicodemus !
+comment
+This appears to be resolved by #5802.
+comment
+This issue is not reproducible.
+comment
+Looks like this issue can be closed via #6068.

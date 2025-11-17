@@ -1,0 +1,4 @@
+issue
+networkx.algorithms.community.asyn_lpa_communities#TITLE_END#this function sometimes sticks on an infinite loop. it's better to use a counter among while count:
+issue
+GN networks (girvan-newman benchmart)#TITLE_END#we want to make a network with parameters N = 128, l = 4, g= 32, ⟨k⟩ = 16, the range of kout can be change from 1 to 8.

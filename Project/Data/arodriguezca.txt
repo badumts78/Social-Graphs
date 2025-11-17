@@ -1,0 +1,2 @@
+issue
+Efficiency should be 0 when there is no path between nodes#TITLE_END#Currently, when there is no path between nodes, it throws NetworkXNoPath. However, the [author](http://www.uvm.edu/pdodds/files/papers/others/2001/latora2001a.pdf) said it should be 0. Refer to page 2, the paragraph right above formula 1.

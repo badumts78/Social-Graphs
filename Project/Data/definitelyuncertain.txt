@@ -1,0 +1,2 @@
+issue
+Unnecessary array copying in katz_centrality_numpy ?#TITLE_END#Consider the following code in `networkx/algorithms/centrality/katz.py` :  ``` python A = nx.adj_matrix(G, nodelist=nodelist, weight=weight).todense().T n = np.array(A).shape[0] ```  From the [numpy.array()](http://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html) documentation, `np.array(A)` does make a copy in memory. Removing the call to `np.array()` should work the same without using up extra memory just to see the shape of `A`. 

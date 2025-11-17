@@ -1,0 +1,2 @@
+issue
+uninstall  networkx#TITLE_END#I install the package from source and i now need to get another version so I want to remove the existing version. Is there a way to do it in present setup.py? if not can this be added?   Thanks. 

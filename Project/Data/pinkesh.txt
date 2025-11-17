@@ -1,0 +1,2 @@
+issue
+attribute missing#TITLE_END#'DiGraph' object has no attribute 'edges_iter'. What should i do? 

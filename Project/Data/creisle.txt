@@ -1,0 +1,2 @@
+issue
+BUG: return from out_edges function when the node in nbunch has no outgoing edges#TITLE_END#say I have some digraph, G,  with the following edges: (a, b), (b, c)  if I call G.out_edges(c) I would expect to return an iterator of an empty list, but for some reason this seems to be returning the out-edges of b  note: this is a simpler example of the actual problem 

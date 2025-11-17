@@ -1,0 +1,6 @@
+issue
+updated test_directed_edge_swap #5814 #TITLE_END#Please review  fixes #5814 
+issue
+updating test_directed_edge_swap function#TITLE_END#The test now ensures that the input edges and resultant edges (of the graph returned after calling the `directed_edge_function` are distinct, in addition to checking their degree sequences. The test is also run on a complete DiGraph, with each pair sharing one directed edge. 
+comment
+Hello I would like to take up this issue. I will open a pull request soon.  I have made the function `test_directed_edge_swap()`  assert that the edges of the original DiGraph and the one after swapping edges are not all the same, in addition to checking the in and out degree of the graph.  Also, in order to remove the limitation of test on path graph only, I have made changes which would generate a random directed graph (which would not be a path graph) and run the tests on it.

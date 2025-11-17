@@ -1,0 +1,2 @@
+issue
+Get LCA from a list of nodes ?#TITLE_END#Hello,  I'd like to know if there was an already implemented method to get the Lowest Common Ancestor from a list of nodes ?  Great lib tho !

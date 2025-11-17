@@ -1,0 +1,2 @@
+issue
+Depth limit for Breadth First Search#TITLE_END##2352 @dschult this is my first attempt at NetworkX, is the PR alright?  PS:  networkx/algorithms/traversal/tests/breadth_first_search.py is a duplicate of networkx/algorithms/traversal/breadth_first_search.py and i have used it as i was unable to access the file from the parent directory. It can be deleted .   -Thank you!

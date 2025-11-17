@@ -1,0 +1,2 @@
+issue
+Identical docstrings in two functions#TITLE_END#The following two methods have identical docstrings (at least on the doc pages)  http://networkx.github.io/documentation/latest/reference/generated/networkx.algorithms.assortativity.k_nearest_neighbors.html#networkx.algorithms.assortativity.k_nearest_neighbors  http://networkx.github.io/documentation/latest/reference/generated/networkx.algorithms.assortativity.average_degree_connectivity.html#networkx.algorithms.assortativity.average_degree_connectivity 

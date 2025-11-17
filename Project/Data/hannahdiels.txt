@@ -1,0 +1,2 @@
+issue
+Also list dependencies in setup.py#TITLE_END#I've just now installed master and noticed scipy and other things listed in requirements.txt weren't installed with it. Could they be added to setup.py's `install_requires` please? 

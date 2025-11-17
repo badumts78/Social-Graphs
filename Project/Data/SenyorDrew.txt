@@ -1,0 +1,2 @@
+issue
+communicability_centrality_exp fails for graphs with >= 200 nodes#TITLE_END#Trying to calculate communicability_centrality_exp with graphs with more than 199 nodes gives the following error:  e.g. for 200 nodes shapes (200,200) and (1,200) not aligned: 200 (dim 1) != 1 (dim 0) 

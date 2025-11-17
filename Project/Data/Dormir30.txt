@@ -1,0 +1,4 @@
+issue
+Update setup.py related Networkx test Error #2925#TITLE_END#When we run 'networkx.test()', we need nose packages. Turtorial from this web page https://networkx.github.io/documentation/networkx-1.9.1/test.html.  so I add nose package to extras_require packages
+comment
+Hi, did you install nose package ? If you don't have nose package, this error happen. Please check your installed package list

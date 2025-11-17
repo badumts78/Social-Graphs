@@ -1,0 +1,2 @@
+comment
+Perhaps some mention of the three available types, with outbound links to the blocks listed would suffice in the docs.  I had a real easy time building a force directed d3 graph using XML parsed into networkx for modeling for a free-hack day at work. 

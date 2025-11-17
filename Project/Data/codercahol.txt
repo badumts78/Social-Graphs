@@ -1,0 +1,2 @@
+issue
+Subgraph of a bipartite network fails#TITLE_END#Taking the subgraph of a bipartite network yields a graph that only contains the nodes from the 0th partition of the bipartite network. The nodes from the 1st partition are dropped.  I was specifically using a DiGraph, so maybe it's only a problem in that case.

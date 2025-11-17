@@ -1,0 +1,2 @@
+issue
+Faster Triangle Counting#TITLE_END#I've noticed the networkx triangle counting algorithm is quite slow - about 5 minutes for a graph with 2^10 vertices and 16 times as many edges. One reason is that triangles are explicitly double counted, which is corrected by dividing the counts by two at the end. I have a method, call it "minimal count", that sorts the nodes in a manner prior to counting that avoids double-counting - saving double the time or more. Is this something worth putting in a pull request for? It doesn't involve any C or Cython - just Python. Thanks!

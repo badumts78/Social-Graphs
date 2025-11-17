@@ -1,0 +1,2 @@
+issue
+How to build graph with C or C++ Interfaces?#TITLE_END#hi,   I am a new bee, I notice networkx has implemented with C, C++ codes.  I have a large dataset, once build it as graph with networkx, it is slower then dict object for accessing the elements.  ``` an interface to existing numerical algorithms and code written in C, C++, and FORTRAN; and ```  networkx is install with pip. So, how to leverage the C, C++ codes. I guess networkx can be compile with cython to get C Interfaces enabled, is that true?

@@ -1,0 +1,2 @@
+issue
+example link for sparsegraph6 file format is broken#TITLE_END#[https://networkx.github.io/documentation/latest/reference/readwrite.sparsegraph6.html](https://networkx.github.io/documentation/latest/reference/readwrite.sparsegraph6.html) the ~bdm user's account is no longer working on the http://cs.anu.edu.au server 

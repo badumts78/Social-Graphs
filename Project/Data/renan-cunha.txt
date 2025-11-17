@@ -1,0 +1,4 @@
+issue
+Error with union operation when a node is on both graphs#TITLE_END#```python3 import networkx as nx  graph1 = {1:[2], 2:[1]} graph1 = nx.Graph(graph1)  graph2 = {1:[3], 3:[1]} graph2 = nx.Graph(graph2)  nx.union(graph1, graph2) ```   With this code, the following error appears  --------------------------------------------------------------------------- NetworkXError: ('The node sets of G and H are not disjoint.', 'Use appropriate rename=(Gprefix,Hprefix)or use disjoint_union(G,H).')
+comment
+I am wondering this too, for me, the intersection operation should be done especially with graphs with different nodes.

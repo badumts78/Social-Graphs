@@ -1,0 +1,4 @@
+issue
+Fix message of exception in decorators.#TITLE_END#Solves #5135 
+issue
+Undefined variable in Exception message#TITLE_END#I tried to compile a project which includes networkx with nuitka and got following error: `networkx/utils/decorators.py:1017: Will always raise an exception: "UnboundLocalError(local variable 'name' referenced before assignment)"` . After analysis of source code, I can confirm the problem: `name` variable is defined under the condition above.  Python version: 3.8 NetworkX version: 2.6.3

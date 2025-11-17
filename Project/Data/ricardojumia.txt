@@ -1,0 +1,4 @@
+comment
+This issue still exists in the latest version. From Jupyter (I'm using conda):  > C:\ProgramData\Anaconda3\lib\site-packages\networkx\drawing\nx_pylab.py:611: **MatplotlibDeprecationWarning**: isinstance(..., numbers.Number) >   if cb.is_numlike(alpha):
+comment
+Thanks. I used  `print(nx.__version__)` and the output was 2.2.

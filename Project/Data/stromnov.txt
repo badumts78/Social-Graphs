@@ -1,0 +1,2 @@
+issue
+Add all decorator modules to source distribution#TITLE_END#Currently networkx-1.8 source distributions contains only decorator2, but not decorator3 modules (depends on python version when making sdist). 

@@ -1,0 +1,2 @@
+issue
+Request for inclusion of TunkRank algorithm  #TITLE_END#Hi everybody,  I like networkx a lot for and use it very often for my research. At the moment however, there is only the pagerank algorithm for computing the influence of nodes within a given graph. Doing some social-network analysis myself, it would be great to see networkx to include other influence algorithms such as TunkRank (http://thenoisychannel.com/2009/01/13/a-twitter-analog-to-pagerank/).  Thanks  Andy 

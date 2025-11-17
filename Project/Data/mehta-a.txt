@@ -1,0 +1,6 @@
+comment
+Hey, can i take a look at this PR, if no else is looking.   
+comment
+Ok. I will have a look at the issue, although I am trying this for the first time!
+comment
+Hi @dschult,   Sorry for delay in responding. I suspect the error is coming from gml.py file at the following line: https://github.com/networkx/networkx/blob/be7c67553d2d27db4c66ce20942e6e443c39bef5/networkx/readwrite/gml.py#L424  Now I have a question here - according to the logic, since `id` is like a unique identifier and `label` is its string name, why are both these supposed to be unique. Current issue could be resolved by creating a default label name (say using its `label-<id>`) if id is mentioned.   Please let me know if I am looking in the right direction. 

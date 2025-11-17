@@ -1,0 +1,2 @@
+comment
+I'm getting the same warnings using NetworkX 2.2 on Python 3.7. Perhaps this can be handled while not breaking support for Python 2.7 by using `six.moves_collections_abc` once it is implemented (cf. https://github.com/benjaminp/six/pull/241).

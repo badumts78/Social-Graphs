@@ -1,0 +1,2 @@
+issue
+Rename average_clustering#TITLE_END#Should average_clustering be renamed to avoid collision with the function with the same name in https://github.com/networkx/networkx/blob/d7d906e1d16ef331da0bc1d149953e7532155acc/networkx/algorithms/cluster.py  (Sorry about the whitespace error in this PR; you probably don't want to merge this) 

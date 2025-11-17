@@ -1,0 +1,10 @@
+issue
+Optional rescaling layouts#TITLE_END#The rescale_layout function returns the input pos if scale is None.
+issue
+Option to not rescale a layout#TITLE_END#Hi,  I'm wondering if rescaling layouts can be an optional procedure for all layouts. I've noticed that this is implemented for the `fruchterman_reingold_layout` but no others.
+comment
+I am just coming across this issue as well. Would it be appropriate to initialize the vertices on a sphere? This is an analogue of the 2D circle.
+comment
+I was thinking about this; a quick and dirty implementation could be a random placement. ~Each point could be generated with 2 random numbers--one for the azimuthal angle and one for the polar angle.~ Turns out that implementation does not yield a uniformly distributed collection of points.   Here is a paper outlining a method to achieve uniformly distributed points--although I wonder if this behaves better than picking random points in `n`-dimensional space. https://link-springer-com.proxy.lib.sfu.ca/article/10.1007/BF02868626.
+comment
+@Radcliffe Nice! This doesn't really have a higher dimensional analogue does it?

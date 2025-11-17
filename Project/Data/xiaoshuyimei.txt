@@ -1,0 +1,4 @@
+issue
+a question about subplot in spyder#TITLE_END#> > > import matplotlib.pyplot as plt > > > fig = plt.figure() > > > ax = fig.add_subplot(2,1,1) > > > import numpy as np > > > t = np.arange(0.0, 1.0, 0.01) > > > s = np.sin(2_np.pi_t) > > > line, = ax.plot(t, s, color='blue', lw=2) > > > ax.lines[0] > > > <matplotlib.lines.Line2D object at 0x05A77ED0>  when i enter codes above in console,there is nothing happened about the figure,no line ,no subplot. why? 
+issue
+find_cliques returns false#TITLE_END#> > > import networkx as nx > > > g=nx.Graph() > > > g.add_cycle([0,1,2,3]) > > > g.add_cycle([4,5,6,7]) > > > g.add_edge(3,4) > > > from networkx.algorithms import clique > > > list(clique.find_cliques(g)) > > > [[1, 0], [1, 2], [3, 0], [3, 2], [3, 4], [5, 4], [5, 6], [6, 7], [7, 4]]  i think it should return [[0,1,2,3],[3,4],[4,5,6,7]] 

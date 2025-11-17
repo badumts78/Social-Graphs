@@ -1,0 +1,2 @@
+comment
+There exists an interface in Sage. Perhaps it could be ported without much effort.  http://www.sagemath.org/doc/reference/graphs/sage/graphs/isgci.html  

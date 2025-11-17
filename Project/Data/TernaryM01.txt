@@ -1,0 +1,2 @@
+comment
+Just had the exact same issue. Used code from a book. Using {} actually works until NetworkX version 3.2.1. The error message is just "NodeNotFound", which is not helpful. I suggest the documentation be clearer on what it means by "empty set", or at least give an example below with z being the empty set. Many Python users have no idea that {} is not a proper empty set and that there is such a thing as set() for constructing the empty set.

@@ -1,0 +1,2 @@
+issue
+Implementation of $S^1$ model#TITLE_END#This is an implementation of $\mathbb{S}^1$ model by [1]. It is a geometric soft configuration model which produces synthetic networks with similar properties as in real networks, i.e., high level of clustering, heterogeneous degree distribution, or small-world property.   [1] Serrano, M. Angeles, Dmitri, Krioukov, and Marián, Boguñá. "Self-Similarity of Complex Networks and Hidden Metric Spaces". Phys. Rev. Lett. 100 (2008): 078701.

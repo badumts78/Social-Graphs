@@ -1,0 +1,2 @@
+issue
+Degree centrality bug fix.#TITLE_END#1) Fixed a division by zero bug in the degree_centrality functions (division by zero was raised when len(G)==1), if there is one node in the graph it's centrality is set to 1.  2) Removed redundant dict initialization line.

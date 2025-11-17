@@ -1,0 +1,2 @@
+issue
+Fix 2763: Typo `furether` in networkx tutorial documentation#TITLE_END#Fix typo `furether` in networkx tutorial documentation  @dschult

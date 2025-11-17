@@ -1,0 +1,4 @@
+issue
+networkx.ancestors is inconsistent with networkx.has_path#TITLE_END#the function **networkx.ancestors(G, source)** is supposed to   > Return all nodes having a path to (source) in G.  but  ``` >>> g = networkx.DiGraph() >>> g.add_edge(1,1) >>> networkx.has_path(g,1,1) True >>> networkx.ancestors(g,1) set([]) ```  where the answer should be `set([1])`, right? Apparently ancestors ignores loops.  BTW: docstring of **networkx.ancestors** contains uninterpreted markdown 
+issue
+typo#TITLE_END#the docstring for `cartesian_product` starts with  > The tensor product P of the graphs G and H has  probably a copy paste from the definition of `tensor_product`.  best, hannes. 

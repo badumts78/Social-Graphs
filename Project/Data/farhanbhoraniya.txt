@@ -1,0 +1,4 @@
+issue
+Fixed typo in kamada_kawai_layout doc string (Issue #3665)#TITLE_END#Fixed typo issue in "kamada_kawai_layout" method in "layout.py" file (Issue #3665 ).
+comment
+Created PR for the issue

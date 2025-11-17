@@ -1,0 +1,4 @@
+issue
+smallworld.random_reference run very slowly #TITLE_END#is there any bug with smallworld.random_reference? very slow, even use niter=1  smallworld.random_reference(giant, niter=1,seed=0) it still took 10min, [version networkx 2.2]
+issue
+which is the best global properties when comparing networks with defferet degree and nodes?#TITLE_END#which is the best properties when comparing networks with defferet degree and nodes?  

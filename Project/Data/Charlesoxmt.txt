@@ -1,0 +1,2 @@
+issue
+Feature request, persisting a graph#TITLE_END#Whilst there are ample means of converting data types to basic Python types, Numpy, Pandas etc. that have their own methods of persisting, we also have Pickle.  Would there be any advantages in being compatible with some of the leading No-SQL graph databases as well?  NEO 4J or Orient DB?

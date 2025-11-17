@@ -1,0 +1,2 @@
+issue
+graph becomes NoneType after using functions to add nodes#TITLE_END#Not sure why, but the type of my graph changes to NoneType and refuses to accept node attributes using functions like add_nodes_from and set_node_attributes.

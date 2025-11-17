@@ -1,0 +1,6 @@
+issue
+Weight functions in paths should be available in all functions#TITLE_END#Following this pull request: #1690  Thanks for the change, but the weight function is still not supported in all functions, for example in dijkstra_path_length - the weight function is ignored. 
+issue
+Feature request: edge coloring, and color-specific paths and iterators#TITLE_END#I realize edge colors can be set using attributes, but I think this particular property is more interesting, and should have more capabilities. 1. Add a color parameter to the _edges_, _edges_iter_ functions, which gives all edges of a particular kind. 2. Find a shortest path out of edges of a specific color. Again, this can be done by having a different weight attribute per edge-type, but then each edge needs to have all other possible weight attribute type set to _float('inf')_. 
+comment
+Thanks! However, it doesn't work on dijkstra_path_length - the weight function is ignored. 

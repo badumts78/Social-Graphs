@@ -1,0 +1,2 @@
+issue
+Changed scaling factor in betweenness.py (#2709)#TITLE_END#This is my first ever attempt at fixing a bug. The issue #2709 came across as simpler than the rest.  I changed the _rescale function to take endpoints as an input parameter.  If endpoints is true:  scale = 1/(n*(n-1)) else: scale = 1/((n-1)*(n-2)) Please review

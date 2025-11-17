@@ -1,0 +1,2 @@
+issue
+_relabel_copy and OrderedGraph#TITLE_END#The current behavior of `_relabel_copy()` is somewhat unintuitive for OrderedGraphs, where the nodes in the newly created graph are ordered according to the edge iterator of the original graph, not the node iterator. I think this would be fixed by placing `H.add_nodes_from(mapping.get(n, n) for n in G)` at the beginning of the function.

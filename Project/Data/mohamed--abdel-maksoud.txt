@@ -1,0 +1,2 @@
+issue
+`bidirectional_dijkstra` does not use the `weight` function#TITLE_END#I'm on 2.4: ``` In [16]: nx.__version__ Out[16]: '2.4' ```  Here is a minimal example to reproduce: ```python def cost(a,b,*_):     print('cost is called')     return 1  g = nx.grid_graph(dim=[10, 10]) nx.bidirectional_dijkstra(g, (0,0), (9, 1), weight=cost) ```  "cost is called" is never printed. 

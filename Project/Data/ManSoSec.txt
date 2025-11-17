@@ -1,0 +1,2 @@
+issue
+get subgraphs(clusters) of dot files by networkx#TITLE_END#Hi,  Is it possible to get subgraphs/clusters of a dot file by networkx? When I load a dot file by "nx.drawing.nx_agraph.read_dot()", there is no functions that gives me this information. The dot file contains many "subgraph cluster_..." that I need to get attributes of them as well as containing nodes.  https://graphviz.gitlab.io/_pages/Gallery/directed/cluster.html  I am able to get this information by pydot library, but this library is really slow.  Thank you!

@@ -1,0 +1,2 @@
+issue
+Tutorial error in "accessing edges and nodes"#TITLE_END#In the example code of this section, https://networkx.github.io/documentation/stable/tutorial.html#accessing-edges-and-neighbors, in the first code block, after the 3rd ">>>": `G.edges[1,2]` is not executable on my computer, with the error message "TypeError: 'method' object is not subscriptable". Is that a typo in the tutorial?  Thanks,

@@ -1,0 +1,4 @@
+comment
+Still seeing the issue in python3.8 with decorator 5.0.6 in a secure Ubuntu VM. Screenshots follow (sorry can't post as text cause secure platform doesn't allow that): ![image](https://user-images.githubusercontent.com/8094091/122550377-79c42180-d02b-11eb-8a55-6395ebe2b355.png) ![image](https://user-images.githubusercontent.com/8094091/122550460-96605980-d02b-11eb-9a57-f76e1957f7d2.png)  
+comment
+Sorry... I exactly read that wrong! Doh! I force-installed 5.0.9 and confirm it's fine.

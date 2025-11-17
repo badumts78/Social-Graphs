@@ -1,0 +1,2 @@
+issue
+How to build relation from subgraph to nodes #TITLE_END#![subgraphNodes](https://user-images.githubusercontent.com/32951817/98489474-14c07600-2269-11eb-9e7d-294d88548ee8.png) My target is as shown in above figure, I can build subgraph, but how to build edge from subgraph to nodes. Or if this graph can be achieved by networkx, Thank you very much!

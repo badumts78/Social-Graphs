@@ -1,0 +1,4 @@
+issue
+replace deprecated fresh_copy with __class__#TITLE_END#Related to #3230  All the mentioned depredations were already fixed. I did find two more (if they're relevant)
+comment
+Hello, I came to open a similar issue and found this one. I'm willing to make a PR for this. Is Python2 still supported?

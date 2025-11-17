@@ -1,0 +1,2 @@
+issue
+Is there any function which finds all cycles in a directed graph?#TITLE_END#I've found `find_cycle` returns only one example and what I'm looking for is some function which returns all results. Is there?

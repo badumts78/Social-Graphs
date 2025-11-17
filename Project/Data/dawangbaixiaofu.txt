@@ -1,0 +1,4 @@
+issue
+Fix pygraphviz_layout example#TITLE_END#fix #7848  'wrong example of pygraphviz_layout'
+issue
+wrong example of pygraphviz_layout#TITLE_END#![Image](https://github.com/user-attachments/assets/59e5ab41-01f9-46c3-8968-3854cf13c232)  If you use complex node objects, they may have the same string representation and GraphViz could treat them as the same node. The layout may assign both nodes a single location. But the code of  relabeling the nodes is wrong.  the param 'G'  in second line should be 'H'

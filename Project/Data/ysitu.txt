@@ -1,0 +1,722 @@
+issue
+Graph partitioning with METIS#TITLE_END#I wonder if there is interest in integrating [METIS](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview) and the how if so. 
+issue
+Avoid sort-and-compare pattern in doc/unittests#TITLE_END#There are many uses of the sort-and-compare pattern  ``` python assert_equal(presorted, sort(unordered_iterable)) ```  in tests. This is awkward and obscures what is being tested. `assertItemsEquals`/`assertCountEquals` (choice depends on Python version) in the `unittest` module is a better solution should be used instead. This is especially useful for doctests as they are intended to be read by humans. 
+issue
+Add structure-only/shallow graph copy/to_directed/to_undirected/reverse#TITLE_END#This addresses #1152.  To summarize the changes, first, I unified all implementations of `copy`/`to_directed`/`to_undirected` into `Graph` and those of `reverse` into `DiGraph`. So one implementation of each function will handle directed and undirected, simple and multigraphs.  Second, graphs can be copied in three ways as indicated by a `data` argument. It can be structure-only (`data=False`), shallow (`data='shallow'`) or deep (`data=True`). A structure-only copy shallow copies only nodes and edges (and keys if copying a multigraph). A shallow copy also includes graph, node and edge attributes but ignores any custom data if the user subclasses the built-in graph types. Both structure-only and shallow copies create new internal dictionaries while sharing the same keys and values with the original graph. A deep copy simply calls `deepcopy` to duplicate everything uniquely.  Third, `to_directed`/`to_undirected`/`reverse` also support the same copy semantics via `data` arguments but also ignore custom data during deep copy. Deep copy is now done via a single call to `deepcopy`. This ensure that a deep copy is referentially isomorphic to a shallow copy. In fact, this is achieved by first creating a shallow copy followed by calling `deepcopy` on it. Calling `to_directed`/`to_undirected` when the graph is already directed/undirected is the same as calling `copy`. An in-place reverse does not copy any data.  PEP8 fixes done with `autopep8` are also included in this PR.  The existing tests still pass. I do not have time to write new tests to cover every corner shortly. 
+issue
+Structure-only copy/to_directed/to_undirected#TITLE_END#(From #1126)  `copy`/`to_directed`/`to_undirected` should allow copying only the graph structure instead of deepcopying everything because the user can attach data of unknown size or copyability to the graph. Deepcopying such data may not be appropriate. 
+issue
+GSoC 2015 mentors and project ideas#TITLE_END#@hagberg @chebee7i @dschult @bjedwards and anyone who is interested  To participate in GSoC under the PSF's banner, it is necessary to have three mentors signed up for the whole summer (May 25 through Aug 24). The GSoC FAQ [suggests](https://www.google-melange.com/gsoc/document/show/gsoc_program/google/gsoc2015/help_page#howmuch) a five-hour per student per week estimate for the necessary time investment. So if we get three or four mentors on board, we can then have one or two projects. Please let me know if you can serve as mentors. Beyond project collaborators, I also hope that other contributors can lend a hand.  For project ideas, I find it mandatory to include the 2.0 API (#1246, #1336). It is arguably one of them blocker issues for 2.0. One possible project plan is to 1. fully define the API; 2. design a feasible implementation model (code complexity & performance expectation); 3. implement it (code + functional & performance tests); 4. compare with the old API (project write-up).  If this goes well, we can take the opportunity to eliminate the `_iter` methods and possibly the separate `edges`, `adjacency`, etc. functions altogether. Given its complexity, this sounds quite intense for a 12-week 40-hour-per-week commitment. If there is concern that this may not fit within 12 weeks, we can limit the scope so that it fits.  A second project idea that I can think of is an add-on/optional component system, which was discussed in #1167 and saw renewed interest in #1325. The possible project plan is similar to the one above (define, design and implement). One or two working add-ons should be included to demonstrate the system.  I have some other minor ideas (e.g., Cythonization upon installation, additional graph algorithms). Please let me know any ideas that you may have. 
+issue
+GSoC 2015 add-on system proposals review#TITLE_END#@SanketDG @OrkoHunter @hagberg @dschult @jtorrents @chebee7i @Midnighter ## Before we start  The review below is based on the proposal as they appear in the [wiki](https://github.com/networkx/networkx/wiki) on Mar 23, 2015. ## Summary of proposals  There are currently two proposals regarding creating an add-on system for NetworkX, [one](https://github.com/networkx/networkx/wiki/Add-on-system-for-NetworkX:-GSOC-2015-Application-Sanket-Dasgupta) from @SanketDG and [one](https://github.com/networkx/networkx/wiki/GSoC-2015-Application-Himanshu-Mishra-:-Add-On-System-for-Networkx) from @OrkoHunter. The core part of @SanketDG's proposal is relatively sketchy, largely paraphrasing what has been mentioned in the [project ideas page](https://github.com/networkx/networkx/wiki/GSoC-2015-project-ideas). In comparison, @OrkoHunter's proposal goes into more details of the specifics of execution plan and timeline. ## Initial review (project idea-only)  The minimum requirement of an add-on system is to allow installation of separately distributed packages into the `networkx.external.addons` namespace. Both proposals address this need. `setuptools` has largely provided [support](https://pythonhosted.org/setuptools/setuptools.html#namespace-packages) for this use case. So if we are to do this alone, the "system" part of "add-on system" fades away, and creation of various add-ons for NetworkX takes up most weight. This readily covers all that is mentioned in the project ideas page. If executed well, this _will_  make for a meaningful GSoC project.  However, if we are not to let `setuptools` claim most if not all the fame in enabling an add-on system, we can explore what it does not already do. For example, we can investigate tighter integration with the NetworkX core than mere out-of-tree module distribution. Consider incorporation of network algorithms from LEMON for instance. Suppose that we want to use LEMON to provide an implementation of the network simplex method instead of `networkx.algorithms.flow.network_simplex`. Should `networkx.algorithms.flow.network_simplex` have hard-coded knowledge about `networkx.external.addons.lemon`? Or should such knowledge be supplied via dependency injection? Or should it provide a `flow_func` interface a la `networkx.algorithms.flow;maximum_flow`? Or should we simply let `networkx.external.addons.lemon` nuke and replace `networkx.algorithms.flow.network_simplex` at load-time without the latter's knowning? How does this one particular instance generalize to other parts of NetworkX? Can we standardize the approach? Thoughts and decisions on trade-off raised by these and similar questions will make proposals and projects richer in nature. If we pursue this route or some alternative similar in spirit, we put more weight in developing a new ecosystem for NetworkX (and may accordingly reduce the workload of creating the add-ons themselves), which I think will have greater long-term impact. 
+issue
+GSoC slot request#TITLE_END#Although I [mentioned](https://github.com/networkx/networkx/issues/1416#issuecomment-86102803) the other day that we had five mentors signed up, it turns out that we have only four (@hagberg, @dschult, @Midnighter, @ysitu) because there is a duplicate entry for @dschult. I think that this means we can take on two students. Three just seems too many for four mentors. Can we agree on two?  BTW, if we do not suggest a different number by Apr 11, Terri will request two slots for us. 
+issue
+GSoC sign-up at Melange#TITLE_END#@hagberg @dschult @bjedwards @Midnighter @SanketDG @rashoodkhan @OrkoHunter @leliel12 @gcetusic @MridulS and anyone who anticipates to get involved somehow (formally or informally)  Mentors: I presume that mentor sign-up should be done by now. I lost track of Google's and PSF's deadlines for that. If you have not signed up, you probably want to do that ASAP. (Note: Besides registering on Melange, you also need to request connection with PSF and fill out a [form](http://goo.gl/forms/PMXVM1CUAS).)  Students: Melange is now accepting student applications (my inbox has been flooded by forwarded copies of those). You need to use PSF's [template](https://wiki.python.org/moin/SummerOfCode/ApplicationTemplate2015) and have until Mar 27 7pm UTC (firm deadline) to finalize the submission. Review PSF's [GSoC page](https://wiki.python.org/moin/SummerOfCode/2015) for any needed information.  Am I missing anything? 
+issue
+Symbolic links cause test failures on AppVeyor#TITLE_END#Symbolic links introduced in #1467 cause breakage when installing with Python 3 on Windows. Found this problem when testing `networkx-metis`: https://ci.appveyor.com/project/chebee7i/networkx-metis-1lf0f/build/1.0.91/job/4ifakb2gfdgakvoy  @hagberg The problem is present in 1.10. We should consider a 1.10.1 release since this affects installation. 
+issue
+Release 1.10#TITLE_END#@hagberg Let's release 1.10 so that we can unblock PRs from @MridulS. I have set up [1.10rc1](https://github.com/networkx/networkx/releases/tag/networkx-1.10rc1) tag and prerelease. 
+issue
+Mark *_iter functions as deprecated#TITLE_END#This is to make a clear indication that those functions are slated for removal in 2.0. 
+issue
+Drop Python 2.6#TITLE_END##1185 
+issue
+Drop support for Python 2.6#TITLE_END#Python 2.6 EOL'd last October. Maybe there should be a schedule to drop it if not doing so now? 
+issue
+Implementation of network simplex method much too inefficient#TITLE_END#`network_simplex` is only borderline usable even for small problems. Here is a comparison with an _O_(_m_ log _U_ (_n_ + _m_) log _n_) capacity scaling algorithm on networks of 400~1500 nodes generated by the NETGEN generator (network parameters are taken from a file in the NETGEN package):  ``` netgen-1 400 1500 capacity_scaling    0.10 473532 network_simplex   342.42 473532 netgen-2 400 1416 capacity_scaling    1.04 6749969302 network_simplex   171.08 6749969302 netgen-3 400 2676 capacity_scaling    1.38 4863992745 network_simplex   311.41 4863992745 netgen-4 1000 2900 capacity_scaling    1.18 11599233408 network_simplex  1448.42 11599233408 netgen-5 1500 4342 capacity_scaling    2.90 17996365110 ^C ``` - The number following the algorithm name is the running time in seconds. The next number is the flow cost. - My patience ran out after about 1.5 hours in the last case.  Capacity scaling is not exactly known to be the fastest algorithm in practice (the crown typically goes to cost scaling and network simplex), which makes the numbers of `network_simplex` look rather ugly. The performance issue with `network_simplex` has been previously noted in #401, where it did not fare well against the successive shortest augmenting path algorithm (whose implementation did not handle negative edges).  I profiled `network_simplex` running on the network `netgen-2`:  ```           ncalls  tottime  percall  cumtime  percall filename:lineno(function) 36991252/6532716   60.181    0.000  134.952    0.000 copy.py:137(deepcopy) 19573212/6532716   32.588    0.000  107.933    0.000 copy.py:242(_deepcopy_dict)                1   26.596   26.596  286.931  286.931 network_simplex.py:217(network_simplex)         19080937   26.233    0.000   34.826    0.000 graph.py:560(nodes)         64956964   19.402    0.000   19.469    0.000 digraph.py:693(edges_iter)         19584060   18.390    0.000   22.424    0.000 copy.py:256(_keep_alive)            16275   16.061    0.001   64.176    0.004 graph.py:719(add_edges_from)         85772321   11.516    0.000   11.516    0.000 {method 'get' of 'dict' objects}          6505593    8.610    0.000   44.163    0.000 digraph.py:1142(<genexpr>)         82702936    8.338    0.000    8.338    0.000 {built-in method id}           132526    7.983    0.000   26.440    0.000 graph.py:1007(edges)         19080940    6.080    0.000    8.593    0.000 graph.py:525(nodes_iter)             5425    4.887    0.001    7.865    0.001 digraph.py:499(add_edges_from)            16275    4.094    0.000    5.138    0.000 graph.py:380(add_nodes_from)         19540985    3.620    0.000    3.620    0.000 {method 'update' of 'dict' objects}         31073597    3.202    0.000    3.202    0.000 {method 'items' of 'dict' objects}            10848    2.909    0.000    3.556    0.000 graph.py:1445(subgraph)             5425    2.847    0.001   20.129    0.004 network_simplex.py:136(_find_leaving_edge)         19907924    2.629    0.000    2.629    0.000 {built-in method iter}             5426    2.336    0.000    3.809    0.001 network_simplex.py:108(_find_entering_edge)         15226744    2.043    0.000    2.043    0.000 copy.py:192(_deepcopy_atomic)            10849    1.898    0.000    2.967    0.000 unweighted.py:23(single_source_shortest_path_length)             5425    1.736    0.000    2.087    0.000 digraph.py:275(add_nodes_from)         10854867    1.718    0.000    1.718    0.000 {method 'copy' of 'dict' objects}         14827356    1.701    0.000    1.701    0.000 {method 'append' of 'list' objects}            10850    1.367    0.000    1.986    0.000 unweighted.py:155(_bidirectional_pred_succ)          2169600    1.334    0.000    1.524    0.000 convert.py:349(<genexpr>)            16275    0.926    0.000  116.431    0.007 digraph.py:1096(to_undirected)  8938964/8938864    0.911    0.000    0.911    0.000 {built-in method len}          3462023    0.774    0.000    0.774    0.000 graph.py:291(__getitem__)          2175024    0.712    0.000    1.049    0.000 convert.py:97(<genexpr>)             5425    0.636    0.000   11.703    0.002 convert.py:52(to_networkx_graph)          2180448    0.392    0.000    0.392    0.000 graph.py:1799(bunch_iter)          2195091    0.379    0.000    0.379    0.000 {built-in method hasattr}            16272    0.375    0.000   61.382    0.004 connected.py:60(connected_component_subgraphs)           788607    0.335    0.000    0.437    0.000 graph.py:984(neighbors_iter)            16272    0.232    0.000    3.299    0.000 connected.py:22(connected_components)            10848    0.180    0.000   54.128    0.005 graph.py:1324(copy) ```  The code spends 47% of the running time on deep-copying stuff alone. The main sources of deep-copying are `to_directed` and `connected_component_subgraphs`. So the assessment in #401 was incorrect. `network_simplex` was slower not because it was not optimized for minimum cost maximum flow but it did too much stuff unrelated to the algorithm proper. 
+issue
+Add algorithm for computing immediate dominators and dominance frontiers#TITLE_END#Addresses #679.  Work items: - [x] Add `immediate_dominators`. - [x] Add `dominance_frontiers`. - [x] Modify reference manual. 
+issue
+Remove legacy ford_fulkerson maximum flow function#TITLE_END#Addresses #1165. 
+issue
+Changes to .travis.yml#TITLE_END#This cherry-picks @sk-'s `fixcoverage.py` script from #1219 (with a Python 3 compatibility issue fixed) and reorders Travis jobs to reduce the test turn-around time (now determined by only the Python 3.4 run with all dependencies built from source). 
+issue
+Handle nondeterministic output in Cuthill-McKee ordering tests#TITLE_END#This fixes another IronPython test failure. 
+issue
+Ensure that write_gexf and write_graphml output XML declaration#TITLE_END##1143 complained about duplicate XML declarations, which was supposedly fixed by #1172. But now it seems that XML declarations are consistently missing. Hopefully this fixes it. 
+issue
+Fix numerous compatibility issues with IronPython#TITLE_END#This fixes a number of compatibility issues with IronPython, bringing the numbers of test errors and failures from 78 and 28 to 5 and 4, respectively. 
+issue
+Test with IronPython on Travis#TITLE_END#While the latest IronPython (2.7.5b2) still has issues that prevents it from correctly executing the entire `networkx`, I think that it is useful for catching unreliable dependence on CPython implementation details (e.g., hashing, `dict` iteration order). 
+issue
+Investigate dedicated algorithms for bipartite matching#TITLE_END#Using Edmonds' blossom algorithm for bipartite matching is wasteful. 
+issue
+Allow selection of pickling protocol in write_gpickle#TITLE_END#After Python 2.7, new pickling protocols were added in Python 3.0 and 3.4. Always using the highest protocol creates problems when one needs to work with multiple Python versions. This PR adds an optional `protocol` parameter to `write_gpickle` which defaults to `pickle.HIGHEST_PROTOCOL` if omitted. 
+issue
+Bug in capacity scaling min-cost flow#TITLE_END#Discovered in #1280.  Test case:  ``` python >>> G = nx.DiGraph() >>> G.add_node(0, demand=-4) >>> G.add_node(1, demand=2) >>> G.add_node(2, demand=2) >>> G.add_node(3, demand=4) >>> G.add_node(4, demand=-2) >>> G.add_node(5, demand=-2) >>> G.add_edge(0, 1, capacity=4) >>> G.add_edge(0, 2, capacity=4) >>> G.add_edge(4, 3, capacity=4) >>> G.add_edge(5, 3, capacity=4) >>> G.add_edge(0, 3, capacity=0) >>> nx.network_simplex(G) (0, {0: {1: 2, 2: 2, 3: 0}, 1: {}, 2: {}, 3: {}, 4: {3: 2}, 5: {3: 2}}) >>> nx.capacity_scaling(G) Traceback (most recent call last):   File "<stdin>", line 1, in <module>   File "/line/too/long/algorithms/flow/capacityscaling.py", line 349, in capacity_scaling     raise nx.NetworkXUnfeasible('No flow satisfying all demands.') networkx.exception.NetworkXUnfeasible: No flow satisfying all demands. ```  In the (Δ = 4)-scaling phase, `capacity_scaling` attempts to find a path to send flow from 0 to 3, finds none and declares the problem infeasible instead of moving to the next scaling phase. 
+issue
+Reimplement the network simplex method for min-cost flows#TITLE_END#Addresses #401, #598, #630, #1106.  Performance comparison with `capacity_scaling`:  ``` netgen-1 (n=400, e=1500) network_simplex     : 0.061 capacity_scaling    : 0.091  netgen-2 (n=400, e=1416) network_simplex     : 0.093 capacity_scaling    : 0.692  netgen-3 (n=400, e=2676) network_simplex     : 0.108 capacity_scaling    : 1.089  netgen-4 (n=1000, e=2900) network_simplex     : 0.196 capacity_scaling    : 0.952  netgen-5 (n=1500, e=4342) network_simplex     : 0.319 capacity_scaling    : 2.550  netgen-6 (n=8000, e=15000) network_simplex     : 4.495 capacity_scaling    : 118.151  netgen-7 (n=3000, e=35000) network_simplex     : 3.603 capacity_scaling    : 97.404  netgen-8 (n=3000, e=23000) network_simplex     : 2.374 capacity_scaling    : 43.525 ```  As noted in #1106, the existing implementation is much too slow for these cases. 
+issue
+Robust handling of non-int/float/str/dict data in GML#TITLE_END#`generate_gml` uses a syntax not in the GML spec to represent lists and tuples. But since the output is not valid GML after all, `parse_gml` fails to consume it:  ``` python >>> G = nx.Graph() >>> G.add_node(0, data=[1, 2, 3]) >>> print('\n'.join(nx.generate_gml(G))) graph [   node [     id 0     label "0"     data [1, 2, 3]   ] ] >>> nx.parse_gml('\n'.join(nx.generate_gml(G)))   node [   ^ Expected "]" (at char 10), (line:2, col:3) (traceback snipped) pyparsing.ParseException: Expected "]" (at char 10), (line:2, col:3) ``` #1261 is an attempt to fix the asymmetry. I do not know for sure why @lpand decided to get rid of the pyparsing-based parser. Probably that is because the special syntax used by `generate_gml` causes the grammar to become LL(2)—in order to decide between a dict and a list when a `'['` is encountered, the parser also needs to look at the following token.  Although #1261 can be made to work, I feel that a better fix is probably to remove the special syntax. This will enable other GML parsers to handle the output of `generate_gml` without catering to a NetworkX invention. To be specific, the signature of `generate_gml` can be changed to something like  ``` python def generate_gml(G, stringizer):     ... ```  where `stringizer` is a function which converts non-int/float/dict data into strings. Correspondingly, `parse_gml` is changed to something like  ``` python def parse_gml(G, destringizer):     ... ```  where `destringizer` is a function which recovers the original values from the converted strings. An example stringizer–destringizer pair is `repr` and `ast.literal_eval`. The user can use whatever functions that suit his/her needs. 
+issue
+Coveralls cannot load source files#TITLE_END#E.g., https://coveralls.io/files/556354222  IIRC, this was broken for a long time before being fixed and now broken again.  EDIT: Or rather partially broken. Works for https://coveralls.io/files/556379931. 
+issue
+Google Summer of Code 2015 participation?#TITLE_END#(Sorry for having been MIA for quite some time. I just left school and started working. The transition took up the time.)  If my research is correct, NetworkX was in GSoC 2011 with two projects on community detection and maximum flows. What was the experience like? Is there any interest and/or feasibility in doing it again? 
+issue
+(Di)Graph.add_nodes_from broken under IronPython#TITLE_END#It seems that #1314 breaks (Di)Graph.add_nodes_from in IronPython on Travis pretty badly (see https://travis-ci.org/networkx/networkx/jobs/46474504#L3452 for example). I think that I fixed those functions before. IIRC, that was due to `<dict> in <dict>` returning `false` instead of raising `TypeError` in IronPython. #1314 apparently [reintroduced the same logic](https://github.com/networkx/networkx/pull/1314/files#diff-4fe234273eebd1a251430097d68e9854R403). I am not sure if that has been fixed in IronPython, or if .travis.yml is picking up the correct release. 
+issue
+Add dominating package to documentation#TITLE_END#Needs to be included in 1.9.1 release #1237. 
+issue
+Fix kosaraju_strongly_connected_components documentation#TITLE_END#Addresses #1216. 
+issue
+Adapt print statements in examples for Python 3 compatibility#TITLE_END#Addresses #1201. 
+issue
+Remove bundled D3#TITLE_END#Addresses #1203. 
+issue
+Algebraic connectivity, Fiedler vector and spectral ordering#TITLE_END#This addresses #1123.  This basically involves finding the second smallest eigenvalue and its eigenvector of the Laplacian matrix of a graph. Supposedly, this should be handled by SciPy, but I included an one extra algorithm so that for each of my eight test problems, at least one algorithm solves it within 10 seconds. #### Algorithms  To be clear up front, NumPy alone or anything based on dense matrices will not do the job as it will become a memory bomb when used on large graphs. SciPy provides two sparse solvers `eigsh` and `lobpcg`. `eigsh` is the implicitly restarted Lanczos iteration from ARPACK. `lobpcg` stands for "locally optimal block preconditioned conjugate gradient". I know about the "PCG" part but not the "LOB" part.  The algorithm not from SciPy is TraceMin. I am using a version specifically designed for finding Fiedler vectors. TraceMin relies on a linear system solver. PCG is an obvious options. But personally I prefer sparse direct solvers as they are robust, and their comfort zone well covers the graph sizes within NetworkX's reach. SciPy bundles SuperLU as `splu`. There are better options, but they are shut out by licensing issues—UMFPACK, CHOLMOD and PARDISO all fall into this category. #### Benchmarking  ``` Long-n (n = 32768, m = 63472, weighted) ---------------------------------------------------------------------- eigsh               (did not converge) 2191.91 lobpcg              0.0302404279791517   38.62 TraceMin_pcg        0.0302404277402188   49.09 TraceMin_chol       0.0302404277401874    0.95   (Cholesky      0.058) TraceMin_lu         0.0302404277402692    1.11   (LU            0.145)  Random4-n (n = 32768, m = 131056, weighted) ---------------------------------------------------------------------- eigsh                 3900.84878990967   29.43 lobpcg                3900.84878990965    4.03 TraceMin_pcg          3900.84878997654   26.30 TraceMin_chol         3900.84878997652   76.62   (Cholesky     21.657) TraceMin_lu           3900.84878997653  819.56   (LU          615.625)  Square-n (n = 32761, m = 65160, weighted) ---------------------------------------------------------------------- eigsh                 3.88833036807499  680.97 lobpcg                3.88833036795032  253.81 TraceMin_pcg          3.88833036815728   49.98 TraceMin_chol         3.88833036815718    1.62   (Cholesky      0.097) TraceMin_lu           3.88833036815734    1.92   (LU            0.249)  ak6 (n = 32774, m = 49159) ---------------------------------------------------------------------- eigsh               (did not converge) 1826.40 lobpcg            5.70035769998342e-08  102.51 TraceMin_pcg      5.72572519105717e-08   80.71 TraceMin_chol     5.72572519439957e-08    0.62   (Cholesky      0.014) TraceMin_lu       5.72572486979079e-08    0.70   (LU            0.095)  gl6 (n = 32786, m = 93145) ---------------------------------------------------------------------- eigsh              0.00026223266873431   94.72 lobpcg            0.000262232668724498    4.54 TraceMin_pcg      0.000262232668735754    5.78 TraceMin_chol     0.000262232668735774    1.55   (Cholesky      0.283) TraceMin_lu       0.000262232668735766    3.06   (LU            1.637)  gw6 (n = 32768, m = 93184) ---------------------------------------------------------------------- eigsh                0.152240934977433    1.16 lobpcg               0.152240934977427    2.60 TraceMin_pcg         0.152240934977428    2.56 TraceMin_chol        0.152240934977426   11.75   (Cholesky      7.699) TraceMin_lu          0.152240934977426  345.57   (LU          331.141)  netgen-6 (n = 8000, m = 14999, weighted) ---------------------------------------------------------------------- eigsh                 74.0188255406067    4.29 lobpcg                74.0188255406006    0.73 TraceMin_pcg          74.0188255457315    1.28 TraceMin_chol         74.0188255457307    0.55   (Cholesky      0.126) TraceMin_lu           74.0188255457307    1.93   (LU            1.299)  wlm6 (n = 8194, m = 179238) ---------------------------------------------------------------------- eigsh              0.00829854600893233   13.50 lobpcg             0.00829854600893219    2.75 TraceMin_pcg       0.00829854600893260    2.92 TraceMin_chol      0.00829854600893253    1.41   (Cholesky      0.089) TraceMin_lu        0.00829854600893275    1.73   (LU            0.344) ```  The second column in the computed eigenvalue, and the third column is the time in seconds. The numbers in brackets are the Cholesky/LU factorization times. Cholesky factorization relies on the GPL `scikits.sparse` wrapper for CHOLMOD. For this reason, the related code is not in this PR. I suppose that `scikits.sparse` can be stripped down to use only the LGPL portion of CHOLMOD and become LGPL itself, but I am not familiar with Cython to do the work.  From the data, it is evident that `eigsh` is not nearly as robust as the rest, although it can be fast at times. `lobpcg` and `TraceMin_chol/lu` both have good and bad cases, while `TraceMin_pcg` sits somewhere between the two. It should be noted that for `lobpcg` and `TraceMin_pcg`, I am using only Jacobi preconditioning. (In separate tests, passing the Cholesky factorization as the preconditioner to `lobpcg` improves its bad cases by at least an order magnitude but produces incorrect results in one case.) `lobpcg` is very sensitive to the initial guess and can fail to converge if it is not good enough. I produce an estimate of the Fiedler vector using the reverse Cuthill–McKee ordering. The same estimate does not seem to help TraceMin.  The effectiveness of Cholesky/LU factorization highly depends on the structure of the matrix and the matrix reordering algorithm. For example, both `gl6` and `gw6` are three-dimensional grid graphs. `gw6` has a larger bisection width and thus requires long time to factorize. The METIS library used by CHOLMOD is much more effective in discovering small bisections than the multiple minimum degree algorithm used by SuperLU. As a result, CHOLMOD is more than 40 times faster in factorizing `gw6`. (As a separate issue, it may be of interest to some users if NetworkX includes graph ordering and partitioning functionalities.) 
+issue
+Remove duplicate XML header in GEXF/GraphML output#TITLE_END#Addresses #1143. 
+issue
+Remove bundled decorator package#TITLE_END#Install from PyPI instead 
+issue
+Move network_simplex out of mincost.py#TITLE_END#This moves `network_simplex` out of `mincost.py` so that something similar to #1102 can be done for mincost flow problems in the future. 
+issue
+Add capacity scaling mincost flow algorithm#TITLE_END#This is the capacity scaling algorithm implementation mentioned in #1106. It contains and supersedes #1103.  Compared to `network_simplex`, `capacity_scaling` has the following features/differences: - (Weakly) polynomial _O_(_m_ log _U_ (_n_ + _m_) log (_n_ + _m_)) running time. (Assuming use of `BinaryHeap`. `PairingHeap` also supported.) - Supports `MultiDiGraph` and disconnected networks. - Integral data only. - Does not immediately integrate with other mincost flow functions. - More or less expositional. Not the best algorithm in practice. Follows textbook description to the letter.  The underlying residual network is represented as a `MultiDiGraph` even when the input is a `DiGraph`. There is no intention to expose the residual network or define a format interchangeable with other algorithms because its structure varies widely by the algorithm. The dual solution (node potentials/prices) is also computed but not currently returned. 
+issue
+Add shortest augmenting path maximum flow algorithm#TITLE_END#This is Ahuja & Orlin's shortest augmenting path algorithm briefly touched on in #1095. See [1] for detailed description. The two-phase method tailored for unit-capacity networks in [1] is also provided through an optional parameter. ##### Timing tests ###### Cases from #1082  For general problems, SAP is no doubt an improvement over Edmonds–Karp, but highest-label preflow-push is a better idea.  | Case | `ford_fulkerson` | `shortest_augmenting_path` | `preflow_push` | | :-- | --: | --: | --: | | GL1 | 1.36 s | 0.68 s | 0.12 s | | GL2 | 4.05 s | 1.27 s | 0.20 s | | GL3 | 17.50 s | 5.30 s | 0.80 s | | GL4 | 65.67 s | 11.74 s | 1.25 s | | GL5 | 308.97 s | 39.69 s | 2.88 s | | GL6 | 1508.11 s | 170.58 s | 6.65 s | | GW1 | 0.52 s | 0.49 s | 0.33 s | | GW2 | 2.50 s | 1.68 s | 0.70 s | | GW3 | 7.80 s | 4.22 s | 1.79 s | | GW4 | 34.07 s | 12.46 s | 4.05 s | | GW5 | 165.34 s | 40.50 s | 10.94 s | | GW6 | 844.14 s | 117.70 s | 28.95 s | | WLM1 | 0.09 s | 0.04 s | 0.02 s | | WLM2 | 0.42 s | 0.10 s | 0.06 s | | WLM3 | 1.38 s | 0.24 s | 0.12 s | | WLM4 | 7.80 s | 0.83 s | 0.32 s | | WLM5 | 42.75 s | 2.56 s | 1.06 s | | WLM6 | 188.53 s | 6.06 s | 3.01 s | ###### 3000 vs 3000 random bipartite matching  Edmonds–Karp is good when the graph is very dense (_m_/_n_² > 0.1) or very sparse (_m_/_n_² < 0.00001). In the more sensible range, SAP is the king.  The two-phase method seems to make a difference only when the gap heuristic is disabled. When enabled, the heuristic always terminates the algorithm before the criterion for switching to phase 2 is met. So there is no reason to disable it.  | #edges | `ford_fulkerson` | `shortest_augmenting_path` | `preflow_push` | | --: | --: | --: | --: | | 9000000 | 52.570 s | 96.890 s | 189.640 s | | 901033 | 8.100 s | 9.930 s | 11.290 s | | 89714 | 3.290 s | 1.250 s | 1.610 s | | 8832 | 3.750 s | 0.700 s | 0.750 s | | 882 | 1.380 s | 0.150 s | 0.260 s | | 90 | 0.250 s | 0.120 s | 0.210 s | | 11 | 0.070 s | 0.110 s | 0.210 s | - 6000 extra edges needed for reducing bipartite matching to maximum flow are not counted. ##### Reference 1. Ahuja, R. K.; Orlin, J. B. (1991). "[Distance-directed augmenting path algorithms for maximum flow and parametric maximum flow problems](http://onlinelibrary.wiley.com/doi/10.1002/1520-6750%28199106%2938:3%3C413::AID-NAV3220380310%3E3.0.CO;2-J/abstract)". _Naval Research Logistics_, **38** (3): 413–430. 
+issue
+1.9 release notes#TITLE_END##1162 
+issue
+Allow JSON attributes to be customized#TITLE_END#Addresses #1058.  The default values are backward compatible. But I think that in the future, they should be changed to things like `__id__` to reduce the chance of conflict with user data. 
+issue
+single_source_dijkstra and friends throw TypeError when nodes are unorderable#TITLE_END#``` python >>> import networkx as nx >>> G = nx.DiGraph() >>> G.add_edge(0, 1, weight=1) >>> G.add_edge(0, '1', weight=1) >>> nx.single_source_dijkstra(G, 0) Traceback (most recent call last):   File "<stdin>", line 1, in <module>   File "/homes/ysitu/work/github/networkx/networkx/algorithms/shortest_paths/weighted.py", line 339, in single_source_dijkstra     heapq.heappush(fringe,(vw_dist,w)) TypeError: unorderable types: str() < int() >>> nx.bidirectional_dijkstra(G, 0, '1') Traceback (most recent call last):   File "<stdin>", line 1, in <module>   File "/homes/ysitu/work/github/networkx/networkx/algorithms/shortest_paths/weighted.py", line 769, in bidirectional_dijkstra     heapq.heappush(fringe[dir], (vwLength,w)) TypeError: unorderable types: str() < int() ```  This should either be documented or, better, fixed. 
+issue
+Handle unorderable nodes in functions using heapq#TITLE_END##1111 
+issue
+Change Sphinx theme to sphinx_rtd_theme#TITLE_END#Addresses #1032.  They daily dev doc build server needs to have `sphinx_rtd_theme` installed with `pip`. 
+issue
+Add recognition algorithm for semiconnected graphs#TITLE_END#Addresses #1108.  This is put inside `networkx.algorithms.components` only due to similarity to other `is_*connected` functions. No function is provided to compute the "semiconnected components" since there is no well-known definition AFAIK. 
+issue
+Add a preflow–push maximum flow algorithm#TITLE_END#I noticed that there was a two-year-old Issue (networkx/networkx#550) about preflow–push (or push–relabel) algorithms, but apparently those algorithms were never included in any releases. Comments under the Issue showed some discouraging running times. But I think that it is still useful to have them integrated because many papers (e.g., [1]) have suggested the advantage of preflow–push algorithms over the Ford–Fulkerson algorithm.  I was unable to locate the implementations referenced in the Issue, so I went ahead to write one. I picked the highest-label variant with the global relabeling and gap heuristics.  Running [compare_relabel.py](https://networkx.lanl.gov/trac/attachment/ticket/558/compare_relabel.py) from the Issue shows an improvement:  ``` nx.preflow_push                    0.572 s nx.ford_fulkerson                  1.461 s ```  Running the 18 DIMACS cases used in [1] shows greater speedups for the larger ones:  ``` ==========================================================                                    preflow_push         ford_fulkerson   --------------------------------                           @003a541   @e4f35ad   @cb655f9 ----------------------------------------------------------  GL1            1.38 s      0.20 s     0.15 s     0.12 s  GL2            4.05 s      0.33 s     0.28 s     0.23 s  GL3           17.62 s      1.56 s     0.99 s     0.80 s  GL4           66.50 s      1.97 s     1.81 s     1.27 s  GL5          310.80 s      5.84 s     4.05 s     2.96 s  GL6         1532.13 s     15.52 s     9.29 s     6.82 s ----------------------------------------------------------  GW1            0.52 s      0.44 s     0.43 s     0.34 s  GW2            2.52 s      1.19 s     1.12 s     0.72 s  GW3            7.86 s      2.42 s     2.30 s     1.83 s  GW4           34.39 s      5.90 s     5.57 s     4.14 s  GW5          166.30 s     17.20 s    15.61 s    11.23 s  GW6          870.59 s     43.72 s    41.07 s    29.68 s ----------------------------------------------------------  WLM1           0.10 s      0.04 s     0.03 s     0.03 s  WLM2           0.43 s      0.16 s     0.09 s     0.06 s  WLM3           1.39 s      0.16 s     0.16 s     0.12 s  WLM4           7.89 s      0.46 s     0.45 s     0.34 s  WLM5          43.31 s      2.32 s     1.47 s     1.16 s  WLM6         190.64 s      5.72 s     4.18 s     3.28 s ========================================================== ```  Interestingly, the running times of the GL and WLM cases above, measured using Python 3.4 on a Xeon E5530, are longer than those found in [1], which were collected almost 20 years ago on a DECsystem 5000. I suspect that constant factor optimization is possible such as reducing dictionary lookups. But perhaps the user can take a look at a C++ implementation like [Boost.Graph](http://www.boost.org/doc/libs/release/libs/graph/) if he/she needs to deal with very large problems. ##### Reference 1. Ahuja, R.; Kodialam, M.; Mishra, A. K.; Orlin, J. B. (1997). "[Computational investigations of maximum flow algorithms](http://dx.doi.org/10.1016/S0377-2217%2896%2900269-X)". _European Journal of Operational Research_, **97** (3): 509–542. 
+issue
+Add Stoer–Wagner minimum cut algorithm#TITLE_END#This is an implementation of the Stoer–Wagner algorithm for finding weighted minimum cuts of undirected graphs. Because it obviously does not work for the NP-complete maximum cut problem, only nonnegative weights are allowed. Also included are heap implementations that provide in-place key changes, on which the algorithm depends.  Frankly speaking, the measured running times do not look very pleasing to me considering that the asymptotic running time is just a little over Θ(_nm_ + _n_² log _n_). (It would have been precisely Θ(_nm_ + _n_² log _n_) had I used Fibonacci heaps, but they apparently felt slower than pairing heaps and binary heaps.) For a 500-node 5050-edge random graph, it measures 4.7 seconds (with binary heaps) and 8.4 seconds (with pairing heaps) with Python 3.4 on my machine, although running it under PyPy 2.2.1 shaves the time to 1.6 seconds when pairing heaps are used. ##### Reference 1. Stoer, M.; Wagner, F. (1997). "[A simple min-cut algorithm](http://dx.doi.org/10.1145/263867.263872)". Journal of the ACM **44** (4): 585–591. 
+issue
+Add Goldberg–Radzik shortest path algorithm#TITLE_END#The running time is _O_(_nm_). When applied to DAGs, the running time is _O_(_n_ + _m_). Negative weights are supported.  The idea of the algorithm can be considered an extension of the predecessor heuristic in Bellman–Ford. Instead of inspecting the predecessors of the nodes individually, Goldberg–Radzik topologically sorts the nodes to scan (i.e., it handles their predecessors all at once). If topological sorting fails, a negative cycle is detected. Some literature finds this algorithm more robust than the Bellman–Ford algorithm. 
+issue
+Algebraic connectivity, Fiedler vector and spectral ordering#TITLE_END#Functions can be added to `network.linalg` for computing the algebraic connectivity, Fiedler vector and spectral ordering of a graph. 
+issue
+Require Travis tests pass when installing dependencies from pip under CPython 3.4#TITLE_END#The necessary wheels for CPython 3.4 have apparently become available.  Coverage reporting is left unchanged. 
+issue
+Typo in test_threshold.py skips test#TITLE_END#"scipy" is misspelt "scipoy".  https://github.com/networkx/networkx/blob/master/networkx/generators/tests/test_threshold.py#L160 
+issue
+Fix bug that capacity_scaling does not saturate negative selfloops#TITLE_END#A test is added to cover the case.  Also included is some changes to the heap interface and `BinaryHeap` implementation that gives ~1.2x speedup to  `capacity_scaling`. This invalidates the previous random test cases, so new, more sensible ones are substituted. 
+issue
+Move common_neighbors out of link_prediction and add link_prediction in generated documentation#TITLE_END#This resolves some left-over issues from #1117. 
+issue
+Use symmetric eigen solver in laplacian_spectrum#TITLE_END#For those who rely on the return type being complex this may be a breaking change because `eigvalsh` returns real values. 
+issue
+Refactor the interfaces of maximum flow algorithms#TITLE_END#(See also #1095)  The interfaces of network flow algorithms needs refactoring.  Currently for maximum flow alone, there are a number of externally visible functions each doing largely the same but slightly different things: `max_flow`, `min_cut`, `ford_fulkerson`, `ford_fulkerson_flow`, `ford_fulkerson_flow_and_auxiliary`, `preflow_push`, `preflow_push_value`, `preflow_push_flow`. They produce multiple entry points for the same functionality. The differences in their interfaces makes switching cumbersome. Ideally, they should really be all folded into a single `max_flow` function with options to control the underlying algorithm and what to output (the flow value alone, the flow itself, the minimum cut or the residual network for internal use). If somebody decides to implement the Boykov–Kolmogorov and incremental BFS algorithms for computer vision problems, he/she will know what to adapt to.  (The same argument goes with minimum-cost flow. Now there is only `network_simplex`, but some day somebody may come up with an implementation of the also popular cost scaling algorithm or Orlin's strongly polynomial algorithm.) 
+issue
+Add source directory to sys.path and enable MathJax in conf.py#TITLE_END#This solves my problem doc building mentioned in #1102. It also (re?)enables the MathJax extension of Sphinx using the official HTTPS CDN. 
+issue
+Use of functools.partial obscures function signatures in generated documentation#TITLE_END#Sec. 9.8.7 of the dev doc starts with  ``` 9.8.7 dumps dumps = <functools.partial object at 0x3bf9368>     Serialize obj to a JSON formatted str.     … ```  The same goes for secs. 9.8.8~9.8.10. 
+issue
+Fix bug that stoer_wagner ignores weight parameter#TITLE_END#This was missed due to lack of a test case. 
+issue
+Change bellman_ford to use the FIFO variant#TITLE_END#This should provide an improvement over vanilla Bellman–Ford in most cases. 
+comment
+@MridulS Then instead of a special-purpose Dijkstra, maybe you want to provide a TSP solver instead? 
+comment
+@MridulS Is your solution correct at all?  ``` python >>> G = nx.DiGraph() >>> G.add_edge(1, 2) >>> G.add_edge(2, 3) >>> G.add_edge(2, 4) >>> G.add_edge(4, 2) >>> shortest_path_mustpass(G, 1, 3, [4]) Traceback (most recent call last):   File "<stdin>", line 1, in <module>   File "<stdin>", line 8, in shortest_path_mustpass UnboundLocalError: local variable 'min_path' referenced before assignment ``` 
+comment
+@MridulS The problem with your initial code is that you assumed the solution is a simple path. That is not the case. I showed you a counterexample above. An A\* search looks more promising to me. During the search, you keep track of the minimum cost to reach a particular node having visited a particular subsets of the must-pass nodes. 
+comment
+Please follow PEP8 in formatting your code. The dominant variable naming style is lowercase_with_underscores. Please also adopt that. 
+comment
+@feifeipeng You need to resolve the performance problems pointed out by @jtorrents. Unless it is much faster than `max(nx.find_cliques(G), key=len)` for moderate-sized problems, the new code is not very useful. 
+comment
+Cographs can be recognized in linear time. But it seems that your algorithm is not linear-time since it depends on explicitly forming complement graphs. 
+comment
+Before jumping into code style changes and adding tests, are we sure that we can include the algorithms as is? 
+comment
+A simple example where you cannot replace an undirected edge with a pair of directed edges: Eulerian circuit. 
+comment
+I hope that NumPy can be introduced as an optional dependency. Without NumPy you lose the functionalities that depend on it, but those that don't should remain usable. 
+comment
+I wonder how NumPy is superior in computing mean and stdev. It seems to be no better than plain Python:  ``` python >>> numpy.mean([1e50,1,-1e50]*1000) 0.0 >>> scipy.mean([1e50,1,-1e50]*1000) 0.0 ```  Maybe only on my machine? 
+comment
+Back in #1167 there was discussion about optional components and an add-on system. nx_pylab.py may well be a customer of such a system. 
+comment
+Failing to return the keys when running on multigraphs is certainly a defect.  I also find it unnatural that shortest path algorithms are abused for reachability in many places. `ancestors`/`descendants` are inconvenient because they exclude the source. 
+comment
+If we are to do this, let's do it right, not with a mix of what we like and we don't like. 
+comment
+@chebee7i   > But suppose I have a graph already with some nodes and edges that was provided to me, and then I want to use some graph generator to add more nodes (I dont't want it cleared). It seems like callables and instances are equally valid use cases. If we don't support an instance, then the user would have to write a silly lambda function to return the instance. Both approaches seem fine to me, but checking if create_using is callable seems pretty simple for us to do. In fact, there might even be a few places where we already do such a check, not sure though.  ``` python G = get_an_existing_graph() G = from_numpy_matrix(A, create_using=G) ```  is just cryptic compared to  ``` python G = get_an_existing_graph() H = from_numpy_matrix(A, create_using=some_graph_class) G.add_edges_from(H.edges(...)) ``` 
+comment
+@hagberg Maybe `G.merge_graph(H)` or `G.update_graph(H)` a la `dict.update`? 
+comment
+Actually, you can instantiate the `random.Random` class. The way it is documented makes it look as if it were undocumented, but it is indeed documented. 
+comment
+@jtorrents Monkey patching does not work for special methods (`__getitem__` and friends). In short, special methods are looked up in the type of an object instead of the object itself. See https://docs.python.org/2/reference/datamodel.html#new-style-special-lookup for details.  But even if it works, monkey patching is very hackish and immediately breaks multithreading. The saner way is to create a `GraphView` class that emulates the interface of a `Graph`. 
+comment
+#1011 (just to hook up related Issues/PRs) 
+comment
+A graph view does not necessarily have to create a dict for each call to G[n]. It can/should instead return an O(1)-space lightweight filtering proxy. This in particular makes sense for algorithms like Dijkstra's, which examines each edge only once. The same argument goes for materializing a graph view into a graph. Filling up countless dicts of dicts is just not in any way time- and memory-friendly compared enumerating items in existing dicts.  For a case where graph copying kills performance, see #1106. 
+comment
+IANAL, but the license may be revoked. 
+comment
+LGTM. But perhaps you can hand-roll the SVG to avoid the Inkscape bloat. 
+comment
+@jg-you Looks nice. Took the colors from the Python logo? 
+comment
+I suppose that you mean removing some nodes and making their neighbors a clique. I typically see that as right-looking Cholesky factorization. 
+comment
+I do not know about the specific use cases. But I suppose that this can be used as a graph coarsening method (something like what people do in algebraic multigrid methods?). 
+comment
+The undirected case should be relatively well-defined. But I do not feel the same about the directed case. I think that we should be cautious about inventing problem definitions and algorithms here.  For the undirected case, merely manipulating the graph structure sounds a little bit uninteresting. There needs to be a mechanism for the user to manipulate the node/edges attributes if the coarsening process is to be abstracted away. 
+comment
+Well that is the Schur complement in Cholesky factorization. Isn't that better done in SciPy than in NetworkX? 
+comment
+Is it the eigenspace of _A_ − _I_ where _A_ is the adjacency matrix? 
+comment
+Implementing "a way" is easy. Implementing "a good way" is hard. 
+comment
+To provide some background, at the time we were discussing having alternative back ends than dicts. What I had in mind was indeed relational databases, where dict-style access is awkward. So this `G.query()` idea came up. 
+comment
+IronPython behaves differently than CPython and PyPy here. Should we ask the IronPython devs why this is occurring? 
+comment
+I cannot reproduce the problem with IronPython 2.7.5b2, both 32-bit and 64-bit. It imports `networkx` without issues. From 2.7.5b1 to 2.7.5b2 IronPython's importer received some changes. Those may have caused the difference. 
+comment
+@chebee7i You return both the key and the data in `remove_edge`. 
+comment
+Maybe we can rename `Special(Multi)(Di)Graph` to `Dict(Multi)(Di)Graph` and accept this PR? 
+comment
+How about providing it as a GitHub gist? That gives better exposure than hiding the code in some unknown-until-now namespace. People can download and put the code in their own projects without having to modify NetworkX. This sounds less scary than using prerelease code from the master branch. 
+comment
+@chebee7i Actually I'd like to include something like this PR into the code. I don't think that the dict-of-dict-of-dict data structure is going away any time soon given the amount of effort needed to remove it. Allowing different dict types solves some pressing needs of people like @josch. It is just that I do not quite like the way it is currently implemented. A big part of it is essentially the same as the existing graph classes but has be to duplicated just because it needs to pick up the custom dict types. If the implementation can be unified, I am in favor of a merge. 
+comment
+Close for now. 
+comment
+Related issues: #1111, #1120 
+comment
+@SanketDG Do you have any concrete suggestions? 
+comment
+Can we defer this and release 1.10 now? 
+comment
+When `data` is `False`, no node/edge data should be returned. People will be surprised if `False` does not mean the opposite of `True`. 
+comment
+`G[u][v]`/`G[u][v][data]`/`G[u][v][key]`/`G[u][v][key][data]` should continue to work to facilitate upgrade to 2.0. `G[u, v]`/`G[u, v, data]`/`G[u, v, key]`/`G[u, v, key, data]` should be added so that the backend can avoid multiple look-ups if it is supports that. `G.get_edge_data` is too verbose and should be deprecated/removed.  Anything that currently return dicts can be relaxed to return dict-like objects which support the dict interface but are not necessarily dicts themselves.  In general, it is a good idea to allow data look-up using the `data` parameter, but how is the situation where the user uses `None`/`True`/`False` as the data key handled? 
+comment
+At least for this Issue, the wiki is much needed for hosting a formal writeup of the spec. When the spec is finalized, it will also be easier to find it in the wiki than digging it out of a long thread of discussion. 
+comment
+If you break `G[u][v][key][data]`, what do you intend `G[u]` to be? I suppose that it cannot behave like a dict, otherwise `G[u][v][key][data]` will continue to work, and you end up not breaking anything at all. So I assume that it behaves like a set, i.e., `v in G[u]` is okay, but `G[u][v]` is not. This severely penalizes dict-based graphs. Currently, `for v, eattr in G[u].items()` takes only one dict lookup; after the change, `for v in G[u]: eattr = G(u, v)` takes `2 * len(G[u]) + 1` lookups. Neither does it help much in avoiding nested dicts since per your spec, `G(u, v)` needs to be dict-of-dict-like anyway. In general, I do not think that building nested dicts from nondict data structures is too big a problem. Proxy types can be created for nondict backends. Dict-based graphs will remain the dominant type even after nondict backends become available. Penalizing the common case does not sound particularly favorable. There is also the need to adapt existing NX code that relies on nested dicts. Given the limited manpower, I doubt if 2.0 will ever ship if we have to fix everything. 
+comment
+A simple test to illustrate the overhead of generators in CPython 3.4:  ``` python >>> from timeit import timeit >>> setup = """import networkx as nx ... G = nx.fast_gnp_random_graph(100000, 0.0001, 0).to_directed() ... nx.set_edge_attributes(G, "weight", 1)""" >>> timeit('sum(1 for u, v, e in G.edges_iter(data=True))', setup=setup, number=10) 3.3718033973127604 >>> timeit('sum(1 for u, es in G.adjacency_iter() for v, e in es.items())', setup=setup, number=10) 1.9212030433118343 >>> timeit('adj = ((u, v, e) for u, es in G.adjacency_iter() for v, e in es.items()); sum(1 for u, v, e in adj)', setup=setup, number=10) 3.3204945269972086 >>> timeit('sum(1 for u in G for v, e in G[u].items())', setup=setup, number=10) 2.3614112492650747 >>> timeit('G_succ = G.succ; sum(1 for u in G for v, e in G_succ[u].items())', setup=setup, number=10) 1.9300679191946983 >>> timeit('G_succ = G.succ; sum(1 for u, es in G_succ.items() for v, e in es.items())', setup=setup, number=10) 1.9084213897585869 ```  Of course, in a real algorithm the gap will not be as large as the nontraversal work will be more expensive than merely summing 1's. But this still shows that we should not pessimize dict-based graphs lightly. 
+comment
+@chebee7i How about a plan like this: - Rename all `G.func_iter` over `G.func` without changing the existing interfaces. - No changes to `G[u]`. - (Optional) Add a `G.query(u, v, key, data)` function for database-style edge data queries.  I think that this is more manageable than what @dschult suggests. This can then be followed by a second round of clean-up to enforce the doctrine of there being exactly one way to do one thing, e.g., - Remove `G.nodes` (use `iter(G)` and `G.node.items()` instead). - Remove `G.number_of_nodes`/`G.number_of_edges` (use `len(G)` and `G.size()` instead).  As for enabling `OrderedDict`, I suppose that it is not technically hard. But I am wondering if there is already consensus that it is _the_ workaround for hash randomization. 
+comment
+`G.query` is just a placeholder name. `G.__call__` may well be a better option. I have the following sketch design in mind (assuming that it is implemented as `G.__call__`): - `None` and a set-like type `ANY` are reserved for internal use, so `None`, `ANY` and instances of `ANY` cannot be used as nodes or edge/data keys. - `G(u, v, key, data)` is a generator of `(u, v, key, data, value)` tuples, although some components of the tuples may be suppressed per the rules below. If `data` is suppressed, `value` is also suppressed. - Each of the parameters of `G(u, v, key, data)` can be `None`, some concrete `value`, `ANY` or `ANY([value1, value2, ...])`. The parameters are interpreted as query filters. - `None` and `ANY` are both universal wildcards, but `None` also causes the corresponding component in the output tuple to be suppressed. - `value` is equivalent to `ANY([value])`. `ANY([value1, value2, ...])` discards a tuple if the corresponding component is not in `[value1, value2, ...]`. - None of `G(u, v=None, key=None, data=None)`, `G(u, v, key=None, data=None)` or `G(u, v, key, data=None)` returns duplicate tuples. - For undirected graphs, each edge is not handled as a pair of reciprocal edges. - Backends may provide additional constraints. 
+comment
+@chebee7i We can do something like this:  ``` python from abc import ABCMeta, abstractmethod from collections import Callable, Container  class Unhashable(ABCMeta):      def __hash__(self):         raise TypeError("unhashable type '%s'" % self.__class__.__name__)  class Any(metaclass=Unhashable):  # Prevent Any and its subclasses from being used as dict keys      def __new__(cls, criterion):         if isinstance(criterion, Container):             class AnyIn(cls.Impl):                 __call__ = criterion.__contains__             return AnyIn(criterion)         elif isinstance(criterion, Callable):             class AnySatisfying(cls.Impl):                 __call__ = criterion.__call__             return AnySatisfying(criterion)         raise TypeError('criterion must be either a container or a callable')      def __hash__(self):         raise TypeError("unhashable type '%s'" % self.__class__.__name__)      class Impl(Any):          def __new__(cls, *args, **kwargs):             return object.__new__(cls)          def __init__(self, criterion):             self.criterion = criterion          @abstractmethod         def __call__(self, value):             raise NotImplementedError()          def __repr__(self):             return '%s(%r)' % (self.__class__.__name__, self.criterion) ```  As for why there is a special case for filtering by equality, like @dschult mentioned above, that is what the `Xbunch` functions do. 
+comment
+There are two mostly competing proposals. Do we have a preference? 
+comment
+Depends on how you look at them. To me, one modifies all existing interfaces, and the other only adds a new all-in-one query function. What's missing from both is a batch modify function. 
+comment
+You raised a good point. My impression of the existing issues and bugs is that there are not many 'easy' ones. A truly easy one that I can immediately think of is to edit `api_2.0.rst` and make sure that it covers everything major new features added since maybe last November. For the upcoming GSoC, we need to define a few truly beginner-friendly projects. 
+comment
+Can we have a test site to see what napoleon produces? 
+comment
+It seems that references to functions in the same module become links, and the rest becomes plain text. 
+comment
+We should reject 0 and 1 as boolean in GraphML. http://graphml.graphdrawing.org/primer/graphml-primer.html#AttributesValues clearly says "This value _must_ be of the type declared in the corresponding key definition". 0 and 1 are not booleans. 
+comment
+@hagberg You can also do  ``` python >>> False==0.0 True >>> True==1.0 True ```  Are we going to allow 0.0 and 1.0 then? 
+comment
+You can break this into multiple PRs by package. 
+comment
+Regardless of whether you move the tests, we should distribute them with the main code. Tests can make up for where documentation comes short.  PRs that break coverage and/or continuous integration badly are not mergeable. 
+comment
+Maybe the original author of the function can give this issue a review. 
+comment
+I am yet to look at the code. Did you enable `cutoff`in your tests? 
+comment
+Save for some minor issues, I think that this is okay. 
+comment
+If the user specify the capacities of some but not all edges, they will likely get a `NetworkXUnbounded` when they use the edge connectivity/cut functions. 
+comment
+Also need to put it in the Sphinx source. 
+comment
+How about adding a test or two to check `edge_connectivity` against `stoer_wagner`? 
+comment
+LGTM 
+comment
+What is the status of this PR? 
+comment
+@OrkoHunter Can you port the necessary files from `networkx-metis` to here? 
+comment
+@chebee7i Can you help set up the necessary hooks on AppVeyor? 
+comment
+@OrkoHunter You can send in a PR whenever it is ready. The AppVeyor setup can be managed separately. 
+comment
+Those hacks are mostly for Python 2/3 compatibility. `six` is the perfect tool for this purpose. But if that is not allowed, you have to resort to the hacks. 
+comment
+If the concern is attempts to use `iteritems()` and alike in Python 3, those can be blocked during code review. But incompatibility of Python 2/3 string types is a major cause of well-intentioned hacks that should just be replaced with `six`. 
+comment
+Separate from the layout problem, shall we also cherrypick #1707? According to @OrkoHunter's test on AppVeyor, installation on Windows is broken. 
+comment
+Overall, I am against the patchwork that adds/augments `data` parameters in existing functions. It is just not maintainable. Every future change will touch a whole bunch of functions and creates headache when you try to keep the semantics of `data` consistent across the board. My preferred approach is still a new, single rule-them-all query function of which we do not need to worry about legacy. 
+comment
+My opinion is that we should keep the existing interface as is (except for renaming the `_iter` functions) and start a new interface with a clean design.  As for `G[u]` behaving like an iterator, I would prefer that it behave like a set. I would like that `v in G[u]` continue to work. But changing `G[u]` alone is also a major undertaking as much code inside NetworkX itself already assumes that `G[u]` is a dict. 
+comment
+I have changed the 2.0 deadline to after the end of GSoC. It makes sense to wait for the GSoC work. 
+comment
+@MridulS Yes, we want to rename `nodes_iter` over `nodes`, etc. 
+comment
+@MridulS You can use ysitu/networkx@bfce79ab2af50f5a7e7769d36b8c40909985e4c9 as the starting point. 
+comment
+Another item to review for the 2.0 API is the practice of importing almost everything into the top-level module. 
+comment
+@MridulS @jtorrents Calling out those functions as deprecated is a good idea. That paves the way for removal in 2.0.  @chebee7i I have bulk-marked all closed 2.0 Issues/PRs and a few open ones as targeting 1.10. 
+comment
+@MridulS Yea, I am yet to get around to make a public announcement regarding GSoC. Maybe later today. 
+comment
+@MridulS Regarding the release schedule, I have marked May 25 in the milestone. Typically we send out an RC one week in advance. So we need to have all open issues closed by May 18 or deferred till 2.0. 
+comment
+It would be nice if this can be done within the 2.0 timeframe. Seemingly there needs to be a plan because this will impact the entire package. 
+comment
+@chebee7i Perhaps this is better done early than late because when new PRs are merged, you will have more to modify.  I have experimented with removing overwriting `.nodes` with `.nodes_iter` and removing the latter. It is immensely painful. 
+comment
+The code is very clean and easy to follow. But I suggest that you edit it a bit so that the lines fit within 79 columns in conformance to PEP8 in addition to fixing the issues pointed out above.  You have not included any test cases. Those are needed in order for the PR to be merged. 
+comment
+For this initial attempt, can we not install NumPy and SciPy? 
+comment
+`examples/drawing/chess_masters.py` is also a symbolic link. Why is it not breaking you build? Can you check if there are more symbolic links? 
+comment
+I changed the issue subject to emphasize that the intention was to remove all symlinks. 
+comment
+@hagberg Caching is possible with the move to Travis' container-based CI environment ([doc](http://docs.travis-ci.com/user/caching/#pip-cache)). 
+comment
+If the cached wheels become outdated, will pip update them? 
+comment
+According to the [doc](https://pip.pypa.io/en/latest/reference/pip_install.html#caching), pip updates the cache the same way browsers do. That looks good enough to me. 
+comment
+@OrkoHunter Before you work on the code, please write up a design in the wiki and start an issue for review of the design. 
+comment
+Sorry for being late to the party. This seems to be a known but yet unresolved problem: https://bitbucket.org/pypy/pypy/issue/1871/10x-slower-than-cpython-under-coverage. 
+comment
+Now that we are close to finishing `networkx-metis`, shall we make this PR available in 1.10 also given that 2.0 is still a couple of months out? 
+comment
+Or maybe we do not need this at all. I am able to use the `networkx-metis` package (as it is now) with stock 1.9.1. 
+comment
+Will take a look later today or tomorrow. 
+comment
+Can anyone educate me on why `kruskal_mst_edges` and `prim_mst_edges` are exposed instead of `minimum/maximum_spanning_edges`? It looks very unnatural to me that the interfaces for spanning edges are different than those for spanning trees. 
+comment
+I still think that having a uniform interface for `_tree` and `_edges` functions is important. An `algorithm` parameter has the extra benefit that if some day somebody comes around and implement `'boruvka'`, we do not have to expose more functions. 
+comment
+I am in the opposite camp. All the `from <module> import *` stuff is like creating a dependency hell to me. Are we sure that there are no circular import dependencies between modules, or when we `import *`, all the necessary stuff is indeed there? 
+comment
+It seems that you are are outright removing them. That is okay, but that is not what deprecation means. 
+comment
+The commit message still contains "Deprecate". Normally you should not modify published stuff, but I think that it is okay in this case since this is code in review. BTW, please document those functions as deprecated in `api_1.10.rst` (rename from `api_2.0.rst`). 
+comment
+You seem to be confused. Removal is in 2.0, but deprecation is in 1.10. So what I said was correct. They should documented as such in `api_1.10.rst`. 
+comment
+I figure that we should handle this PR as is so that you do not have to roll back your work. But for the remaining functions, please remove exactly one of them at a time so that we can have easier reviews. 
+comment
+Please split the PR into one PR per function. Removing everything at a time is going to make the PR unreviewable. 
+comment
+There is nothing tricky. Both "maximal" and "maximum" (and their min- counterparts) are well-defined technical terms. You may find them ambiguous in nontechnical contexts. But NetworkX is not one of those. 
+comment
+`max_weight_matching` serves the purpose of finding maximum matchings. 
+comment
+See #1322. 
+comment
+@theosotr If you think at how Bellman--Ford works, you will notice that adding a new node merely serves to seed the algorithm. The new node causes the distance labels to be zeroed in the first iteration and is not used afterwards. You can achieve this without the new node. 
+comment
+@theosotr You put _all_ nodes into Bellman--Ford's node queue and start the relaxation loop. If you absolutely need to know the source node, the answer would be: all nodes are, at the same time. 
+comment
+@theosotr We can use some refactoring to avoid duplicating the implementation. The relaxation loop of `bellman_ford` can be put into a separate function named say `bellman_ford_relaxation` and reused here. We do the same for Dijkstra and create a version that defines edge weights in a generic fashion (e.g., a lambda). Then we use it here and some other places and also resolve #762. 
+comment
+After deferring some minor issues, this should be the last issue blocking the 1.10 release. 
+comment
+Will take a look later today. 
+comment
+I think that it is better to let `get_weight` have the interface  ``` python def get_weight(u, v, data):  # pass data = G[u][v] to save a dict lookup     ... ```  There is no need for `arg` as that can be folded in `get_weight` by the caller.  `_dijkstra_relaxation` is a misnomer. It is a full implementation of Dijkstra's algorithm. It can be exposed as a public function, too. 
+comment
+I am not asking you to remove all existing functions. Your approach to use one single implementation to support all those functions is a good one. But I feel that it may be useful to also create a solution for #762. 
+comment
+If you need to call `get_weight(arg, ...)`, the user can pass in `functools.partial(get_weight, arg)` instead, then you can call `get_weight(...)` without `arg`.  One more thing, I think you can add handling for the case where `get_weight` returns `None`. That can be used to indicate/pretend nonexistence of an edge. 
+comment
+I hope this explains:  ``` python def single_source_dijkstra(G, source, target=None, cutoff=None, weight='weight'):     if source == target:         return ({source: 0}, {source: [source]})      if G.is_multigraph():         get_weight = lambda u, v, edge: min(eattr.get(weight, 1)                                             for eattr in edge.values())     else:         get_weight = lambda u, v, edge: edge.get(weight, 1)      paths = {source: [source]}  # dictionary of paths     return _dijkstra_impl(G, source, get_weight, paths=paths,                           cutoff=cutoff, target=target)   def _dijkstra_impl(G, source, get_weight, pred=None, paths=None, cutoff=None,                    target=None):     if G.is_directed():         G_succ = G.succ     else:         G_succ = G.adj      push = heappush     pop = heappop     dist = {}  # dictionary of final distances     seen = {source: 0}     c = count()     fringe = []  # use heapq with (distance,label) tuples     push(fringe, (0, next(c), source))     while fringe:         (d, _, v) = pop(fringe)         if v in dist:             continue  # already searched this node.         dist[v] = d         if v == target:             break         for u, e in G_succ[v].items():             cost = get_weight(u, v, e)             if cost is None:                 continue             vw_dist = dist[v] + cost             if cutoff is not None:                 if vw_dist > cutoff:                     continue             if u in dist:                 if vw_dist < dist[u]:                     raise ValueError('Contradictory paths found:',                                      'negative weights?')             elif u not in seen or vw_dist < seen[u]:                 seen[u] = vw_dist                 push(fringe, (vw_dist, next(c), u))                 if paths is not None:                     paths[u] = paths[v] + [u]                 if pred is not None:                     pred[u] = [v]             elif vw_dist == seen[u]:                 if pred is not None:                     pred[u].append(v)      if paths is not None:         return (dist, paths)     if pred is not None:         return (pred, dist)     return dist ``` 
+comment
+@dschult Slower performance is the price for abstraction, but it is worth it in the long run. If we have time, we really should rename `G.succ` to `G._succ` (and other dicts) to indicate that it is truly private. 
+comment
+Passing the edge data to `get_weight` saves the cost of extra dict lookups in `get_edge_data`. 
+comment
+@jtorrents Your call. I did not follow this closely. 
+comment
+We need to rename `api_2.0.rst` to `api_1.10.rst` as we prepare for a 1.10 release. 
+comment
+If `nx.largest_connected_component` is merely a shorthand for `max(nx.connected_component_subgraphs(G), key=len)`, I do not see a pressing need for it. `max(...)` works, is already concise and is extensible. You can define "largest" in terms of number of nodes, number of edges, node/edge weight, average node/edge weight, etc., etc. 
+comment
+Some entries under "New functionalities" are out of order. Can you also fix that? 
+comment
+Distribution should not be a problem. The add-ons will be hosted in their own repositories and distributed separately from the NetworkX core. 
+comment
+@jfinkels The value in license consistency is limited in this case. Be it BSD, Apache or Boost, the license terms are quite permissive. In most situations, users have no need to worry about mixing them in their projects. I would rather spend time on software engineering than (most likely incorrectly) interpreting license legalese. We should just use the same license as the wrapped code and call it a day. 
+comment
+@chebee7i Would love to see cases where N has six or seven digits. 
+comment
+@jg-you I thought @chebee7i was saying the measured times were a few milliseconds? 
+comment
+If your graph is a DAG, you can take a look at #1438. Otherwise, I don't think we have anything that handles the NP-hard general problem. 
+comment
+Needs a release note entry. 
+comment
+1157023 fixes the issue in `cycles.py`. Where are other places with this problem? 
+comment
+Installing `enum34` for IronPython on Travis will be handled in #1211. But if you find dealing with enums much too troublesome for the user, we can revert to simple strings. 
+comment
+How does it interact with #1211, especially the enums? 
+comment
+Add an entry in `doc/source/reference/api_2.0.rst` and this is ready to merge. 
+comment
+Can the linked list implementation be separated for general use? Are linked lists needed in the first place? Can they simply be replaced by native lists or sets?  Use of `__slots__` should be considered for classes of which large numbers of instances can be created. 
+comment
+I think that the `strategy` parameter should accept a callable that yields a permutation of the nodes when called with a graph. This allows the user to customize the strategy. You should ensure that the existing strategy functions implement the same interface. 
+comment
+Regarding the `strategy` parameter, I think that you can require that any function passed as `strategy` accept two parameters `(G, colors)` where `G` is the original graph, and `colors` is a dict that contains an entry for each colored node (but not the uncolored ones). Whether the function uses the `colors` parameter is its choice. When the `greedy_coloring` function finishes, it should return this same dict. 
+comment
+You need to add test cases to cover the DFS option of `strategy_connected_sequential`. 
+comment
+I waited until 1.9 was branched before merging this. I also added a few commits that add the package to the documentation and fix a few formatting issues with docstrings. 
+comment
+You certainly need to make changes to `.travis.yml` so that your code is tested on Travis. You need to rebase on top the latest master since `.travis.yml` has changed a lot since March. 
+comment
+Is there interest to develop this further so that it can be merged? As far as I can see, changes to `small_world.py` still lack tests. 
+comment
+We can handle #1051 first and merge any changes there to this PR before going forward. 
+comment
+It seems that your last commit did not get tested on Travis. Since the code has changed a lot since January, I suggest that you merge from the latest master into this PR so that there will no surprises when this PR is merged back into master. 
+comment
+I think that you can start a new PR if you find it necessary. 
+comment
+Any update? 
+comment
+Fixed in #1269. 
+comment
+The test case was incorrect. In fixing it, it was found that the code was much more complex than necessary. So it was rewritten. 
+comment
+If I read the code here correctly, it started with an (incorrect) successive shortest augmenting path algorithm and eventually evolved into a cycle canceling algorithm.  I suppose that this is now obsoleted by #1107. Capacity scaling is still not the best algorithm, but it should outperform cycle canceling. 
+comment
+I think that removal of the ability to use numeric keys needs justification. 
+comment
+@hagberg @chebee7i Shall we deem the idea accepted and proceed to look at the code? 
+comment
+@chebee7i https://travis-ci.org/networkx/networkx/jobs/37445007#L3275 is an unrelated issue. 
+comment
+@lpand That error comes from the GraphML parser. For some reason IronPython refuses to load UTF-8-encoded XML. 
+comment
+The code needs some overall style clean-up. autopep8 should be helpful here. 
+comment
+Enforcing an attribute order goes too far just to avoid a minor difficulty in parsing IMO. 
+comment
+You never know. People may pump the entire graph structure into a multimap and use just a single multimap printing function instead of separating out nodes and edges. 
+comment
+Superseded by #1269. 
+comment
+What is the use case of stable topological sort? Also, it seems that what "stable" means here is different from what it means in "stable sort". 
+comment
+Then this is basically the same as #1181 albeit in a different context. Maybe you can consider setting `PYTHONHASHSEED=0`? 
+comment
+@chebee7i The proper fix is a graph class with sorted dicts. What's unknown is whether that will ever be available. 
+comment
+You can do `from itertools import izip as zip` wrapped in a try block. 
+comment
+How about using `xrange` instead of `range` for Python 2? Something like  ``` python try:     range = xrange except NameError:     pass ```  should suffice. 
+comment
+Do you intend to address the raised questions? 
+comment
+Needs release notes entry and documentation. 
+comment
+The convention here seems to be that default parameter values are repeated in docstrings. As for whether we should move away from that convention, I myself am neutral as long as someone will volunteer to inspect and modify ~240 source files. @hagberg @chebee7i What do you think? 
+comment
+[Wayback Machine](http://archive.org/web/web.php) has a [copy](http://web.archive.org/web/20100601101333/http://oreilly.com/catalog/pythonian/chapter/ch04.pdf) of it. 
+comment
+I share the sentiment of several comments in scikit-learn/scikit-learn#3789. This is not immensely useful to the user and in fact quite obscure to discover. The [doc site](https://networkx.github.io/) is a better place to put citation information. 
+comment
+Can `nx.immediate_dominators` compute the Hasse diagram? 
+comment
+This is a major addition. Please also send a PR to include it in `api_2.0.rst`. 
+comment
+We should use `importlib.import_module` instead of `__import__`. 
+comment
+You do not have to worry about coverage as you are not touching code. Will take a look at your changes later today. 
+comment
+I think that #1314, #1321 and #1360 are also worth mentioning. In particular, #1314 is a major new feature IMO. 
+comment
+Things get forgotten. We should make it a policy that PR authors are responsible modifying api_x.x.rst. 
+comment
+It has been quite some time since I wrote the code, so my memory may not be accurate. I did not make `repr` the default probably due to concern about Python 2/3 compatibility. `repr` and `ast.literal_eval` are not entirely interoperable across Python 2/3:  ``` python Python 3.4.0 (default, Apr 11 2014, 13:05:11)  [GCC 4.8.2] on linux Type "help", "copyright", "credits" or "license" for more information. >>> import ast >>> ast.literal_eval('set([1, 2, 3])') Traceback (most recent call last):   File "<stdin>", line 1, in <module>   File "/usr/lib/python3.4/ast.py", line 84, in literal_eval     return _convert(node_or_string)   File "/usr/lib/python3.4/ast.py", line 83, in _convert     raise ValueError('malformed node or string: ' + repr(node)) ValueError: malformed node or string: <_ast.Call object at 0x7fdee1f044a8> ```  ``` python Python 2.7.6 (default, Mar 22 2014, 22:59:56)  [GCC 4.8.2] on linux2 Type "help", "copyright", "credits" or "license" for more information. >>> import ast >>> ast.literal_eval('{1, 2, 3}') Traceback (most recent call last):   File "<stdin>", line 1, in <module>   File "/usr/lib/python2.7/ast.py", line 80, in literal_eval     return _convert(node_or_string)   File "/usr/lib/python2.7/ast.py", line 79, in _convert     raise ValueError('malformed string') ValueError: malformed string >>>  ```  Another example is that `repr`ing a `unicode` in Python 2 produces a `u` prefix, which is not recognized by Python 3.2 and below.  Without a default the user needs to explicitly do something so that when something breaks, he/she knows where to look for the problem. 
+comment
+Could you show us how the new code is breaking you? 
+comment
+The code validates the key using the regex in https://github.com/networkx/networkx/blob/master/networkx/readwrite/gml.py#L582. I think this was taken off the GML spec. You should avoid underscores in keys. 
+comment
+There is currently no plan to do a 1.9.2 release. You can adapt the line linked to above to allow underscores in keys. 
+comment
+This has been fixed, but the fix has not yet been released. 
+comment
+No, please fix your code or keep the change to NetworkX to your own copy. A change to `target is source` will not be accepted. It breaks sane cases such as both `source` and `target` are strings. 
+comment
+If you allow supplying one function, you probably want to allow a dict of functions indexed by graph keys---you may want to do different things for different keys, e.g., sum weights vs set-union colors. Or perhaps the one function should handle all keys instead of just one. 
+comment
+I think that we should disallow `MultiGraph.remove_edge(u, v)`. Having unpredictable behavior is just bad. The user should always specify a key to name a specific edge. 
+comment
+@mad4alcohol Removing an arbitrary element not caring about which is not usual programming practice. The user should be asked to explicitly express such desire for unpredictability. 
+comment
+@hagberg But `set.pop` in Python seems to be a weirdo of its own. You cannot do the same thing in C++, Java, Ruby or JavaScript. 
+comment
+@mad4alcohol The use case of "destructive iteration" is along the line of  ``` python try:     while True:         item = items.popitem()         do_work(item) except KeyError:     pass ```  You do this with two intentions: 1) to iterate over all items; 2) discard the items as soon as you are done with them (so as to release memory, etc.). You just do not care about the iteration order and are therefore fine with nondeterminism.  One-off use of `dict.popitem()` is something very different. You want only one item and end up getting an arbitrary one. There is no guarantee for anything, not even for randomness. That makes it hard to reason about the semantics of the program.  `MultiGraph.remove_edge` is just like one-off use of `dict.popitem()`. Other than there being one edge less, there is not much you can say about the state of the graph. This creates code readability problems because code reviewers and others will scratch their heads when they encounter such arbitrariness. We should actively prevent people from getting into this kind of situations unnecessarily.  As for backward compatibility, it is not a big issue for NetworkX 2.0 because we have decided that breaking changes are okay as long as they improve the code. 
+comment
+Closing this issue per se is okay, but I still believe that `key`-less`MultiGraph.remove_edge` is not a good thing. This is not about confusing names or functionality, but rather that the user should know and care about which edge gets removed. Argument based on arbitrariness in iteration order does not apply because such arbitrariness has only transient effect for being scoped to the iteration. Removing a single element has persistent effect and makes arbitrariness an implementation detail leaked into user code. `MultiGraph.remove_edge` makes it even worse because unlike `set.pop` and `dict.popitem`, it has no return value, i.e., the user does not even know what was lost and can do nothing about it. So, while yes, we certainly can keep `MultiGraph.remove_edge` as is, and there is little harm to NetworkX, we should try to make it harder for the user to do unfortunate things. 
+comment
+I am not inclined towards calling that "robust". Topologically sorting a cyclic graph is ill-posed to begin with. The article you pointed to suggests sorting the strongly connected components (that is why it refers to Tarjan's algorithm) and order the nodes within each SCC arbitrarily. `nx.condensation` is what you need to do that. 
+comment
+`maximal_matching` does not attempt to find a maximum matching, only a _maximal_ one, i.e., one that cannot be made larger by merely adding pairs of nodes. 
+comment
+Added Travis testing under Python 2.7 in dda332e. Had to work around travis-ci/travis-ci#2683 and force `pip` to install an older version of GDAL because the latest is too new for the `libgdal-dev` from `apt-get` on Travis. For Python 3.x, the necessary packages do install, but `f.geometry()` in the code returns `None` instead of something meaningful and breaks the tests as a result. 
+comment
+@josch In your hashing example, `(int32_t) -7583489610679606711LL == -845962679`. Maybe you can build your own copies of CPython where the results of `hash()` are cast to `int32_t` and hope that the amd64 build will give your the same results as the i386 build. 
+comment
+It seems that overall mentality about determinism is not much different than that of #1181/#1183. Closing for now. 
+comment
+It seems that this is a pygraphviz problem. Pinging @hagberg 
+comment
+Can you provide more details? 
+comment
+Labels are underutilized in this project. I think that you do not need to limit labels to just PRs. Feature requests deserve their own label but mostly come up as Issues instead of PRs. 
+comment
+There are two categories of labels. The first category indicates what an Issue/PR is (e.g., bug, feature request, enhancement, maintenance). The second category indicates the status of an Issue/PR (e.g., accepted, declined, needs review, waiting for author). (I suppose that we do not need to worry about priority here, otherwise that will become a third category.)  We can start using the first category now. I am not sure how effective the second category is, though. 
+comment
+I put together a short page explaining the labels: https://github.com/networkx/networkx/wiki/Meanings-of-labels. 
+comment
+I wonder why deterministic output is needed. 
+comment
+Can you prepare a PR that implements the needed functionality? 
+comment
+All textual output functions, not just `write_graphml`, should receive the same treatment so that the user will not be surprised to find out that some supports sorting and some do not. 
+comment
+The interface can be something like `write_graphml(G, path, encoding='utf-8', prettyprint=True, node_cmp=None, key_cmp=None)`. The user should supply two comparison functions, one for the nodes and one for the edge keys of multigraphs. They should follow the convention used by `sorted`. Then the edges can be sorted as tuples `(u, v, key)`. Undirected edges should have `node_cmp(u, v) <= 0` in `(u, v, key)`. 
+comment
+In general, the idea is that you should not rely on the nodes/keys/attributes being sortable by themselves. Letting the user supply comparison functions will enable the greatest flexibility. If that is much too aggressive, you can start with sorting them by their textual representations. 
+comment
+The interface can be changed accordingly. Instead of `node_cmp`, `key_cmp` and `attr_cmp`, you ask for `node_key`, `key_key`, `attr_key`. 
+comment
+Regarding enabling `OrderedDict`, one possibility is to create a function  ``` python def make_graph_class(dict):     class Graph(object):         def __init__(self):             self.graph = dict()             # ...     return Graph ```  Then the default `Graph` class is simply defined as  ``` python Graph = make_graph_class(dict) ```  If one wishes to use `OrderedDict`, he/she can do  ``` python OrderedGraph = make_graph_class(OrderedDict) ```  I believe that this model can be extended to support other backend types as well. 
+comment
+I have tentatively created a networkx-1.9.2 milestone for this. 
+comment
+#1207 should also go into 1.9.1. I will cherry-pick the commit and update the tag. 
+comment
+Is `nx.algorithms.dominating` included in the documentation? `doc/source/reference/algorithms.rst` does not seem to refer to it. 
+comment
+@chebee7i No, `nx.algorithms.dominating` is about dominating sets. 
+comment
+How about releasing as is? 1.8.1 does not to have release notes. 
+comment
+The tip of the `v1.9` branch should be used. It also needs at least one more commit to finalize (add release date, etc.). 
+comment
+Is 1.9.1 considered released now? 
+comment
+Then it needs to be tagged and pushed to PyPI. 
+comment
+@hagberg Yes, a merge is needed. 
+comment
+The 1.9.1 changes have been merged into master. 
+comment
+`find_cliques` is correct. A cycle longer than three is not a clique. 
+comment
+I am closing this. The consensus in #1181 is not to sort. 
+comment
+Returning a partition of `set(G)` is the intended behavior. 
+comment
+Can you provide some more details? 
+comment
+I think that the problem is that before #1204, the examples contained several `print` statements. After installing `networkx`, `pip` tries to compile the source files into bytecode, which chokes on those `print` statements. But installation itself is nevertheless successful, and the package is usable. 
+comment
+Fixed in #1204 and #1205. 
+comment
+It is probably better to use D3 from a [CDN](https://cdnjs.com/libraries/d3) than abusing GitHub. Does the stuff under `doc/` still produce a visible page using D3 after the doc theme change? 
+comment
+Duplicate of #1201. I believe that #1204 and #1205 have fully addressed the issue. They are waiting to be released in 1.9.1. 
+comment
+I suppose that the current master is working properly? 
+comment
+PyGraphviz should also be installed. 
+comment
+Is this ready? 
+comment
+The `decorator` package is no longer bundled. You need to install it from PyPI. 
+comment
+LGTM. But exposing the computed SCCs directly is also a convenience to the user:  ``` python for i, component in enumerate(scc):     C.node[i]['members'] = list(scc) ``` 
+comment
+@jck Can you check if `version.py` in your `pygraphviz` installation defines a `__version__` symbol? 
+comment
+I suppose that this is good to go? 
+comment
+Does this work for you?  ``` diff diff --git a/networkx/linalg/tests/test_algebraic_connectivity.py b/networkx/linalg/tests/test_algebraic_connectivity.py index fadf344..e43fdee 100644 --- a/networkx/linalg/tests/test_algebraic_connectivity.py +++ b/networkx/linalg/tests/test_algebraic_connectivity.py @@ -54,7 +54,8 @@ class TestAlgebraicConnectivity(object):          global numpy          try:              import numpy.linalg -            import scipy.sparse +            import scipy.linalg.blas +            import scipy.sparse.linalg          except ImportError:              raise SkipTest('SciPy not available.') ``` 
+comment
+Alternatively, we can provide replacement for the missing imports:  ``` diff diff --git a/networkx/linalg/algebraicconnectivity.py b/networkx/linalg/algebraicconnectivity.py index 5a1c82e..be857f2 100644 --- a/networkx/linalg/algebraicconnectivity.py +++ b/networkx/linalg/algebraicconnectivity.py @@ -20,13 +20,23 @@ try:      from numpy.linalg import norm, qr      from numpy.random import normal      from scipy.linalg import eigh, inv -    from scipy.linalg.blas import (dasum, daxpy, ddot)      from scipy.sparse import csc_matrix, spdiags      from scipy.sparse.linalg import eigsh, lobpcg      __all__ = ['algebraic_connectivity', 'fiedler_vector', 'spectral_ordering']  except ImportError:      __all__ = []  +try: +    from scipy.linalg.blas import dasum, daxpy, ddot +except ImportError: +    # Use minimal replacements if BLAS is unavailable from SciPy. +    dasum = partial(norm, ord=1) +    ddot = dot + +    def daxpy(x, y, a): +        y += a * x +        return y +  _tracemin_method = compile('^tracemin(?:_(.*))?$') ``` 
+comment
+@jtorrents Please help confirm that this works for you. Then we can merge. 
+comment
+Does it suffice to merely remove the statements writing out the duplicate headers?  ``` diff diff --git a/networkx/readwrite/gexf.py b/networkx/readwrite/gexf.py index e091127..9858484 100644 --- a/networkx/readwrite/gexf.py +++ b/networkx/readwrite/gexf.py @@ -579,8 +579,6 @@ class GEXFWriter(GEXF):          if self.prettyprint:              self.indent(self.xml)          document = ElementTree(self.xml) -        header='<?xml version="1.0" encoding="%s"?>'%self.encoding -        fh.write(header.encode(self.encoding))          document.write(fh, encoding=self.encoding)   diff --git a/networkx/readwrite/graphml.py b/networkx/readwrite/graphml.py index 7876567..f4275cd 100644 --- a/networkx/readwrite/graphml.py +++ b/networkx/readwrite/graphml.py @@ -362,8 +362,6 @@ class GraphMLWriter(GraphML):          if self.prettyprint:              self.indent(self.xml)          document = ElementTree(self.xml) -        header='<?xml version="1.0" encoding="%s"?>'%self.encoding -        stream.write(header.encode(self.encoding))          document.write(stream, encoding=self.encoding)       def indent(self, elem, level=0): ``` 
+comment
+When `copy=True`, how is it different from plain `nx.reverse`? 
+comment
+That is exactly why I asked about the difference from `nx.reverse`. Now that there is none, the option is not needed. 
+comment
+I think that it is better to let such code fail outright so as not to risk creating the wrong impression that a copy is returned. 
+comment
+Since there are no `__del__` methods, whether circularly referenced garbage is collected is a pure quality-of-implementation issue. The latest CPython/PyPy/IronPython/Jython should have no problem dealing with circular references. 
+comment
+@jtorrents I am thinking that perhaps I will not make a separate PR for my `edmonds_karp` branch. You can merge it into this Issue directly. 
+comment
+Thanks for bringing in my commits. I have pushed two more follow-up commits. Please also bring them in.  I think that the public API can be made more compact. `maximum_flow`/`minimum_cut` should be the unified entry points to all the different algorithms. The `_value` and `_flow` functions are not needed. Only the `_residual` functions are used. In fact, the `_residual` suffix can be dropped if the `_value` and `_flow` simply functions are removed. The user specifies the maxflow function as an argument to `maximum_flow`, then `maximum_flow` calls it to get a residual network from which the return valued is extracted.  `maximum_flow`/`minimum_cut` should have the ability to return the actual maximum flow/minimum cut in addition to the maximum flow value. Because some algorithms (e.g., preflow-push, pseudoflow) can terminate early if a maximum flow is not needed, `maximum_flow`/`minimum_cut` should inform them of the choice. The algorithms may have other options which should also be forwarded. I suggest standardizing `compute_flow` from `preflow_push` (maybe choose more explanatory name) and `cutoff` (to be implemented), which all maxflow algorithms should recognize, and adding `**kwargs` to `maximum_flow`/`minimum_cut` to forward the algorithm-specific options. 
+comment
+Can `ford_fulkerson` be special-cased out right in `maximum_flow`? Something like  ``` python if flow_func is nx.ford_fulkerson:     return ford_fulkerson_specific_code() ```  This is will make removing it very easy in 2.0. 
+comment
+On second thought, maybe it is better that the old `max_flow` and `min_cut` are left untouched with the old behavior and uses only `ford_fulkerson`. If the user wants to use the other algorithms, he/she needs to use the new `maximum_flow` and `minimum_cut`. The old-new separation avoids the backward compatibility problem as what has been working continues to work. Then `max_flow`, `min_cut` and `ford_fulkerson` can be declared deprecated in 1.9, which paves the way for removal in 2.0, when `ford_fulkerson` can perhaps be aliased to `edmonds_karp`. 
+comment
+Regarding a better name from `compute_flow`, how about `min_cut_only`? Preflows only make sense in the context of preflow-push algorithms, but minimum cuts also apply to augmenting path algorithms. Conceptually, each maximum flow algorithm can be divided into two phases. Phase 1 computes a minimum cut (or whatever equivalent, such as a maximum preflow). Phase 2 computes a maximum flow. In augmenting path algorithms, phase 1 just happens to do enough that phase 2 is a no-op.  The precise semantics of `min_cut_only` also needs to be defined. I think that when `min_cut_only == True`, `maximum_flow`/`minimum_cut` should assume nothing beyond that the returned residual network `R` induces a minimum cut by reachability from `s` and to `t` and that `R.node[t]['excess']` gives the maximum flow/minimum cut value.  I believe that implementations of the algorithms do not need the `**kwargs` parameter themselves. All algorithms should recognize the standardized `min_cut_only` (or whatever name that is) and `cutoff`. If `flow_func` is `None`, `maximum_flow`/`minimum_cut` should enforce that `kwargs` be empty and raise an exception if not. This forces the user to explicitly specify the algorithm to use when he/she wants to pass in algorithm-specific options. It allows the call to the algorithm to be syntax-checked by the language. It also allows the default algorithm to be freely changed without breaking user code.  Regarding returning the flow/cut value vs the flow/cut itself from `maximum_flow` and `minimum_cut`, although I am not opposed to it, I can imagine that some will feel uncomfortable that the same function returns stuff of different types depending on the input. Does changing `maximum_flow` and `minimum_cut` to return the contents of a maximum flow/minimum cut and adding `maximum_flow_value` and `minimum_cut_value` to return its value sound like a better idea? 
+comment
+If you use `functools.partial`, please ensure that the documentation does not contain the same problem as #1110. 
+comment
+I think that `minimum_cut` should return a node partition rather than a cut set. The argument is same as in #1094—it is much easier to produce a cut set from a node partition than the other way round. 
+comment
+Well, the _Pro Git_ book [hates that](http://git-scm.com/book/en/Git-Branching-Rebasing#The-Perils-of-Rebasing). 
+comment
+Straightening out the commit history has its merits, but probably not when upstream commits suddenly go MIA. I had thought about forking your PR earlier but decided to put if off because you mentioned your intention to rebase in #1107. Recovering from inconsistent local and remotes states is unlikely something people find interesting. 
+comment
+I wonder if a development branch can be created under networkx/networkx. It seems easier to manage than letting commits accumulate in a PR. 
+comment
+It is unlikely that my code dump can continue for long. But I can help out when I have time and energy. 
+comment
+Copying description of jtorrents/networkx#2 here:  > I only added cutoff to `edmonds_karp` and `shortest_augmenting_path`. I suppose that I also know how to add this to `preflow_push`, but I cannot make sense of the residual network produced when both `value_only` is `True`, and `cutoff` is smaller than the maximum flow value. (To summarize, it represents a preflow that is not maximum; there is not _s_–_t_ paths, but the induced _s_–_t_ cut is not minimum. But then what?) >  > I also fixed `value_only` use in `minimum_cut`. It should be `True` when passed to the underlying maximum flow algorithm. 
+comment
+@jtorrents Can you help check if the documentation builds correctly? Although I somehow managed to get Sphinx to run on my machine, the generated page of `networkx.algorithms.flow` shows `maximum_flow` and others as plain text instead of links to their individual pages. 
+comment
+@jtorrents @chebee7i Thanks for your help, but my trouble was that Sphinx was picking up my installation of 1.8.1 instead of what is the Git repository. See #1121. 
+comment
+There are multiple copies of the description of the residual network format, and they are not identical. Can they be consolidated into one single copy? 
+comment
+Previously `minimum_cut` always passes `False` as `value_only` to `preflow_push` when the minimum cut itself is wanted. This is not the recommended usage because `preflow_push` does enough for finding the minimum cut after phase 1 and can stop immediately if `value_only` is `True`. However, the residual network returned by `preflow_push` after phase 1 contains no path from `s` to any other nodes. Reachability from `s` will always induce the partition `(s, set(G) - {s})`. I ran into this when testing 644a7b6. 
+comment
+1. Done. I am not adding new tests to `networkx.algorithms.flow`. I suppose that the tests in `networkx.algorithms.connectivity` will cover the scenario. 2. Since only `flow` and `excess` needs to be reset, inlining it looks more concise. 3. `preflow_push` still checks for unboundedness up front, `shortest_augmenting_path` and `edmonds_karp` bake the check into flow augmentation. That required a small change in how `inf` is defined. 4. I thought about this when implementing `preflow_push`. The reason against it is that `float('inf') - 10 ** 1000` throws, and I do not want to check for infinity every time I calculate the residual capacity of an edge. 5. I want to remove `edmonds_karp`. This thing is popular only because 1) it is simplest; 2) the CLRS book covers it. 
+comment
+Your trouble with `minimum_cut` is yet another instance of #762 despite a different algorithmic context. The fundamental fact is that the same algorithm can have many different implementations, and in some situations, they just have to be different. When you try to hammer them into the same shape, you will have to bend and twist the code elsewhere. In your case, it is the edge juggling work, which saves you the need to write a floodfill yourself in return.  There are probably no good solutions. NetworkX is geared towards static graphs. When your graph is dynamic, even in the simple case where the dynamicity originates from with the graph itself (e.g., node/edge attribute-defined topology), pretty much you need to write special code. 
+comment
+It was a blunder of mine that I forgot to use `cutoff` in `edmonds_karp`. Thanks for fixing it. I have one final comment above. After that is also dealt with, this PR is good to go. 
+comment
+This should be merged ASAP. 
+comment
+I have created a new "1.9-relnotes" label for marking important Issues/PRs. 
+comment
+@jtorrents There was some discussion about removing `preflow_push` and other maximum flow functions from the base namespace. What was the decision? 
+comment
+@jtorrents I am incline towards removing them. They use advanced interfaces (accepting and returning residual networks). If a user want to use such a function, I think that it is better to require him/her to make such intention explicit. 
+comment
+@jtorrents @chebee7i I support renaming the files under `networkx/algorithms/flow` to remove the underscores. That should resolve the doctest issue with the least trouble. Then we can clean up `networkx/algorithms/flow/__init__.py`.  I think the intention of the secondary imports is to make `networkx.algorithms.submodule` usable without the user having to import it manually. But this can be done in a better way (e.g., do `from . import submodule` in `networkx/algorithms/__init__.py`). 
+comment
+@chebee7i I believe that those imports that enable things like `networkx.algorithms.networkx.algorithms.networkx.algorithms.networkx` should be removed. I fail to see their value. NumPy/SciPy do not do that. In general, the `__init__.py` files can receive a clean-up to explicitly define what is exposed upwards. 
+comment
+Among the remaining 1.9 issues, now only #1111 does not have a PR. 
+comment
+@jtorrents Can you also produce a release notes section for the `connectivity` package? 
+comment
+Interface change is being discussed in #1163 which if adopted, needs to be applied to #1117 for consistency. If #1163 is to be deferred, I think that #1117 should also be taken out of 1.9.  @kemskems What is your opinion? 
+comment
+There are no more open issues marked for 1.9 other than the release notes text (#1184). So I think that this can now be branched for release. 
+comment
+I have merged #1184 and created a new tag and a new branch. The release notes need a final edit to put in the release date if there are no other changes. 
+comment
+Yes, it is ready. 
+comment
+https://travis-ci.org/networkx/networkx/jobs/25251378#L2693  I was kinda concerned about this when you put [super precise floating-point numbers](https://github.com/networkx/networkx/pull/1117/files#diff-df36e8dc03d143f2691c5e743cb78d83R238) in docstrings in #1117. Now it finally blows up on Travis.  BTW, please add references to the new functions in the Sphinx source files. 
+comment
+Reducing the output precision using `'%.8f' % x` should suffice here. 
+comment
+I like the `ebunch` idea. I do not think that you need to worry about exceptions caused by missing community information during iteration. The user is supposed to know that garbage input leads to garbage output. But the code can be a little bit more helpful by letting the user know which node does not have community information in the exception message.  Also, #1117 can improved by allowing the user to specify a data key for community information instead of a hard-coded string (`'community'`).  I am marking this for 1.9 so that any interface change can be applied to #1117 before the latter is released to the wild. 
+comment
+I think that this is ready for merging. We can ignore reporting the node without community information for now and add it later if prominent need pops up. 
+comment
+An algorithm should not return a generator. A generator creates an invisible dependency on the graph that lingers even after the algorithm has ended. An inadvertent user will be surprised when the generator raises an exception after he/she modifies the graph. 
+comment
+@chebee7i I agree with your opinion on iterators in general, but I am still not sold on using iterators here. This PR essentially enumerates the "non-edges" and performs an independent prediction on each of them. Since the output order is unpredictable, if the user wants more than one of them, I do not see how he/she would not want all of them.  I think that it is probably better to move enumeration out of the module and provide prediction for individual non-edges only. 
+comment
+Now that enumeration of non-edges is to be moved out, you can simply overwrite it with `functions.py`. The docstrings need to be extended to detail the parameters. (You can follow the example of existing code.) The way the functions interpret `G.node[u]['community']` should also be documented. 
+comment
+Since edge enumeration will be moved out, `predict.py` is no longer needed. Then I thought that it could be replaced by `functions.py` since the latter's name is not particularly descriptive. But if there is only a single source file (tests not included), it seems unnecessary to have a `link_prediction` directory at all. You can move `functions.py` up a level to `networkx/algorithms` and rename it `link_prediction.py` and consolidate the tests into `networkx/algorithms/tests/test_link_prediction.py`. 
+comment
+I suppose so. You can initiate a separate PR to handle that. 
+comment
+Looks good to me. 
+comment
+Need to add documentation to HTML/PDF references. 
+comment
+It seems that the functions added in this PR are not included in the documentation. Typically the Sphinx source files need to be manually edited to include newly added functions. 
+comment
+No worry. Those are trivial changes and are covered in #1148. 
+comment
+That is outside my area of expertise. Maybe other maintainers can chime in. 
+comment
+@chebee7i #1148 is ready. 
+comment
+@dschult `to_scipy_sparse_matrix` will fail with an `NotImplementedError: Wrong number or type of arguments for overloaded function 'coo_tocsr'` inside SciPy even with a `dtype` argument supplied. 
+comment
+You can build the doc yourself by running `make gh-pages` in the `doc` directory. 
+comment
+The theme was changed in #1171. You can install it with `pip`. 
+comment
+Your build has completed. That last step of the script is a hook that uploads the built pages to the dev doc site.  I generally use `make gh-pages` because it deletes the old files before building. I suppose that you can use other make targets to save some time. 
+comment
+I also prefer that the "See Also" sections contain links instead of plain text, but let that be handled in a separate PR. 
+comment
+There apparently is little interest in pursuing this further. Closing for now. 
+comment
+`sphinx_rtd_theme` is not bad, except for the horizontal scrollbars:  ![doc](https://cloud.githubusercontent.com/assets/7018196/3023412/41cec548-dfe5-11e3-801d-f814cb372ad2.png) 
+comment
+Any interest in going ahead with the change to `sphinx_rtd_theme`? 
+comment
+Save for the comments above this otherwise looks good to me. 
+comment
+Doesn't https://github.com/chebee7i/networkx/blob/f8cc8384b0c7c719715af5f94d7bba270e90b84b/networkx/linalg/tests/test_algebraic_connectivity.py#L185 already catch that? 
+comment
+Oops. I added `spectral_ordering` after having mostly completed `algebraic_connectivity` and `fiedler_vector` and forgot about limiting the test cases to reduce repeated tests. `TestSpectralOrdering` should also define a `_methods` member and not use the global `methods`. The tests in `TestAlgebraicConnectivity` are strong enough to cover different options of TraceMIN because they explicitly verify the eigenvectors. 
+comment
+The last test in `TestAlgebraicConnectivity` uses the global `methods`. Perhaps the same can be done in the last test in `TestSpectralOrdering`, i.e., using `methods` and checking for the exception argument. 
+comment
+Isn't adding a call to `random.seed` in the test good enough? 
+comment
+@chebee7i The problem is that IronPython does not have `types.FunctionType` as you [commented](https://github.com/networkx/networkx/issues/949#issuecomment-24034212) in #949. 
+comment
+With this patch the tests still pass:  ``` diff diff --git a/networkx/algorithms/isomorphism/matchhelpers.py b/networkx/algorithms/isomorphism/matchhelpers.py index c4a415a..4e6e853 100644 --- a/networkx/algorithms/isomorphism/matchhelpers.py +++ b/networkx/algorithms/isomorphism/matchhelpers.py @@ -104,7 +104,8 @@ def categorical_node_match(attr, default):              return values1 == values2      return match  -categorical_edge_match = copyfunc(categorical_node_match, 'categorical_edge_match') +def categorical_edge_match(*args, **kwargs): +    return categorical_node_match(*args, **kwargs)   def categorical_multiedge_match(attr, default):      if nx.utils.is_string_like(attr): @@ -181,7 +182,8 @@ def numerical_node_match(attr, default, rtol=1.0000000000000001e-05, atol=1e-08)              return allclose(values1, values2, rtol=rtol, atol=atol)      return match  -numerical_edge_match = copyfunc(numerical_node_match, 'numerical_edge_match') +def numerical_edge_match(*args, **kwargs): +    return numerical_node_match(*args, **kwargs)   def numerical_multiedge_match(attr, default, rtol=1.0000000000000001e-05, atol=1e-08):      if nx.utils.is_string_like(attr): @@ -266,7 +268,8 @@ def generic_node_match(attr, default, op):                  return True      return match  -generic_edge_match = copyfunc(generic_node_match, 'generic_edge_match') +def generic_edge_match(*args, **kwargs): +    return generic_node_match(*args, **kwargs)   def generic_multiedge_match(attr, default, op):      """Returns a comparison function for a generic attribute. ```  which begs the question why it is necessary to clone the functions in the first place. @noclew you may want to give this a try. I do not have IronPython to try it out myself. 
+comment
+@chebee7i My `(*args, **kwargs)` hack will likely break the generated documentation. A real fix needs to handle that, too. 
+comment
+How about HTTP 301 redirect? 
+comment
+I believe that this is commonly known as _semiconnectivity_. The algorithm is not hard. You compute the strongly connected components and contract each of them. The resulting graph should be a single directed path if the original graph is semiconnected. This works in linear time. As for the semiconnected components, they seem to be rarely defined. But you can consider each maximal path in the contracted path as a semiconnected component. 
+comment
+As I mentioned, semiconnected components are rarely defined. The "maximal paths" (not "maximum") thing is just some random idea of mine. There can be exponentially many of them. So probably they are not that useful after all. 
+comment
+If I understand it correctly, the existing code for connectivity handles unweighted problems. Then you are dealing with unit-capacity networks, for which the shortest augmenting path method is the correct choice. Sub-_O_(_nm_) running times have been proved for several such algorithms/implementations (but not for the current implementation of `ford_fulkerson`). For example, Dinic's algorithm runs in _O_(_m_ √_n_) time (see [Even & Tarjan](http://dx.doi.org/10.1137/0204043) and [Ahuja & Orlin](http://onlinelibrary.wiley.com/doi/10.1002/1520-6750%28199106%2938:3%3C413::AID-NAV3220380310%3E3.0.CO;2-J/abstract) for details) on unit-capacity networks, whereas preflow-push algorithms run in _O_(_nm_) time. In practice, the actual number of flow augmentations is easily bounded by the degree of the source. For sparse graphs, this further helps augmenting path algorithms score wins over preflow-push algorithms. 
+comment
+Specifically to the code, I believe that `preflow_push_impl` is useful for `max_flow`, `min_cut`, `minimum_st_edge_cut` (and thus the s-t case of `minimum_edge_cut`), i.e., weighted problems without obvious low (e.g., _O_(_n_)) upper bounds on minimum cuts. `minimum_st_node_cut`, `minimum_node_cut` and the source/sink-less case of `minimum_edge_cut` fall out of the scope. 
+comment
+To me, it makes little sense to use preflow-push algorithms in this scenario. For unweighted problems, Ahuja and Orlin's shortest augmenting path algorithm is probably _the_ algorithm of choice. It is more or less a mix of the Dinic and preflow-push algorithms, approximating the former's layered networks with the latter's distance labels. It has the same asymptotic running time as the former while heuristics speeding up the latter also apply. Because it reduces the time to discover an augmenting path from _O_(_m_ + _n_) to _O_(_n_), it should almost always outperform the Edmonds–Karp algorithm in `ford_fulkerson` for general problems. What is lacking is an implementation. 
+comment
+For connectivity problems, there needs to be a mechanism to limit the number of augmentations in the maximum flow algorithm. When it is known that the current flow problem will not improve the solution, there is no need to run the algorithm to the end. 
+comment
+When you solve a sequence of min-cut problems P1, P2, P3, P4, and take the minimum of the them, once you know that the minimum of P1, P2, P3 is 10, there is no need to run P4 for more than 10 augmentations. 
+comment
+I will take a look at adding `cutoff`. Here is the plan: 1. `cutoff` is just a hint. An algorithm may decide to go over it or simply ignore it. 2. `preflow_push_flow` always ignores it or raises an exception if `cutoff` is finite. 3. `ford_fulkerson` will not be modified. A replacement `edmonds_karp` will be provided. 
+comment
+I think that I will put off adding "cutoff" until #1102 is resolved. 
+comment
+Now that `shortest_augmenting_path` is being added in #1102, there is no need to select an algorithm for computing connectivity. SAP should always be used. 

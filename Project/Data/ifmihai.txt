@@ -1,0 +1,2 @@
+issue
+sphinx documentation, links, [I hate] orange#TITLE_END#I'm not sure if it's ok to ask / request this here, but,  Is it possible to be able to choose the sphinx theme when reading online docs? I really hate orange, I cannot concentrate when reading text with orange. Any other theme will do, why not default? Python main site uses it.  Besides,  orange links?  I'm not sure what was in sphinx devs' mind,  but common, that's so not intuitive, blue links are the standard since middle ages (AFAIK) 

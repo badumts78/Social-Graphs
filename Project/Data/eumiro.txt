@@ -1,0 +1,8 @@
+issue
+Remove redundant Python2 numeric conversions#TITLE_END#Three independent commits to remove Python2 numeric functionality.  `Remove redundant float conversion`: In Python 3, `a / b` of two integers always returns a float. That's why it is not necessary to convert one or both of these parts to a `float`.  `Remove redundant int conversion`: In Python 3, `math.ceil`, `math.floor` and `round` (without `ndigits`) always return an `int`, so there's no need to convert it.  `Use integer division`: In Python 3 `int(a / b)` for two integers can be written as `a // b`.   These three commits remove Python2 code to comply with Python3 rules and make the code more readable. There are also plenty of numeric literals left in the code that could be converted accordingly, such as `x / 2.0` where `x / 2` would work the same. Are you interested in another PR cleaning up those Python2 relics?
+issue
+Refactor: modernize code and remove unnecessary bits#TITLE_END#This is just a refactoring consisting of a few independent steps: 1. one missing f-string, literal sets and a one forgotten python2 style class 2. removal of all unnecessary parentheses 3. fix docstrings format to triple quotes 4. replace `len([x for x in collection if cond(x)])` with `sum(cond(x) for x in collection)` to compact the code and avoid creating whole list  Please feel free to refuse/rollback any proposed changes. 
+issue
+Safer repr format of variables#TITLE_END#Replace `…'{x}'…` with `…{x!r}…` when formatting unknown string values. This will correctly escape quotes. 
+issue
+DOC: Remove repeated words#TITLE_END#Remove repeated words from docs and comments. 

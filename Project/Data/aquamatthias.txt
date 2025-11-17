@@ -1,0 +1,2 @@
+comment
+@rossbar I can confirm that unsetting the cached properties in `Graph` fixed the issue.

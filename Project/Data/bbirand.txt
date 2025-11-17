@@ -1,0 +1,2 @@
+issue
+Documentation for draw_networkx_edge_labels is wrong#TITLE_END#The documentation for `draw_networkx_edge_labels` says that the pos label is optional, and the spring layout is used by default. However, I can't call the function with only the graph as the first argument. I get an error saying that it takes two arguments. 

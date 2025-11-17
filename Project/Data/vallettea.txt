@@ -1,0 +1,2 @@
+issue
+Fastest way to instanciate a digraph#TITLE_END#Hello,  I'm using `G = DiGraph(data = edges)` to instanciate a networkx graph and it takes me about half a second (22k nodes and 60k edges).  Is there a faster way ? Thanks 

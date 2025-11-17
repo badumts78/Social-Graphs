@@ -1,0 +1,32 @@
+issue
+Update convert_matrix.py#TITLE_END#Closes: #4225 
+issue
+Improve docs for optimal_edit_paths#TITLE_END#fixes #3818  
+issue
+added docs for `nx.optimal_edit_paths(G1, G2)`#TITLE_END#issue no: #3818  
+issue
+Implemented hierarchy metric for structuralholes#TITLE_END#issue no.: #3467 
+issue
+added the test cases for `_remove_nonterminal_leaves` function#TITLE_END#issue no: #6881  let me know if I should add test cases for this 
+issue
+Update lowest_common_ancestors.py#TITLE_END#issue no: #6233  
+issue
+DOC: Add docstrings to Filter mapping views#TITLE_END#issue no: #4433  
+issue
+DOC: Add docstrings to filter view functions  #TITLE_END#issue no: #4433 
+issue
+PULL_REQUEST_TEMPLATE.md#TITLE_END#the PULL_REQUEST_TEMPLATE.md  file is empty would like to create a template
+issue
+Add missing parameter to snap_aggregation docstring#TITLE_END#issue no: #6971  
+comment
+@rossbar  i would like to work on this issue but I am unable to edit this PR can I raise a separate PR for this
+comment
+@dschult  i would like to know can we modify the documentation of traids as the given documentation shows for directed graph but can also be used as undirected .
+comment
+@dschult  i think this would work  ` Note: For undirected networks, create a triadic census by converting the graph to a directed graph using G.to_directed(). Only the triad types 003, 102, 201, and 300 will arise in the undirected case.`
+comment
+i would like to work on this issue
+comment
+Does this issue still need PR
+comment
+@robinklaassen  i would like to work on this issue can you assign me

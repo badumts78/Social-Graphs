@@ -1,0 +1,2 @@
+issue
+Fix. parse_edgelist documentation#TITLE_END#Changes: - fix mixing result+params - added missing `lines` param - use same order of params as in signature 

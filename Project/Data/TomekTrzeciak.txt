@@ -1,0 +1,8 @@
+issue
+Consider reverting default dependencies back to optional#TITLE_END##4190 promoted a number of optional dependencies to become required. This makes NetworkX much harder to use in projects that need to bundle it as part of the application (dependencies with compiled code like numpy and not easy to bundle).
+comment
+I'm also interested in speeding up networkx load times to make it a better fit for use in command line utilities. Not all applications require the full functionality offered by networkx. In some cases only the core data structures are of interest. Would it be possible to split off the core of networkx into a separate module? This would allow to import the core classes and utils without pulling in all of numpy, scipy, etc.
+comment
+@hagberg, is there any interest in this issue from core devs?
+comment
+> what modules would constitute the “core”  I'd say everything in `networkx.classes` classifies as core, `networkx.exception`, `networkx.utils`.   > and what modules would constitute the “peripheral”.  Everything else: algorithms, conversion, drawing, ...  Perhaps it's not so much about core vs. non-core as being more frugal with imports within the package (more local imports on use, better namespace hygiene). At the moment almost every submodule does top-level `import networkx as nx`, which imports everything regardless of what's being actually needed/used.

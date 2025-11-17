@@ -1,0 +1,2 @@
+issue
+added a new function to the Graph class, add_clique#TITLE_END#In several Network type you receive the list of cliques (collaboration networks, movie databases, etc). Having a nice syntax to add the whole clique, using a good performing algorithm (the function combination from the itertools module ) could give a real boost in easiness of creation of such networks.  I will add some test for the function as soon as i get used to the nose testing structure. 

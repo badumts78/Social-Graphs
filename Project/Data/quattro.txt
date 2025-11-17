@@ -1,0 +1,2 @@
+issue
+Updated doc-strings for approximation module#TITLE_END#I went back and updated the doc-strings for the approximation module, and most algorithms relating to it. I should have done that a long time back. 

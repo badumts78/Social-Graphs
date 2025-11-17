@@ -1,0 +1,100 @@
+issue
+DOC: Turn on inline plots in graph generators docstrings#TITLE_END#This is just an initial PR to start working on adding some graph drawings in the graphs generators' docstrings.  
+issue
+Add note about using latex formatting in docstring in the contributor guide#TITLE_END#As we discussed the use of latex formatting in the docstring I added a comment about how to properly use it in the contributor guide.  Also added some info about how to add math formulas because it's related to the use of latex formatting.  
+issue
+Add reference to paper in vf2pp#TITLE_END#I noticed there's no reference in the vf2++ documentation. So I added a reference section with the paper where the algorithm is described.   
+issue
+Fix ecuation in clustering documentation#TITLE_END#Closes #6365   
+issue
+Fix broken link nx guide#TITLE_END#Closes #6352   I fixed the link to the Nx-guides which wasn't working and also changed the title of the link to match the title of the notebook.
+issue
+Add nx-guide link in the tutorial#TITLE_END#I thought that it would be useful for new users to have an explicit mention of the nx-guides in the tutorial. Also added a link to nx-guide using the intersphinx format.   
+issue
+Fix link vonoroi#TITLE_END#I fixed the link in the reference section. The link was right but was missing some parts so you couldn't click on it. I also added some latex formatting because the previous notation, which was italics,  just looked like plain text.  
+issue
+Improve doc regular graphs#TITLE_END#I added the definition of regular graph and fixed a broken link in the reference section. 
+issue
+Update docstring of paley graph #TITLE_END#In a meeting, we discussed that we should use latex with the raw format (`r"""`) to avoid double backslash. I updated this PR to reflect that decision.   
+issue
+Doc upgrade paley graph#TITLE_END#I added latex formatting to the doc to properly express some math expressions. 
+issue
+Improve test coverage in clique.py#TITLE_END#Currently `clique.py` in the Algorithms section doesn't have full coverage. I want to improve that. 
+issue
+Added new tests in test_clique.py#TITLE_END#Close #6141  Added some tests to improve coverage to 100% 
+issue
+Delete warning in approximation documentation#TITLE_END#On the approximation main page, there was a warning about how to import the functions because they are not part of the `networkx` base namespace. As discussed in another PR, warnings are unsuitable for this purpose. So I change it to delete the warning. 
+issue
+Solved issue #6035: Improve test coverage expanders stochastic graph generators#TITLE_END#Closes #6035 Erased an if condition that was impossible to cover by tests because the condition never occur. The condition tested if the degree of a node that has an edge is 0.
+issue
+Add doc sections for number_of_cliques#TITLE_END#I discovered that `number_of_cliques` in clique.py was lacking detailed doc sections.  So I added all the corresponding sections and their descriptions. Also added an example.  
+issue
+doc: broken reference to nx-guides in the mentored projects section #TITLE_END#In the  [Mentored Projects section](https://networkx.org/documentation/latest/developer/projects.html) there's supposed to be a link to [Random Geometric Graphs](https://networkx.org/nx-guides/content/generators/geometric.html#random-geometric-graphs)  but the link it's not working.   The code used for the link is  ``` :doc:`Random Geometric Graphs <content/generators/geometric>` ```
+issue
+Fix link in isomorphvf2.py#TITLE_END#I was going through the VF2 implementation and found a broken link to a paper (It's the same link that was fixed via  [PR](https://github.com/networkx/networkx/pull/6296) but in another doc entry)
+issue
+Fix doc inconsistencies related to cutoff in connectivity.py and disjoint_paths.py#TITLE_END#In `local_edge_connectivity` and `local_node_connectivity` from **connectivity.py** the cutoff description implies that only `edmonds_karp()` and `shortest_augmenting_path()` support cutoff. That is not true. Now those algorithms are given as examples of flow functions that allow cutoff. I tried to keep the description as general as possible and reference to [Flow](https://networkx.org/documentation/stable/reference/algorithms/flow.html) as the source of truth so in the future, if new flow algorithms are added there's no need to change this.  Also changed the cutoff description in `edge_connectivity` from **connectivity.py** to match `local_edge_connectivity` and `local_node_connectivity` cutoff description.  Finally in **disjoint_paths.py** added a reference to [Flow](https://networkx.org/documentation/stable/reference/algorithms/flow.html) in the cutoff description of `node_disjoint_paths `and `edge_disjoint_paths`. 
+issue
+issue #6081: allow cutoff functionality for flow functions#TITLE_END#In maxflow.py, I changed ``` flow_funcs ``` to ``` flow_funcs_without_cutoff  ``` and also updated the flow functions that support *cutoff*. In text_maxflow.py, I added  ``` flow_funcs_without_cutoff  ```.  This was discussed in https://github.com/networkx/networkx/issues/6081.  Closes #6081
+issue
+Improve test coverage for matching.py#TITLE_END#Currently,  the test coverage is only 95% and I would like to improve it.
+issue
+bug fix in smallworld.py: random_reference and lattice_reference#TITLE_END#Closes #6150.   Changed random_reference, and lattice_reference, now an exception is raised if the function is called with a graph with fewer than 2 edges. Also updated the documentation.
+issue
+Isomorphism improve documentation#TITLE_END#I added some more details to the functions `could_be_isomorphic` and `fast_could_be_isomorphic`.  
+issue
+Broken link in isomorphism documentation#TITLE_END#As I was reading the documentation I found that the link in the reference section of `is_isomorphic` is broken. I replaced the current link with a new version but I'm not sure if it's the right one.  The paper seems to be the same. Maybe the citation format is not right.  
+issue
+In smallworld.py: ZeroDivisionError when passing a graph without edges#TITLE_END#This is a similar error to #6144 that comes from the use of `nx.utils.cumulative_distribution` with graphs without edges. In #6144 there is a deeper explanation of the bug.  
+issue
+Bug fix in swap: directed_edge_swap and double_edge_swap #TITLE_END#Closes #6144  Changed directed_edge_swap, now an exception is raised if the number of edges is less than 3. Also updated the documentation.  Changed `double_edge_swap`, now an exception is raised when the function is called with a graph with fewer than 2 edges. Added some tests and updated the documentation to include a raises section that was missing.  
+issue
+directed_edge_swap: ZeroDivisionError when passing a digraph without edges#TITLE_END#I was working on improving test coverage for `swap.py` and tested `directed_edge_swap` with a digraph without edges. That resulted in a ZeroDivisionError from `nx.utils.cumulative_distribution`.   ### Steps to Reproduce  ```python from networkx as nx  G = nx.DiGraph() G.add_nodes_from([0, 2, 4, 3])  G = nx.directed_edge_swap(G, nswap=1, max_tries=500, seed=1) ``` ### Current Behavior  ZeroDivisionError is raised because in `nx.utils.cumulative_distribution` there's a division by the sum of the input distribution that is zero. The distribution that `nx.utils.cumulative_distribution` is called with in this example is the degrees of a digraph without edges (all degrees are zero). This is the error log.   ``` Traceback (most recent call last):   File "test.py", line 12, in <module>     G = nx.directed_edge_swap(G, nswap=1, max_tries=500, seed=1)   File "/home/paula/Outreachy/networkX/networkx/networkx/utils/decorators.py", line 766, in func     return argmap._lazy_compile(__wrapper)(*args, **kwargs)   File "<class 'networkx.utils.decorators.argmap'> compilation 21", line 5, in argmap_directed_edge_swap_17   File "/home/paula/Outreachy/networkX/networkx/networkx/algorithms/swap.py", line 81, in directed_edge_swap     cdf = nx.utils.cumulative_distribution(degrees)  # cdf of degree   File "/home/paula/Outreachy/networkX/networkx/networkx/utils/random_sequence.py", line 103, in cumulative_distribution     cdf.append(cdf[i] + distribution[i] / psum) ZeroDivisionError: division by zero ``` ### Expected Behavior  I think the best is to raise an exception in `directed_edge_swap` with a message that exposes this situation.  Also, this should be added to the [doc entry](https://output.circle-artifacts.com/output/job/ab098af6-f76c-4bf9-a732-5c243aca96da/artifacts/0/doc/build/html/reference/algorithms/generated/networkx.algorithms.swap.directed_edge_swap.html#directed-edge-swap).   ### Environment  Python version: 3.8 NetworkX version: 2.8.7  ### Further Discoveries  Something else that should be added is that if the digraph has less than 3 edges then is impossible to swap edges. In that case, the current behavior is that the max number of tries is reached. In my opinion, this case should raise an exception with an appropriate message. Also, this could be mentioned in the  [doc entry](https://output.circle-artifacts.com/output/job/ab098af6-f76c-4bf9-a732-5c243aca96da/artifacts/0/doc/build/html/reference/algorithms/generated/networkx.algorithms.swap.directed_edge_swap.html#directed-edge-swap).   I will work on these changes and will look closely at the other functions in `swap.py`.  Also, I think it will be good to review the functions that use `nx.utils.cumulative_distribution` to check for this error. I can do that too.   
+issue
+add laplacian_spectrum example#TITLE_END#Added an example where the laplacian_spectrum is used to get the number of eigenvalues of the Laplacian matrix that are zero to count the number of connected components of a graph.   Also added a missed link to to_numpy_array
+issue
+Add warning in community module documentation#TITLE_END#I noticed that on the main page of the community module there's a comment about how to import the functions because they are not part of networkx base namespace. I made this a warning so it's easier for users to notice. 
+issue
+Add warning in bipartite module documentation  #TITLE_END#I noticed that on the main page of the bipartite module there's a comment about how to import the algorithms because they are not part of `networkx` base namespace. I made this a warning so it's easier for users to notice. 
+issue
+Add warning in documentation: import modules#TITLE_END# I noticed that on the main page of some modules there's a comment about how to import the functions because they are not part of the `networkx` base namespace. I checked all the documentation and made this a warning so it's easier for users to notice. I added this in `node_classification` and  `tournament`.  
+issue
+Added an example to algebraic_connectivity#TITLE_END#I added an example in `algebraic_connectivity`.  
+issue
+Added an example in all_pairs_node_connectivity #TITLE_END#In all_pairs_node_connectivity added an example.   Also in `all_node_cuts` added a missed link to `edmonds_karp`.  
+issue
+Add example for fiedler_vector#TITLE_END#I added an example for `fiedler_vector` in `algebraicconnectivity.py`. In the example, I use the Fiedler vector to partition a connected graph.  
+issue
+added coverage in generators/tree.py#TITLE_END#I added some tests to improve coverage in generators/trees.py Closes #6103
+issue
+Bug fix in swap.py#TITLE_END#Closes #6144  I changed   `directed_edge_swap`, now an exception is raised if the number of edges is less than 3. Also updated the documentation. 
+issue
+Improve test coverage for generators/tree.py#TITLE_END#Increase coverage over [`tree.py`](https://github.com/networkx/networkx/blob/main/networkx/generators/trees.py) so all the code blocks that are highlighted in  https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/generators/trees.py are properly tested.  
+issue
+boykov_kolmogorov and dinitz algorithms allow cutoff but are not tested #TITLE_END#I noticed in *test_maxflow.py* that cutoff tests don't include boykov_kolmogorov and dinitz algorithms. I'm already working on this! 
+issue
+Tested boykov_kolmogorov and dinitz with cutoff#TITLE_END#Closes #6086 
+comment
+Hi, I could replicate your problem. How did you select which nodes to subtract?
+comment
+ok! I was looking at the algorithm cover test and there's one if-condition branch that was not tested. I will see if that's where the problem occurs.
+comment
+good point! I think that may be the problem. Because for g2 the number of simple cycles is 89113 which is not much compared with the worst case for a graph of 3587 nodes. And as @steven-nicolaou chose the number of nodes and edges randomly it's very likely that g1 is a graph with too many simple cycles. 
+comment
+This sometimes happens with the artifacts that run the tests. Maybe there was another push and the artifacts canceled the tests in your PR to run tests on another PR. Don't worry about it. When someone from NetworkX reviews your PR they can rerun the tests. 
+comment
+Generally LGTM! I would add a note about installing the specific doc requirements first. 
+comment
+The function is still in aproximation. I reproduced this with networkX 2.8.7 and Python 3.8 but didn't get that error. Are you using a virtualenv? If helps I also tested networkX 2.6.3 and It works. 
+comment
+Working on this! Already made a pull request!
+comment
+I think the problem is that cutoff for shortest_augmenting_path is not working properly that's why is disabled even when the function does allow the argument. 
+comment
+I'll do it 
+comment
+this is the PR that correct the list of functions that don't allow cutoff: https://github.com/networkx/networkx/pull/6085
+comment
+I checked connectivity.py and `local_edge_connectivity` is using `edmonds_karp` if flow_func is None. Then when `maximum_flow_value` is called _flow_func_ is `edmonds_karp` because that is passed through _**kwargs_ argument.  I did a simple experiment and I confirmed that. I also checked the doc page and It seems that we should correct that only edmonds_karp and shortest_augmenting_path support _cutoff_. I'll do that later. Also, I will read the doc page for related functions that may have the same inconsistency. Should I open a new issue for this @dschult ?
+comment
+perfect! 

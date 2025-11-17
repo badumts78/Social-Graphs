@@ -1,0 +1,2 @@
+issue
+Adds a devcontainer#TITLE_END#This PR adds a devcontainer to the project with:  * python 3.8 and pip * the required dependencies listed in files: requirements/default.txt, requirements/test.txt and requirements/developer.txt * the extra dependencies listed in requirements/extra.txt along with the graphviz package * default linting support and black formatter * support for running the unit tests 

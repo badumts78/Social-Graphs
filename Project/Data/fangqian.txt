@@ -1,0 +1,2 @@
+issue
+Can networkx support  operations research？#TITLE_END#Hello, I want to find some operations research methods,such as Queuing Theory（https://en.wikipedia.org/wiki/Queueing_theory）？

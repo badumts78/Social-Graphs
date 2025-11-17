@@ -1,0 +1,2 @@
+issue
+`from_pandas_adjacency` much slower than `from_numpy_matrix`#TITLE_END#Hello. I just run this functions with the same dataframe: `%time G = nx.from_numpy_matrix(df.values)` `%time G = nx.from_pandas_adjacency(df)` and it seems that *from_pandas_adjacency* works much slower than *from_pandas_adjacency*: ``` CPU times: user 22.7 s, sys: 372 ms, total: 23 s Wall time: 23 s ``` ``` CPU times: user 57.8 s, sys: 664 ms, total: 58.4 s Wall time: 58.4 s ``` Why? I think, that this functions must have equals runtimes.

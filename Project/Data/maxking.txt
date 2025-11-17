@@ -1,0 +1,2 @@
+issue
+Declare a runtime dependency on setuptools#TITLE_END#`networkx` uses `pkg_resources` in the source code, without declaring a dependency on `setuptools`. This causes an `ImportError` when setuptools isn't available during runtime.   https://github.com/networkx/networkx/blob/bf1c7cc9b144767523e5abcf84f949d4223848a0/networkx/drawing/nx_pydot.py#L27

@@ -1,0 +1,2 @@
+comment
+Hi, can I work on this issue? It's my first time contributing to Networkx so I might need some guidance. 

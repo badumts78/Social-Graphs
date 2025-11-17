@@ -1,0 +1,6 @@
+issue
+Adding rich-core function and test #TITLE_END#Extraction of the rich-core of complex networks ad in Ma A and Mondragón RJ (PLoS One, 2015).
+issue
+Adding rich-core function and test#TITLE_END#Extraction of the rich-core of complex networks ad in Ma A and Mondragón RJ (PLoS One, 2015).
+issue
+Algorithm for Rich-Core#TITLE_END#Function for extracting the rich-core of a network, as defined by Ma A and Mondragón RJ (2015) in Rich-cores in networks. PLoS One 10(3):e0119678.

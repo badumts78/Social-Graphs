@@ -1,0 +1,6 @@
+issue
+Update tutorial.rst - Fixes #4249#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Adding info to tutorial.rst#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+comment
+I'll take on this issue. Is this the tutorial notebook you're talking about? https://github.com/networkx/notebooks/blob/master/tutorial.ipynb @dschult 

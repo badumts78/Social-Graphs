@@ -1,0 +1,2 @@
+issue
+ImportError: cannot import name 'independent_set' from 'networkx.algorithms.approximation' #TITLE_END#Hello all,   when I execute my code, the following import error is displayed:  ImportError: cannot import name 'independent_set' from 'networkx.algorithms.approximation'   networkx==2.6.3 

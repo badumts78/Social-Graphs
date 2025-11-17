@@ -1,0 +1,2 @@
+issue
+relabel_nodes removes disjoint nodes for identity mapping with copy=False #TITLE_END#import networkx G = networkx.Graph([(0, 1)]) G.add_node(2) mapping = {1:1, 2: 2} print("before: ", G.nodes()) nx.relabel_nodes(G, mapping, copy=False) print("after: ", G.nodes())  The simplest fix is probably just to filter out identity mappings at the beginning of "relabel_nodes.py": fixed_mapping = {k: v for k, v in mapping.iteritems() if k != v} 

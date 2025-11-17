@@ -1,0 +1,2 @@
+comment
+> I'd love to have/create more of those. I haven't checked recent progress on https://github.com/jdfreder/ipython-d3networkx maybe @jdfreder can comment. It'd be amazing to have those visualizations available.  It's more or less an MVP example of how one can make networkx graphs interactive in the IPython notebook.  I keep it up to date with IPython, but there's still a lot that could be done to improve what's already there. 

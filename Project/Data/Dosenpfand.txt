@@ -1,0 +1,2 @@
+issue
+rename parameters to conform with the docstring and similar functions#TITLE_END#Rename the parameters u, v of local_edge_connectivity to s, t so they match their names in the documentation and are consistent with similar functions, such as local_node_connectivity.

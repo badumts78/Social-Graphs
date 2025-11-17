@@ -1,0 +1,2 @@
+issue
+Does read_adjlist have a list version?#TITLE_END#Now I have a list variable (a list of strings just like a file) instead of file stream. How can I build a graph with some function like read_adjlist?

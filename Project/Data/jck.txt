@@ -1,0 +1,4 @@
+comment
+I'm not sure if this is a networkx or pygraphviz issue. I've installed pygraphviz on py3 from git, and networkx 1.9 from pypi. I can import and use pygraphviz just fine, but networkx fails to import pygraphviz.  More info here: https://github.com/pygraphviz/pygraphviz/issues/16#issuecomment-49565803 
+comment
+It does, turns out that they were using an absolute import for version.py. I've sent them a pull request. 

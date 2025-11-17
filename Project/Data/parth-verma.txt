@@ -1,0 +1,2 @@
+comment
+It would be wise to include the name of the graph in case it exists. Some additional information such as the number of nodes and edges as well as the type of graph can also be included in a format such as `DiGraph(name:"asdf",nodes:3,edges:2)`

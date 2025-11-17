@@ -1,0 +1,2 @@
+issue
+greedy modularity communities fails#TITLE_END#I am trying to find communities of a directed graph (Number of Nodes: 53663 and Number of Edges: 953380) with `greedy_modularity_communities`.   This is the following error I receive:  ```  line 127, in greedy_modularity_communities     if dq_heap[j].h[0] == (-dq, j, i): IndexError: list index out of range ```  However, running greedy_modularity_communities on the same graph with undirected edges is successful.

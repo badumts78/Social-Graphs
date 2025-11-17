@@ -1,0 +1,2 @@
+comment
+Hi @vdshk,  sorry we didn't follow up on this! We are definitely interested in helping. Interoperability between NetworkX and ETE would be great. We are just pretty much absorbed with adding large tree viz capabilities into ETE.  Let us have closer look on your code and we will try to provide some feedback. @jorgebotas, could you also have a look?  

@@ -1,0 +1,4 @@
+issue
+Fix installation instructions for `default` extras in README#TITLE_END#The user guide prescribes installing   ``` $ pip install networkx[default] ```  - https://networkx.org/documentation/stable/install.html#install-the-released-version  This matches the optional dependencies listed at  https://github.com/networkx/networkx/blob/7d195ae20c9f043da680a25f437e328aada0055b/pyproject.toml#L56-L62  It seems like the README, which is also published to PyPI (https://pypi.org/project/networkx/3.3/), should use the same instructions.  Further, when trying to use the README instructions:  ``` $ python -m pip install "networkx[all]" Collecting networkx[all]   Using cached networkx-3.3-py3-none-any.whl.metadata (5.1 kB) WARNING: networkx 3.3 does not provide the extra 'all' ```
+issue
+Improve formatting of None in tutorial#TITLE_END#Set `None` to monospace in tutorial.

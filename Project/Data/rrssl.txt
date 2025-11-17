@@ -1,0 +1,2 @@
+issue
+all_node_cuts misses some cuts#TITLE_END#I'm using networkx 2.1 with python 3.5.2. Here's a simple case that seems to fail ('b' is missing):  ``` G = nx.Graph() G.add_edges_from(['ab', 'bc', 'cd', 'de']) list(nx.all_node_cuts(G)) >>> [{'d'}, {'c'}]  ``` If I keep adding nodes, more are missing: ``` G.add_edges_from(['ab', 'bc', 'cd', 'de', 'ef', 'fg']) list(nx.all_node_cuts(G)) >>> [{'d'}, {'c'}, {'e'}] ```

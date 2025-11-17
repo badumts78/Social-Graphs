@@ -1,0 +1,2 @@
+issue
+Typo in comment of asyn_fluidc algorithm#TITLE_END#In the code says  if len(G) < k:         raise NetworkXError("k must be greater than graph size.")  But I understand that it should say "k must be smaller than or equal to the graph size".  [code](https://networkx.github.io/documentation/stable/_modules/networkx/algorithms/community/asyn_fluidc.html#asyn_fluidc)

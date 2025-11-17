@@ -1,0 +1,2 @@
+issue
+mismatch in the order of colours and edge widths #TITLE_END#The mismatch arises when the numbers of nodes and edges get larger, which I illustrate through the example attached. i.e., where I asked the edge between A and B to be red, and B-C to be grey; it comes out that A-C is grey and B-C is red. Thank you! Best, Darcy [networkx_order_mismatch.zip](https://github.com/networkx/networkx/files/6248612/networkx_order_mismatch.zip) 

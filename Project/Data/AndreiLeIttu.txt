@@ -1,0 +1,2 @@
+issue
+Fix `minimum_node_cut` behavior for complete graphs#TITLE_END#This addresses issue #8004 .  As complete graphs have no node cuts, an error message stating this is returned instead of a set of `n-1` nodes, as was the case previously.   Changes:  - Added checks for complete graphs, which return an error message stating that complete graphs have no node cuts. - Fixed tests that now behave correctly when it comes to complete graphs.  Closes: #8004

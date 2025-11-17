@@ -1,0 +1,2 @@
+issue
+No demo screenshots in your documentation?#TITLE_END#Wouldn't it be better if screenshots of graphs were provided in your documentation? It would greatly help people who are scanning through the document to find a particular way to use your library.  

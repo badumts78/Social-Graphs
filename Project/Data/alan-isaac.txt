@@ -1,0 +1,6 @@
+issue
+FutureWarning on arrays to stack#TITLE_END#> Python38\lib\site-packages\networkx\drawing\layout.py:950: FutureWarning: arrays to stack must be passed as a "sequence" type such as list or tuple. Support for non-sequence iterables such as generators is deprecated as of NumPy 1.16 and will raise an error in the future.
+issue
+transitive_closure loses self loops#TITLE_END#Consider the following example:      import numpy as np     import networkx as nx     a = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]])     G = nx.from_numpy_matrix(a, create_using=nx.MultiDiGraph())     T = nx.transitive_closure(G)     print(nx.to_numpy_matrix(T))  The transitive closure lacks the expected self loops. Why? (The documentation link does not work, and the docstring implies that self loops should be kept.) By "expected", I mean "according to standard definitions", such as the Wikipedia definition. I anticipate that a different definition is being used, but what is it?  The current [answer at StackExchange](https://stackoverflow.com/questions/52710488/transitive-closure-in-networkx/52711544#52711544) claims this is an implementation error.
+issue
+"is" with a literal now produces a synatx warning#TITLE_END#Python 3.8 issues a SyntaxWarning for `is` with a literal, which should be replaced with `==` in these locations:  convert_matrix.py:563 nx_pydot.py:202  

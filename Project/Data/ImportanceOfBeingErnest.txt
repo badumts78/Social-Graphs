@@ -1,0 +1,2 @@
+issue
+Don't remove ticks of other pyplot axes#TITLE_END#Fix for issue raised in https://stackoverflow.com/questions/56496486/axes-disappear-after-drawing-networkx-graph-on-another-subplot  `plt.tick_params` operates on the currently active pyplot axes, which is not necessarily the one where the networkx graph resides in.   This PR makes sure the axes `ax` is operated on. (`ax.tick_params`)

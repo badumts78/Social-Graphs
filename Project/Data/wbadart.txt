@@ -1,0 +1,2 @@
+issue
+Fix small typo in `trophic_levels` documentation#TITLE_END#In return value description: "vale" -> "value" 

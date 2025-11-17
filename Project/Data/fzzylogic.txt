@@ -1,0 +1,2 @@
+comment
+Just to put a good word in for leaving pydot around for a while, it works on in-browser systems like Jupyter Lite, whereas pygraphviz would not be possible to use there without [additional effort](https://github.com/pygraphviz/pygraphviz/issues/453) compiling a [WASM version](https://github.com/pygraphviz/pygraphviz/issues/319).

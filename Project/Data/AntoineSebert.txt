@@ -1,0 +1,4 @@
+issue
+Fix typo + factorize `if` statement#TITLE_END#* replace `strategy_saturation_largest_first` and `strategy_independent_set` by respectively `saturation_largest_first` and `independent_set` (similar to issue  #3621).  * replace ```python if strategy is strategy_independent_set:     msg = 'interchange cannot be used with strategy_independent_set'     raise nx.NetworkXPointlessConcept(msg) if strategy is strategy_saturation_largest_first:     msg = ('interchange cannot be used with'            ' strategy_saturation_largest_first')     raise nx.NetworkXPointlessConcept(msg) ``` by ```python if strategy is strategy_independent_set or strategy is strategy_saturation_largest_first:     msg = 'interchange cannot be used with ' + strategy     raise nx.NetworkXPointlessConcept(msg) ```
+issue
+Fix typo within incode documentation#TITLE_END#Modify *'strategy_saturation_largest_first'* into *'saturation_largest_first'*

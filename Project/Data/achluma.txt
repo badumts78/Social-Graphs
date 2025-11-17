@@ -1,0 +1,6 @@
+issue
+Update katz_centrality missing default alpha value#TITLE_END#Closes: #7014   <!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> 
+issue
+Update graph parameter in community algorithms#TITLE_END#Task 3: Fix an issue in the NetworkX codebase  Some of the community algorithms like kernighan_lin_bisection, and  naive_greedy_modularity_communities are only implemented for certain  types of graphs (undirected, not multigraph). The documentation is  updated to reflect the same. ping; #6849 <!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> 
+comment
+Good First issues

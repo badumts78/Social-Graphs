@@ -1,0 +1,2 @@
+issue
+wishlist: s-core analysis for weighted networks#TITLE_END#A generalization of k-core decomposition for weighted graphs, as introduced here:  Eidsaa, M., & Almaas, E. (2013). s-core network decomposition: A generalization of k-core analysis to weighted networks. Physical Review E, 88(6), 062819. doi:10.1103/PhysRevE.88.062819 

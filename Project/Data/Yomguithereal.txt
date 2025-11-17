@@ -1,0 +1,4 @@
+issue
+Fixing typo in bridges module#TITLE_END#Just fixing a tiny typo.
+issue
+feature: add_clique#TITLE_END#Hello networkx team,  I am opening this PR as the basis for a discussion concerning the addition of a new function called `add_clique`, in the spirit of `add_path`, `add_star` etc. It basically adds a clique based on the iterable of nodes provided. What do you think?

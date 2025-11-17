@@ -1,0 +1,2 @@
+issue
+unescape characters in parse_gml#TITLE_END#read_gml was unescaping input pretty fine, but parse_gml was not  before making this change, i tried to use 2.0 branch (which seems to promise to unescape characters in parse_gml function as well) - but my 'year old codebase' is built on top of networx 1.9. switching to 2.0 started to break my codebase. Hence i resorted to making this tiny change in 1.9 and my escape character problem got solved 

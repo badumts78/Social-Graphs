@@ -1,0 +1,4 @@
+issue
+Match two graphs based on edit paths#TITLE_END#Hey all,  I am having two undirected graphs, A and B, without any node or edge attributes. I want to recover an error-tolerant mapping of the node labels between graph A and B. As suggested in Issue #4043 I am computing an edit path with  `nx.algorithms.similarity.optimize_edit_paths`. Now, I am wondering how to retrieve the node mapping from the node_edit/edge_edit paths.  I guess, it is trivial, but I haven't used GED before and I am not really into the theory. So, does anyone have an idea, how to do this?
+comment
+I'd love to see such an approximation of GED implemented in networkx as the current algorithm is really slow.

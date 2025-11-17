@@ -1,0 +1,4 @@
+issue
+Solved "no plot in networkx/examples/algorithms/plot_iterated_dynamic…#TITLE_END#<!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> 
+issue
+Update label-check.yml#TITLE_END#<!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> 

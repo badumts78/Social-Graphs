@@ -1,0 +1,12 @@
+comment
+Thank you for your suggestions! We have added them and are waiting for any additional feedback! Also we were thinking of  adding weights on edges like that 'G.add_edge(1, 2, weight=0.5, time=datetime(2023, 5, 9))' instead of having an optional list as an argument.
+comment
+https://github.com/eirinikafourou/networkx/blob/391ba5c12a52b3b24925d60232e35c18fe56740a/networkx/algorithms/time_dependent.py#L13  https://github.com/eirinikafourou/networkx/blob/391ba5c12a52b3b24925d60232e35c18fe56740a/networkx/algorithms/time_dependent.py#L112-L119  Is this what you meant for the weight handling ? 
+comment
+Also, we're a bit confused as to why some of the checks failed, if you could provide us more information regarding this.
+comment
+> This looks good to me! >  > Thanks! I'm approving it. we still need one more set of eyes.  @dschult Thank you for the collaboration!! Should we request a review from another reviewer?  
+comment
+@dschult  @rossbar Thank you for your feedback! Regarding the optional function attribute, do you mean that something like: `time_dict = lambda G: {n: G.nodes[n].get("time") for n in G}` could be given in order to find the node's predecessors? And, if it's not given, then we would use all the node's predecessors?  Also, there was no specific reason for the use of `timestamp`, only to get more precise comparisons.
+comment
+We're glad we could help 😊 @dschult 

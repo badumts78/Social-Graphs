@@ -1,0 +1,2 @@
+issue
+Implicit graphs?#TITLE_END#I didn't see this anywhere in the documentation so I thought I'd ask. Is there support for implicit graphs in NetworkX? (I.e. the ability to specify a graph using only a starting node and a neighbor function, and having the rest be generated.)  If not, any tips on alternative approaches? Can a graph object be modified during traversal to simulate this? 

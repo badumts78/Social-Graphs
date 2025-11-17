@@ -1,0 +1,2 @@
+issue
+How to click and drag nodes in Networkx?#TITLE_END#Does anyone know how to click and drag nodes in Networkx? I referred to number of resources Following is one of the python package that I tried but unfortunately it doesn't work visJS2jupyter Link: http://compbio.ucsd.edu/author/sbrosenthal/  Any help would highly be appreciated, thanks in advance!

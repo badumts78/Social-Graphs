@@ -1,0 +1,2 @@
+issue
+Can't read edges from adjacency matrix with read_pajek#TITLE_END#Hi,  I've been trying to import a graph from a file with `read_pajek` method, and I found that adjacency matrix is not parsed by the method.  https://github.com/networkx/networkx/blob/master/networkx/readwrite/pajek.py  Are there any reasons or concepts not to implement it?  Actually, I found matrix descriptions in Pajek datasets, such as [Journals](http://vlado.fmf.uni-lj.si/pub/networks/data/2mode/journals.htm). 

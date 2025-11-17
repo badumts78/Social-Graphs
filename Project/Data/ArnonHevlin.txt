@@ -1,0 +1,2 @@
+issue
+OrderedDiGraphs and successors#TITLE_END#Do OrderedDiGraphs report the successors of a node in the order that the edges to the successors were added? For example:  ``` g = nx.OrderedDiGraph() g.add_node(3) g.add_node(4) g.add_node(5) g.add_edge(3, 5) g.add_edge(3, 4) successors = list(g.successors(3)) ```  In this case, will successors always be [5,4]?

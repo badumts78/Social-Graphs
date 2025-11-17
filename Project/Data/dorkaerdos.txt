@@ -1,0 +1,2 @@
+issue
+documentation for ancestors() on DAGs is misleading#TITLE_END#Hi,  I am working with a directed acyclic graph and want to find all nodes that are on any path between the source of the graph and the given node. The DiGraph.ancestors() function only outputs nodes that are on a shortest paths between the source and the node. However, this only becomes clear by looking at the source code, it is not said in the documentation. It would be nice if you could add this to the documentation. Same holds for the predecessors() function.  Thank you!  Best, Dora 

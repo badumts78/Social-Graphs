@@ -1,0 +1,2 @@
+issue
+How to find all complete_bipartite_graph from a graph#TITLE_END#I have a bipartite graph . I want to find all complete bipartite graph in the  bipartite graph .  for example： {'a':1,'a':2,'a':3, 'b':1,'b':2,'b':3, 'c':1,'c':2,'c':3, 'd':1,'d':2, 'e':1,}  The graph is a bipartite graph , but I want to find all complete bipartite graph . so the result is : ab/123  ac/123  ad/12  ae/1  bc/123  bd/12  be/1  cd/12  ce/1  de/1  abc/123  abd/12  ade/1  acd/12  ace/1  ade/1   bcd/12  bce/1  bde/1  cde/1  abcd/12  abce/1  abde/1  abcde/1  Thank you

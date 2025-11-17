@@ -1,0 +1,2 @@
+issue
+Does networkx implement the minimum k-cut algorithm?#TITLE_END#I've got an undirected, unweighted graph, and I don't have terminal nodes. According to wikipedia, there's a minimum k-cut that cuts the graph into 2 subgraphs, at the minimum cut point: https://en.wikipedia.org/wiki/Minimum_cut  I couldn't find any algorithm in the docs that does this.

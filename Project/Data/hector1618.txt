@@ -1,0 +1,4 @@
+issue
+Added chodal_simplicial_vertex function#TITLE_END#I have added small function to get simplicial vertex for chordal graph.  Main objective is to get some preliminary code review before further work. 
+comment
+If we decided to implement the algorithm by @nadesai ( O(VE) algorithm) then what is the ideal place(file) to write the function? 

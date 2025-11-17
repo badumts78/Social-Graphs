@@ -1,0 +1,2 @@
+issue
+Make approximation subpackage available in networkx namespace.#TITLE_END#Hi!  I guess, the approximation subpackage should be imported too. What is your opinion about it?

@@ -1,0 +1,4 @@
+issue
+Correct when we raise NetworkXNotImplemented#TITLE_END#`algorithms/components/connected.py` was littered with incorrect descriptions that we raise `NetworkXNotImplemented` for undirected graphs, when we meant to say directed.
+issue
+Expand documentation regarding strong connectivity#TITLE_END#I liked the documentation for weak connectivity <a href="https://networkx.github.io/documentation/stable/reference/algorithms/generated/networkx.algorithms.components.is_weakly_connected.html">here</a>, but there wasn't anything similar for strong connectivity.  Thought I might as well add it.

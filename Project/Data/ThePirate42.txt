@@ -1,0 +1,2 @@
+issue
+GEFX 1.3 support#TITLE_END#At the moment NetworkX only supports exporting to GEFX 1.2 and 1.1, is there any plan to support 1.3?

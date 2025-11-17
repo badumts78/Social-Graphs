@@ -1,0 +1,4 @@
+issue
+cliques documentation notes examples#TITLE_END#in functions documentation notes of `networkx/algorithms/clique.py`, the complete graph is given as an example for worst-case length of cliques list. To my understanding, the complete graph has only 1 maximal clique and it is not the worst-case.
+issue
+fix documentation notes (#3644)#TITLE_END#Removed example of worst case scenario for finding maximal cliques on a complete graph 

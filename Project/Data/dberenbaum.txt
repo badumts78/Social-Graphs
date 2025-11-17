@@ -1,0 +1,2 @@
+issue
+make layouts accept nodelists and center argument#TITLE_END#Proposing two changes to the layout functions: 1. Making functions accept a list of nodes instead of an entire Graph. 2. Adding center as an argument to allow for a layout centered around a point other than the origin.  The idea is to give users more control to use the layouts to plot subsets of graph points. 

@@ -1,0 +1,4 @@
+issue
+No attributes 'from_numpy_matrix' and 'to_numpy_matrix'#TITLE_END#Hello,  I am trying to run the following script and I received the errors below. https://github.com/Yaxin-Cui/Graph-Neural-Network/blob/main/code/graphstellar_updated.py  **AttributeError: module 'networkx' has no attribute 'from_numpy_matrix'** **AttributeError: module 'networkx' has no attribute 'to_numpy_matrix'**  Can you please help me to figure our what I should modify in the code to run it without that errors. Thanks in advance!
+comment
+If you removed "to_numpy_matrix" & "from_numpy_matrix" attributes, which attributes we should use instead of those?

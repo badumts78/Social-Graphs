@@ -1,0 +1,8 @@
+issue
+Adding examples to docstring in clique.py#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. -->Sorry for the unwanted commits that are visible! 
+issue
+Adding examples to clique.py#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> Added example for clique_removal()
+issue
+Added isomorphvf2 to import#TITLE_END#An import for isomorphvf2 was missing so I have added the same.  
+comment
+@rossbar an example has already been added to the documentation. Is there anything else that you'd like me to add?

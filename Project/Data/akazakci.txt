@@ -1,0 +1,2 @@
+issue
+No module named 'networkx.algorithms.approximation.traveling_salesman' (networkx-2.6.3)#TITLE_END#Hello, Tring to import and work with traveling_salesman.   I tried many ways to import: import networkx.algorithms.approximation.traveling_salesman from networkx.algorithms.approximation import traveling_salesman from networkx.algorithms.approximation.traveling_salesman import * etc  None worked. I tried with version 2.5, updated to version 2.6.3, still getting the same error.  What might be the cause? Is there a turn around?  Thank you all. 

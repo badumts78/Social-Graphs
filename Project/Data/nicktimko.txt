@@ -1,0 +1,8 @@
+issue
+Add favicon to documentation #TITLE_END#If I have enough tabs open in my browser, the NetworkX doc page just "disappears", turning into an easily overlooked white page icon.  Is there an official logo for NX that can be used?  I'd be willing to throw together a PR to tweak the Sphinx docs to add some distinctiveness if there is some source to work from. 
+issue
+Fix location of graphviz_layout in draw_graphviz#TITLE_END#Lost in a rename/rearrange? Added a basic smoke-test that just calls the function with a graph to verify names are valid. 
+comment
+You can further compress some of the list comprehensions  ``` [p.get_name() for p in P.get_node_list()] [p.get_name()for p in P.get_node_list()] # saves 1 char ```  Along those lines, there's also 53 names that you could use for methods before being forced to use more than one character.  https://codegolf.stackexchange.com/questions/54/tips-for-golfing-in-python 
+comment
+My comment was tongue-in-cheek :P  Regarding CamelCase test methods, for some reason Python's [`unittest` module](https://docs.python.org/3.5/library/unittest.html) and `TestCase` methods seem to love em. As testing is mostly an "internal" thing and many test methods are already `setUp`, et al., maintaining consistency can override PEP-8 (consistency above all).  External APIs should follow PEP-8 much more closely. 

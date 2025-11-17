@@ -1,0 +1,2 @@
+issue
+"adjacent" used to mean "incident" when referring to an edge#TITLE_END#Pages such as [functions](https://networkx.github.io/documentation/latest/reference/functions.html) refer to edges as being "adjacent" to a node but the correct term is "incident". [Glossary of graph theory](http://en.wikipedia.org/wiki/Glossary_of_graph_theory#Adjacency_and_degree). 

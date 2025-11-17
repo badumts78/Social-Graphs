@@ -1,0 +1,12 @@
+issue
+NX 3.0: changed return type of directed_combinatorial_laplacian to SciPy Sparse Matrix#TITLE_END#This is a change for nx 3.0.
+issue
+added future warning to directed_combinatorial_laplacian for new return type#TITLE_END##4141 implements the necessary change.
+issue
+DOC: added see also section to find_cycle#TITLE_END#Refers to issue #3889 
+comment
+hey guys- as a new contributor who's just gone through a few first contributions / first sprint in the past month I'd be happy to help organize materials and/or an event.  I definitely have some thoughts after having just gone through this process. 
+comment
+awesome!  I would love to join.  Thanks, Eric.  
+comment
+hi I'd like to start contributing to networkx and it looks like this is still open.

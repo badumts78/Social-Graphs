@@ -1,0 +1,4 @@
+comment
+Hi, I m experiencing the same issue. Although I replaced line 211, "TypeError: unhashable type: 'dict'" still exists.  I want to build a MultiGraph using the following dataframe (links):  l_id  |  v_id_1 |  v_id_2  |  v  |  f  | ---   | ------- |  ------   | --  | -- | 3483  |  739  |  2232  |  380000  |  50   3482  |  717  |  2196  |  380000  |  50 3482	  |  717  |  2196  |  220000  |  50 3480  | 1058 |  2250  |  220000  |  50  Trying to run this "G=nx.from_pandas_dataframe(links,'v_id_1','v_id_2',edge_attr=['v','f'],create_using=nx.MultiGraph())", I m getting the error. What am I missing?  Thanks in advance!   
+comment
+H JTorrents. Really thanks for your assistance. Indeed, the reason was that I had installed the version 1.11.

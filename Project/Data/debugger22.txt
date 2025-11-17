@@ -1,0 +1,14 @@
+issue
+range should be equated to xrange for Python2#TITLE_END#For instance, see this: https://github.com/networkx/networkx/blob/master/networkx/algorithms/flow/networksimplex.py#L22-L25 
+comment
+@MridulS  For `x.y.z`  `x` is increased in case of compatibility breaks. `y` is increased in case of additional features. `z` is increased in case of bug fixes.  `1.10` seems apt as suggested by @ysitu. 
+comment
+There are no rules, though. Linux kernel `4.0` was released after `3.19` even though there were no compatibility breaks. 
+comment
+This is not mathematical equality. `1.1 != 1.10` :) 
+comment
+I think you can have only one PR from one branch. Why not use `git cherry-pick`? 
+comment
+Perhaps this change was not tested. Imports from `__future__` should be at the top(first python command). Failing to do so results in a syntax error. 
+comment
+@chebee7i  I wonder if doc generation is covered on travis-ci. 

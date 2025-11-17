@@ -1,0 +1,6 @@
+issue
+added documentation#TITLE_END#Added a line documenting the (typical but not always used) convention that entry i,j corresponds to an edge from i to j. I couldn't find this documented elsewhere, and it is not clear from reading the code in to_scipy_sparse_matrix 
+issue
+What happened to Bipartite graph generators?#TITLE_END#They seem to have been removed in version 1.10, and this has broken some of my code. Am I missing them someplace else, and is there a plan to reintroduce these functions? 
+issue
+Fixed warnings with "<<" operator when loading#TITLE_END#I was getting these warnings:  DeprecationWarning: Operator '<<' is deprecated, use '<<=' instead  Changing them to <<= seems to have fixed the problem. 

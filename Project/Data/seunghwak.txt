@@ -1,0 +1,2 @@
+comment
+Thank you very much for posting this, and providing NetworkX compatibility is a main objective of cuGraph 0.8 release (we just released 0.7).  Visit https://github.com/rapidsai/cugraph for more information about cuGraph and https://rapids.ai for the RAPIDS project.

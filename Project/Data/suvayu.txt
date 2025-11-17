@@ -1,0 +1,4 @@
+issue
+Add unit tests for utils.misc.flatten#TITLE_END#Also update flatten to always return a tuple. The previous behaviour of preserving the type was leading to test failure.  So we decided that while flattening there is no expectation to preserve the type.
+comment
+Tests for `utils.misc.flatten` are in #4359 

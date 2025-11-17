@@ -1,0 +1,6 @@
+issue
+Graph Embedding #TITLE_END#Hi, Any plans on implementation of embedding or vector representation of nodes and edges. @dschult 
+issue
+added new Link Prediction algorithm (CCPA)#TITLE_END#CCPA was published in Nature Scientific Reports -2020. I will add some more link prediction algorithm later.
+comment
+Hi, I want to add some more link prediction algorithm such as Katz and CCPA (https://www.nature.com/articles/s41598-019-57304-y) recently published in Nature Scientific Reports.  CCPA is an advance feature based algorithm with less complexity and better accuracy so that will be a good addition.

@@ -1,0 +1,2 @@
+issue
+Add parameter description to draw functions#TITLE_END#A number of functions of the `networkx.drawing.nx_pylab` module did not have a description of their arguments in the docstrings. This PR adds parameters descriptions to all of them. 

@@ -1,0 +1,2 @@
+issue
+why didn't implement katz score in link prediction?#TITLE_END#hi, why didn't implement katz score in link prediction? is it because  computational complexity of Katz score is high and it  is not suitable for large-scale network?

@@ -1,0 +1,2 @@
+issue
+Problem with transitive_closure not copying data#TITLE_END#Hello everyone!  It seems that with some of the new development versions posterior to May, 2017 the transitive_closure function of DAG does not transfers the node and edge data to the new graph. Perhaps his part of the code:  `TC = nx.DiGraph() TC.add_nodes_from(G.nodes()) TC.add_edges_from(G.edges())`  might need the "data = True" statement as argument.

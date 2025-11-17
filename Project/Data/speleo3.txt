@@ -1,0 +1,2 @@
+issue
+top-level "tests" import necessary?#TITLE_END#The [top level module](/networkx/networkx/blob/master/networkx/__init__.py) imports `networkx.tests` on line 126: ```python from networkx.tests.test import run as test ``` Is this necessary or relevant?  While bundling up a lightweight Python environment I removed all `lib/python*/site-packages/*/tests` directories and noticed that `networkx` was the only package that broke.

@@ -1,0 +1,2 @@
+issue
+Broken link in documentation#TITLE_END#https://github.com/networkx/networkx/blob/91d3de2ce319c60f8217c08b2e6831ee6ee45284/networkx/drawing/nx_pylab.py#L102 links to  http://networkx.github.io/documentation/latest/gallery.html which doesn't exist.

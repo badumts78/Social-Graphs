@@ -1,0 +1,8 @@
+issue
+Link prediction algorithms #2#TITLE_END#This is the sequel of PR #1117. I added Jaccard coefficient, Adamic-Adar index, and preferential attachment score as described [here](http://www.cs.cornell.edu/home/kleinber/link-pred.pdf).  I am thinking of adding Katz score too, probably utilizing the existing `katz_centrality` function, but I am quite busy at the moment. If there's anyone who could help that'll be great. I don't really understand the other algorithms mentioned in the paper so I won't implement it now. 
+issue
+Link prediction algorithms#TITLE_END#I tried to implement some simple link prediction algorithms which I am going to use in my work. Complete list of well-known algorithms can be found [here](http://arxiv.org/pdf/1010.0725v1.pdf). Some link prediction algorithms based on cluster information are emerging recently ([here](http://dl.acm.org/citation.cfm?id=2187980.2188150&coll=DL&dl=ACM) and [here](http://link.springer.com/chapter/10.1007%2F978-3-642-34459-6_10)) so I am thinking of implementing some of them too.  This request is NOT ready to be merged. Many improvements are still needed. Please let me know if you're interested by leaving any comments. 
+issue
+Non edges enumeration#TITLE_END#Here is the implementation of non-existent edges enumeration as discussed in #1117. With this, one can perform link prediction algorithm to a graph by something like:  ``` python import networkx as nx  def linkpred(graph):     for (u, v) in nx.non_edges(graph):         p = nx.common_neighbors(graph, u, v)         yield (u, v, p) ```  Please let me know what you think. 
+comment
+@ysitu I am now starting to work on the interface change. It shouldn't take long. I will let you know ASAP if somehow I have to postpone the work. 

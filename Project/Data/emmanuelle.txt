@@ -1,0 +1,2 @@
+comment
+I think it's only worth adding type annotations if you add a mypy check in your CI, otherwise you do not guarantee consistency. I did not see such a check in this PR but maybe it already exists elsewhere in the repo? (not very familiar with the networkx repo, just taking a look as we are also trying to add type annotations in scikit-image https://github.com/scikit-image/scikit-image/pull/4794)

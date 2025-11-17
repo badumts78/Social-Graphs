@@ -1,0 +1,2 @@
+issue
+unable to add colorbar to a MultiDiGraph for networkx >= 2.1#TITLE_END#In networkx 2.0, `nx.draw_networkx_edges()` returned a `LineCollection`, which you could then pass to matplotlib's `colorbar()` to get a colorbar showing the scale of the colors for the edges.  In networkx 2.1, it now returns a list of `FancyArrowPatch`s, and `colorbar()` complains that these are not mappable.  Is there a new way to add a colorbar to a directed graph for networkx >= 2.1?  I couldn't find anything in the docs.

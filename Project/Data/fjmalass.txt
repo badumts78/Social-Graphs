@@ -1,0 +1,4 @@
+issue
+node_link_graph: convert keys back to tuples #TITLE_END#When the nodes are tuples, json serialization converts the "id" into a list. This breaks the node_link_graph.py add_node() functions  I would propose to pipe the nodes and edge_info "id"s to a  "to_tuple" function.  with to_tuple being something like that.   ``` python def to_tuple(x):     if isinstance(x, list):         x = tuple(x)     if isinstance(x, tuple):         x = tuple([to_tuple(xx) for xx in x])     return x ``` 
+issue
+Fjmalass nodes as tuples#TITLE_END#fix for #1975   Creation of to_tuple in "utils.misc" and converted nodes to tuples in node_linnk_graph. 

@@ -1,0 +1,8 @@
+comment
+A long-long time ago I implemented an algorithm to check unrooted tree isomorphism, but I never created a pull request for e37cb912509bcb59e2b6a19833fbbfbb465550f8. If this algo has a place in networkx, I'd be glad to clean it up or even rewrite it (hey, 4 years is a long time, haha). 
+comment
+now I'm not even sure whether I pushed every commit back then, but the idea was to implement these two algorithms http://crypto.cs.mcgill.ca/~crepeau/CS250/2004/HW5+.pdf 
+comment
+The unrooted isomorphism checker does the same thing by finding the center of both trees, and checking if they are isomorphes when rooted to the centers. If there are two centers, then we must do two checks. 
+comment
+Something like  ``` Python from networkx.algorithms.distance_measures import center  def is_isomorphic(T1, T2):     center2 = center(T2)[0]     for center1 in center(T1):         if is_isomorphic(T1, T2, center1, center2):              return True     return False ``` 

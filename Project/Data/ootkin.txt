@@ -1,0 +1,2 @@
+issue
+How to retrieve all paths of a source node without a target node#TITLE_END#Is there a way to retrieve all paths from a source node without passing a target node?  Now i'm using `all_simple_paths(G,source,target)` but i have to specify 2 nodes, and for my problem is not possible because i'm workin with very large graphs (from 10 MB to 50MB).  The target nodes are the leaves that are reachable starting from source node.  Thanks

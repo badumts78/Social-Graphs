@@ -1,0 +1,2 @@
+comment
+> We are also planning to improve installation issues for pygraphviz.  Do you mean providing wheel package for pygraphviz? I know I had colleagues having trouble building/installing the package on MacOS. That would be awesome!

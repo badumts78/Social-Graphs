@@ -1,0 +1,2 @@
+comment
+So exciting that someone meets the same question with me! How do you deal with the betweeness centrality now? Can we just use 1/weight=distance or just use weight directly? I prefer the first one that is consistent with closeness centrality.

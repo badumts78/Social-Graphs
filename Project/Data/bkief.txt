@@ -1,0 +1,4 @@
+issue
+New Feature - Resistance Distance#TITLE_END#Added memory efficient algorithm for calculating resistance distance on a undirected graph
+issue
+Added Resistance Distance algorithm#TITLE_END#Added a memory efficient resistance distance algorithm

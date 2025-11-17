@@ -1,0 +1,2 @@
+issue
+Support for Python 3.6#TITLE_END#We're building PyTorch, which depends on networkx. On CentOS 7 and Ubuntu 18.04, stock version of python is 3.6 and we're having trouble today due to the newly released networkx 2.6. Is there any strong reason to switch to 3.7 before the EOL of these 2 distros? Can we improve the compatibility if not too hard?

@@ -1,0 +1,2 @@
+issue
+Harmonic centrality computation  - why directed Graph gets reversed?#TITLE_END#In the source code of "harmonic_centrality(G, nbunch=None, distance=None)" - there is: if G.is_directed():         G = G.reverse()  when computing Harmonic centralities for directed graphs we get a discrepancy with the values produced using the Graph-Tool package, but this difference goes away when G gets reversed again, i.e. we get the original graph. Could it be this is a mistake and G should not get reversed?  Thanks, Kris

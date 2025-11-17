@@ -1,0 +1,26 @@
+issue
+New geospatial examples#TITLE_END#Hi, This is related to issues #3932, #3478.  When using networkX to find over 305 million the shortest paths on a river network, I quickly realized that the nx.read_shp() and nx.write_shp() function had problems (no 3D, removal of parallels edges...).  I see there is an wish to get rid of those two functions as that would simplify your life as installing GDAL seems to be a problem for users and code maintainers.   I would like to offer simplified bits of code (and example data) based on the algorithm and paper found below.  The goal would be to help user in the GeoSpatial community figure out how to use networkX by bypassing the deprecated (or soon to be deprecated???)  nx.read_shp() and nx.write() function, using geopandas functions.  I see @iboates has contributed ideas and code to make this work and I would like to avoid duplicating some work. @adnanmuttaleb, have you done some work on this?  It would also be nice if someone could add some code to implement traffic rule for road networks as all my work so far has been on river networks where only current direction was important.   Can you point me in the right direction for adding examples to your site?    https://gitlab.com/njacadieux/upstream_downstream_shortests_path_dijkstra https://www.mdpi.com/2306-5729/5/1/8
+issue
+3D shapefile not supported#TITLE_END#When reading a Shapefile using the  read_shp(path, simplify=True), 3D Shapefiles are not supported. Error message does not make sense to user.
+issue
+Shapefile read, rounding of decimals in u,v , wkt and Json all different.#TITLE_END#When making a graph using  read_shp(path, simplify=True):, u,v, and first and last vertex in Wkt and Json are all rounded differently.  Some values are rounded to 9,10 and 16 or more decimals making it more difficult to query the coordinate in the Wkt. I have not checked wkb.
+comment
+Hi,  If you don't want to be flooded with questions, examples should support or detect parallel edges, 3D geometries and line collections (multilinestrings). We should also have examples to show how to add disconnected nodes (like a street adresse) to the network. Having shapefiles or a geopackage to the example could be nice but examples could also be simple WKT examples in a text file.  I could help out here.  
+comment
+Hi, I haven't played with Momepy. I have to check that out. If it used shapely, then some manipulations with not work with 3D objects and the shapely error is confusing.  MultiLineStrings could be exploded if the are connected Linestrings with no flip in directions.  If they have flips, of if they are disconnected, then we should flag the error as the used probably does not know he has them.  Using as graph that can handle parallel edges is good but much slower and tough on memory.  I would definitely use one in one example but I would also put a digraph example and flag the parallel edges as they show up, or modify them to eliminate beginners errors.  This way, we show them how to handle this situation.  
+comment
+We could used or refer to this https://www.mdpi.com/2306-5729/5/1/8 in text if you don't want to start from scratch.  I wish I had also known about PySAL...  Do you, by any chance have examples of how to enforce trafic rules?  That would be nice to have...
+comment
+If we choose to explode the MultiLineStrings, we need to keep in mind that any weight value would need to be proportional to the line segments.  That could be ok for stuff like distances but not stuff like distances from radiation source or some weight that would decrease with an inverse square.  It might just be better to flag them out.   In my article, I explain some of the thing that need to be done to a GIS network for it to work on a graph. It would be nice to add some of this info in the GIS examples.  
+comment
+I see momepy is built on top of geopandas so we would need to be careful with 3D shapes.  Some shapely manipulation will not work. The old nx shape read had this problem so you could test with that to see the error that is given.
+comment
+Ok,  Start with what you are proposing and then I can test to see if it bugs. It's probably all good if the shapely objects found in edges are not modified or manipulated. I will check it out. Tell me when and if you want my input.  Nicolas
+comment
+Hi, This is related to issues 3478.  I would like to work on that.  I also made a script to read shapefiles using geopandas.  We need to fix the 3D shape read problem, fix the parallel edges problem (the are currently rejected by the read shapefiles function.  It would be nice to check for wrong geometries like polygons, or multi-line object that can create problems.  Can I be of any use?
+comment
+Hi, I will read your comments carefully tomorrow.  The bad news is that shapely, and geopandas rely on GDAL.  Would that mess up your plan to get rid of that dependency or would that just pass the trouble to geopandas that already need to take care of that? But yes, I would like to help.  Nicolas
+comment
+Ok, I would like to Skype next week so we can figure things out.  Is there a good time for you?
+comment
+Hi, Anyway we can talk in person about this?  How can I reach you? Nicolas

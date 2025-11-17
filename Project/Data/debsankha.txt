@@ -1,0 +1,4 @@
+issue
+Feature add: min cycle basis#TITLE_END#I have added a function to compute [minimum weight cycle basis](https://en.wikipedia.org/wiki/Cycle_basis#Minimum_weight) for an undirected graph following [de Pina's algorithm](https://people.mpi-inf.mpg.de/~mehlhorn/ftp/CycleBasisImpl.pdf).  
+issue
+nx.MultiGraph.degree_iter() reports wrong degree for Graphs with self loops#TITLE_END#For multigraphs with self loops, degree() method returns wrong result:  ``` python In [41]: L=nx.MultiGraph()  In [42]: L.add_edge(1,2)  In [43]: L.add_edge(1,1)  In [44]: L.add_edge(2,2)  In [45]: L.degree() Out[45]: {1: 3, 2: 3}  In [46]: L.edges() Out[46]: [(1, 1), (1, 2), (2, 2)] ```  Obviously, both  the degrees should be 2, not 3.  

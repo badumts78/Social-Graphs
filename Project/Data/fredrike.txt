@@ -1,0 +1,2 @@
+issue
+added implementation of VoteRank#TITLE_END#    VoteRank computes a ranking of the nodes in the graph G based on a voting     scheme. With VoteRank, all nodes vote for each neighbours and the node with     the highest score is elected iteratively. The voting ability of neighbors of     elected nodes will be decreased in subsequent turnself.

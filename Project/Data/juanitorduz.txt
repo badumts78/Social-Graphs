@@ -1,0 +1,2 @@
+issue
+Fix Docs Typo in networkx.drawing.nx_pylab.draw_spectral#TITLE_END#Fix minor typo: `Laplacion` to `Laplacian`.   Just to be fair to [Pierre-Simon_Laplace](https://en.wikipedia.org/wiki/Pierre-Simon_Laplace) :)

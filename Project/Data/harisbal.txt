@@ -1,0 +1,10 @@
+issue
+WIP: allow for multiple cutoffs (nx.all_simple_paths)#TITLE_END#Allow limiting the results of nx.all_simple_paths not only by the length of the path but as well as by other weight attributes.
+issue
+Allow multiple cutoffs for all_simple_paths#TITLE_END#Allow limiting the results of `nx.all_simple_paths` not only by the length of the path but as well as by other `weight` attributes.
+issue
+Limit all_simple_paths by weight#TITLE_END#This a first effort to allow limiting the results of `nx.all_simple_paths` not only by the length of the path but as well as by the distance covered as specified by the `weight` attribute. The suggested approach is most likely inefficient but it could work as a basis for further improvement.
+issue
+Limit nx.all_simple_paths by weight#TITLE_END#This a first effort to allow limiting the results of `nx.all_simple_paths` not only by the length of the path but as well as by the distance covered as specified by the `weight` attribute. The suggested is most likely inefficient but it could work as a basis for further improvement.  
+issue
+Limit cycle edges#TITLE_END#Merge into master

@@ -1,0 +1,2 @@
+issue
+NameError raised instead of ValueError for minimum_spanning_edges with nan edge#TITLE_END#Yeah, this is a very small and insignificant bug. Using v2.0:      import networkx as nx     from networkx.algorithms import tree     import numpy as np      ex = nx.MultiGraph()     ex.add_weighted_edges_from([(0, 1, np.nan), (1, 2, 1)])     list(tree.minimum_spanning_edges(ex))  This raises      NameError: name 'f' is not defined  on `algorithms/tree/mst.py:165`, which attempts to raise a ValueError. 

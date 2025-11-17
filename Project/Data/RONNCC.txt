@@ -1,0 +1,36 @@
+issue
+Add a CONTRIBUTING.md#TITLE_END#in the style of https://github.com/joyent/node/blob/master/CONTRIBUTING.md in order to facilitate contributions. 
+issue
+Add viz attribute access data to tutorial#TITLE_END#I've been trying to print a GEXF file with viz data, and only after ~2 hours of wandering around, did I find that it wanted a 4 level nested dictionary....   Sidenote: it seems like graph_write and the special graph attributes ex. viz are somewhat 'hidden' aspects? 
+comment
+is this still open - as in the code hasn't yet been contributed? 
+comment
+You're supposed to first fork the library, make the code fix, and then file a pull request.  
+comment
+lol you should break this into lots and lots of small changes.  also @hagberg  in general it's just formatting things really - it shouldn't break code 
+comment
+also @jfinkels  using autopep8 without looking at it's results is not a good idea. it attempts formatting with ASTs, that doesn't mean it does anything for how it visually looks - e.g. it breaks groups of objects in the middle sometimes which isn't necessarily the best thing to do and is also mentioned in pep8  
+comment
+hmm, what about having future packages compliant? > slow integration as suggested  
+comment
+darn missed it, sorry :)  
+comment
+the proposal should be much much longer - look at previous examples  On Mon, Feb 23, 2015 at 1:18 PM, chebee7i notifications@github.com wrote:  > Both @bjedwards https://github.com/bjedwards and I have visited the > networkx gitter room: https://gitter.im/networkx >  > That seems more than fine for an IRC equivalent. No promises on occupied > that room will be in general, but live conversation is often helpful. >  > — > Reply to this email directly or view it on GitHub > https://github.com/networkx/networkx/issues/1341#issuecomment-75599319. 
+comment
+technically first project proposal and like - second work now and work for gsoc would be seperate - that is technically a paid project  On Thu, Feb 19, 2015 at 12:44 PM, chebee7i notifications@github.com wrote:  > I think it would be helpful if we familiarized ourselves with how various > graph databases, such as Neo4j, deal with sql-like queries on graphs. We > might as well bootstrap our design. >  > — > Reply to this email directly or view it on GitHub > https://github.com/networkx/networkx/issues/1326#issuecomment-75099439. 
+comment
+We should throw an error when using those modules ... Though this one is pretty self explanatory On Jul 19, 2013 7:31 PM, "Dan Schult" notifications@github.com wrote:  > easy_install matplotlib >  > should do the trick. NetworkX has many parts that don't require any other > libraries, so importing it doesn't require installation of the other > libraries. But depending on what you plan to do it is helpful to have > matplotlib, numpy and scipy. >  > On Fri, Jul 19, 2013 at 7:22 PM, mh602653 notifications@github.com > wrote: >  > > Hi everyone, > >  > > I used easy_install to install networkx on python 2.7. I think > > everything > > went well but now that I am trying to use the module I am getting the > > folliwing error: > >  > > "ImportError: No module named matplotlib.pyplot" > >  > > Note that I am importing "import networkx as nx" with now problem! > >  > > Any help is much appreciated here. > >  > > Thanks, > >  > > — > > Reply to this email directly or view it on GitHub< > > https://github.com/networkx/networkx/issues/904> > > . >  > — > Reply to this email directly or view it on GitHubhttps://github.com/networkx/networkx/issues/904#issuecomment-21283446 > . 
+comment
+also delete that directory - looks like you interrupted it midway  On Fri, Jul 19, 2013 at 8:00 PM, mh602653 notifications@github.com wrote:  > thanks for your quick response. I did "easy_install matplotlib" and I got > an error that I require NumPy. I installed NumPy using the file available > here: >  > http://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy >  > (My python version is 2.7) >  > Then I again started: "easy_install matplotlib" >  > Now I am getting an error saying: "the directory is not empty c:\path..\ > local\temp\easy_install-x0ngnn\matplotlib-1.2.1\lib\mpl_example\user_interfaces" >  > Any idea about this one? >  > — > Reply to this email directly or view it on GitHubhttps://github.com/networkx/networkx/issues/904#issuecomment-21284268 > . 
+comment
+as wschlauch said, can you give anything to replicate it. It's very unlikely that the centrality cannot be calculated.  On Wed, May 22, 2013 at 4:30 AM, wschlauch notifications@github.com wrote:  > Could you provide any example code? How did you call the method? > My guess would be for an empty set of nodes, such that the length of top > will be zero and therefore you divide by zero (giving the method no nodes > implies all are in bottom). > For a more exact statement an example would be useful. >  > — > Reply to this email directly or view it on GitHubhttps://github.com/networkx/networkx/issues/872#issuecomment-18264086 > . 
+comment
+... i'm pretty sure this isn't on our end. 1/0 is a python thing  On Wed, May 22, 2013 at 5:23 PM, Aric Hagberg notifications@github.comwrote:  > We could add an error check if this message is too confusing. >  > — > Reply to this email directly or view it on GitHubhttps://github.com/networkx/networkx/issues/872#issuecomment-18308900 > . 
+comment
+just ran it. got http://i.imgur.com/S04vcbL.png. are you sure you're using the right version of everything?  I'm on Python 2.7.2 (default, Jun 12 2011, 15:08:59) [MSC v.1500 32 bit (Intel)] on win32. Using the Python download ~~ not cygwin. using binaries  actually I might be using slightly older libs ironically: networkx (1.7) matplotlib (1.1.0) 
+comment
+also you're on a win box. Try reinstalling cygwin / using a vm to run the same script. 
+comment
+what's wrong with this fix ...? 
+comment
+haha no problem :) @hagberg  

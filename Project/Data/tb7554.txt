@@ -1,0 +1,2 @@
+issue
+Pass heuristic function full node object, not just names#TITLE_END#Currently only the node names are passed to the heuristic function, which is quite limiting (for example, to calculate distance function in your example you must name the nodes by the coordinates (x,y)). If the node object was passed it would be possible to write heuristic functions which can use all node properties to return the result.   I have included my proposal with a try statement so as not to interfere with legacy code.

@@ -1,0 +1,2 @@
+issue
+Cannot get neighbours for DiGraph#TITLE_END#I thought the documentation said that I can ask the neighbours of a node in a DiGraph, but this script gives me `AttributeError: 'DiGraph' object has no attribute 'neighbours'`  ``` import networkx as nx    G = nx.DiGraph()  G.add_path([0,1,2,3,4,5,6,7,8,9])  print(G.nodes) print(G.neighbours(4)) ```

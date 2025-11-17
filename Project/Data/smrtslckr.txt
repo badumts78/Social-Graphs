@@ -1,0 +1,2 @@
+issue
+Factor Graphs with Networkx?#TITLE_END#Is anyone aware of any work on implementing factor graphs on NetworkX?  Thank you! 

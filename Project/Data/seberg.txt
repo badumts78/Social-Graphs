@@ -1,0 +1,8 @@
+comment
+Seems all a bit strange.  I tried to lazyimport a module that does `from .submodule import *` and then fetches its `__all__`.  If I define the `__all__`, it actually seems to work fine.  But if I do not define `__all__` it fails, because `__all__` never gets auto-defined?  However, it errors then because `__all__` does not exist, not because the name itself is missing.  I am wondering if the `LazyLoader` is just subtly different when it comes to `__all__` (or maybe a bit more?). I do suspect a it could be worked around by changing the imports a bit, but not quite sure.  EDIT: I wonder if some trickiness in NumPy hits something similar to [this](https://github.com/python/cpython/issues/86439), but I am not sure...  Seems like it requires deeper digging.  Maybe best to float to Python?  But my minimal reproducer doesn't yet reproduce quite the same error :).
+comment
+Yeah, that was my impression as well, Jarrod started trying it today and it looked good (but was very early).  I do wonder if LazyLoader could be "fixed" with respect to submodules here, but I have not looked at all whether it is easy.  The PEP explicitly mentions this as an incompatibility of the lazy loader!
+comment
+@RazerM yes, that one: https://peps.python.org/pep-0690/#import-side-effects: > relying on imported submodules being set as attributes in the parent module.  Which seems at least the main issue, possibly the only one.
+comment
+I was trying to look into this (because I that https://github.com/numpy/numpy/issues/20455 might be the reason), but I can't reproduce the failure with NumPy main locally?   Do you happen to have an idea what else could be the reason?  SciPy 1.7.3 is pretty very new?

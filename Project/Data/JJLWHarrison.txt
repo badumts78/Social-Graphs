@@ -1,0 +1,2 @@
+issue
+eigenvector_centrality() docstring needs rewording#TITLE_END#The docstring for eigenvector_centrality() refers to the cluster centrality of a node i and then proceeds to give an equation for the vector of cluster centrality for all nodes. Suggest rewording similar to the katz_similarity() method.

@@ -1,0 +1,2 @@
+issue
+Handling numpy scalars in contributor guide#TITLE_END#The issue involved handling NumPy scalar values within a Python project. NumPy scalars can cause compatibility issues when interacting with native Python types. The provided solution identifies NumPy scalar types (e.g., np.int32, np.float64) and converts them into their corresponding native Python types (e.g., int, float), ensuring smooth interoperability within the codebase.

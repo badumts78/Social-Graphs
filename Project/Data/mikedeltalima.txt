@@ -1,0 +1,2 @@
+issue
+Incremental Closeness Centrality (undirected, unweighted graphs)#TITLE_END#Feedback is welcome, especially ideas for testing. Based on http://sariyuce.com/papers/bigdata13.pdf  Example test output: incremental time: 0.2489505890000001 regular time: 0.29470588600000003 incremental time: 0.008035898000000152 regular time: 0.19043970500000018 incremental time: 0.006714191999999564 regular time: 0.17528513400000012 incremental time: 0.007777294000000268 regular time: 0.17169830299999944 incremental time: 0.007007126000000419 regular time: 0.17890726899999976 

@@ -1,0 +1,280 @@
+issue
+To find a Hamiltonian circuit in a graph#TITLE_END#I was wondering if there's a way to find if a graph whether directed or undirected has a Hamiltonian path or not _i.e. a path visiting each vertex exactly once_. For graphs with small number of nodes, it can be done easily, but it won't be easy for bigger graphs with more branches. I was thinking to implement a way to find the Hamiltonian circuit in such graphs.  Any suggestions? 
+issue
+Issues not labelled with difficulty#TITLE_END#Hi,  I have read the tutorials written in the documentation. And now, I want to solve some bugs. But here in the issue tracker I can't find any of them labelled as 'easy' or 'beginner-friendly'. IMHO It would really help people like me to start contributing to networkx. 
+issue
+Replace "making a patch" with "Creating a PR"#TITLE_END#As being pointed out in the mailing list, I think [making a patch](https://networkx.readthedocs.io/en/stable/developer/gitwash/index.html) page in the documentation is little misleading and we should remove or replace with "Creating a Pull Request" page.
+issue
+Unable to find PDF versions of Tutorial and Reference#TITLE_END#The links of 3 PDFs are not working on the [main page](https://networkx.readthedocs.org/en/stable/index.html). 
+issue
+Inconsistency between v1.11 and current master algorithms#TITLE_END#Hi !  Inside [`networkx.algorithms.tree.mst`](https://github.com/networkx/networkx/blob/master/networkx/algorithms/tree/mst.py) module there are functions for minimum and maximum spanning trees/edges. But in the version 1.11, there is no such function for maximum spanning tree in the main namespace. Also the `mst` module is at the root directory of `algorithms` module, without the maximum spanning functions. I found this weird and hence I would like to know if there is any particular reason for this? 
+issue
+Having a Requirements.txt or completing install_requires#TITLE_END#While writing the script for appveyor, I realize that NetworkX misses a requirements.txt and hence does not avail the `pip install -r requirements.txt` option while installing. Some of the packages are optional but should be included in the `requirements.txt` to provide the option of _complete_ installing of all the dependencies. In my opinion, populating `install_requires` of `setup.py` for this purpose is not a good idea. 
+issue
+Few points for the developing community#TITLE_END#Hello developers,  No doubt, NetworkX is a great python library . Also being fully written in python, it is not brainstorming to get familiar with the code base. But what I have felt which can make it more awesome, is creating a welcoming inspiration for people who use it, who wish to contribute at least one patch into it.  According to pypi, NetworkX had **113,321** downloads in the last month. Currently, it has 408 forks on Github and there are about 25 people who have 5 or more commits. That's just **6%** of the total forks. We can _definitely_ improve this. Here are some of my ideas for this. ##### 1. A nice Home of networkx wiki  Currently, people can't figure out much from the [Home](https://github.com/networkx/networkx/wiki). However, the page [GSoC 2015](https://github.com/networkx/networkx/wiki/GSoC-2015) contains some of the sections which can be shown in the Home like 'Communicating with NetworkX' and 'Getting started with NetworkX development'. But this is something misguiding. ##### 2. Development is not all about GSoC  While GSoC is a very good period for new people to join the community but it should not be the primary. Personally I believe that we should emphasize more on this to get more "hero" contributors. Writing a development workflow would be a good point to start with. ##### 3. A page always having some ideas.  Just like we created ideas page for GSoC, we can have a permanent page(updated at times) which should contain information about features that can be added to NetworkX to reach the goal.  Sorry for creating an issue on GitHub but I believe this is a good way to start discussion on it.  Thank you. 
+issue
+Activate Appveyor-CI#TITLE_END#Fix #1650   This PR adds necessary files for starting CI based builds over [AppVeyor](https://ci.appveyor.com). AppVeyor helps ensure that the code is _really_ OS independent by testing it over a Windows based platform. 
+issue
+Remove symlinks#TITLE_END#Fix #1695   To remove the duplication of `atlas.py` in `examples/` a symbolic link was created in #1467. But that was in examples directory which is different from the `networkx` directory. So, I guess this is different case than the duplication in the package code. I'm not sure about this.  We may wait for #1699 to verify in this PR that the bug in installation in over. However [here](https://ci.appveyor.com/project/OrkoHunter/networkx/build/1.0.24) is the build log of this commit on my fork, over a [different branch](https://github.com/OrkoHunter/networkx/tree/symlink) which also has the required files to trigger a build on AppVeyor. 
+issue
+Draw Graph with self loops#TITLE_END#I was looking around for a way to plot a Graph with self loops using `nx.draw()` or something similar but  I couldn't find one. Instead, I found [an old mail](https://groups.google.com/forum/#!topic/networkx-discuss/pfyLwp6TDI0) in the list, which says that it was not implemented back then. Is there any progress in this regard since then? 
+issue
+Upgrade pip for cache installation#TITLE_END#Travis-CI still uses 6.x version of pip. However, pip 7.0.0 and later cache installed packages automatically in the form of wheels. Subsequent installs are therefore much faster which results in decrease of the total installation time. 
+issue
+Running pylint over the library and its results#TITLE_END#`pylint` seems to be a great tool to analyse a library, more deeply than what nosetests do. I ran it for networkx.  I am just copying the `Messages` and `Score` part here.  ``` Global evaluation ----------------- Your code has been rated at 1.26/10 (previous run: 1.26/10, +0.00)  Messages --------  +-------------------------------+------------+ |message id                     |occurrences | +===============================+============+ |bad-whitespace                 |5411        | +-------------------------------+------------+ |invalid-name                   |4103        | +-------------------------------+------------+ |unused-wildcard-import         |1255        | +-------------------------------+------------+ |trailing-whitespace            |863         | +-------------------------------+------------+ |missing-docstring              |433         | +-------------------------------+------------+ |wildcard-import                |204         | +-------------------------------+------------+ |line-too-long                  |195         | +-------------------------------+------------+ |undefined-variable             |185         | +-------------------------------+------------+ |unused-variable                |178         | +-------------------------------+------------+ |no-member                      |143         | +-------------------------------+------------+ |too-many-locals                |89          | +-------------------------------+------------+ |duplicate-code                 |88          | +-------------------------------+------------+ |too-many-branches              |84          | +-------------------------------+------------+ |star-args                      |83          | +-------------------------------+------------+ |import-error                   |83          | +-------------------------------+------------+ |unused-argument                |70          | +-------------------------------+------------+ |superfluous-parens             |68          | +-------------------------------+------------+ |anomalous-backslash-in-string  |64          | +-------------------------------+------------+ |too-many-arguments             |58          | +-------------------------------+------------+ |bad-indentation                |56          | +-------------------------------+------------+ |redefined-outer-name           |54          | +-------------------------------+------------+ |no-self-use                    |53          | +-------------------------------+------------+ |attribute-defined-outside-init |50          | +-------------------------------+------------+ |unused-import                  |47          | +-------------------------------+------------+ |redefined-builtin              |42          | +-------------------------------+------------+ |multiple-statements            |42          | +-------------------------------+------------+ |bad-builtin                    |23          | +-------------------------------+------------+ |too-many-statements            |19          | +-------------------------------+------------+ |no-name-in-module              |19          | +-------------------------------+------------+ |fixme                          |17          | +-------------------------------+------------+ |too-few-public-methods         |16          | +-------------------------------+------------+ |bare-except                    |15          | +-------------------------------+------------+ |too-many-public-methods        |11          | +-------------------------------+------------+ |cyclic-import                  |10          | +-------------------------------+------------+ |arguments-differ               |10          | +-------------------------------+------------+ |global-variable-not-assigned   |7           | +-------------------------------+------------+ |dangerous-default-value        |7           | +-------------------------------+------------+ |too-many-lines                 |6           | +-------------------------------+------------+ |useless-else-on-loop           |5           | +-------------------------------+------------+ |undefined-loop-variable        |5           | +-------------------------------+------------+ |too-many-instance-attributes   |5           | +-------------------------------+------------+ |old-style-class                |5           | +-------------------------------+------------+ |used-before-assignment         |4           | +-------------------------------+------------+ |too-many-return-statements     |4           | +-------------------------------+------------+ |no-init                        |4           | +-------------------------------+------------+ |maybe-no-member                |4           | +-------------------------------+------------+ |function-redefined             |4           | +-------------------------------+------------+ |unreachable                    |3           | +-------------------------------+------------+ |unbalanced-tuple-unpacking     |3           | +-------------------------------+------------+ |super-init-not-called          |3           | +-------------------------------+------------+ |protected-access               |3           | +-------------------------------+------------+ |mixed-indentation              |3           | +-------------------------------+------------+ |unpacking-non-sequence         |2           | +-------------------------------+------------+ |unnecessary-semicolon          |2           | +-------------------------------+------------+ |raising-string                 |2           | +-------------------------------+------------+ |pointless-string-statement     |2           | +-------------------------------+------------+ |no-value-for-parameter         |2           | +-------------------------------+------------+ |global-variable-undefined      |2           | +-------------------------------+------------+ |expression-not-assigned        |2           | +-------------------------------+------------+ |slots-on-old-class             |1           | +-------------------------------+------------+ |reimported                     |1           | +-------------------------------+------------+ |non-parent-init-called         |1           | +-------------------------------+------------+ |broad-except                   |1           | +-------------------------------+------------+ |abstract-class-not-used        |1           | +-------------------------------+------------+ ```  I have put the whole report [here](https://github.com/OrkoHunter/networkx/blob/pylint/pylint.report). It's a large file with 27K lines in it. Tackling the entire issue sounds like a crazy idea. However we can run `pylint` for specific modules at a time to get more meaningful results.   PS. There are also cyclic imports at places  ``` ************* Module networkx.classes.__init__ R:  1, 0: Cyclic import (networkx -> networkx.convert_matrix) (cyclic-import) R:  1, 0: Cyclic import (networkx -> networkx.relabel) (cyclic-import) R:  1, 0: Cyclic import (networkx -> networkx.algorithms -> networkx.algorithms.clique) (cyclic-import) R:  1, 0: Cyclic import (networkx -> networkx.linalg -> networkx.linalg.spectrum) (cyclic-import) R:  1, 0: Cyclic import (networkx -> networkx.algorithms -> networkx.algorithms.cluster) (cyclic-import) R:  1, 0: Cyclic import (networkx -> networkx.linalg -> networkx.linalg.laplacianmatrix) (cyclic-import) R:  1, 0: Cyclic import (networkx -> networkx.linalg -> networkx.linalg.graphmatrix) (cyclic-import) R:  1, 0: Cyclic import (networkx -> networkx.linalg -> networkx.linalg.modularitymatrix) (cyclic-import) R:  1, 0: Cyclic import (networkx -> networkx.linalg -> networkx.linalg.attrmatrix) (cyclic-import) R:  1, 0: Cyclic import (networkx -> networkx.convert) (cyclic-import) ``` 
+issue
+Order of nodes#TITLE_END#I have a question regarding the order in which `add_nodes_from` adds nodes to a Graph.  ``` py In [1]: import networkx as nx In [2]: node_list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 1, 2, 3, 4, 5, 6]  In [3]: G = nx.Graph() In [4]: G.add_nodes_from(node_list)  In [5]: list(G.nodes()) Out[5]: ['a', 1, 'c', 'b', 'e', 'd', 'g', 'f', 'i', 'h', 'j', 2, 3, 4, 6, 5] ```  Why is the order changed? How can I make it in the same order as `node_list`.  I can understand that in a graph, the order of nodes doesn't make much sense. But in a python list, the order has a good role in various operations. 
+issue
+Switch to container based travis build#TITLE_END#This is my first attempt for the switch. Let's see if it needs more. 
+issue
+Revert "Allow external packages to be installed in networkx.addons"#TITLE_END#Reverts networkx/networkx#1595  This now deletes `networkx.addons` namespace and leaves users with the option to import the addons directly from their own packages, e.g. `nxmetis`, `nxlemon`, `nxmatplotlib`.  Flask recommends users to import addons from `flask.ext`, we could also do that. In that case we'll need changes in this PR.  As of now, I've not been able to think the difference between two, so it's all about the design and our choice. 
+issue
+Hosting a separate repository 'networkx-lemon'#TITLE_END#We are in the 5th week of the GSoC period and according to my [proposed timeline](https://github.com/networkx/networkx/wiki/GSoC-2015-Application-Himanshu-Mishra-:-Add-On-System-for-Networkx#timelinetentative) the work on [networkx-metis](https://github.com/networkx/networkx-metis/) should nearly be complete and the work on networkx-lemon should start now.   So, @dschult @hagberg @jtorrents, may one of you please create `networkx-lemon` so as I can start working on it.   Well, there are few things left to do with networkx-metis, including some documentation. I hope that will be covered by this week. 
+issue
+Allow external packages to be installed in networkx.addons#TITLE_END#This allows various addons to be installed for networkx inside `networkx.addons` namespace. We can discuss whether we have to take this in with `1.10` or `2.0`. 
+issue
+Few updates in doc/source/overview.rst#TITLE_END#While writing similar docs for `networkx-metis` I spotted few updates for `doc/source/overview.rst`. 
+issue
+Docstring update for Cartesian product and Tensor product#TITLE_END#Fixes #1599. I also used the opportunity to change the modules in `algorithms.operators` as per pep8 compilance. 
+issue
+Hosting a separate repository 'networkx-metis'#TITLE_END#@hagberg @dschult @jtorrents @ysitu  As we are on our way to enable Add-ons for NetworkX, the first goal in this project is graph partitioning with METIS, through which I guess the idea of add-on implementation was discussed. The prototype is going to be like this  ``` python >>> import networkx as nx >>> from networkx.addons import metis Traceback (most recent call last):   File "<stdin>", line 1, in <module> ImportError: Please install networkx-metis to enable this add-on ```  ``` sh $ pip install networkx-metis ```  ``` python >>> import networkx as nx >>> from networkx.addons import metis >>> metis.partition(nx.Graph(...), nparts) ```  So, a separate repository named 'networkx-metis` needs to be hosted for the work to start. 
+issue
+Revised api_2.0.rst and added some major contributions#TITLE_END#@ysitu I revised the file as you said and checked the commits since last November. I found 3 changes worth adding. Please see them. 
+issue
+Fix developer zone link#TITLE_END#Fixes #1477  
+issue
+Fixes #1325. Moved nx_pyplot.py out of drawing package.#TITLE_END#As discussed in #1325, I moved the the `nx_plab.py` out of the drawing package to the main networkx package for making it easier to maintain. As suggested by @hagberg we should not put it in `networkx.addons` to keep the drawing separate from the algorithms and data structures which will make both easier to develop and maintain.  I manually tried drawing a graph as  ``` >>>import matplotlib.pyplot as plt  >>>nx.draw(G) >>>plt.show() ```  And it worked fine.  Suggestions? 
+issue
+Documentation issue#TITLE_END#In the Credits page, http://networkx.github.io/documentation/networkx-1.9.1/reference/credits.html  In the second line, saying "Thanks to Guido van Rossum for the idea of using Python for implementing a graph data structure" followed by a link to python.org which does not exist.  http://www.python.org/doc/essays/graphs.html  Shouldn't we remove the link as it points to an empty page? 
+comment
+I liked the idea of @hagberg to move `nx_pylab.py` into `networkx` package itself, not in the proposed `networkx.addons` because the later should contain the add-ons which are more related to algorithms and data structures so that contribution could be made easier. 
+comment
+Concerning #1167 and this, how is this idea to create something like `import_module` for this purpose. So to avoid confusion between the path of various such modules, we can just do this  ``` >>> from nx.external import import_module  >>> plt = import_module('matplotlib')  >>> metis = import_module('networkx-metis') ```  In this way, we won't need to remember the location of the module which we want to import. There are also other ways in which we can make use of `import_module` 1. A minimum version for the module can be given as the keyword argument    min_module_version.  This should be comparable against the module version.    Then, we could give a warning "Module version is too old." 2. import_module returns None if the Module is not installed. So it could raise the     ImportError accordingly. 3. We can also specify a minimum Python version by using the    min_python_version keyword argument.  This should be comparable against    sys.version_info. This could give a warning "Python version is too old."  @hagberg @ysitu @jtorrents @chebee7i @dschult  
+comment
+I'm sorry for so much amendments. It looks ugly here, I know. 
+comment
+Thanks for the clarification @jtorrents. This is really a big change. Looking forward to the decisions. 
+comment
+Very nice effort @andre-dietrich. However I personally think creating a wiki or similar page was a good idea for all the benchmarks of your code. Loading this junk every time a new comment is created, sometimes feels weird. Anyways, your call. 
+comment
+@chebee7i For smaller graphs (I checked for around 1000 nodes), `nx.bidirectional.all_simple_paths()` takes little bit more time than the original `nx.all_simple_paths()`. The benchmarks claims that this is other way round for very large number of nodes. 
+comment
+This is pretty much what I tried.  ``` py In [20]: G = nx.complete_graph(1000)  In [21]: %%timeit    ....: nx.all_simple_paths(G, 1, 50)    ....:  The slowest run took 7.49 times longer than the fastest. This could mean that an intermediate result is being cached  1000000 loops, best of 3: 1.47 µs per loop  In [22]: %%timeit    ....: nx.bidirectional.all_simple_paths(G, 1, 50)    ....:  The slowest run took 7.39 times longer than the fastest. This could mean that an intermediate result is being cached  1000000 loops, best of 3: 1.64 µs per loop ``` 
+comment
+@jtorrents Oh yes, I didn't notice. Upon using the generator, the difference is much more clear. 
+comment
+Hi @andre-dietrich, can you please replace `dict.iteritems()` with `dict.items()` ? That's the only little thing which is causing tests to fail for python3. Rest is all good ! 
+comment
+While going through the already existing algorithms of clustering coefficients, I came through statements like "`triangles()` is not defined for directed graphs" and "Clustering algorithms are not defined for directed graphs."  I want to know how are clustering coefficients defined for Directed Graphs.  I'm willing to solve this issue. 
+comment
+I don't think the binary file attached in this PR is needed. Minor suggestion : Can you write few unit tests too? 
+comment
+hmm... I don't know whether the tests written [here](https://github.com/SolessChong/networkx/blob/master/networkx/readwrite/tests/test_gexf.py) cover the `add_nodes` or not so I can't really say about this fix. 
+comment
+Splitting the commit into two/three, seems to create less noise. 
+comment
+@kshitij10496 You can start from here https://networkx.lanl.gov/trac/attachment/ticket/663/knot.py 
+comment
+Nice job @gcetusic. The way it says 'Nx' using graph is really a good idea! I don't know whether it is the best color combination, but did you try making it simply black and white? 
+comment
+As the edges got thinner and black, it looks better, I think. 
+comment
+Maybe we can ask our close friends who come to be experts in Photoshop. I have some. 
+comment
+@jg-you Nice ones. Did you try thinner lines in the 'N'? I feel some need of it. 
+comment
+It looks very nice. I vote for the one in white. 
+comment
+Hi, This idea seems great to me! I would like to work on it. 
+comment
+In the project, Metis seems to be very recommended. I would like to know whether we are planning to add Boost Graph and Lemon both or just one of them? Please tell. That will confine my area of interest. 
+comment
+@ysitu @hagberg @chebee7i @jtorrents  For a while, I've been working on my proposal. Now I think it's ready for a review. Please have a look and give suggestions.  https://github.com/networkx/networkx/wiki/GSoC-2015-Application-Himanshu-Mishra-:-Add-On-System-for-Networkx  I still have to work on the prototype. 
+comment
+@ysitu Thanks! 
+comment
+@Michael-E-Rose You could try rebasing with the updated master. Probably that would help.
+comment
+@Michael-E-Rose I only see one commit now :)
+comment
+@dschult Ping. 
+comment
+umm.. Some doctests failing around in the miniconda environments.  ``` Program neato not found Program dot not found InvocationException: GraphViz's executables not found ```  It's unrelated to the PR, I guess. 
+comment
+@SanketDG The documentation is mainly focusing on setting up the environment and being familiar with git. I think `CONTRIBUTING` file would be able to explain much about the coding paradigm and preferred choice of python statements etc. @jg-you has explained this in his comments. 
+comment
+Hey @timdiels, there was a discussion about it some time ago [here](https://github.com/networkx/networkx/issues/1661). As I recall, `install_requires` was not supposed to list _all_ the dependencies of networkx. 
+comment
+@renoust You can always use `git commit -a --amend` to update your last commit if you made any error. However as of now, two commits are unnecessary, try squashing both into one meaningful commit.  And the name of the PR should also be changed here. 
+comment
+Hi, Inspired by the problem of generating `requirements.txt` and dependencies analysis, I wrote a script to read all the modules and list out all the package imports. I'd like to share the result here for networkx. It's a dictionary of two dictionaries 'builtins' and 'nonbuiltins' where the number denotes the number of imports of the particular module/package.  ``` python {'builtins': {'StringIO': 1,   '__future__': 12,   'ast': 4,   'bisect': 2,   'bz2': 1,   'cPickle': 1,   'cStringIO': 1,   'collections': 21,   'contextlib': 1,   'copy': 6,   'fractions': 1,   'functools': 6,   'glob': 1,   'gzip': 1,   'heapq': 8,   'htmlentitydefs': 1,   'importlib': 1,   'io': 1,   'itertools': 53,   'json': 1,   'lib2to3': 3,   'math': 11,   'operator': 9,   'os': 15,   'pickle': 1,   'random': 17,   'setuptools': 1,   'shlex': 1,   'string': 1,   'subprocess': 1,   'sys': 11,   'tempfile': 1,   'time': 2,   'timeit': 1,   'types': 1,   'uuid': 1,   'warnings': 7,   'xml': 10},  'nonbuiltins': {'decorator': 1,   'html': 1,   'matplotlib': 14,   'nose': 32,   'numpy': 61,   'ogr': 1,   'osgeo': 2,   'pandas': 3,   'pygraphviz': 6,   'scikits': 1,   'scipy': 64,   'yaml': 3}  } ```  We can use the second dictionary to populate the `requirements.txt` ! :) 
+comment
+> html module is built in.  I don't think [html](https://pypi.python.org/pypi/html) is a builtin package. It's not available in `sys.builtin_module_names` or `pkgutil.iter_modules`.  > ogr is an internal module from osgeo.  Yes, `ogr` is not a package in itself. So, I think [this line](https://github.com/networkx/networkx/blob/master/networkx/readwrite/nx_shp.py#L297) should be modified to  ``` py from osgeo import ogr ```  like [this](https://github.com/networkx/networkx/blob/master/networkx/readwrite/nx_shp.py#L192).  > By scikits, its probably scikits.sparse  Yes, it should be `scikits.sparse`. Thanks ! I'll need to modify the script for such packages. Right now, it's just picking up what's before the first dot as a dependency. 
+comment
+You are right. `html` is a builtin module in Python 3. 
+comment
+Generally, this problem is solved by having two or more requirements files as we can't really do any magic inside them, those are simply text files. We'll need to write in the documentation about separate usage and installation using `pip` and `pip3`.  But because of the repetitions in both the files, one another method is to have this  #### requirements.txt  ``` the long list of common dependencies ```  #### py2-requirements.txt  ``` -r requirements.txt pydot ```  #### py3-requirements.txt  ``` -r requirements.txt pydotplus ``` 
+comment
+- Work on [`nxlemon`](https://github.com/networkx/networkx-lemon/), perhaps. - Separate plotting library for NetworkX is still on hold. 
+comment
+Hey @Insoleet, can you tell the python version you are using and the method of your installation? 
+comment
+I believe this concerns the issue #1695 which was fixed in #1707 and was included in the release 1.11(?) hopefully. And from your error log it seems that v1.10 is being installed. So, either you should install networkx directly from the source or you may wait for a new release. 
+comment
+Or maybe the installed python is v3.5 and the egg is labelled v3.4 only? Although, I'm not an expert on this subject. 
+comment
+Hello Ritvik, I'm sure you must have found that the `:class: Graph` is properly rendered on the [doc page](https://networkx.readthedocs.org/en/stable/tutorial/tutorial.html).  The link you have provided is simply a prettified "view" of the source, which is created by GitHub. IMO there's nothing unusual about it. 
+comment
+@Michael-E-Rose At some point of time, for updating your branch you prefered `merge` instead of `rebase` against master, hence those merge commits got included. I would prefer creating a new branch with the same changes but new commits and a new PR. :) 
+comment
+Well yeah. Apart from adding `sudo: false` there will be a good amount of changes for installing apt or custom packages. I believe this http://docs.travis-ci.com/user/migrating-from-legacy helps. 
+comment
+I'm working on it. One of the owners will have to set up the hook on ci.appveyor.com so that I can send a PR to test the build. 
+comment
+I have some of the work done. I was waiting for anyone to set up the hook so that I can send a PR. 
+comment
+We have the code for appveyor already merged (#1699), but it's not being used right now because it hasn't been activated yet. _One of the owners_ need to do look into this and set up a hook over [appveyor](https://www.appveyor.com/).  Ping @hagberg @dschult 
+comment
+@chebee7i had similar problems the last time too, as I can recall. I'll try to find out how other orgs do it.. for instance sckit-image. They have it running on every PR. 
+comment
+@dschult Great work ! Yes, I can see the details and that's how it's supposed to be, I guess. Appveyor should do something about it. I think the work here is done. 
+comment
+The Add-on project will hopefully cover this issue. Possibly after `networkx-lemon`. @chebee7i Btw. Great movie! ;) 
+comment
+@nishnik You should also make the function available on top level by adding it to [`__init__.py`](https://github.com/networkx/networkx/blob/master/networkx/algorithms/__init__.py) 
+comment
+@Arafatk I see you are using the GitHub interface, which is not recommended in the most of the cases. :) Regarding the proxy issue, you'll need to just stick with the `https` protocol because you will not be able to get `ssh` and `git` working easily. Ping me if you need more help. 
+comment
+For IRC, people have to set up loggers to see the messages when they are offline and to be honest, it troubles a lot (in case proxies.. sigh!). This is the main advantage of gitter and slack which I feel. Also, there are lot more plus points for using Gitter for a GitHub organization - Mention of PRs - Activities ticker - Code formatting/Link with gists  (and the list goes on. The [wiki](https://en.wikipedia.org/wiki/Gitter#Features) is worth a watch)  So, using gitter won't be that bad. Just my $0.02 
+comment
+I think this can be closed as covered in #1384. 
+comment
+Sounds nice! Although searching for a clique in a graph is not so efficient, we can have `add_clique` like `add_cycle`, `add_star` etc. 
+comment
+Looks like we already have `find_cliques`. I didn't know that. 
+comment
+@hagberg As of now, I didn't find any `add_clique` in Digraph class. Maybe it had been already removed? Was it there before anytime? 
+comment
+@dschult Some good usecase of these methods are still not so much known to me. Maybe @chebee7i would suggest some for `add_clique`? 
+comment
+Wikipedia says few lines about the application. Maybe that applies here.  > Although the study of complete subgraphs goes back at least to the graph-theoretic reformulation of Ramsey theory by Erdős & Szekeres (1935),[1] the term clique comes from Luce & Perry (1949), who used complete subgraphs in social networks to model cliques of people; that is, groups of people all of whom know each other. Cliques have many other applications in the sciences and particularly in bioinformatics.  If all such functions are to be removed then no problem, else we can go with this implementation in `Graph` class.  ``` python def add_clique(self, nodes, **attr):     nlist = list(nodes)     edges = itertools.combinations(nodes, 2)     self.add_edges_from(edges, **attr) ``` 
+comment
+@jyuhuan Ping. 
+comment
+@unongbatai   > Hi, sorry for writing so late in the application process, can I still give my proposal now?  The official deadline for the student proposal is 27 March 19:00 UTC. You still have time. 
+comment
+We should have one on our wiki page too. In addition to PSF's template, Networkx mentors may/should add their own expectations in it. While I remember the earlier one (which is not now on our wiki page) was more or less a copy of SymPy's application template. We should not do that. 
+comment
+@MisterSheik I agree with you that `six` is more or less like a standard library when it comes to Python 2/3 compatibility. We can't simply ignore the number of installations of it on pypi.  Further, Python 3 is great but the legacy version is not yet "dead". :) As long as ubuntu has default Python 2 as `python`, it can't be dead. And that's why IMHO, we must take backwards compatibility as an important concern. So, we should write Python 3 but we can't ignore version 2 support. 
+comment
+#1775  
+comment
+An alternative can be downloading the zip from GitHub and installing.  ``` sh $ wget https://github.com/networkx/networkx/archive/master.zip $ unzip master.zip $ cd networkx-master $ python setup.py install ```  or simply  ``` sh $ pip install https://github.com/networkx/networkx/archive/master.zip ```  if this works. 
+comment
+Yes, the installation for Python 3 on Windows is broken. Ref. https://ci.appveyor.com/project/OrkoHunter/networkx-metis 
+comment
+I think we can replace the `autosummary` with manually making the table of contents and linking the generated doc pages. I can help. However, that won't look much pretty. :)  Btw., we are still not making beginner friendly issue labels and tagging them in correct places. 
+comment
+The `INSTALL.txt` is nothing but a referral to the installation docs. 
+comment
+Concerning `networkx.algorithms`, suppose someone wants to make use of a third-party library to implement a function, then it's sure that they would like to use the pre-existing algorithm of NetworkX as a second choice. So, if someone has installed the concerned `networkx-<add-on>`, they would by default, expect `networkx.algorithms.<the-function>` to give output with help of the add-on. However, in some situations, they can still want to use a function in the NetworkX way. So, what _we_ can do to is to create a "system" in which - If the add-on is not installed, `networkx.algorithms` returns outputs according to the NetworkX algorithms. - As the add-on gets installed, `networkx.algorithms` starts using the add-on's algorithms by default.  - Nonetheless, there will still exist a way or I should say a switch, which will allow to decide whether we want to use the add-on's method or the NetworkX proper method. Uninstalling should be least preferred.  I think this could be a good approach. Suggestions? 
+comment
+> Nonetheless, there will still exist a way or I should say a switch, which will allow to decide whether we want to use the add-on's method or the NetworkX proper method. Uninstalling should be least preferred.  We can just pass an argument `use_addon=False` 
+comment
+@SanketDG   > Unfortunately, I wont be taking part in GSoc 2015 as I am having difficulties with my university enrollment form.  This is really sad. Did you submit the enrollment form and it got rejected? If you are in college, you can resolve this issue legitimately some how.  > I believe @OrkoHunter will implement a very good system and I wish him luck.  Thank you.  > But I am willing to contribute to this project. In a non-GSoC way. Thanks for the detailed information. I am now clear about the project objectives.  That's really great to hear! 
+comment
+@jtorrents  > ``` python > import networkx as nx > from networkx.external.addons import lemon > G = build_a_graph_with_appropiate_attrs() > result_nx = nx.network_simplex(G, demand='demand', capacity='capacity', weight='weight') > result_lemon = lemon.network_simplex(G, demand='demand', capacity='capacity', weight='weight') > assert result_nx == result_lemon > ```  This seems to be nice plan. We've been planning to store bindings in a different package, say `networkx-lemon`. We can achieve the above API by putting something like this in the `networkx/external/addons/lemon.py`:  ``` python try:     from networkx-lemon import * except ImportError:     print("Please install networkx-lemon to use this add-on")  # Or maybe raise an exception? ```  > I even think that, for the users, the standarization of the results returned will be the most useful feature.  Agree. I'll put my efforts to achieve the same. 
+comment
+> This might be more convenient if I have a large codebase and want to replace all instances of the networkx algorithm with some other add-on library.  I like it. This will indeed make the transition easier for people with large codebase. I vote for keeping both APIs.  > I don't know how hard this would be, and how much machinery could be taken care of by networkx, and how much might need to be supplied by the add-on developer.  This will surely add some more work e.g. I'll have to tell all these functions to check for a boolean or something to determine what implementation to use.  @ysitu How do you like this approach? 
+comment
+@ysitu I have pushed my final draft to wiki. If there's still any change you want, please post. The deadline is in few hours. 
+comment
+@ysitu What I have done in my timeline related to this project was just a small testing of external metis library fetched from your commit. Now, I am doing the work locally and have stopped pushing it over my repository because that makes no sense.  I too want the add-on system proper to be created at its best. For this, we'll have to keep discussing all the aspects openly. This will keep up the spirit to design the best integration possible. 
+comment
+@ysitu I guess you are taking the situation when people would like to replace the existing functions with the add-ons' i.e., use the `nx.use_addon()` as suggested by @bjedwards. I think there's not much problem in practicing the import of modules instead of individual functions as you said. However, I'm still not sure where to start that from and for example what could be some possible changes. 
+comment
+@ysitu Yea, never done the second one. 
+comment
+So not all the functions should be imported through the module and some should be imported in the local namespace as well like the `nx.shortest_path_length`. Then we'll have to decide on the ones which are needed to be fixed accordingly. 
+comment
+@ysitu It was fun for me giving Cython some quality time last week. The large enhancement factor of speed is something really fascinating. I was wondering is it good to Cythonize some of our core algorithms too? I remember #1051 was closed because it had used scipy/numpy. So, I think it'd be a no for Cython too. I don't know much of the core algorithms, so if there is any part where speed does matter, I can take on that. 
+comment
+Hi! My exams are over and I'll be travelling this week. I can start my work from May 5. I wrote a mail to @Midnighter @dschult. And @ysitu I don't have any of your contact details. We have to schedule weekly meeting somewhere. Maybe Gitter or E-Mail. You have my contact details. 
+comment
+@bjedwards @Midnighter  Agreed with you. `nx.use_addon()` should also be accompanied with `some_special_function` as argument. 
+comment
+We are going to have our first addon [networkx-metis](https://github.com/networkx-metis) in the networkx umbrella. It was written a year back by @ysitu which implements very fast graph partitioning using METIS.  As the GSoC coding period begins, I'd like to discuss here something which has been taken upon many times but not conclusively.  There are two ways in which the upcoming model can be imagined, which are explicitly different as I mention both of them here altogether.  1) Take a big project for example which depends on networkx eminently and has a big bundle of code written using it. How and why they would like to use any addon or such?  _Considering 'why'_ : Speed is something which surely python makes us compromise with. Upon bench-marking `LEMON` against all co-existing graph packages, they claim to be the fastest ([Page 72 on their intro manual](http://lemon.cs.elte.hu/pub/doc/lemon-intro-presentation.pdf)). `networkx-lemon` is surely much needed here.  _Considering 'how'_ : They would like to install an add-on of their need which would make their existing code automatically run faster than before without making changes into their entire library.  2) Second model is a different one, making networkx core feel more secure. It would suffice to be merely able to inject a new module into the networkx namespace. This is a much simpler model which is in need for addons like `networkx-metis`. But we can surely sense that both models have different spirit of their own.  ##   As it seems, the simpler model is going to be implemented first. But we surely need to take a decision about what we have to do about the first one which is important because of many reasons.  @ysitu Correct me if I've said something wrong or missed something. 
+comment
+Has Terri allotted the slots by now? 
+comment
+> Malange declared their slot allocations. PSF seems to have got enough slots. c.f. their IRC header " We got lots of slots! Thank you, Google!" :)  I heard that PSF always has plenty of slots left in the end, unused ! 
+comment
+@ysitu @Midnighter @hagberg @dschult  Just a quick reminder about the student rankings. PSF's IRC header also says "Sub-org admins: get your student rankings in by April 17." 
+comment
+Thanks for letting us know! I'm still working on my proposal. I'll push it to the melange as soon as I'm done with the initial draft. 
+comment
+Seeing the tutorial part in the official documentation and then imagining the equivalent iPython notebooks, I wish there was some Scipy/PyCon workshop based on it. Divided it into 2-3 videos and having it online would be extremely helpful. Those video tutorials also come very handy and are preferred as equivalently as written tutorials. Let's see if it's possible in new feature.  @MridulS Commendable start! +1 
+comment
+@k-karakatsanis Maybe you need to update your master and then rebase. 
+comment
+We also had discussions to separate the `drawing` package and publish it as a separate `addon` to give it a better exposure for development. I remember there was a good support for #1325 . So, now or later, we should have `networkx.addons` for the plotting module because that would not be properly an _external_ package for NetworkX core. 
+comment
+That PR got merged already. #1595 
+comment
+No. I thought we would take master branch and make 1.10rc3. Should I send a PR to the `1.10` branch? 
+comment
+``` sh $ git cherry-pick bdea25fc5a988e8c99382493b27bfb8f811ea8d1                                                                                     [v1.10] 22:07:51 error: Commit bdea25fc5a988e8c99382493b27bfb8f811ea8d1 is a merge but no -m option was given. fatal: cherry-pick failed ```  Should I just add a new commit? 
+comment
+#1646  
+comment
+Flask switched on to this "new" method from namespace package systems (similar to which, @chebee7i and me were talking about few weeks ago for `networkx-metis`. But later on we decided that namespace package systems is kind of more suited for this).   In `flask/ext/__init__.py` it says,  > We're switching from namespace packages because it was just too painful for everybody involved.  I can't understand how this can be painful and the ExtensionImporter system not. I see both as similar method instead the first one uses the built-in facility provided by `import`.  Anyways, both cases will work and will require `networkx/addons/__init__.py`. I'd be okay switching to it. But still, this is coming to me as a choice which does not have a good reason behind it. 
+comment
+I read the issue now, about the clash of namespace upon editable installation https://github.com/pypa/pip/issues/3. Seems like it's really a considerable problem. Okay so let's switch. 
+comment
+@jtorrents We can make a release without `networkx/addons`. As of now, we decided to import the addons from its own package without using the `networkx.addons` namespace. 
+comment
+[This line](https://github.com/SanketDG/networkx/blob/threshold/networkx/algorithms/tests/test_threshold.py#L11) needs change right? 
+comment
+Will it be available on the readthedocs.org? I don't know about it. However, http://nbviewer.ipython.org/ is good to display these notebooks. 
+comment
+If I am not wrong, I think you were using the web interface of Github for the PR. It's always a better option to use local git for making a good commit history, while web interface for minor tweaks in the code. 
+comment
+If we go with the two-tuples iterator of (node, degree), would it be possible to get the old dictionary with nodes and degrees paired up? How much effort will have to be made to get the dictionary? 
+comment
+@ericmjl Any updates? 
+comment
+@chebee7i Maintaining fork of NetworkX documentation seems to be a very nice hackery for reviewing documentation related PRs. Let me follow the instructions. 
+comment
+I think I followed the steps but nothing showing up here at http://orkohunter-networkx.readthedocs.org/en/latest/ :( There are many versions in the `versions` settings. And none of them are ticked in mine. Do I need a new commit to start the doc build?  EDIT: I was getting the `Could not import extension numpydoc` error. I wiped the branch but the same error is there. 
+comment
+I was trying out from the master itself. Now I made another branch with changes made in this PR, and I think I've made some progress (new error).  ``` Outcome: Failed (Status Code: 404)  Environment Standard Error checkout ----- Top-level Build Failure:  ```  Ref. https://readthedocs.org/builds/orkohunter-networkx/2963252 
+comment
+It worked. Thanks. http://orkohunter-networkx.readthedocs.org/en/test_rtfd2/ 
+comment
+@MridulS One single commit in this PR is large enough altering several classes and modules. You should not only split the commit into relevant ones but also make different PRs for them which can give way for separate discussions for the functions. This helps in maintaining a clean git history. 
+comment
++1 for this change. @jfinkels However, this seems a little strange. Why don't we just deprecate `contracted_nodes`? 
+comment
+Got it. 
+comment
+@avgl-sstraub You can install the latest version from the repo itself. And in the next version, NetworkX 2.0 will be rendering better Python 2/3 support. 
+comment
+@MridulS Why a different function named `pow` and that too in the global namespace? I think the special method `__pow__`  implementation should suffice as `pow` will pollute the namespace. 
+comment
+> @MridulS Why a different function named pow and that too in the global namespace? I think the special method **pow** implementation should suffice as pow will pollute the namespace.  @MridulS  any comments? 
+comment
+Then maybe a different name? You do realize that `pow` is an inbuilt Python function? 
+comment
+I don't see why this is nontrivial. 
+comment
+That could be because the documentation was made before [this](https://github.com/blog/1452-new-github-pages-domain-github-io). Seems okay to change. However, the `.com` webpage still redirects to `.io` without `Service Unavailable`. 
+comment
+Yes, thanks for pointing out. 
+comment
+@yw652 Yes that's weird. The exact same code works perfectly. However, Just so that you wanted the labelled nodes, this could be the simplest code. Try it?  ``` import networkx as nx import matplotlib.pyplot as plt  G = nx.Graph()  G.add_nodes_from(['A','B','C','D','E','F']) pos = nx.spring_layout(G)  nx.draw_networkx_nodes(G,pos,node_size=700) nx.draw_networkx_labels(G,pos,font_size=20,font_family='sans-serif') plt.axis('off') plt.show() ``` 
+comment
+@pahaz If you are saying about the arrows, yes so far those thick black lines are the only alternatives for DiGraphs.  Concerning your plotted graph as it has some edges extending to infinity, can you put up your exact code instead of `...` ? That would help. 
+comment
+@pahaz I'm sure that would be `matplotlib.pyplot` instead of what you've written by mistake. Further the result produced by your code generated the correct result for me. ![screenshot from 2015-03-29 13 16 17](https://cloud.githubusercontent.com/assets/8065913/6884605/44ba8070-d617-11e4-8e7f-56b39b37c530.png)  So, the problem must be with your drawing package. I can't figure out what could be the possible bug.  @hagberg Ping. 
+comment
+@MridulS True that! :) 

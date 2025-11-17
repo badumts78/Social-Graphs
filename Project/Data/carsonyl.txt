@@ -1,0 +1,4 @@
+issue
+find_cycle() raises NetworkXNoCycle, contrary to doc#TITLE_END#The [doc for find_cycle() says](https://networkx.github.io/documentation/latest/reference/generated/networkx.algorithms.cycles.find_cycle.html#networkx.algorithms.cycles.find_cycle)  > edges – A list of directed edges indicating the path taken for the loop. If no cycle is found, then edges will be an empty list.  But the following snippet raises NetworkXNoCycle:  ``` python import networkx from networkx.algorithms.cycles import find_cycle G = networkx.DiGraph([(0,1), (1,2)]) find_cycle(G) ```  I'm using networkx 1.10. 
+issue
+Update doc for find_cycle() to properly describe no-cycle behaviour. Fixes #1832.#TITLE_END#This makes the doc describe the actual (and intended) behaviour. 

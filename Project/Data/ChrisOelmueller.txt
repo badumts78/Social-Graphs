@@ -1,0 +1,2 @@
+issue
+Add documentation for *labels* parameter to draw_networkx_labels#TITLE_END#Copied from draw_networkx(). 

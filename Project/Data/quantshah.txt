@@ -1,0 +1,2 @@
+issue
+Website links to examples are dead#TITLE_END#Hi,  The links on the page https://networkx.github.io/examples.html to [gallery](http://networkx.github.io/documentation/latest/gallery.html) and [complicated examples](http://networkx.github.io/documentation/latest/examples/) are dead. I understand that everything has been shifted to https://networkx.readthedocs.io/en/stable/ but the main website doesn't lead to any examples. Maybe a link to readthedocs can be provided in the examples page.  

@@ -1,0 +1,2 @@
+issue
+Graph.add_edge_from() is reversing edge order#TITLE_END#Minimal working example: ``` G = nx.Graph() [G.add_edge(*i) for i in [(0, 4),(3, 4)]] print(G.edges)  # Current output is: [(0, 4), (4, 3)] # instead of [(0, 4), (3, 4)] ``` I understand that this is because I initialized an empty graph and it sees nodes in the order 0 then 4 then 3. But I think this can create gotchas if a user is not aware of it.

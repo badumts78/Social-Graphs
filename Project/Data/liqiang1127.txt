@@ -1,0 +1,2 @@
+issue
+Can cycles.find_cycle() or other algrithm finds all cycles in a directed graph?#TITLE_END#I want to find all Cycles in a directed graph, but cycles.find_cycle() only returns one.

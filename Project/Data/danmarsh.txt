@@ -1,0 +1,2 @@
+issue
+Subgraph isomorphism with GraphMatcher#TITLE_END#Hi, I'm testing for subgraphs in small graphs.  I'm unclear why this code only returns False.  I tested it in another library and it returned True for one of the cases.  import networkx as nx  G = nx.Graph() H = nx.Graph()  G.add_edges_from([[1,2], [2, 3]]) H.add_edges_from([[1,2], [2, 3], [3, 1]])  matcher = nx.algorithms.isomorphism.GraphMatcher(G, H) print matcher.subgraph_is_isomorphic()  matcher = nx.algorithms.isomorphism.GraphMatcher(H, G) print matcher.subgraph_is_isomorphic()

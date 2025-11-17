@@ -1,0 +1,2 @@
+issue
+Building networks in NetworkX with online APIs#TITLE_END#Per our discussion at SciPy, I have added an example for generating networks from Google's SocialGraph API. 

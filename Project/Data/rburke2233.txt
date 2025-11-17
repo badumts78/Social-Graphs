@@ -1,0 +1,2 @@
+issue
+write_gexf UTF-8 encoding output incorrect#TITLE_END#Setting the encoding parameter on write_gexf causes it to output invalid XML (duplicate headers):  Example:  ``` python >>> nx.write_gexf(person_gr, person_file, encoding="UTF-8") ```  File contents:  ``` <?xml version="1.0" encoding="UTF-8"?><?xml version='1.0' encoding='UTF-8'?> ... ```  ``` python >>> nx.write_gexf(person_gr, person_file, encoding="Latin-1") ```  File:  ``` <?xml version="1.0" encoding="Latin-1"?><?xml version='1.0' encoding='Latin-1'?> ``` 

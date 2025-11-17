@@ -1,0 +1,8 @@
+issue
+MultiDiGraph initialised via dict_of_dicts does not maintain class#TITLE_END#### Current Behavior  If I load in a dict_of_dicts using `nx.MultiDiGraph(dict_of_dicts)` if doesn't pass on the class to the `create_using` parameter, so it doesn't read in multiple edges correctly.  ### Expected Behavior  `nx.MultiDiGraph(dict_of_dicts, multigraph_input=True)` should behave like `nx.from_dict_of_dicts(dict_of_dicts, create_using=nx.MultiDiGraph, multigraph_input=True)`  ### Steps to Reproduce  ``` G = nx.MultiDiGraph() G.add_edge(2, 3, weight=5) G.add_edge(2, 3, weight=4)  # Create 2 edges  dict_of_dicts = nx.to_dict_of_dicts(G) G2 = nx.MultiDiGraph(dict_of_dicts, multigraph_input=True)  # Fails G3 = nx.from_dict_of_dicts(dict_of_dicts, create_using=nx.MultiDiGraph, multigraph_input=True)  # Works  print("Original", G.edges(data=True)) print("Round tripped", G2.edges(data=True)) print(G2.number_of_edges(), "edge(s) in round tripped graph") ```  Giving  ``` Original [(2, 3, {'weight': 5}), (2, 3, {'weight': 4})] Round tripped [(2, 3, {0: {'weight': 5}, 1: {'weight': 4}})] 1 edge(s) in round tripped graph ```  ### Environment  Python version: 3.9 NetworkX version: 2.5 
+comment
+There is hidden non-determinism with clusters in graphviz: https://forum.graphviz.org/t/clustering-gives-undeterministic-results/989
+comment
+For us, this issue seemed to be resolved by using pydot rather than pygraphviz. From that issue, I'm unclear as to why this should be, but it might be helpful to others who face the same problem.
+comment
+A docs warning would be good, thanks.

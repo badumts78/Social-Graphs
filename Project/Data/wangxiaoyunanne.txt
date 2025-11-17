@@ -1,0 +1,2 @@
+issue
+Unable to use nx.from_pandas_dataframe  function#TITLE_END#I use network 2.1 version to run my previous code. It has the following issue   G = nx.from_pandas_dataframe(bipart, 0, 1) AttributeError: 'module' object has no attribute 'from_pandas_dataframe'

@@ -1,0 +1,2 @@
+issue
+HITS Algorithm has incorrect normalization #TITLE_END#Looking at hits.py ([1]), I think there is a mistake in the normalization of the hubs and authorities vectors on each round. They are currently being normalized so that their sum =1, but they should be normalized so their squares sum to 1.   The offending section (and the corresponding lines directly below)" # normalize vector  s=1.0/sum(h.values()) for n in h: h[n]*=s  [1] http://networkx.lanl.gov/svn/networkx/branches/networkx-view/networkx/algorithms/link_analysis/hits.py 

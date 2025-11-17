@@ -1,0 +1,2 @@
+issue
+Communicability edge betweenness#TITLE_END#Hey guys,  I've done some code based on your communicability betweenness, but for the edges. It's basically the same, but changing a couple of things. How can I share it with you?  Cheers, Pablo 

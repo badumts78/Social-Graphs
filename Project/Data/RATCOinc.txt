@@ -1,0 +1,4 @@
+issue
+Correcting a typo in the references#TITLE_END#The correct spelling of the author is "Narsingh Deo" not "Marsingh Deo".  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Typo in the reference in greedy_coloring.py#TITLE_END#the reference [3] in https://github.com/networkx/networkx/blob/main/networkx/algorithms/coloring/greedy_coloring.py has a typo in one of the author's name. The correct spelling will be "Narsingh Deo" instead of "Marsingh Deo".

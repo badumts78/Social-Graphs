@@ -1,0 +1,4 @@
+issue
+Use ruff's docstring formatting#TITLE_END#This PR replaces blacken-docs with [ruff's docstring formatting](https://docs.astral.sh/ruff/formatter/#docstring-formatting).  As mentioned in #7270, I noticed that there were some docstrings that looked like they weren't already formatted. So the diff is pretty large.  Also we might want to tweak the configuration here depending on your preference, assuming this is a change you'd like to make.  Let me know if you'd like to tie this to an issue. I'd be happy to open one for this.
+issue
+Update CONTRIBUTING.rst#TITLE_END#The project no longer uses `black`.  Looks like the change was made in #7160.

@@ -1,0 +1,4 @@
+issue
+bugfix: use supergraph to compute superpos in plot_clusters example#TITLE_END#The `superpos` positions should be computed using `supergraph`, not the original graph `G`.
+issue
+bugfix: use supergraph to compute superpos in plot_clusters example#TITLE_END#The `superpos` positions should be computed using `supergraph` not the original graph `G`.

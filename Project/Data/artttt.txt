@@ -1,0 +1,2 @@
+issue
+networkx-convert-node-labels-to-integers documentation#TITLE_END#http://stackoverflow.com/questions/16940037/networkx-convert-node-labels-to-integers discription of discard_old_labels doent describe where the old labels end up correctly.   it says: ... create a node attribute 'old_label' to hold the old labels Should say: ... create a graph attribute 'node_labels'  

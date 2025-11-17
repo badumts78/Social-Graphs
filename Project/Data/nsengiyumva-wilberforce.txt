@@ -1,0 +1,28 @@
+issue
+added missing tests in test_match_helpers.py#TITLE_END#updating test coverage for the issue https://github.com/networkx/networkx/issues/6178 
+issue
+Improve test coverage for matchhelpers.py#TITLE_END#Currently we don't have full coverage for algorithms in matchhelpers.py. Code blocks which are highlighted with red at codcov https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/isomorphism/matchhelpers.py don't have corresponding tests. The tests should be added in https://github.com/networkx/networkx/blob/main/networkx/algorithms/isomorphism/tests/test_match_helpers.py  Current Behavior We don't test all the paths the code can take us.  Expected Behavior We should be testing everything so there aren't any surprises.  Steps to Reproduce Visit https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/isomorphism/matchhelpers.py
+issue
+Test for line graph#TITLE_END#fix for issue https://github.com/networkx/networkx/issues/6028
+issue
+Di graph edges doc fix#TITLE_END#Improved the docstring description and added examples for how InEdgeView works.  Note: Examples were extracted from discussions that were help in [this](https://github.com/networkx/networkx/issues/4745).  Related to #4765   @MridulS , please review and merge it if possible so that I can complete my application
+issue
+Add ThinGraph example to Multi*Graph doc_strings#TITLE_END#This PR is for https://github.com/networkx/networkx/issues/5854
+issue
+Improve test coverage for matchhelpers.py#TITLE_END#Currently we don't have full coverage for algorithms in matchhelpers.py. Code blocks which are highlighted with red at codcov [](https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/isomorphism/matchhelpers.py) don't have corresponding tests. The tests should be added in [](https://github.com/networkx/networkx/blob/main/networkx/algorithms/isomorphism/tests/test_match_helpers.py)  Current Behavior We don't test all the paths the code can take us.  Expected Behavior We should be testing everything so there aren't any surprises.  Steps to Reproduce Visit [](https://app.codecov.io/gh/networkx/networkx/blob/main/networkx/algorithms/isomorphism/matchhelpers.py)
+issue
+Test edgeless graph#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Test for edgeless graph#TITLE_END#This is a test for testing if a graph has just nodes without edges  Anyone can review this preferably my mentor  I am an outreachy applicant 
+issue
+Test for an edgeless graph#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Testing edgeless graph#TITLE_END#This test test_line_inverse_line_edgeless_graph() method is for checking that a graph with more than one node and 0 edges is being converted to an inverse line graph. If so a network error is raised.  Please review my contribution, I am an outreachy applicant  Thanks 
+issue
+Test if the graph is edgeless#TITLE_END#This test test_line_inverse_line_edgeless_graph() method is for checking that a graph with more than one node and 0 edges is being converted to an inverse line graph. If so a network error is raised.  Please review my contribution, I am an outreachy applicant  Thanks 
+issue
+Test if the graph is edgeless#TITLE_END#This test test_line_inverse_line_edgeless_graph() method is for checking that a graph with more than one node and 0 edges is being converted to an inverse line graph. If so a network error is raised.  Please review my contribution, I am an outreachy applicant  Thanks 
+comment
+@MridulS, can I work on this?
+comment
+ok, let me do it

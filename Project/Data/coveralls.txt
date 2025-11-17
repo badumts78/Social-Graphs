@@ -1,0 +1,38 @@
+comment
+[![Coverage Status](https://coveralls.io/builds/131969/badge)](https://coveralls.io/builds/131969)  Changes Unknown when pulling **1bc32d0da1492c36f8e16f0ed9e36a6158fddcbe on Geo-Piskas:master** into *\* on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/131977/badge)](https://coveralls.io/builds/131977)  Changes Unknown when pulling **ee5517c1a9ed2da9ff9374f22cf5273e8fef3df0 on Geo-Piskas:master** into *\* on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/154937/badge)](https://coveralls.io/builds/154937)  Coverage decreased (-0%) when pulling **ba1571af177da7d7726e19ba2ac6dd411dac1d5f on hagberg:pydot-fix** into **76f336a0d066656cb282b52de9888168563e03f9 on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/124702/badge)](https://coveralls.io/builds/124702)  Changes Unknown when pulling **e24aa08d27a796f67d721588d8305b5e9491e691 on unapiedra:bridges** into *\* on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/130261/badge)](https://coveralls.io/builds/130261)  Changes Unknown when pulling **35f5a4a94efeaa1e05fbe3cffdb1583716144c3b on unapiedra:bridges** into *\* on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/151582/badge)](https://coveralls.io/builds/151582)  Coverage decreased (-0%) when pulling **e28f382f9b4b121e29a44ee30616afebe32ce194 on markusian:trees_forests_recognition** into **771b9643cfe4876ce4a3cb1b5150abf34863612b on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/152120/badge)](https://coveralls.io/builds/152120)  Coverage decreased (-0%) when pulling **13251c67cd3aa88667538072303d9d5f9ecb69a4 on markusian:trees_forests_recognition** into **771b9643cfe4876ce4a3cb1b5150abf34863612b on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/154963/badge)](https://coveralls.io/builds/154963)  Coverage decreased (-0%) when pulling **22f39f8d81bc2321fc3be8e6010d973073a88d2d on markusian:trees_forests_recognition** into **771b9643cfe4876ce4a3cb1b5150abf34863612b on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/127913/badge)](https://coveralls.io/builds/127913)  Coverage decreased (-0%) when pulling **a90db71fb3c5bbf4e0502a61dbbafda4e4239183 on harrymvr:sparse-incidence-matrix** into **7d9682a07dcae30acab3c4841e33d31f727a3fb2 on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/128024/badge)](https://coveralls.io/builds/128024)  Coverage decreased (-0%) when pulling **1270e105495426a87c373bfe484ed4cf9ae4605e on hagberg:gexf-bool** into **7d9682a07dcae30acab3c4841e33d31f727a3fb2 on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/128106/badge)](https://coveralls.io/builds/128106)  Coverage decreased (-0%) when pulling **ef75abddff319b85dda82248bb098702bbdd55d8 on hagberg:gexf-bool** into **7d9682a07dcae30acab3c4841e33d31f727a3fb2 on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/132756/badge)](https://coveralls.io/builds/132756)  Coverage increased (+0%) when pulling **424d8db121d27b58d7688373fb5e7ed67f84e301 on hagberg:add-tests** into **7d9682a07dcae30acab3c4841e33d31f727a3fb2 on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/132757/badge)](https://coveralls.io/builds/132757)  Coverage increased (+0%) when pulling **424d8db121d27b58d7688373fb5e7ed67f84e301 on hagberg:add-tests** into **7d9682a07dcae30acab3c4841e33d31f727a3fb2 on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/128033/badge)](https://coveralls.io/builds/128033)  Coverage decreased (-0%) when pulling **cbd3b7a3d5507c42f085024cc3cb54d3bffa0e07 on hagberg:nav-smallworld** into **7d9682a07dcae30acab3c4841e33d31f727a3fb2 on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/154560/badge)](https://coveralls.io/builds/154560)  Coverage decreased (-0%) when pulling **1c4fd2f238985d490cada6a2b69f704a29407375 on brycethomas:issue885** into **771b9643cfe4876ce4a3cb1b5150abf34863612b on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/135594/badge)](https://coveralls.io/builds/135594)  Coverage decreased (-0%) when pulling **1bdc5b0e2727c06cac0b4dbd3992063dd960a884 on stromnov:master** into **e9f3841785e539d40b17c1aea6f59a4e7890cbfb on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/123303/badge)](https://coveralls.io/builds/123303)  Coverage decreased (-0%) when pulling **a3a440a5ffde111b43e2b45ce24d1a0cd61ddb6a on hagberg:update-release-1.8** into **c566642ba28d21e8dc88336780495a59fba4dd93 on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/124458/badge)](https://coveralls.io/builds/124458)  Coverage decreased (-0%) when pulling **ecfc4ea582b577f82b67f35737d931ade3bcb627 on dschult:test_cuts_fix** into **067b7781ffed539b117f35f7a93d1a4a36836d0c on networkx:master**. 
+comment
+[![Coverage Status](https://coveralls.io/builds/123248/badge)](https://coveralls.io/builds/123248)  Coverage decreased (-0%) when pulling **2950a26adc3ef7304b115e63fbbb95cbaab77a58 on hagberg:link-fixes** into **c566642ba28d21e8dc88336780495a59fba4dd93 on networkx:master**. 

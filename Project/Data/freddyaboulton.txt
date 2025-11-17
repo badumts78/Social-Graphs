@@ -1,0 +1,6 @@
+comment
+I think it's still worth making this change. I have a package where matplotlib is listed as an optional dependency and networkx is listed as a core dependency. Version 2.6 breaks that for us and there's no way to specify `--no-deps` for a single dependency in a requirements.txt file as far as I know.  Making it so that I can avoid matplotlib via   ``` pip install networkx[default] ```  or   ``` pip install networkx-core ```  would give us control over when our plotting dependencies are installed.
+comment
+@jarrodmillman Thanks for putting up that PR. I gave a thumbs up because it caused problems for EvalML 
+comment
+Don't think so because there's no way to specify `--no-deps` just for networkx in the requirements.txt file of our package:  https://stackoverflow.com/questions/31798280/pass-no-deps-in-pip-requirements-txt/37155000 https://github.com/pypa/pip/issues/7339#issuecomment-554139328

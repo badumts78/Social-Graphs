@@ -1,0 +1,2 @@
+issue
+Fixed error message for single_target_shortest_path_length#TITLE_END#Discovered a small copy-paste error in the error message for `single_target_shortest_path_length`.  Currently, if the node passed into `single_target_shortest_path_length` is not defined, it will throw an error that `source` is not defined. Replaced `source` with `target` since that is the variable defined for this function.

@@ -1,0 +1,4 @@
+issue
+Added dual-BA to docs#TITLE_END#I added the dual-BA model in https://github.com/networkx/networkx/pull/3194, but I forgot to add it to the `docs`. I have added it here
+issue
+Added dual Barabasi-Albert model#TITLE_END#I added an extension of the Barabasi-Albert model that, when a new node is added, creates `m1` new edges with probability `p` and creates `m2` new edges with probability `1-p`. The graph is initialized with `p*m1 + (1-p)*m2` nodes. In other words, when `p = 1`, it reduces to Barabasi-Albert with `m = m1`, when `p = 0`, it reduces to Barabasi-Albert with `m = m2`, and when `0 < p < 1`, it's a mixture of the two.

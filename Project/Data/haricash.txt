@@ -1,0 +1,4 @@
+comment
+Hello! I am a first timer, and this seems like something I can work on!  If I understand the issue correctly, you would like the documentation to : 1. Talk about what an adjacency matrix is and why it is useful 2. Contain examples that show the functionality of `to_numpy_array` 's many other keyword arguments   If that is all, I can start working on it right away! Please confirm, and do let me know of any other thing you would like me to add!
+comment
+Hello, if you guys are still working on this and need an extra helping hand, do add me too!

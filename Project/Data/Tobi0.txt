@@ -1,0 +1,4 @@
+issue
+weight in sparsifiers.spanner#TITLE_END#https://github.com/networkx/networkx/blob/b563423cd4359e10b3492d2fd6d0413d20d104b6/networkx/algorithms/sparsifiers.py#L12  Default "None" seems very arbitrary and useless.  I suggest either remove it or change the default to "weight" (like in minimum_spanning_tree)
+issue
+Attributes deleted in sparsifiers.spanner#TITLE_END#https://github.com/networkx/networkx/blob/b563423cd4359e10b3492d2fd6d0413d20d104b6/networkx/algorithms/sparsifiers.py#L70  Why do Nodes loose their attributes in the returned graph?  It should be very easy to keep them.

@@ -1,0 +1,2 @@
+comment
+https://en.wikipedia.org/wiki/Clustering_coefficient#Local_clustering_coefficient  Based on the definition above, can we convert the directed graph into an undirected graph, compute the clustering coefficient for every node and divide it by 2? Is it a right way to compute the clustering coefficient for nodes in a directed graph?   

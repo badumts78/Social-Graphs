@@ -1,0 +1,2 @@
+issue
+Added dynamic graph attribute field `start` into `node element` in gexf utils.#TITLE_END#Added dynamic graph attribute field `start` into `node element` in gexf utilities.  Now field `start` will show up in the field of a node instead of a stand-alone `attribute` subelement of node. 

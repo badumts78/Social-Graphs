@@ -1,0 +1,6 @@
+issue
+Added safeguards (input graph G) for non-randomness measures #TITLE_END#Hello, was not included in previous commits, but original paper: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.215.8394&rep=rep1&type=pdf lists the requirements for input graph: binary, symmetric, connected, and without self-loops. Added in this pull request.
+issue
+Adding non-randomness measures for graphs#TITLE_END#Hello all,  implementation of the non-randomness measures from: Xiaowei Ying and Xintao Wu, On Randomness Measures for Social Networks, SIAM International Conference on Data Mining. 2009  The idea of the measures is to quantify how to which extent the inspected graph is carrying communities (first measure) or far from a ER random graph (second one), through a simple float each time.
+issue
+Adding second order centrality algorithm to centrality/#TITLE_END#* Adds second_order_centrality module to networkx.algorithms.centrality package  Author implementation of "Second order centrality: Distributed assessment of nodes criticity in complex networks", Elsevier Computer Communications 34(5):619-628, 2011. Cited 96 times. 

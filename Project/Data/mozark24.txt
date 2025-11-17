@@ -1,0 +1,2 @@
+issue
+Doc missing for Similarity Algorithm#TITLE_END#I'm using the similarity algorithm graph_edit_distance method 'as-is', but it would be most helpful to have it included in the official documentation.  A lingering question I have is if I can get a floating point from the graph_edit_distance calculation instead of an int (higher precision would be optimum).

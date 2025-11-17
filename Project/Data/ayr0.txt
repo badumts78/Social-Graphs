@@ -1,0 +1,2 @@
+issue
+Why are NumPy matrices used instead of NumPy arrays?#TITLE_END#I've been trying to look on the internet why this decision was made.  I have not been able to find any explanation.  The reason I ask is because I have a piece of code that I would like to use arrays.  I cannot find any way to tell networkx to return a numpy array instead of a numpy matrix.  Is it possible to have networkx functions like adjacency_matrix return a numpy array? 

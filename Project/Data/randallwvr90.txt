@@ -1,0 +1,8 @@
+issue
+Expand destringizer example in read_gml docstring#TITLE_END#Add to the example showing read_gml with and without a destringizer. Show the nodes of the graph created with read_gml will be str unless a destringizer is specified.   I looked around the repo to find multi-line examples but I'm not sure if  this formatting is the most clear or that it follows convention in networkx.  Please let me know if you have feedback on readability or formatting.   Closes #4877 
+issue
+Update read_gml docstring with destringizer ex#TITLE_END#Responding to issue #4877 by adding a simple destringizer example to the read_gml docstring.  
+comment
+Adding this with pull request #4916
+comment
+@rossbar updating with pr #4925

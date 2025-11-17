@@ -1,0 +1,106 @@
+issue
+wishlist: densest k-subgraph problem#TITLE_END#Given an undirected unweighted graph and a positive integer k, find a vertex subset of size k that maximizes the number of edges of the [induced subgraph](http://mathworld.wolfram.com/Vertex-InducedSubgraph.html).  According to the [wiki page](http://en.wikipedia.org/wiki/Dense_subgraph) this is [NP-complete](http://en.wikipedia.org/wiki/NP-complete) with no [polynomial-time approximation scheme](http://en.wikipedia.org/wiki/Polynomial-time_approximation_scheme), and it is somehow related to a [max clique problem](http://en.wikipedia.org/wiki/Clique_problem).  But presumably there should be some kind of algorithm (maybe using [branching and bounding](http://en.wikipedia.org/wiki/Branch_and_bound)) that can solve most instances of the problem more efficiently than enumerating all of the size-k vertex subsets and checking how many edges they have. 
+issue
+wishlist: girth of a graph#TITLE_END#The [girth](http://en.wikipedia.org/wiki/Girth_%28graph_theory%29) of a graph is the length of a shortest cycle contained in the graph.  I was looking for this when I was trying to implement a densest k-subgraph algorithm restricted to a certain class of sparse graphs. 
+issue
+a kind of "patched" subgraph#TITLE_END#I am interested in an operation that returns an induced subgraph of an undirected unweighted graph and "patches over" the removed vertices by adding some edges between some remaining vertices.  In particular, if vertices s and t are not removed, and if there is a path between vertices s and t in the original graph that contains only s and t and removed vertices, then the "patched" subgraph will contain the edge (s, t).  Maybe this operation has a name in graph theory, but I don't know what it is.  It has some applications to electrical network analysis and probably elsewhere in graph theory, so if this is in scope for networkx and is not already available under a name that I could not find, then I could contribute an implementation. 
+issue
+wishlist: markov equilibrium distribution#TITLE_END#NetworkX includes sophisticated analyses of directed weighted graphs, evaluating or ranking nodes according to HITS or PageRank, implemented in the `link_analysis` sub-package http://networkx.github.io/documentation/development/reference/algorithms.link_analysis.html.  What about the less complicated task of evaluating nodes according to their equilibrium distribution when edge weights represent discrete-time transition probabilities, or continuous-time instantaneous transition rates?  I imagine this could be implemented in NetworkX with pure Python using a power iteration method, or using clever numpy or scipy tricks if these are installed.  Or is this already implemented in networkx and I'm just not finding it? 
+issue
+doc nitpick -- nbunch can be a single node#TITLE_END#docs like http://networkx.github.io/documentation/latest/reference/generated/networkx.DiGraph.degree.html?highlight=degree#networkx.DiGraph.degree suggest that the nbunch parameter must be an iterable container or None, but in fact it can be a single node. 
+issue
+DOC: plain text vs. links in "See Also" sections of docstrings#TITLE_END#In the generated sphinx documentation, the functions mentioned in the "See Also" section of the [`is_semiconnected`](http://networkx.github.io/documentation/development/reference/generated/networkx.algorithms.components.semiconnected.is_semiconnected.html) docstring are plain text rather than links.  Although I have not made a detailed study, this seems to be the case for several but not all docstrings in networkx.  I don't know which conditions are required for sphinx to add the links, and I'm not sure what would be the preferred way to change the docs so that sphinx would provide links instead of plain text. 
+issue
+wishlist: random k-out graph#TITLE_END#These random graphs are sampled as follows: for each node, sample k edges directed away from that node.  There are several variants.  For each node, the outgoing edges may be sampled with or without replacement.  Loops may be allowed or not allowed.  The direction of the edges may be kept or removed, and the edge multiplicities may be kept or removed.  The motivation is some foo.bar withgoogle challenge where they are asking for exact moments of functions of these graphs, and their variant involves k=1, loops not allowed, edge directions removed, and edge duplicates removed.  Sampling these graphs won't help solve the challenge, but I thought that because I'm too dumb to solve it at least I could suggest the random graph family for networkx.  As a reference, the recent arxiv [paper](http://arxiv.org/pdf/1311.5961.pdf) mentions these random graphs with the added twist of preferential (non-uniform) attachment. 
+issue
+speed up the conversion from scipy sparse matrix format to networkx graph format#TITLE_END#This should at least partially address https://github.com/networkx/networkx/issues/1214.  For my example graph the ad-hocly benchmarked speedup was from  ``` 9.68582105637 to convert coo to networkx graph 43.8019390106 to convert csr to networkx graph 86.7659800053 to convert csc to networkx graph 9.93627977371 to convert dia to networkx graph 25.5183579922 to convert dok to networkx graph ```  to  ``` 9.72998905182 to convert coo to networkx graph 10.5054268837 to convert csr to networkx graph 10.1915411949 to convert csc to networkx graph 10.0377058983 to convert dia to networkx graph 10.8245711327 to convert dok to networkx graph ```  with time measured in seconds.  I think the matrix was 160000x160000 with about three nonzero entries per row. 
+issue
+ENH: add an expander graph#TITLE_END#closes https://github.com/networkx/networkx/issues/1285 
+issue
+add Margulis-Gabber-Galil graph#TITLE_END#I was interested to create a graph with nice expansion properties and I found [this](http://en.wikipedia.org/wiki/Expander_graph#Margulis-Gabber-Galil) on wikipedia.  If it is included into networkx I'm not sure how it would be categorized among the existing groups of graph [generators](http://networkx.github.io/documentation/latest/reference/generators.html). 
+issue
+xrange vs python 3#TITLE_END#Searching the networkx code for `xrange` I see it's used in some "Shapefile" related code and tests.  Should this be updated for python 3 compatibility, and is it not tested in the TravisCI testing? 
+issue
+DOC: semiconnectedness#TITLE_END#I couldn't find `is_semiconnected` in the online docs so I added it here.  I'm not sure if this is the right way to do it -- I don't even know if the `algorithms.component.rst` is supposed to be hand-modified or if it's supposed to be generated automatically from the modules in the `algorithms` directory.  This PR is also not tested because I'm not sure how to do that. 
+issue
+is_tree is logically wrong when the graph is not connected#TITLE_END#``` Python 2.7.5+ (default, Feb 27 2014, 19:37:08)  [GCC 4.8.1] on linux2 Type "help", "copyright", "credits" or "license" for more information. >>> import networkx as nx Couldn't import dot_parser, loading of dot files will not be possible. >>> nx.__version__ '1.9.dev_20140422150423' >>> G = nx.Graph() >>> G.add_edges_from([(0, 1), (1, 2), (2, 0), (3, 4)]) >>> nx.algorithms.tree.is_tree(G) True ``` 
+issue
+TST: katz eigenvector test seed#TITLE_END#should close https://github.com/networkx/networkx/issues/1157 
+issue
+online dev docs falling behind interface changes#TITLE_END#The reference docs for the networkx development version is hosted [here](http://networkx.github.io/documentation/development/reference/) but I was bitten by an interface change in [connected_components](http://networkx.github.io/documentation/development/reference/generated/networkx.algorithms.components.connected.connected_components.html#networkx.algorithms.components.connected.connected_components) that followed from https://github.com/networkx/networkx/commit/0cbbf6297f721ec330ed226b536f1eef56019f58.  I don't mind that the interface is not backwards-compatible, but maybe the online development docs could be re-generated or something? 
+issue
+cuthill mckee docs#TITLE_END#Is [reverse-cuthill-mkee](https://github.com/networkx/networkx/blob/master/networkx/utils/rcm.py) in the docs?  I couldn't find it [here](http://networkx.github.io/documentation/development/reference/algorithms.html). 
+issue
+ENH: add reverse kwarg for topo sort#TITLE_END#Add an option to reverse the topo sort list; the reversed order is more natural.  The interface is inspired by http://networkx.github.io/documentation/latest/_modules/networkx/algorithms/traversal/breadth_first_search.html#bfs_edges and also python `list.sort()` and `sorted()`.  Some of the networkx code uses the topo sort just to check for cycles, and these checks could be sped up a bit by using `reverse=True` to avoid the list(reversed(ordered)) at the end of the call, but I haven't made these changes because I'm not up for writing the benchmarking code. 
+comment
+Thanks for working on this!  I'm more interested in slow exact solutions than in fast approximate solutions.  For example the subset-sum problem is also NP hard and it has a naive O(N 2^N) brute force solution and a more clever O(2^(N/2)) solution.  Maybe I should have just not mentioned anything about approximate solutions in the original github issue; sorry if that was misleading.  >  TODO: what happens when no such subgraph is founded  I think it is OK to require that the input graph has at least k nodes.  If the caller is asking for the set of nodes in the densest subgraph with exactly k nodes, then if their input graph has fewer than k nodes it should be OK to just raise an exception. 
+comment
+> According to that paper I referred, this problem is not solvable yet (exact solutions.).  I'm not sure what you mean by this.  The problem is already solvable by brute force, and it has already been proved to not have an efficient solution in the sense of P vs. NP.  I'm wondering about strategies that are not efficient but which are faster than the naive brute force algorithm that enumerates all combinations. 
+comment
+is it worth having numpy dependency for just mean and std? 
+comment
+I would use a Markov blanket function if it were in networkx. 
+comment
+> Sometimes it is necessary to distinguish edges with weight=0 and no edge at all.  I don't have a suggestion for the data structures to be used for networkx-matrix, but according to https://github.com/scipy/scipy/issues/3343#issuecomment-39461817 if you rely on `scipy.sparse` structures and functions to preserve distinctions between element-equals-zero vs. lack-of-element then you might have a bad time. 
+comment
+As a user of both networkx and scipy, I think networkx is great because it has a nice pythonic graph interface and some nice reference implementations of clever graph algorithms.  scipy is great for raw speed, which it achieves through its connections to BLAS/LAPACK/ARPACK, Fortran, C/C++, and Cython. I think it would be OK for networkx to have the role of prototyping graph algorithms, with dense graph or faster lower-level sparse graph implementations added into scipy as needed.  It is helpful that networkx and scipy have compatible licenses. scipy could use networkx for unit tests in a similar way that it currently uses mpmath for its scipy.special unit tests. 
+comment
+> I think networkx is very valuable as a pure Python package.  I agree.  > Are you suggesting an extension of the functions provided in the csgraph module?  Yes I think it could be appropriate to develop a "cythonized" subset of networkx graph algorithms within scipy through csgraph.  My understanding is that `scipy.sparse.csgraph` is somewhat of a drive-by contribution by @jakevdp to both scipy and scikit-learn and may be in the process of diverging between these two projects.  It is being passively maintained in scipy in the sense that it still passes its unit tests, but it's not being expanded.  Of course this could easily change if someone were to adopt and actively maintain it.  The scipy project also has some good cython expertise that might be helpful, and I think that new csgraph algorithms could be used in other parts of scipy. 
+comment
+> Maybe that's fine, and we want to keep NetworkX less focused on performance > and more about algorithms, ease of use, etc. Or maybe we want it to be the main library > used for graph analysis.  I think networkx would still be the main library used for graph analysis, even if it is less focused on performance and more focused on algorithms, ease of use, etc. 
+comment
+> scikits  I think the people who used to work on scikits infrastructure now work more corporately on [Continuum packages](http://docs.continuum.io/anaconda/pkgs.html) or [Enthought packages](https://www.enthought.com/products/canopy/package-index/) infrastructure.  I try to follow scipy and the only time I hear about scikits is as a historical part of some project name (e.g. scikit-learn).  **Edit**: [Here](http://mail.scipy.org/pipermail/scipy-dev/2007-December/008118.html)'s a 2007 thread where they kind of decided to stop scikits.  **Edit 2**: Maybe the name 'scipy' is the new 'scikits', and the repository/package formerly known as 'scipy' is now branded as 'scipy library', as seen in [scipy.org](http://scipy.org/) which lists - Numpy - SciPy library - Matplotlib - IPython - Sympy - Pandas  as the core 'scipy' packages in the SciPy Python-based ecosystem. 
+comment
+> The thread you linked to was part of the discussion of starting the scikits idea, not stopping it!  Oh oops!  > Nevertheless, the concept is sound: SciPy cannot contain all functionality under the sun, > so there should be a well-established ecosystem of tools built around it.  Would it be fair to say that the active scikits are now separate projects (except in the sense that they `import` scipy or numpy) or have been incorporated into scipy?  Wouldn't the modern way to make something like "a small, but hopefully useful scikits eco-system for networkx" be to just make some github projects that import each other, or is there still some kind of scikits 'blessing'? 
+comment
+Would it make sense to have `random_k_out_graph(..., alpha)` call `random_uniform_k_out_graph` when `alpha == float('inf')`? 
+comment
+The development version of scipy now has an implementation of "a two-phase, dense-matrix-based simplex algorithm" as scipy.optimize.linprog, although the word 'dense' makes me think it may not be so efficient for this problem. 
+comment
+I guess I was over-eager to find applications for that new scipy linprog implementation :) 
+comment
+numpy and scipy use a less-ambitious benchmarking system with http://docs.scipy.org/doc/numpy/reference/generated/numpy.testing.Tester.bench.html which works syntactically more or less like unit testing.  In scipy I can run `$ python runtests.py --bench` and it will seek out and run all of the benchmark functions in all of the benchmark directories for the submodules, and it can be further filtered by specific submodule and possibly by function. 
+comment
+I just checked `maximal_matching` for `binomial_graph(100, 0.1)` and it seems OK.  Every edge in the matching was in the graph, no node in the matching was repeated, and every edge in the graph had at least one node in the matching. 
+comment
+Nice!  I guess in the benchmark output `eigh` should be `eigsh`?  And is the code to generate this benchmark output available? 
+comment
+Maybe a newer version of scipy would help?  The exception was raised within `pkgload` in scipy, but this call has been removed in 0.10.0 https://github.com/scipy/scipy/pull/58.  TravisCI seems to be using scipy 0.9.0. 
+comment
+The problem is related to https://github.com/numpy/numpy/pull/4522. 
+comment
+> directed graphs  This paper discusses the generalization of at least the algebraic connectivity to directed graphs http://www.tandfonline.com/doi/abs/10.1080/03081080500054810.  I'm not sure how useful it is compared to the undirected case. 
+comment
+> Is that a widely accepted definition?  Sorry, I don't know which definition would be best.  The paper claims several properties of algebraic connectivity remain valid for directed graphs under this definition, but I don't know whether different generalizations preserve different properties, or how to best choose among them if this were true. 
+comment
+> Can anyone access Fan Chung's "The diameter and Laplacian eigenvalues of directed graphs?"  @bjedwards Yes this source works for me: http://www.math.ucsd.edu/~fan/wp/diameter.pdf.  I think most of Fan Chung's work in spectral graph theory uses the normalized Laplacian, as opposed to the un-normalized Laplacian originally used by Fiedler.  I'm not sure how this distinction affects the properties of the corresponding algebraic connectivities or Fiedler vector analogues, or how these properties generalize to the analogous functions of directed graphs. 
+comment
+When using lobpcg to find the Fiedler vector, it's possible to use a column of ones as the `Y` constraint and searching for only the smallest constrained eigenpair as the algebraic connectivity and Fiedler vector.  I don't know whether this would be more or less efficient than the current lobpcg usage which looks for the smallest two eigenpairs given the initial hint that one of the two eigenvectors is a column of ones. 
+comment
+For what it's worth, igraph seems to have found all manner of problems with ARPACK-based decompositions https://github.com/igraph/igraph/search?q=arpack&ref=cmdform&type=Issues, and I would guess that at least some of those are actual ARPACK bugs which would also be present in scipy eigs/eigsh.  I'd also guess that proprietary software like MATLAB that use ARPACK internally have forked it and fixed the bugs. 
+comment
+> Should I simply remove the ARPACK option?  That sounds a bit extreme.  As far as I know, ARPACK is the standard for solving sparse eigenvalue problems.  I'd guess that its bugs are under-reported or under-confirmed because the math and algorithms and implementations are so complicated that few people are confident to confirm them as bugs.  For example scipy has 87 ARPACK-related issue [search results](https://github.com/scipy/scipy/search?p=3&q=arpack&ref=cmdform&type=Issues) but as far as I know it has no confirmed open ARPACK issue. 
+comment
+@ysitu I deleted it 
+comment
+> what else is left to do  Looks good.  I think the tracemin implementation could be vectorized more, but that doesn't need to be in this PR.  By the way, the application of Laplacian system solvers to graph algorithms is trendy, for example [`Lx=b`](http://research.microsoft.com/en-us/um/people/nvishno/site/Lxb-Web.pdf), so maybe more of these efficient algorithms could be separately added later. 
+comment
+The question is whether to paste scikits.sparse code into networkx so that if users have CHOLMOD separately installed then they can use it through this wrapper? 
+comment
+> I wonder what you mean by "vectorization" here.  @ysitu I just meant avoiding the python loops 
+comment
+> I had wanted to use scipy.linalg.orth. But I think that it is a memory bomb  I haven't checked this in detail but given that its first line https://github.com/scipy/scipy/blob/master/scipy/linalg/decomp_svd.py#L201 calls svd without specifying extra options, and given that svd without extra options computes full MxM and NxN matrices https://github.com/scipy/scipy/blob/master/scipy/linalg/decomp_svd.py#L15 I would agree that appears to unnecessarily bomb the memory.  ~~Maybe add a scipy issue or PR or test?~~ fixed 
+comment
+I've added a PR to fix the `orth` problem in https://github.com/scipy/scipy/pull/3626 
+comment
+> Any more comments?  It looks well tested so I assume it works, and I can vouch that it provides functions that are useful for spectral graph theory.  I hope it is merged soon! 
+comment
+Here's a migrated trac ticket https://github.com/networkx/networkx/issues/639 for http://en.wikipedia.org/wiki/Edmonds'_algorithm related to arborescences. 
+comment
+> I'm preparing another pull request which builds on this code. > I was planning to add unit tests in that PR  Is this still happening, or would it be worth separating out the fix and unit test for just the `is_tree` function to resolve https://github.com/networkx/networkx/issues/1144? 
+comment
+The current implementation tries to make a numpy matrix.  It may be possible to put things that aren't numbers into numpy matrices, but it's probably not a good idea. 
+comment
+just want to vote +1 to this function, I've implemented it badly from the primary literature using dense numpy adjacency matrices without real heaps, and I would be happy if it is in networkx! 
+comment
+> A heap implementation that supports decrease-key natively can avoid this issue > and also perform the operation in sublogarithmic time.  There appears to be something called `_siftdown` http://stackoverflow.com/questions/1465662/how-can-i-implement-decrease-key-functionality-in-pythons-heapq implementing native heapq decrease-key but it's not in the public interface. 

@@ -1,0 +1,4 @@
+issue
+gaussian_random_partition_graph constructor optional parameter doesn't work#TITLE_END#gaussian_random_partition_graph constructor always returns a directed graph no matter how I set the parameter "directed"
+comment
+I had the same issue. Any fix or update?

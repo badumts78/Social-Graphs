@@ -1,0 +1,2 @@
+issue
+Nonexistent functions referred to in the tutorial#TITLE_END#In point 1 of the "Graph generators and graph operations" section of the [tutorial](https://github.com/networkx/networkx/blob/master/doc/tutorial.rst), the last 2 functions, `convert_to_undirected(G)` and `convert_to_directed(G)`, do not exist in networkx. Of course, `to_undirected(G)` and `to_directed(G)` are available.  While I'm here, could someone explain why the functional versions of `to_*directed()` generate views while the graph methods generate copies by default?

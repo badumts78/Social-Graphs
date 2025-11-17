@@ -1,0 +1,4 @@
+issue
+Make cycle_basis() deterministic#TITLE_END#Fixes issue https://github.com/networkx/networkx/issues/6653
+issue
+cycle_basis algorithm is non-deterministic#TITLE_END#As discussed on https://groups.google.com/g/networkx-discuss/c/bBMbsfInwAs?pli=1, the cycle_basis algorithm is non-deterministic.

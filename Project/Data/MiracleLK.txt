@@ -1,0 +1,2 @@
+issue
+In the function is_eulerian():The definition of eulerian graph is perhaps not accurate.#TITLE_END#The definition of eulerian graph is perhaps not accurate.  As I found in the comments, it says that the eulerian graphs have no odd-degree nodes. But some of the eulerian graphs have 2 odd-degree nodes.

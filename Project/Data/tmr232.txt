@@ -1,0 +1,8 @@
+issue
+Make the copy inside simple_cycles a shallow one.#TITLE_END#The previous copy copied all the node and edge attributes. Those are unnecessary for the function to work. Also, in cases where the node attributes cannot be copied, the function fails on the copy and does not perform graph analysis. 
+issue
+Graph.copy should allow shallow copy#TITLE_END#In functions like simply_cycles, the graph is copied to enable manipulation. However, the node-data is irrelevant for all structure based analysis. This unnecessary deepcopy takes time & resources, and also fails in cases where objects cannot be copied (e.g. SWIG objects). I think that Graph.copy method should allow a shallow=True parameter to enable making shallow copies where needed. 
+comment
+How about adding a `copy_structure()` function that will create a new graph with the same structure, without any node or edge attributes, and will return an alignment mapping as well as a graph copy (`graph_copy, alignment = graph.copy_structure()`)? 
+comment
+This way you can create a copy with uniquely id'd nodes, and pass that copy to all the functions. 

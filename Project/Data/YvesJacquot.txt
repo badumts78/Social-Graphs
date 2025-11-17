@@ -1,0 +1,2 @@
+issue
+Calculation of nodes positions#TITLE_END#Hello,  This is more a question I have, more than an issue. I am trying to interpret the proximity or remoteness of some nodes on the graphs I obtain.  How are the nodes position calculated when using the following code? nx.drawing.nx_pydot.graphviz_layout(G, prog='dot')  And what do the values on the x and y axes correspond to?  Thanks

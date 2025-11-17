@@ -1,0 +1,4 @@
+issue
+bug with LPA algorithm#TITLE_END#https://github.com/networkx/networkx/blob/master/networkx/algorithms/community/asyn_lpa.py#L75 When `weight = None`, the label freq should sum over all possible labels, but `Counter` will set all freq to 1. `label_freq = Counter([labels[v] for v in G[node]])`  will give right result when `weight = None`, is it a bug? 
+issue
+fix LPA bug, see issues/2219#TITLE_END#https://github.com/networkx/networkx/issues/2219 

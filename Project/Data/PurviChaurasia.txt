@@ -1,0 +1,74 @@
+issue
+Add examples in docstring for core.py#TITLE_END#I have added examples in `core_number`, `k_core`, `k_shell`, `k_crust`, `k_corona` and `onion_layers` functions in `networkx/algorothms/core.py` for better understanding.
+issue
+Add example script for les miserables network#TITLE_END#I have added a python script to visualize the relations between different characters of the novel "Les Miserables". The groups of nodes with higher degree centrality are larger in size as well as characters have been grouped by different colors. The plot also contains a scatter showing the degree centrality of the top most characters in the novel sorted by their importance. Here is the final output - ![image](https://user-images.githubusercontent.com/97350598/226901900-e766996d-8849-4f1e-9459-a6037185d348.png)  
+issue
+Add example for cycle detection#TITLE_END#Added an example script to explain and highlight cycles in a graph using the `find_cycle` function. 
+issue
+Add example script for shortest path#TITLE_END#Added python script to visualize shortest path between 2 nodes of a graph.
+issue
+Add examples for graph algorithms #TITLE_END#Currently `examples/algorithm` covers a limited scope of examples of various graph algorithms. It would be better to further incorporate the wide variety of graph algorithms at our disposal. 
+issue
+Improve test coverage for polynomials.py#TITLE_END#I have added some test cases and improved the test coverage of `polynomials.py` to 100%. <img width="573" alt="image" src="https://user-images.githubusercontent.com/97350598/228281059-a67114d2-d962-4fa2-a35f-35b3bf860e31.png"> 
+issue
+Add example script for mst#TITLE_END#This is in reference to issue #6482. I have created a python script to compare the original graph with the minimum spanning tree created by `minimum_spanning_tree` function in networkx.
+issue
+Added example script for GOT#TITLE_END#This script helps visualize the character relationships in the series game of thrones. The output is as follows -  ![image](https://user-images.githubusercontent.com/97350598/227780942-19a0b622-0d49-4ba6-97f3-c84236972688.png)  This is in reference to issue #6482 
+issue
+k_truss function does not raise NetowrkX exception in case of self loops in graphs#TITLE_END#This issue is in reference to the discussion #6500.  In the `k_truss` function in `networkx/algorithms/core.py` it is mentioned that the function doesn't work for graphs containing self loops. However, having tried a few cases on my own behalf, I realised that it is actually giving output for graphs with self loops.  ### Current Behavior  `k_truss` function doesn't raise an error for a graph containing self loops.   ![image](https://user-images.githubusercontent.com/97350598/225336620-08036fb4-6dbd-4fbd-aacb-4ac129982bc6.png)   ### Expected Behavior  The documentation mentions that `k_truss` raises `NetworkX` error for graphs containing self loops. <img width="447" alt="image" src="https://user-images.githubusercontent.com/97350598/225338267-eba0c2b2-67ce-4f43-b3ae-7ad3f8c1e2f5.png">   ### Steps to Reproduce  Fix the documentation and mention in notes, reason as to why `k_truss` can handle graphs with self loops. 
+issue
+Fixed bug k_truss doesn't raise exception for self loops#TITLE_END# This PR is in reference to #6508 
+issue
+Fix negative edge cycle function raising exception for empty graph and added test function#TITLE_END#In reference to #6465, fixed the `negetive_edge_cycle` function by handling an empty graph. Also added `test_negative_cycle_empty` test function in `test_weighted.py`.
+issue
+Add example script for shortest path#TITLE_END#This is in reference to #6482. I have created a python script to find the shortest path between 2 nodes of a graph and visualize it.
+comment
+Thanks for creating the issue! @rossbar 
+comment
+I'll be looking into it and will let you know what I find. Will add a PR shortly :) 
+comment
+Hi, yes you're absolutely right @Qudirah However, in normal cases laplacian centrality _should_ be defined for matrices with singular nodes. We'll have to come up with a way for that. That's what was covered in the discussion with @dschult and @rossbar.
+comment
+I'm still working on it, extremely sorry for the delay :) 
+comment
+This is where my test case was failing :/ Glad you caught it!
+comment
+I think before doing either, it's important to understand why it is happening. @dschult perhaps you can help us out?
+comment
+From my short experience, self loops have always been a tricky corner case. However I think "ignoring" them would be a better situation rather than trying to come up with a mid way approach. This is again what @rossbar previously said in one of my issues that making the function more restrictive is always better than having the possibility of it behaving in an unknown manner.
+comment
+Thanks a lot for the explanation @dschult. They have always given a clear understanding of what's happening in the function and where we are going wrong :) 
+comment
+Since this discrepancy is arising due to different usage of NetworkX, perhaps we can add a small pointer regarding this in the documentation? Just for future clarification in case someone passes a similar problem. @MridulS Let me know what you think.
+comment
+Yes I think `len(G.nodes) <= 3` will be the correct condition to implement here as a graph with only one or two vertices is trivially chordal because it contains no cycle. A graph with three vertices can have at most three edges, and every cycle of length four or more would require at least four edges, so no such cycle can exist in a graph with three vertices.
+comment
+@alabarre @navyagarwal Are you guys working on this issue, or can I take it up?
+comment
+Thanks a lot :)
+comment
+I'll add bit more context for the change in the docstring as well and add relevant tests.
+comment
+There is actually a wrong test case in `test_chordal.py` in line 63. It is mentioned: `assert nx.is_chordal(nx.complete_graph(3))` I think we'll have to comment that out as well.
+comment
+@navyagarwal if it's fine by you could we be co-authors on this PR? I was actually just about to submit mine when I saw your message :)
+comment
+Yep meant that only!
+comment
+> > There is actually a wrong test case in `test_chordal.py` in line 63. It is mentioned: `assert nx.is_chordal(nx.complete_graph(3))` I think we'll have to comment that out as well. >  > No, but why? The test case looks alright to me  did you try running the test case after making the changes?
+comment
+Wait you're right, there was issue from my end.
+comment
+Hi @dschult @michihenninger @MridulS If no one's working on this issue, I'd like to take it up!
+comment
+Sure! Will get right to it. Let me just have a look into it and I'll let you know whatever problems I face.
+comment
+Oh alright, understood. I thought @michihenninger was already working on it. Thanks for letting me know :) 
+comment
+Hi! I would like to work on this issue as a part of Outreachy 2023. Could you guide me a bit about how I can get started looking into this? I have completed the basic tasks put up by @MridulS on the outreachy repo.
+comment
+Yep, I'll look into it, thanks!
+comment
+@dschult @MridulS some test cases are failing. Could you please help me out and tell what changes can I make? This is the first time I am contributing, extremely sorry for the inconvenience!
+comment
+Hi, the PR #6473 is passing all tests, kindly merge it for this issue!

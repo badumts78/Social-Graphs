@@ -1,0 +1,2 @@
+issue
+Update `connected_components` example in tutorial#TITLE_END#With version 1.10, `connected_components` returns a generator of sets of nodes. This PR updates the tutorial accordingly. 

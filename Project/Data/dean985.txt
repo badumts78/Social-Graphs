@@ -1,0 +1,2 @@
+issue
+trust rank implementation and testing#TITLE_END#after viewing discussion: https://github.com/networkx/networkx/discussions/8163  i have implemented trust rank algorithm using the existing page rank algorithm.

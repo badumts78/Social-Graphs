@@ -1,0 +1,6 @@
+issue
+My first version of k-path Laplacian#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Path laplacian#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. -->  ### Path laplacian calculation 
+issue
+Bugfix for issue 1480#TITLE_END#<!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 

@@ -1,0 +1,22 @@
+issue
+Fix empty GraphML attribute is not parsed#TITLE_END#Fixes https://github.com/networkx/networkx/issues/7291  networkx does not parse GraphML attributes that are empty. As a result, they will not be added to the graph. This fix will create the attribute with an empty string.
+issue
+Empty GraphML attribute is not parsed#TITLE_END#Fixes  #7291  networkx does not parse GraphML attributes that are empty. As a result, they will not be added to the graph. This fix will create the attribute with an empty string.  <!-- Please use pre-commit to lint your code. For more details check out step 1 and 4 of https://networkx.org/documentation/latest/developer/contribute.html --> 
+issue
+Added doctrings for generic_graph_view#TITLE_END#Added the docstring although the function is mainly used by the base classes.  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Reformatted  table to address issue #4852#TITLE_END#The grid table was not properly formatted using reStructuredText Markup which is required by Sphinx.  <!-- Please run black to format your code. See https://networkx.org/documentation/latest/developer/contribute.html for details. --> 
+issue
+Adding moral and threshold packages to main namespace#TITLE_END#I made sure that the public function names don't conflict with others in the namespace. There are interesting functions which are not exposed public interface by the __all__ attribute. May be someone could figure out which one worth being made public.
+issue
+fix to_directed function#TITLE_END#The `as_view=True` argument is missing so the function returns a deepcopy instead of a view.
+issue
+Improved graph class selection table#TITLE_END#- Suggestion for beginners to make clear that multi(di-)graphs can also have loops. - Used the word 'allowed' to suggest that the feature is optional.
+issue
+Minor comments issue#TITLE_END#Adding some consistence as comments split by object type while code splits by graph.
+issue
+Fix wrong title#TITLE_END#Fixes the documentation's menu.
+issue
+Fix typo in all_pairs_node_connectivity method's doctring in connectivity.py#TITLE_END#Self references instead of referencing node_connectivity method.
+issue
+Fix and Improve multiple docstrings in graph.py#TITLE_END#Some improvements in the docstrings of the three linked methods: order, number_of_nodes, and _len_.
