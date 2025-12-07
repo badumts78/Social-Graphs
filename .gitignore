@@ -1,3 +1,6 @@
 Exercises/
 Project/github_apikey.key
 Project/raw_data_*
+
+# Ignore virtual environment folders
+.venv/*
