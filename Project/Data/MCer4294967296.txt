@@ -1,2 +1,0 @@
-issue
-algorithms/traversal/edgebfs name fix#TITLE_END#This shows up on documentation mistakenly :)

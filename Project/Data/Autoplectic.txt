@@ -1,2 +1,0 @@
-issue
-Update fixcoverage.py#TITLE_END#coverage changed file formats to JSON. 

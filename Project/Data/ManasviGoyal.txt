@@ -1,2 +1,0 @@
-comment
-Hi. I am an Outreachy applicant. Can I work on this issue?

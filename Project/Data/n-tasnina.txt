@@ -1,2 +1,0 @@
-issue
-added graphspace_python folder. which contains code to connect to gra…#TITLE_END#…phspace from networkx. So far can read graph from Graphspace in graphspace format. need to convert it into networkx format

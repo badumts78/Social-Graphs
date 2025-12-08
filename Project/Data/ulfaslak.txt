@@ -1,2 +1,0 @@
-comment
-I concur this appears to be a pretty serious bug. The normalization term should be inverted or divided onto `closeness_centrality[n]`.

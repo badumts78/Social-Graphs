@@ -1,2 +1,0 @@
-comment
-The `ZeroDivisionError` also happens (of course) when inputting a graph without edges into `networkx.algorithms.community.quality.modularity`. 

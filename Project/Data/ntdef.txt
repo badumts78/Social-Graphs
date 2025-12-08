@@ -1,2 +1,0 @@
-comment
-+1 to this thread. I've enjoyed using NetworkX a lot, and I would really like to contribute, and don't know where to start.  

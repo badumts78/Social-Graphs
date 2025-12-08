@@ -1,2 +1,0 @@
-issue
-Implementation of missing function "parse_graphml()"#TITLE_END#Direct analog of functionality provided by other formats (e.g., parse_gml). 

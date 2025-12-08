@@ -1,2 +1,0 @@
-comment
-Please re-open the issue: it was solved for `add_path`, but `add_star` still does not add a node if it's single.

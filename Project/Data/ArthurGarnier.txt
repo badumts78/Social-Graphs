@@ -1,2 +1,0 @@
-comment
-Hi, Redhat will not fix this.  https://issues.redhat.com/browse/RHEL-26149

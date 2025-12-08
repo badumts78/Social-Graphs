@@ -1,2 +1,0 @@
-comment
-I do like this being modifiable, but the singular/plural discrepancy between `link` and `nodes` can be confusing, in my opinion.

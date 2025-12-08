@@ -1,2 +1,0 @@
-issue
-Heterogeneous Network#TITLE_END#Hi, I'm dealing with a heterogeneous network with Networkx and wondering when using the function "to_scipy_sparse_matrix" is that possible to assign some nodes to the row and other nodes to the column ？ For example, I have a network with paper nodes,  author nodes and conference nodes. Can I use networkx to compute the paper-author adjacent matrix?
