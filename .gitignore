@@ -1,6 +1,7 @@
 Exercises/
 Project/github_apikey.key
 Project/raw_data_*
+Project/preprocessed_issues_comments.csv
 
 # Ignore virtual environment folders
 .venv/*
