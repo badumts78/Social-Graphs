@@ -1,0 +1,11 @@
+{
+  "keep_output": true,
+  "extra_keys": [
+    "cells[*].execution_count",
+    "cells[*].metadata",
+    "metadata.kernelspec",
+    "metadata.language_info",
+    "metadata.widgets",
+    "metadata.vscode"
+  ]
+}

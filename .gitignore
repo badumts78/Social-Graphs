@@ -1,2 +1,11 @@
 Exercises/
 Project/github_apikey.key
+Project/raw_data_*
+Project/preprocessed_issues_comments.csv
+
+Project/Project/tensorflow_preprocessed.csv
+Project/Project/pandas_preprocessed.csv
+Project/Project/networkx-learn_preprocessed.csv
+
+# Ignore virtual environment folders
+.venv/*
