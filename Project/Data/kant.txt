@@ -1,2 +1,0 @@
-issue
-Minor fix on paragraph #18 (proposal)#TITLE_END#Added space for the sake of proper styling and understanding

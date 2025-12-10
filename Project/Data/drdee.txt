@@ -1,2 +1,0 @@
-comment
-Great to see this still being part of networkx! 

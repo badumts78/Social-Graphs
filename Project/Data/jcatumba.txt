@@ -1,2 +1,0 @@
-issue
-New link analysis algorithms#TITLE_END#I've created new Link Analysis algorithms according to methods described in references included at each file.  These algorithms are: `micmac` from Godet's MICMAC, `heatkernel` from Chung's Heat Kernel and `pwp` from Díaz PWP.  Thanks. 

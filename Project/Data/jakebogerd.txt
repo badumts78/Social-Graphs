@@ -1,2 +1,0 @@
-issue
-fix_duplicate_kwarg: Fix a duplicate kwarg that was causing to_agraph…#TITLE_END#… and to_pydot to fail on multigraphs. 

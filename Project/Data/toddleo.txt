@@ -1,2 +1,0 @@
-issue
-Write_gml function #TITLE_END#Added a parameter of encoding specification for write_gml(). 

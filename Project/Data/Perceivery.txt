@@ -1,2 +1,0 @@
-issue
-Networkx#TITLE_END#Error : numpy.random.mtrand has no attribute [_rand]

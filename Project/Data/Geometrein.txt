@@ -1,2 +1,0 @@
-issue
-Update lattice.py#TITLE_END#Fixed a mistake in the doctoring for hexagonal_lattice_graph (odd -> even). 

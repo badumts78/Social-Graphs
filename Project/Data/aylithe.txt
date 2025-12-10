@@ -1,2 +1,0 @@
-issue
-Document the walk_type argument default in directed_laplacian and similar functions.#TITLE_END#Closes #7147 

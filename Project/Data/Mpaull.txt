@@ -1,2 +1,0 @@
-issue
-Return collections from draw()#TITLE_END#Allows creation of matplotlib animations.

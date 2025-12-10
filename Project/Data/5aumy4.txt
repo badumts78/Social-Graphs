@@ -1,2 +1,0 @@
-comment
-Hello @MridulS  @joseberlines , I am an Outreachy applicant and I would like to work on this issue.

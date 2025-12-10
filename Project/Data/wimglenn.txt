@@ -1,2 +1,0 @@
-issue
-fix "see also" links in json_graph.tree#TITLE_END#one was duplicate and one was self-referential.  https://networkx.github.io/documentation/stable/reference/readwrite/generated/networkx.readwrite.json_graph.tree_data.html

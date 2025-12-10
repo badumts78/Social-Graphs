@@ -1,2 +1,0 @@
-issue
-Fix deprecated graph.selfloop_edges() method#TITLE_END#The deprecated graph.selfloop_edges() method call to nx.selfloop_edges() was overriding parameters.  This fix passes the parameters through.

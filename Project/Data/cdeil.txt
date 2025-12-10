@@ -1,2 +1,0 @@
-issue
-Fix planar_layout docstring#TITLE_END#Remove duplicated Parameters section in docstring

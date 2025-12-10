@@ -1,2 +1,0 @@
-comment
-Hi, I just saw NetworkX is selected for GSOC 2015. Are you guys still taking new ideas in consideration? 

@@ -1,4 +1,0 @@
-issue
-Python syntax highlighting#TITLE_END#.. in README/Github front page
-issue
-Update page reference#TITLE_END#3rd edition of CLRS

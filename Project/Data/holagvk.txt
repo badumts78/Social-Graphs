@@ -1,2 +1,0 @@
-issue
-Fixing typo#TITLE_END#Section: Convenient access to all edges

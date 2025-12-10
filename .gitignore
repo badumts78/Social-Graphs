@@ -2,6 +2,7 @@ Exercises/
 Project/github_apikey.key
 Project/raw_data_*
 Project/preprocessed_issues_comments.csv
+Project/top10-*
 
 Project/Project/tensorflow_preprocessed.csv
 Project/Project/pandas_preprocessed.csv
